@@ -29,7 +29,6 @@ int main(){
 
     int i=0;
     for(i=0; i<10; i=i+1){
-        nodes[i] = NULL;
         nodes[i] = (struct LLNode *)malloc(sizeof(struct LLNode));
         nodes[i]->datum = data[i];
     }
