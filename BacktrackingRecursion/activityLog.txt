@@ -1,3 +1,6 @@
+ALPHA001: Iterative Backtracking in C++ - Open
+    2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.
+
 INDEV009: Recursive Backtracking in C - Open
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.
                     This information can possibly be used in the construction of an iterative solution to nxnQueens in the future,
