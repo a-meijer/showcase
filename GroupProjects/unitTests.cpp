@@ -1,4 +1,11 @@
-//enumerate nxnQueens using C++ vectors
+// Copied from nxnQueens.cpp and modified on Mar. 31, 2021
+// use main function to run tests for different methods.
+// to run this program, enter the following command:
+// g++ unitTests.cpp -o test
+// to run this program, enter the following command:
+//  
+
+
 
 #define N 4
 #include <vector>
@@ -33,7 +40,7 @@ vector<vector<int> > expand(BTNode root){
     }
 }
 
-//return true of any queens are attacking each other horizontally
+//return true if a new queen (is attacking  )
 bool horizontal(vector<int> board, int col){
     //if any board values are equal, there is a horizontal collision
     for(int i=0; i<col; i++){
