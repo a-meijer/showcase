@@ -65,7 +65,7 @@ b[col] = 2
 if(b[col-1] == 1 || b[col-1] == 3){ that's bad}
 */
 
-//return true if any queens are attacking each other diagonally
+//return true if queen on col is attacking each other diagonally
 
 bool diagonal(vector<int> board, int col){
 
@@ -73,19 +73,103 @@ bool diagonal(vector<int> board, int col){
     int expectedDifference = 0;
     for (int j = 0; j <= check; j++){
         expectedDifference = check-j;
-        cout<<"board place being checked against: "<<check<<" value: "<<board[check]<<endl;
-        cout<<"board place being checked: "<<j<<" value: "<<board[j]<<endl;
-        cout<<"expected value: "<<check-expectedDifference<<" or "<<check+expectedDifference<<endl;
         if (board[j] == check-expectedDifference || board[j] == check-expectedDifference){
             return true;
         }
-        cout<<""<<endl;
     }
     return false;
     //board[col];
 }
 
+//Main is for unit testing; see comments
 int main(){
+    // For each function and class to test, use an answer key for several hard-coded test cases.
+    
+
+    // variables for testing horizontal and diagonal functions
+    int number_of_tests = 8; //precise hard-code corresponds to hardcoded test values.
+    //vectors are basically just a workaround to do pass-by-value imo
+    //note in each of these tests, each test board should be passed along with every column to test; testing the 0th column should never return true
+    //testing a negative one column should return error
+    vector<vector<int>> tests = {{3,0,2,-1},
+                                {0,0,0,0},
+                                {0,0,0,1},
+                                {1,0,0,0},
+                                {0,2,0,0},
+                                {-1,0,3,0},
+                                {0,1,-1,-1},
+                                {0,0,-1,-1}};
+    //Answer Key, Horizontal:
+    /*  
+        {{0, 0, 0, 0},
+        {0, 1, 1, 1},
+        {0, 1, 1, 0},
+        {0, 0, 1, 1},
+        {0, 0, 1, 1},
+        {0, 0, 0, 1},
+        {0, 0, 0, 0},
+        {0, 1, 0, 0}};
+        
+               */
+    //Answer Key, Diagontal:
+    /*  ~ 0 ~ 0 ~ 0 ~ 0 ~ 
+        ~ 0 ~ 1 ~ 1 ~ 1 ~
+        ~ 0 ~ 1 ~ 1 ~ 0 ~
+        ~ 0 ~ 0 ~ 1 ~ 1 ~
+        ~ 0 ~ 0 ~ 1 ~ 1 ~
+        ~ 0 ~ 0 ~ 0 ~ 1 ~
+        ~ 0 ~ 0 ~ 0 ~ 1 ~
+        ~ 0 ~ 1 ~ 0 ~ 1 ~       */
+
+    // 5/20/2021 test results for horizontal
+    /*  ~ 0 ~ 0 ~ 0 ~ 0 ~ 
+        ~ 0 ~ 1 ~ 1 ~ 1 ~
+        ~ 0 ~ 1 ~ 1 ~ 0 ~
+        ~ 0 ~ 0 ~ 1 ~ 1 ~
+        ~ 0 ~ 0 ~ 1 ~ 1 ~
+        ~ 0 ~ 0 ~ 0 ~ 1 ~
+        ~ 0 ~ 0 ~ 0 ~ 1 ~
+        ~ 0 ~ 1 ~ 0 ~ 1 ~       */
+    // 5/20/2021 test results for diagonal
+    /*  ~ 0 ~ 0 ~ 0 ~ 1 ~ 
+        ~ 0 ~ 1 ~ 1 ~ 1 ~
+        ~ 0 ~ 1 ~ 1 ~ 1 ~
+        ~ 0 ~ 0 ~ 0 ~ 0 ~
+        ~ 0 ~ 1 ~ 1 ~ 1 ~
+        ~ 0 ~ 0 ~ 0 ~ 0 ~
+        ~ 0 ~ 1 ~ 1 ~ 1 ~
+        ~ 0 ~ 1 ~ 1 ~ 1 ~     */
+    
+
+    int col = 1;
+    vector<bool> results;
+    
+    int i = 0;
+    for(i=0; i < number_of_tests; i++){
+        //4x4 Board
+        for(col=0; col<4; col++){
+            // Hard-coded horizontal/diagonal for test results in comments (5/20/2021 lines 102-119)
+            results.push_back(diagonal(tests[i], col));
+            //results.push_back(horizontal(tests[i], col));
+        }
+    }
+
+    //printing
+    i=0;
+    for(int n : results){
+        cout << " ~ " << n;
+        i++;
+        if(i==4){
+            i=0;
+            cout << " ~ " << endl;
+        }
+    }
+
+    //BTNode
+
+    //expand
+
+
     // BTNode root = new BTNode();
 
     // vector<vector<int> > solutions = expand(root);
