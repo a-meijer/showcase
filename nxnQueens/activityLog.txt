@@ -1,5 +1,10 @@
-ALPHA001: Iterative Backtracking in C++ - Open
-    2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.
+ALPHA001: Unit Testing nxnQueens.cpp - Open
+    2021-06-26  :   Horizontal and Diagonal functions all pass. Imported solution from separate project.
+
+INDEV010: Final Drafts - Open
+    2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.    
+    2021-06-28  :   Draft all files for unit testing: Cpp solution
+
 
 INDEV009: Recursive Backtracking in C - Open
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.

@@ -1,4 +1,7 @@
 //enumerate nxnQueens using C++ vectors
+// ~ June 28. 2021, Andrew Meijer
+// - Replaced previous nxnQueens.cpp file from separate project
+// - added horizontal and diagonal functions from unitTests.cpp
 
 #define N 4
 #include <vector>
@@ -33,16 +36,18 @@ vector<vector<int> > expand(BTNode root){
     }
 }
 
-//return true of any queens are attacking each other horizontally
+//Return true if a queen on col is attacking queens horizontally on columns i where i < col, else return 0
+//horizontal passes all tests in unitTests.cpp on June 28, 2021.
 bool horizontal(vector<int> board, int col){
-    //if any board values are equal, there is a horizontal collision
+    //if any board values are equal other than -1, there is a horizontal collision
     for(int i=0; i<col; i++){
-        if(board[col] == board[i]){
+        if(board[col] == board[i] && board[col] != -1 && board[i] != -1){
             return true;
         }            
     }
     return false;
 }
+
 
 /*
 diagonal(board, 2);
@@ -55,27 +60,31 @@ vector<int> {0, 2, 2, -1}
 2  O O 0 O
 3  O O x O
 b[col] = 2
-if(b[col-1] == 1 || b[col-1] == 3){ that's bad}
+if(b[col-1] == 1 || b[col-1] == 3){ that's diagonal}
 */
 
-//return true if any queens are attacking each other diagonally
-
+//Return true if a queen on col is attacking queens diagonally on columns i where i < col, else return 0
+//diagonal passes all tests in unitTests.cpp on June 28, 2021.
 bool diagonal(vector<int> board, int col){
 
-    int check = col-1;
-    int expectedDifference = 0;
-    for (int j = 0; j <= check; j++){
-        expectedDifference = check-j;
-        cout<<"board place being checked against: "<<check<<" value: "<<board[check]<<endl;
-        cout<<"board place being checked: "<<j<<" value: "<<board[j]<<endl;
-        cout<<"expected value: "<<check-expectedDifference<<" or "<<check+expectedDifference<<endl;
-        if (board[j] == check-expectedDifference || board[j] == check-expectedDifference){
-            return true;
-        }
-        cout<<""<<endl;
-    }
+    //the difference between two columns relates to whether the queens placed in those columns are diagonal to each other.
+    int colDiff = 0;
+
+    //for each column to the left of col
+    for(int i = col-1; i >= 0; i--){
+
+        colDiff = col-i;
+
+        //according to the vector encoding of the boards,
+        //if board[i] == board[col] +- colDiff, and neither column is empty, then the queen on column i is diagonal to the queen on column col 
+        if(board[i] == board[col] + colDiff || board[i] == board[col] - colDiff){
+            //if queen is placed on i column
+            if(board[i] != -1 && board[col] != -1){
+                return true;
+            }//if
+        }//if
+    }//for
     return false;
-    //board[col];
 }
 
 int main(){

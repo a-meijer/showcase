@@ -20,6 +20,14 @@
 //      Failed Diagonal Test 0 column 3
 //      No match: 1 , 0
 // I believe the answer key is correct, so now I get to fix the function, "diagonal"
+// June 28, 2021, Andrew Meijer
+// - Completed second draft of diagonal function, forgotten return statement.
+//      Failed Horizontal Test 6 column 3
+//      No match: 1 , 0
+// - CooL! Determined that the function was testing for board[i] != -1, but not board[col] != -1.
+// - Horizontal and Diagonal functions pass all unit tests; complete!
+// - Copying diagonal and horizontal functions back into nxnQueens.cpp
+// - Added into main project directory. . . See main activity log for further updates.
 
 // Board size for NxN queens: harcoded!
 #define N 4
@@ -60,7 +68,7 @@ vector<vector<int> > expand(BTNode root){
 bool horizontal(vector<int> board, int col){
     //if any board values are equal other than -1, there is a horizontal collision
     for(int i=0; i<col; i++){
-        if(board[col] == board[i]){
+        if(board[col] == board[i] && board[col] != -1 && board[i] != -1){
             return true;
         }            
     }
@@ -78,22 +86,30 @@ vector<int> {0, 2, 2, -1}
 2  O O 0 O
 3  O O x O
 b[col] = 2
-if(b[col-1] == 1 || b[col-1] == 3){ that's bad}
+if(b[col-1] == 1 || b[col-1] == 3){ that's diagonal}
 */
 
 //Return true if a queen on col is attacking queens diagonally on columns i where i < col, else return 0
 bool diagonal(vector<int> board, int col){
 
-    int check = col-1;
-    int expectedDifference = 0;
-    for (int j = 0; j <= check; j++){
-        expectedDifference = check-j;
-        if (board[j] == check-expectedDifference || board[j] == check-expectedDifference){
-            return true;
-        }
-    }
+    //the difference between two columns relates to whether the queens placed in those columns are diagonal to each other.
+    int colDiff = 0;
+
+    //for each column to the left of col
+    for(int i = col-1; i >= 0; i--){
+
+        colDiff = col-i;
+
+        //according to the vector encoding of the boards,
+        //if board[i] == board[col] +- colDiff, and neither column is empty, then the queen on column i is diagonal to the queen on column col 
+        if(board[i] == board[col] + colDiff || board[i] == board[col] - colDiff){
+            //if queen is placed on i column
+            if(board[i] != -1 && board[col] != -1){
+                return true;
+            }//if
+        }//if
+    }//for
     return false;
-    //board[col];
 }
 
 //Main is for unit testing; see comments
