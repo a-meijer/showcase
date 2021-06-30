@@ -1,21 +1,34 @@
 ALPHA001: Unit Testing nxnQueens.cpp - Open
     2021-06-26  :   Horizontal and Diagonal functions all pass. Imported solution from separate project.
+    2021-06-29  :   See nxnQueens.cpp for those notes in the comments. Anyways, I am creating src and bin directories now. Updated compilation instructions for src and bin.
+
 
 INDEV010: Final Drafts - Open
     2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.    
     2021-06-28  :   Draft all files for unit testing: Cpp solution
-
+    2021-06-29  :   Updated compilation instructions for src and bin.
 
 INDEV009: Recursive Backtracking in C - Open
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.
                     This information can possibly be used in the construction of an iterative solution to nxnQueens in the future,
-                    which ties back to the original aim of this project, to compare iteraative and recursive solutions for backtracking. Meh.
+                    which ties back to the original aim of this project, to compare iterative and recursive solutions for backtracking. Meh.
     2021-01-10  :   nxnQueens.c
-    2021-01-11  :   I realize my solution is not the best. . . The horizontal and doagonal functions don't require a BTNode, so I could be creating
+    2021-01-11  :   I realize my solution is not the best. . . The horizontal and diagonal functions don't require a BTNode, so I could be creating
                     a board, checking it with both horizontal and diagonal functions, and then creating the BTNode afterward.
-                    Definitely I can chalk it up to cowboy coding, but it's a small program, so it's okay to have such inaccuracies.
+                    Definitely I can chalk it up to cowboy coding, but it's a small program, so it's [not] okay to have such inaccuracies.
     2021-01-26  :   Uploading incomplete code to showcase, so I can solve the remainder with pen and paper rather than by playing guess-and-check with the compiler.
-                    
+    2021-06-29  :   Compiling nxnQueens.c . . . Let's see what's up with this program; I know expand is partially complete, and there is no horizontal or diagonal implementation. . .
+    2021-06-29  :   Compilation errors.
+    2021-06-29  :   This encoding is different from the .cpp version that I've already passed testing, so I'll try writing it from scratch
+    2021-06-29  :   0 is empty and 1 is Queen on a 2D char array. Since I am placing left to right I am simplifying the horizontal and diagonal requirements (adding the h parameter).
+    2021-06-29  :   I think the idea in my work was that I would include no collision detecting, so that the solution is as if each Queen has no attacks. Let's get that running. But will it enumerate?
+    2021-06-30  :   It runs but I don't know if the output is correct and I get compilation warnings for the malloc statements. What is really going on here?
+    2021-06-30  :   Included stdlib.h for malloc; compiles clean: PS C:\PROG\showcase\NxNQueens\src> gcc nxnQueens.c -o ../bin/cQueens
+    2021-06-30  :   Completed draft of horizontal function; added to expand; compiling and running . . .
+    2021-06-30  :   It appears that the expand function does not have a return statement . . . ?
+    2021-06-30  :  Changed "row" to "column" on line 19; yikes-emoji.
+    2021-06-30  :   I will plan to overwrite this at a later time; uploading changes. . . Isn't this supposed to be an iterative solution for sake of comparison anyway? Pending . . .
+
 
 INDEV008: Make a Linked List - Closed
     2021-01-04  :   To establish working syntax for structs, I will first encode a linkedlist solution before moving on to backtracking.
@@ -24,12 +37,14 @@ INDEV008: Make a Linked List - Closed
     2021-01-05  :   Making a linked list in C++ should be much easier. Those pointers are confusing!
     2021-01-06  :   Closed Complete
 
-INDEV007: Test Results File - Open
+INDEV007: Test Results File - Closed
     2020-12-13  :   Removed unnecessary Cpp header files. Headerfiles are for when a class is being used for multiple source files; I don't need that.
     2020-12-13  :   Updated Readme with notes about compilation
     2020-12-13  :   Decided to include testing results as part of project.
     2020-12-13  :   Work in progress... 
-    2021-01-04  :   
+    2021-01-04  :   ~?
+    2021-06-29  :   Testing is decided: Notice the entry prefixes for this activity log: INDEV is for drafts, ALPHA is for unit testing, and BETA is for analysis.
+    2021-06-29  :   Closed; see ALPHA log entries for unit tests.
 
 INDEV006: Add Instructions - Closed
     2020-11-15  :   Entry Created

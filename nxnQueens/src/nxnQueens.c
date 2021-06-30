@@ -5,29 +5,56 @@
  *          Adding nested structure; 
  *          Implementing algorithm - backtracking enumeration;
  *          This is a recursive algorithm.
- *      2021-Jan-
+ *      2021-Jan- see activity log.
+ *      2021-June - see activity log.
  *  Author: Andrew Meijer
  *  Purpose: Create backtracking recursion with datastructures
  */
 
 #define N 4
 #include <stdio.h>
+#include <stdlib.h>
 
 struct BTNode {
-    int h; //the current row in the algorithm
+    int h; //the current column in the algorithm
     struct BTNode* c[N]; //pointers to child nodes
     char board[N][N]; //in board[x][y]: x = h, y = c[i]. Character '0' is empty; character '1' has a queen on that square.
 };
 
-//Return '1' if the board is sound diagonally(not attaching any other queens)
+//Return '1' if the Queen on h column is attacking any Queens that have already been placed on columns i where i < h horizontally.
 //else return '0'
-char horizontal(char * b[N][N]){
-    
+char horizontal(char * b[N][N], int h){
+    //find the row on column h that has a Queen, and call it Q
+    int Q = 0;
+    for(Q = 0; Q < N; Q++){
+        //if there is a queen on row Q, we're done: let's break out of here!
+        if(*b[h][Q] == '1'){
+            break;
+        }
+    }
+
+    int i = h-1;
+    while(i >= 0){
+        //if there is a path-ruining horizontal attack from the newly-paced queen
+        if(*b[i][Q] == '1'){
+            //collision
+            return '1';
+        }
+
+
+        //exit condition: i < 0
+        i = i-1;
+    }//while
+
+    //no horizontal collision from column h row Q
+    return '0';
 }
 
-//Return '1' if the board is sound diagonally(no queens attacking each other)
+//Return '1' if the Queen on h column is attacking any Queens that have already been placed on columns i where i < h diagonally.
 //else return '0'
-char diagonal(char * b[N][N]){
+char diagonal(char * b[N][N], int h){
+    
+
 
 }
 
@@ -61,10 +88,12 @@ int expand(struct BTNode * p, struct BTNode * n, int x){
     n->board[n->h][x] = '1';
 
     //test if the new queen is attacking any others
+    if(horizontal(n->board, h) == '1'){
 
+    }
 
     //allocate space for the child nodes
-    int i=0;
+    i=0;
     for(i=0; i<N; i=i+1){
         n->c[i] = (struct BTNode *)malloc(sizeof(struct BTNode));
     }
@@ -91,7 +120,7 @@ int main(){
     }
 
     //allocate space for the child nodes
-    int i=0;
+    i=0;
     for(i=0; i<N; i=i+1){
         root->c[i] = (struct BTNode *)malloc(sizeof(struct BTNode));
     }
