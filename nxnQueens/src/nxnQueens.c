@@ -7,6 +7,7 @@
  *          This is a recursive algorithm.
  *      2021-Jan- see activity log.
  *      2021-June - see activity log.
+ *      2021-July - see activity log.
  *  Author: Andrew Meijer
  *  Purpose: Create backtracking recursion with datastructures
  */
@@ -32,6 +33,7 @@ char horizontal(char * b[N][N], int h){
             break;
         }
     }
+    //Now int Q is set to the row of the queen on column h
 
     int i = h-1;
     while(i >= 0){
@@ -50,10 +52,45 @@ char horizontal(char * b[N][N], int h){
     return '0';
 }
 
-//Return '1' if the Queen on h column is attacking any Queens that have already been placed on columns i where i < h diagonally.
+//Return '1' if the Queen on column h is attacking any Queens that have already been placed on columns i where i < h diagonally.
 //else return '0'
 char diagonal(char * b[N][N], int h){
-    
+    //find the row on column h that has a Queen, and call it Q
+    int Q = 0;
+    for(Q = 0; Q < N; Q++){
+        //if there is a queen on row Q, we're done: let's break out of here!
+        if(*b[h][Q] == '1'){
+            break;
+        }
+    }
+    //Now int Q is set to the row of the queen on column h
+
+    int i = h-1;
+    int diff = h-i;
+    while(i >= 0){
+        //if row Q-diff is on the board, check for a queen on that row, column i
+        if(Q-diff >= 0 && Q-diff <= 3){
+            if(*b[i][Q-diff] == '1'){
+                //collision
+                return '1';
+            }
+        }
+        //if row Q+diff is on the board, check for a queen on that row, column i
+        if(Q+diff >= 0 && Q+diff <= 3){
+            if(*b[i][Q+diff] == '1'){
+                //collision
+                return '1';
+            }
+        }
+
+        //exit condition: i < 0
+        i = i-1;
+        //b(i,y) is diagonal to b(h,Q) when y = Q +- (h-i)
+        diff = h-i;
+    }//while
+
+    //no diagonal collision from column h row Q
+    return '0';
 
 
 }
@@ -88,8 +125,10 @@ int expand(struct BTNode * p, struct BTNode * n, int x){
     n->board[n->h][x] = '1';
 
     //test if the new queen is attacking any others
-    if(horizontal(n->board, h) == '1'){
-
+    if(horizontal(n->board, n->h) == '1'){
+        printf("?");
+    }else{
+        printf("!");
     }
 
     //allocate space for the child nodes

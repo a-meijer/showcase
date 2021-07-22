@@ -7,6 +7,16 @@ INDEV010: Final Drafts - Open
     2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.    
     2021-06-28  :   Draft all files for unit testing: Cpp solution
     2021-06-29  :   Updated compilation instructions for src and bin.
+    2021-07-22  :   Uploading changes to nxnQueens.c/diagonal . . .
+    2021-07-22  :   Compilation Errors:
+                    nxnQueens.c: In function 'expand':
+                    nxnQueens.c:128:19: warning: passing argument 1 of 'horizontal' from incompatible pointer type [-Wincompatible-pointer-types]
+                    if(horizontal(n->board, n->h) == '1'){
+                                ^
+                    nxnQueens.c:27:6: note: expected 'char * (*)[4]' but argument is of type 'char (*)[4]'
+                    char horizontal(char * b[N][N], int h){
+                    ^~~~~~~~~~
+    
 
 INDEV009: Recursive Backtracking in C - Open
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.
@@ -26,9 +36,9 @@ INDEV009: Recursive Backtracking in C - Open
     2021-06-30  :   Included stdlib.h for malloc; compiles clean: PS C:\PROG\showcase\NxNQueens\src> gcc nxnQueens.c -o ../bin/cQueens
     2021-06-30  :   Completed draft of horizontal function; added to expand; compiling and running . . .
     2021-06-30  :   It appears that the expand function does not have a return statement . . . ?
-    2021-06-30  :  Changed "row" to "column" on line 19; yikes-emoji.
+    2021-06-30  :   Changed "row" to "column" on line 19; yikes-emoji.
     2021-06-30  :   I will plan to overwrite this at a later time; uploading changes. . . Isn't this supposed to be an iterative solution for sake of comparison anyway? Pending . . .
-
+    2021-06-30  :   Recall, it is not iterative v.s. recursive, it is datastructure v.s. class. Try making better use of the BTNode class in the cpp solution!
 
 INDEV008: Make a Linked List - Closed
     2021-01-04  :   To establish working syntax for structs, I will first encode a linkedlist solution before moving on to backtracking.
