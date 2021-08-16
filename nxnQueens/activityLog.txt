@@ -16,7 +16,38 @@ INDEV010: Final Drafts - Open
                     nxnQueens.c:27:6: note: expected 'char * (*)[4]' but argument is of type 'char (*)[4]'
                     char horizontal(char * b[N][N], int h){
                     ^~~~~~~~~~
-    
+    2021-07-25  :   Updated function call from "n->board" to "&n->board"
+    2021-07-27  :   PS C:\PROG\showcase\nxnQueens\src> gcc nxnQueens.c -Wall -o seigh
+                    nxnQueens.c: In function 'expand':
+                    nxnQueens.c:128:43: warning: passing argument 1 of 'horizontal' from incompatible pointer type [-Wincompatible-pointer-types]
+                        char horizontalReturnVal = horizontal(n->board, n->h);
+                                                            ^
+                    nxnQueens.c:27:6: note: expected 'char * (*)[4]' but argument is of type 'char (*)[4]'
+                    char horizontal(char * b[N][N], int h){
+                        ^~~~~~~~~~
+                    nxnQueens.c:129:39: warning: passing argument 1 of 'diagonal' from incompatible pointer type [-Wincompatible-pointer-types]
+                        char diagonalReturnVal = diagonal(n->board, n->h);
+                                                        ^
+                    nxnQueens.c:57:6: note: expected 'char * (*)[4]' but argument is of type 'char (*)[4]'
+                    char diagonal(char * b[N][N], int h){
+                        ^~~~~~~~
+                    nxnQueens.c:129:10: warning: unused variable 'diagonalReturnVal' [-Wunused-variable]
+                        char diagonalReturnVal = diagonal(n->board, n->h);
+                            ^~~~~~~~~~~~~~~~~
+                    nxnQueens.c:142:1: warning: control reaches end of non-void function [-Wreturn-type]
+                    }
+                    ^
+    2021-07-27  :   Added ChessBoard struct (as a workaround) - Syntax errors. 
+    2021-07-27  :   ???
+    2021-08-06  :   How is this taking so long? Compiling at "PS C:\PROG\showcase\NxNQueens\src>" with "gcc nxnQueens.c -o ../bin/aug5session"
+    2021-08-06  :   Running with "../bin/aug5session"
+    2021-08-06  :   nxnQueens.c:175:17: error: 'root' is a pointer; did you mean to use '->'?
+    2021-08-06  :   After a few syntactical changes, nxnQueens.c compiles and runs successfully.
+    2021-08-16  :   Somehow ten days have gone by. I thought I was here earlier this weekend. . .
+    2021-08-16  :   Drafted expand function by copying the code from main. Passing a parent to the expand function is pointless: I don't use it.
+    2021-08-16  :   Runs, but no output. I added some print statements that aren't very helpful.
+    2021-08-16  :   Uploading for remote debugging. Current output: "Initializing. . .Allocating Space. . ."
+
 
 INDEV009: Recursive Backtracking in C - Open
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.
@@ -39,6 +70,7 @@ INDEV009: Recursive Backtracking in C - Open
     2021-06-30  :   Changed "row" to "column" on line 19; yikes-emoji.
     2021-06-30  :   I will plan to overwrite this at a later time; uploading changes. . . Isn't this supposed to be an iterative solution for sake of comparison anyway? Pending . . .
     2021-06-30  :   Recall, it is not iterative v.s. recursive, it is datastructure v.s. class. Try making better use of the BTNode class in the cpp solution!
+    2021-07-25  :   Updating board to struct for simplified function-passing 
 
 INDEV008: Make a Linked List - Closed
     2021-01-04  :   To establish working syntax for structs, I will first encode a linkedlist solution before moving on to backtracking.

@@ -7,7 +7,7 @@
  *          This is a recursive algorithm.
  *      2021-Jan- see activity log.
  *      2021-June - see activity log.
- *      2021-July - see activity log.
+ *      2021-July - see activity log. . . See activity log for further updates.
  *  Author: Andrew Meijer
  *  Purpose: Create backtracking recursion with datastructures
  */
@@ -19,17 +19,22 @@
 struct BTNode {
     int h; //the current column in the algorithm
     struct BTNode* c[N]; //pointers to child nodes
-    char board[N][N]; //in board[x][y]: x = h, y = c[i]. Character '0' is empty; character '1' has a queen on that square.
+    struct ChessBoard* chess_struct; //in board[x][y]: x = h, y = c[i]. Character '0' is empty; character '1' has a queen on that square.
+};
+
+//this struct is a nifty workaround so I can pass a board pointer to functions because I was stuck on compilation warnings
+struct ChessBoard {
+    char b[N][N];
 };
 
 //Return '1' if the Queen on h column is attacking any Queens that have already been placed on columns i where i < h horizontally.
 //else return '0'
-char horizontal(char * b[N][N], int h){
+char horizontal(struct ChessBoard * board, int h){
     //find the row on column h that has a Queen, and call it Q
     int Q = 0;
     for(Q = 0; Q < N; Q++){
         //if there is a queen on row Q, we're done: let's break out of here!
-        if(*b[h][Q] == '1'){
+        if(board->b[h][Q] == '1'){
             break;
         }
     }
@@ -38,11 +43,10 @@ char horizontal(char * b[N][N], int h){
     int i = h-1;
     while(i >= 0){
         //if there is a path-ruining horizontal attack from the newly-paced queen
-        if(*b[i][Q] == '1'){
+        if(board->b[i][Q] == '1'){
             //collision
             return '1';
         }
-
 
         //exit condition: i < 0
         i = i-1;
@@ -54,12 +58,12 @@ char horizontal(char * b[N][N], int h){
 
 //Return '1' if the Queen on column h is attacking any Queens that have already been placed on columns i where i < h diagonally.
 //else return '0'
-char diagonal(char * b[N][N], int h){
+char diagonal(struct ChessBoard * board, int h){
     //find the row on column h that has a Queen, and call it Q
     int Q = 0;
     for(Q = 0; Q < N; Q++){
         //if there is a queen on row Q, we're done: let's break out of here!
-        if(*b[h][Q] == '1'){
+        if(board->b[h][Q] == '1'){
             break;
         }
     }
@@ -70,14 +74,14 @@ char diagonal(char * b[N][N], int h){
     while(i >= 0){
         //if row Q-diff is on the board, check for a queen on that row, column i
         if(Q-diff >= 0 && Q-diff <= 3){
-            if(*b[i][Q-diff] == '1'){
+            if(board->b[i][Q-diff] == '1'){
                 //collision
                 return '1';
             }
         }
         //if row Q+diff is on the board, check for a queen on that row, column i
         if(Q+diff >= 0 && Q+diff <= 3){
-            if(*b[i][Q+diff] == '1'){
+            if(board->b[i][Q+diff] == '1'){
                 //collision
                 return '1';
             }
@@ -96,14 +100,48 @@ char diagonal(char * b[N][N], int h){
 }
 
 //include a parent node as an argument to initialize any child node
-//Careful not to point to the parent board, that would ruin the algorithm
+//Careful not to point to the parent board from the child; instead, DEEP COPY, or else it will ruin the algorithm
 //paramenter x is the number of the child: 0 <= x < N s.t. board[h][x]='1';
 //return the running enumeration total such that if the BTTree root is expanded, it would return the solution. ( In my first draft I am expanding the root in main)
+//The root node is expanded in the main function, so all the roots expanded in here have a parent node.
 int expand(struct BTNode * p, struct BTNode * n, int x){
+
+    printf("Expanding. . .");
+
+    //initialize node height
+    n->h = 0;
+
+    //initialize the empty board
+    int i=0;
+    int j=0;
+    for(i=0; i<N; i=i+1){
+        for(j=0; j<N; j=j+1){
+            n->chess_struct->b[i][j] = '0';
+        }
+    }
+
+    //allocate space for the child nodes
+    i=0;
+    for(i=0; i<N; i=i+1){
+        n->c[i] = (struct BTNode *)malloc(sizeof(struct BTNode));
+    }
+
+    //Summate the return values for expansion of each child node
+    int total = 0;
+    for(i=0; i<N; i++){
+        total = total + expand(n, n->c[i], i);
+    }
+    printf("Returning %d", total);
+    return total;
+}
+
+//OLD EXPAND
+//for reference
+/*int expand(struct BTNode * p, struct BTNode * n, int x){
 
     //allocate space for the new node
     n = (struct BTNode *)malloc(sizeof(struct BTNode));
-
+    
     //increment height
     //does this copy the pointer? I don't think so. . .
     n->h = p->h + 1;
@@ -116,7 +154,7 @@ int expand(struct BTNode * p, struct BTNode * n, int x){
     int j=0;
     for(i=0; i<N; i=i+1){
         for(j=0; j<N; j=j+1){
-            tempoChar = p->board[i][j];
+            tempoChar = p->ChessBoard->b[i][j];
             n->board[i][j] = tempoChar;
         }
     }
@@ -125,7 +163,10 @@ int expand(struct BTNode * p, struct BTNode * n, int x){
     n->board[n->h][x] = '1';
 
     //test if the new queen is attacking any others
-    if(horizontal(n->board, n->h) == '1'){
+    char horizontalReturnVal = horizontal(n->board, n->h);
+    char diagonalReturnVal = diagonal(n->board, n->h);
+
+    if(horizontalReturnVal == '1'){
         printf("?");
     }else{
         printf("!");
@@ -136,9 +177,12 @@ int expand(struct BTNode * p, struct BTNode * n, int x){
     for(i=0; i<N; i=i+1){
         n->c[i] = (struct BTNode *)malloc(sizeof(struct BTNode));
     }
-}
+}*/
 
 int main(){
+
+    printf("Initializing. . .");
+
     //In the main function I expand the root node
 
     //initialize the root node pointer
@@ -154,9 +198,11 @@ int main(){
     int j=0;
     for(i=0; i<N; i=i+1){
         for(j=0; j<N; j=j+1){
-            root->board[i][j] = '0';
+            root->chess_struct->b[i][j] = '0';
         }
     }
+
+    printf("Allocating Space. . .");
 
     //allocate space for the child nodes
     i=0;
@@ -164,36 +210,15 @@ int main(){
         root->c[i] = (struct BTNode *)malloc(sizeof(struct BTNode));
     }
 
+    printf("Running. . .");
+
     //Summate the return values for expansion of each child node
     int total = 0;
     for(i=0; i<N; i++){
         total = total + expand(root, root->c[i], i);
     }
 
-    printf("%d", total);
+    printf("Result: %d", total);
 
     return 0;
 }
-
-/*
- *** LINKED LIST SYNTAX FOR REFERENCE***
-
-    int data[dataSize] = {12, 1, 4, 6, 18, 23, 2, 10, 9, 0}; 
-
-    struct LLNode *nodes[dataSize];
-
-    int i=0;
-    for(i=0; i<10; i=i+1){
-        nodes[i] = NULL;
-        nodes[i] = (struct LLNode *)malloc(sizeof(struct LLNode));
-        nodes[i]->datum = data[i];
-    }
-
-    //Two loops  is still linear time
-    for(i=0; i<9; i=i+1){
-        nodes[i]->next = nodes[i+1];
-    }
-    nodes[9]->next = NULL;
-
-    traverse(nodes[0]);
-*/

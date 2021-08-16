@@ -9,27 +9,28 @@ Backtracking algorithms are used to solve Constraint Satisfaction Problems (CSP)
 activityLog.txt is filled with numbered entries that record progress in the completion of this project. INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
 
 ## Source Files
+To compile source files, using the Command Prompt or Terminal enter the "src" directory. . . (for this project, I used VS Code on Windows 10)
 ### Linked List in C
 linkedList.c is included just for reference when building other source files.
 The number of nodes in the list and the integer data values for each node are hardcoded into the source file.
 To compile the source file enter,
-    "gcc linkedList.c -o cLinkedList"
+    "gcc linkedList.c -Wall -o ../bin/cLinkedList"
 To run the program enter,
-    "./cLinkedList"
+    "../bin/cLinkedList"
 
 ### Linked List in Cpp
 linkedList.cpp is included just for reference when building other source files.
 The number of nodes in the list and the integer data values for each node are hardcoded into the source file.
 To compile the source file,
-    "g++ linkedList.cpp -o cppLinkedList"
+    "g++ linkedList.cpp -Wall -o ../bin/cppLinkedList"
 To run the program,
-    "./cppLinkedList"
+    "../bin/cppLinkedList"
 
 ### C Solution with Datastructures
 nxnQueens.c
 The input variable n, for nxn queens is hard-coded into the source file, #define N 8, for example. 
 To compile the source file enter in src directory,
-    "gcc nxnQueens.c -o ../bin/cQueens"
+    "gcc nxnQueens.c -Wall -o ../bin/cQueens"
 To run the program,
     "../bin/cQueens"
 
@@ -37,6 +38,6 @@ To run the program,
 nxnQueens.cpp
 The input variable n, for nxn queens is hard-coded into the source file, #define N 8, for example. Therefore, no command-line arguments are needed.
 To compile the source file in src directory,
-    "g++ nxnQueens.cpp -o ../bin/cppQueens"
+    "g++ nxnQueens.cpp -Wall -o ../bin/cppQueens"
 To run the program,
     "../bin/cppQueens"
