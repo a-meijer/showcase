@@ -22,76 +22,39 @@ struct BTNode {
     struct BTNode* nextChild; //pointer to child nodes
 };
 
-//Return '1' if the Queen on h column is attacking any Queens that have already been placed on columns i where i < h horizontally.
-//else return '0'
-char horizontal(char b[N][N], int h){
-    //find the row on column h that has a Queen, and call it Q
-    int Q = 0;
-    for(Q = 0; Q < N; Q++){
-        //if there is a queen on row Q, we're done: let's break out of here!
-        if(b[h][Q] == '1'){
-            break;
-        }
-    }
-    //Now int Q is set to the row of the queen on column h
-
-    int i = h-1;
-    while(i >= 0){
-        //if there is a path-ruining horizontal attack from the newly-paced queen
-        if(b[i][Q] == '1'){
-            //collision
-            return '1';
-        }
-
-        //exit condition: i < 0
-        i = i-1;
-    }//while
-
-    //no horizontal collision from column h row Q
-    return '0';
-}
-
-//Return '1' if the Queen on column h is attacking any Queens that have already been placed on columns i where i < h diagonally.
-//else return '0'
-char diagonal(char b[N][N], int h){
-    //find the row on column h that has a Queen, and call it Q
-    int Q = 0;
-    for(Q = 0; Q < N; Q++){
-        //if there is a queen on row Q, we're done: let's break out of here!
-        if(b[h][Q] == '1'){
-            break;
-        }
-    }
-    //Now int Q is set to the row of the queen on column h
-
-    int i = h-1;
-    int diff = h-i;
-    while(i >= 0){
-        //if row Q-diff is on the board, check for a queen on that row, column i
-        if(Q-diff >= 0 && Q-diff <= 3){
-            if(b[i][Q-diff] == '1'){
-                //collision
-                return '1';
+//return 1 if there is a collision; otherwise return 0
+int check(char board[N][N], int x, int y){
+    int i = x;
+    int j = y;
+    int gap = 0; //diagonal gap
+    //nested for the squares in columns with queens
+    for(i = x-1; i >= 0; i--){
+        gap = x-i;
+        for(j = 0; j < N; j++){
+            //horizontal
+            if(j == y){
+                //collsion
+                if(board[i][j] == '1'){
+                    return 1;
+                }
+            }
+            //diagonal NW
+            if(j+gap == y && j >= 0){
+                //if collision:
+                if(board[i][j] == '1'){
+                    return 1;
+                }
+            }
+            //diagonal SW
+            if(j-gap == y && j < N){
+                //if collision:
+                if(board[i][j] == '1'){
+                    return 1;
+                }
             }
         }
-        //if row Q+diff is on the board, check for a queen on that row, column i
-        if(Q+diff >= 0 && Q+diff <= 3){
-            if(b[i][Q+diff] == '1'){
-                //collision
-                return '1';
-            }
-        }
-
-        //exit condition: i < 0
-        i = i-1;
-        //b(i,y) is diagonal to b(h,Q) when y = Q +- (h-i)
-        diff = h-i;
-    }//while
-
-    //no diagonal collision from column h row Q
-    return '0';
-
-
+    }
+    return 0;
 }
 
 //include a parent node as an argument to initialize any child node
@@ -180,7 +143,7 @@ int main(){
     //initialize the root node pointer
     struct BTNode * root;
     //allocate space for the root node
-    root = malloc(sizeof(struct BTNode));
+    root = (struct BTNode *)malloc(sizeof(struct BTNode));
     if(root == NULL){
         printf("malloc failed in main");
         exit(0);
@@ -200,13 +163,11 @@ int main(){
 
     printf("Allocating Space. . .");
 
-    //allocate space for the child nodes
-    for(i=0; i<N; i=i+1){
-        root->nextChild = malloc(sizeof(struct BTNode));
-        if(root->nextChild == NULL){
-            printf("malloc failed in loop i=%d", i);
-            exit(0);
-        }
+    //allocate space for the child node
+    root->nextChild = (struct BTNode *)malloc(sizeof(struct BTNode));
+    if(root->nextChild == NULL){
+        printf("malloc failed in loop i=%d", i);
+        exit(0);
     }
 
     printf("Running. . .");

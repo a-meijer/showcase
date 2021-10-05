@@ -1,7 +1,28 @@
+ALPHA002: Unit Testing nxnQueens.c - Open
+    2021-09-20  :   unitTests.c is for testing the deep copy of boards, so I have copied elements of nxnQueens.c into unitTests.c
+    2021-10-02  :   Running empty unit tests for deep copying the chess board; compiles and runs. gcc unitTests.c -o ../bin/deepCopyUnitTest
+    2021-10-02  :   Adding tests for deepy copy: simply change one of the values in child board and compare to parent.
+    2021-10-02  :   Program was soft-crashing at for loops; moved index variable initialization outside of the loops: fixed.
+                    Nevermind, that didn't fix it. Very strange problem I can't seem to approach with print statements.
+                    This is an opportunity to explore the VS Code debugger. Perhaps step-by-step processing can come in handy. Nevermind ~
+                    Added (struct BTNode *) to malloc lines. Testing again ~
+                    I've removed a lot of code to get at what is blocking this up, and it makes no sense.
+                    LinkedList.c still works, so what's the difference? nodes[i] = (struct LLNode *)malloc(sizeof(struct LLNode));?
+                    Changing "struct BTNode * root;" to "struct BTNode root;" and I'm working with that instead; making similar to linkedList.C
+                    The difference is that I know how many nodes I am making ahead of time in linkedList.C
+    2021-10-03  :   I will attempt to do-away with structs entirely and represent board states as 2D char arrays     
+                    ^ Drafting in unitTests.c
+                    I did some quick tests of the syntax and now I'm going to draf out an expand and check function.
+                    The check function is to check if a square is under attack by any queen already placed.
+    2021-10-04  :   Drafting check function; compiling; Seems to be working. Let's make the same test cases from horizontal and diagonal testing from cpp solution
+                    Hardcoded tests; runs; adding answer keys. . .
+                    Hey, it worked. I failed some tests. It seems like I'm missing all diagonal checks.    
+                    I'm changing some tests to cover more diagonal variety                       
+                    New tests confirm, no diagnonal collisions are being detected. Fixed logic error in check function; fixed wrong-variable error in check function; All tests pass.
+
 ALPHA001: Unit Testing nxnQueens.cpp - Open
     2021-06-26  :   Horizontal and Diagonal functions all pass. Imported solution from separate project.
     2021-06-29  :   See nxnQueens.cpp for those notes in the comments. Anyways, I am creating src and bin directories now. Updated compilation instructions for src and bin.
-
 
 INDEV010: Final Drafts - Open
     2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.    
@@ -49,7 +70,7 @@ INDEV010: Final Drafts - Open
     2021-08-16  :   Uploading for remote debugging. Current output: "Initializing. . .Allocating Space. . ."
     2021-08-22  :   Debugging nxnQueens.c - having an issue with malloc where the program is crashing.
     2021-08-22  :   Changing the enconding for nxnQueens.c in progress. . .
-
+    2021-09-20  :   Writing separate program for testing deep-copy of boards unitTests.c
 
 INDEV009: Recursive Backtracking in C - Open
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.
@@ -80,8 +101,14 @@ INDEV009: Recursive Backtracking in C - Open
                                                 struct BTNode* nextChild; //pointer to child nodes
     2021-08-30  :   Stuck in expansion loop. . . Not testing again without print statements. Nested function call is going off too frequently. Analyzing code. The more I look at this, the more I realize it is blatantly unfinished.
                     Adding horizontal and diagonal checking in the expand function. Writing comments for each step of the algorithm.
-                    
-};
+    2021-09-20  :   Writing separate program for testing deep-copy of boards unitTests.c     
+    2021-10-02  :   unit testing of deep copy in progress
+    2021-10-04  :   Change of plans, structs were removed from the nxnQueens.c. Just finished unit testing the check function.
+                    Added new check function to nxnQueens.c
+                    Oops, looks like nxnQueens already had an implementation of that, modified from nxnQueens.cpp
+                    Oh well, the new check function is much more concise, so I'm looking good to draft my expand function next. Spooky recursion.
+
+***** Following tasks are all CLOSED: *****
 
 INDEV008: Make a Linked List - Closed
     2021-01-04  :   To establish working syntax for structs, I will first encode a linkedlist solution before moving on to backtracking.
