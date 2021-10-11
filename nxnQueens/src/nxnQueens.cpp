@@ -7,6 +7,8 @@
  *      2021-0ct-10:
  *          - Drafting classes and functions for unit testing. See activity log.
  *          - The idea is to run BTTree.build to build the tree, and then BTTree.enumerate to get the solution.
+ *          - Obstructive bug: copied to Bugs Project
+ *          - Deprecated: Abandoned
  *  Author: Andrew Meijer
  *  Purpose: Create backtracking recursion with classes
  */

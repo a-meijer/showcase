@@ -1,12 +1,24 @@
 VERSION 001: Project Complete - Closed
-    - close when all other tasks are closed.
+    2021-10-10  :   C++ solution is abandoned due to a bug, so this project is just measuring the results for C.
+                    For more information on the bug, see Sample1 in the Bugs project directory.
+                    Future versions of this project could include a comparison to other solutions.
+                    Entered results into readme; updated/proofread readme.
+                    Closed Complete.
 
-BETA 002: Write Results - Open 
-    in markup file and uldate readme instructions; add conclusion to readme
+BETA 002: Write Results - Closed
+    2021-10-10  :   Completed under BETA001:Add_Timing
+                    Closed
 
-BETA 001: Add Timing - Open
-    - to c and cpp solutions to measure and compare the solutions
-    - correction: add to c solution and measure timing for different values of N.
+BETA 001: Add Timing - Closed
+    2021-10-10  :   Added timing to nxnQueens.c using clock() function and time.h. It doesn't measure in seconds but it seems okay.
+                    Hopefully I get some meaningful results for higher values of N.
+                    I'm using a markdown generating website to write up the results in a table to include in README.md
+                    It's pretty easy, I change the define N line and that's all; compile and run; it prints the results; I enter thye results into the table generator.
+                    I notice the ticks are inconsistent. Each time I run the executable the clock is slightly different.
+                    In future, I will run many more trials and take averages.
+                    Wow, N=14 took a long time. I'll just do one more, and then I leave it on N=16 so next time I get back to this project if I run it dry, it will just hang haha
+                    https://www.tablesgenerator.com/markdown_tables
+                    Completed Closed.
 
 ***** Following tasks are all CLOSED: *****
 

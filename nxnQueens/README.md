@@ -1,15 +1,31 @@
 # Backtracking Recursion Readme
 ## Project Description
-The purpose of this project is to compare backtracking algorithms that solve the NxN Queens problem. 
-One algorithm will be written in C a simple hard-coded enumeration solution, and another algorithm is written in C++ with classes.
-The design behind the two solutions is that the Cpp solution is more robust but slower: It first builds the Backtracking Tree, and then traverses it for the enumeration solution. The C solution is expected to be faster because it doesn't build a BackTracking Tree, it is built just for enumeration using an expand function. The Cpp solution uses BTTree.build and then BTTree.enumerate.
+The purpose of this project was originally to compare backtracking algorithms that solve the NxN Queens problem. 
+One algorithm was to be written in C a simple hard-coded enumeration solution, and another algorithm was to be written in C++ with classes.
+Due to an obstructive unsolved bug in the cpp implementation, I decided to simplify this project just to measure the running time for different values of N in my C solution. I have left the C++ files in this project for future reference and I also have working linkedList samples which are interesting in relation to the bug. For more information about the bug, see Sample1 of my Bugs project in this same repository.
 
 ## nxn Queens, Backtracking Algorithms, and CSP
-Backtracking algorithms are used to solve Constraint Satisfaction Problems (CSP), and NxN Queens is a CSP. For a problem to be CSP, it can be written as the problem of assigning variables to domains according to a set of constrains. In NxN Queeens, the problem is to put N Queens on an NxN chess board such that no Queens are attacking each other according to the rules of chess. In this project I will find all solutions for NxN Queens (with low values of N). With respect to CSP, the variables are the Queens, the domains are the squares on the board, and the constraint is that no Queen can be placed in attacking range of any other. To simplify the interface for this problem, the value N will be hardcoded into the source files, and the output will be the total number of solutions. I will be solving NxN Queens as an enumeration problem, then testing for increasing values of N and recording the results. Once both solutions are implemented and working correctly, I will add timing to the programs, so I can measure how fast they are for various values of N. The results are included in this readme file. See the activity log for progress: INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
+Backtracking algorithms are used to solve Constraint Satisfaction Problems (CSP), and NxN Queens is a CSP. For a problem to be CSP, it can be written as the problem of assigning variables to domains according to a set of constrains. In NxN Queeens, the problem is to put N Queens on an NxN chess board such that no Queens are attacking each other according to the rules of chess. In this project I will find all solutions for NxN Queens (with low values of N). With respect to CSP, the variables are the Queens, the domains are the squares on the board, and the constraint is that no Queen can be placed in attacking range of any other. To simplify the interface for this problem, the value N is hard-coded into the source file. I will be solving NxN Queens as an enumeration problem, then testing for increasing values of N and recording the results. The results are included in this readme file. See the activity log for progress notes: INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
 
 ## Results
-
-## Conclusion
+Note: results may vary depending on the system running. I did get some variation in the clock values when running the executable multiple times. In future, to remedy this I will run many automated trials and take an avarage clock time. The results stop at N=15 because at that size it runs for several minutes. I could keep this running overnight and add more results later on. I think the WR for highest order is 27. The Wikipedia page for Eight Queens Puzzle has results for higher values of N, available here: https://en.wikipedia.org/wiki/Eight_queens_puzzle#Existence_of_solutions.
+| N  | enumeration | clock  |
+|----|-------------|--------|
+| 1  | 1           | 0      |
+| 2  | 0           | 0      |
+| 3  | 0           | 0      |
+| 4  | 2           | 0      |
+| 5  | 10          | 1      |
+| 6  | 4           | 0      |
+| 7  | 40          | 1      |
+| 8  | 92          | 1      |
+| 9  | 352         | 10     |
+| 10 | 724         | 54     |
+| 11 | 2680        | 322    |
+| 12 | 14200       | 2102   |
+| 13 | 73712       | 14330  |
+| 14 | 365596      | 101551 |
+| 15 | 2279184     | 783914 |
 
 ### Activity Log
 activityLog.txt is filled with numbered entries that record progress in the completion of this project. INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
@@ -42,8 +58,4 @@ To run the program,
 
 ### C++ Solution with Classes and Vectors
 nxnQueens.cpp
-The input variable n, for nxn queens is hard-coded into the source file, #define N 8, for example. Therefore, no command-line arguments are needed.
-To compile the source file in src directory,
-    "g++ nxnQueens.cpp -Wall -o ../bin/cppQueens"
-To run the program,
-    "../bin/cppQueens"
+This file is buggy. Ignore it. For more information see Bugs project, Sample1.

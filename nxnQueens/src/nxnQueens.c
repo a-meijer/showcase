@@ -13,9 +13,10 @@
  *  Purpose: Create backtracking recursion without datastructures
  */
 
-#define N 8
+#define N 16
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 //return 1 if there is a collision; otherwise return 0
 int check(char board[N][N], int x, int y){
@@ -96,6 +97,10 @@ int expand(char board[N][N], int h){
 }
 
 int main(){
+    //initialize clock
+    clock_t start, end;
+    //check the clock
+    start = clock();
     //initialize the root node
     char rootBoard[N][N];
     //The board for the root node is empty
@@ -106,9 +111,18 @@ int main(){
             rootBoard[i][j] = '0';
         }  
     }
+    //initialize results variable
     int result = 0;
+    //start the recursion
     result = expand(rootBoard, 0);
+    //jank
     int n = N;
-    printf("enumeration when N = %d, result = %d", n, result);
+    //print results
+    printf("enumeration when N = %d yields %d solutions.\n", n, result);
+    //check the clock
+    end = clock();
+    //calculate time
+    int timeTaken = (int)(end-start);
+    printf("Time taken: %d ticks.", timeTaken);
     return 0;
 }
