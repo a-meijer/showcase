@@ -1,10 +1,16 @@
 # Backtracking Recursion Readme
 ## Project Description
 The purpose of this project is to compare backtracking algorithms that solve the NxN Queens problem. 
-One algorithm will be written in C with structs, and another algorithm will be written in C++ with classes.
+One algorithm will be written in C a simple hard-coded enumeration solution, and another algorithm is written in C++ with classes.
+The design behind the two solutions is that the Cpp solution is more robust but slower: It first builds the Backtracking Tree, and then traverses it for the enumeration solution. The C solution is expected to be faster because it doesn't build a BackTracking Tree, it is built just for enumeration using an expand function. The Cpp solution uses BTTree.build and then BTTree.enumerate.
 
 ## nxn Queens, Backtracking Algorithms, and CSP
-Backtracking algorithms are used to solve Constraint Satisfaction Problems (CSP), and NxN Queens is a CSP. For a problem to be CSP, it can be written as the problem of assigning variables to domains according to a set of constrains. In NxN Queeens, the problem is to put N Queens on an NxN chess board such that no Queens are attacking each other according to the rules of chess. In this project I will find all solutions for NxN Queens. With respect to CSP, the variables are the Queens, the domains are the squares on the board, and the constraint is that no Queen can be placed in attacking range of any other. To simplify the interface for this problem, the value N will be hardcoded into the source files, and the output to the console will be the total number of solutions. I will be solving NxN Queens as an enumeration problem, then testing for increasing values of N and recording the results. See the activity log for progress: INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
+Backtracking algorithms are used to solve Constraint Satisfaction Problems (CSP), and NxN Queens is a CSP. For a problem to be CSP, it can be written as the problem of assigning variables to domains according to a set of constrains. In NxN Queeens, the problem is to put N Queens on an NxN chess board such that no Queens are attacking each other according to the rules of chess. In this project I will find all solutions for NxN Queens (with low values of N). With respect to CSP, the variables are the Queens, the domains are the squares on the board, and the constraint is that no Queen can be placed in attacking range of any other. To simplify the interface for this problem, the value N will be hardcoded into the source files, and the output will be the total number of solutions. I will be solving NxN Queens as an enumeration problem, then testing for increasing values of N and recording the results. Once both solutions are implemented and working correctly, I will add timing to the programs, so I can measure how fast they are for various values of N. The results are included in this readme file. See the activity log for progress: INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
+
+## Results
+
+## Conclusion
+
 ### Activity Log
 activityLog.txt is filled with numbered entries that record progress in the completion of this project. INDEV entries are for drafting, ALPHA entries are for unit testing, BETA entries are for the comparison in the project description, and VERSION entries are for after the project is finished.
 
@@ -26,7 +32,7 @@ To compile the source file,
 To run the program,
     "../bin/cppLinkedList"
 
-### C Solution with Datastructures
+### C Solution with 2D char array
 nxnQueens.c
 The input variable n, for nxn queens is hard-coded into the source file, #define N 8, for example. 
 To compile the source file enter in src directory,
@@ -34,7 +40,7 @@ To compile the source file enter in src directory,
 To run the program,
     "../bin/cQueens"
 
-### C++ Solution with Classes
+### C++ Solution with Classes and Vectors
 nxnQueens.cpp
 The input variable n, for nxn queens is hard-coded into the source file, #define N 8, for example. Therefore, no command-line arguments are needed.
 To compile the source file in src directory,

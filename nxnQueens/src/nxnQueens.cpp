@@ -1,13 +1,34 @@
-//enumerate nxnQueens using C++ vectors
-// ~ June 28. 2021, Andrew Meijer
-// - Replaced previous nxnQueens.cpp file from separate project
-// - added horizontal and diagonal functions from unitTests.cpp
+/*
+ *  Name: nxnQueens.cpp
+ *  Date: Started ~2021-June-28
+ *      2021-June-28:
+ *           - Replaced previous nxnQueens.cpp file from separate project
+ *           - added horizontal and diagonal functions from unitTests.cpp
+ *      2021-0ct-10:
+ *          - Drafting classes and functions for unit testing. See activity log.
+ *          - The idea is to run BTTree.build to build the tree, and then BTTree.enumerate to get the solution.
+ *  Author: Andrew Meijer
+ *  Purpose: Create backtracking recursion with classes
+ */
 
 #define N 4
 #include <vector>
 #include <iostream>
 
 using namespace std;
+
+class BTTree {
+    public:
+        BTNode* root;
+
+        void build(){
+
+        }
+
+        int enumerate(){
+
+        }
+};
 
 class BTNode {
     public:
@@ -26,15 +47,6 @@ class BTNode {
             }
         }
 };
-
-//place a queen in each row for each child node; 
-//test if each node passes horizontal and diagonal; 
-//expand each node that passes
-vector<vector<int> > expand(BTNode root){
-    for(int i=0; i<N; i++){
-
-    }
-}
 
 //Return true if a queen on col is attacking queens horizontally on columns i where i < col, else return 0
 //horizontal passes all tests in unitTests.cpp on June 28, 2021.

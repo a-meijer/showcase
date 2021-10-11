@@ -36,15 +36,24 @@
 #include <iostream>
 
 using namespace std;
+/*
+class BTTree {
+    public:
+        BTNode* root;
+        
+        BTTree(){
+            BTNode* root = new BTNode();
+        }
+};*/
 
 class BTNode {
     public: 
-        BTNode* children[N];
+        BTNode* nextChild;
         vector<int> board;
 
         BTNode() {
             for(int i = 0; i<N; i++){
-                board[i] = -1;
+                board.push_back(-1);
             }            
         }
         BTNode(vector<int> parentBoard) {
@@ -55,75 +64,55 @@ class BTNode {
         }
 };
 
-//place a queen in each row for each child node; 
-//test if each node passes horizontal and diagonal; 
-//expand each node that passes
-vector<vector<int> > expand(BTNode root){
-    for(int i=0; i<N; i++){
-
-    }
-}
-
-//Return true if a queen on col is attacking queens horizontally on columns i where i < col, else return 0
-bool horizontal(vector<int> board, int col){
-    //if any board values are equal other than -1, there is a horizontal collision
-    for(int i=0; i<col; i++){
-        if(board[col] == board[i] && board[col] != -1 && board[i] != -1){
-            return true;
-        }            
-    }
-    return false;
-}
-
-/*
-diagonal(board, 2);
-vector<int> {0, 2, 2, -1}
-       |
-   x   v
-   0 1 2 3
-0  x O O O
-1  O x O O
-2  O O 0 O
-3  O O x O
-b[col] = 2
-if(b[col-1] == 1 || b[col-1] == 3){ that's diagonal}
-*/
-
-//Return true if a queen on col is attacking queens diagonally on columns i where i < col, else return 0
-bool diagonal(vector<int> board, int col){
-
-    //the difference between two columns relates to whether the queens placed in those columns are diagonal to each other.
-    int colDiff = 0;
-
-    //for each column to the left of col
-    for(int i = col-1; i >= 0; i--){
-
-        colDiff = col-i;
-
-        //according to the vector encoding of the boards,
-        //if board[i] == board[col] +- colDiff, and neither column is empty, then the queen on column i is diagonal to the queen on column col 
-        if(board[i] == board[col] + colDiff || board[i] == board[col] - colDiff){
-            //if queen is placed on i column
-            if(board[i] != -1 && board[col] != -1){
-                return true;
-            }//if
-        }//if
-    }//for
-    return false;
-}
-
 //Main is for unit testing; see comments
 int main(){
+    // ***** TESTS FOR BTNode and BTTree constructors *****
+
+    //testing the BTNode class constructors:
+    //to test BTNode class, create a BTNode using each constructor, change the value of one of the columns on one of the boards, and then compare the boards.
+    BTNode* node1 = new BTNode();
+    BTNode* node2 = new BTNode(node1->board);
+
+    int i=0;
+    for(i=0; i<N; i++){
+            if(node1->board[i] != node2->board[i]){
+                cout << "test successful." << endl;
+                exit(0);
+            }
+    }
+    cout << "boards identical." << endl;
+    exit(0);
+
+    //testing the BTTree class:
+    //BTTree* tree = new BTTree();
+
+    //testing the BTTree.build function:
+
+    //testing the BTTree.enumerate function:
+
+    // vector<vector<int> > solutions = expand(root);
+    //vector<int> board;
+    //board.push_back(0);
+    //board.push_back(2);
+    //board.push_back(2);
+    //board.push_back(-1);
+
+    return 0;
+
+
+
+
+    // ***** TESTS FOR HORIZONTAL AND DIAGONAL FUNCTIONS *****
+    /*
     // For each function and class to test, use an answer key for eight (8) hard-coded test cases.
     int number_of_tests = 8; //precise hard-code corresponds to hardcoded test values.
-
 
     //vectors are basically just a workaround to do pass-by-value imo
 
     //testing both horizontal and diagonal functions can be done with the same set of test data
     //for each of the 8 test cases/boards numbered from 0 to 7, each function will be tested for each column, for a total of 32 tests for each horizontal and diagonal.
     //..........................//DATA........test0..........test1..........test2..........test3..........test4..........test5..........test6..........test7.......
-     vector<vector<int>> tests_horidiag =   { { 3, 0, 2,-1}, { 0, 0, 0, 0}, { 0, 0, 0, 1}, { 1, 0, 0, 0}, { 0, 2, 0, 0}, {-1, 0, 3, 0}, { 0, 1,-1,-1}, { 0, 0,-1,-1}};
+    vector<vector<int>> tests_horidiag =   { { 3, 0, 2,-1}, { 0, 0, 0, 0}, { 0, 0, 0, 1}, { 1, 0, 0, 0}, { 0, 2, 0, 0}, {-1, 0, 3, 0}, { 0, 1,-1,-1}, { 0, 0,-1,-1}};
     //Answer Key, Horizontal:
     vector<vector<int>> ans_horizontal =    { { 0, 0, 0, 0}, { 0, 1, 1, 1}, { 0, 1, 1, 0}, { 0, 0, 1, 1}, { 0, 0, 1, 1}, { 0, 0, 0, 1}, { 0, 0, 0, 0}, { 0, 1, 0, 0}};
     //Answer Key, Diagontal:
@@ -164,24 +153,5 @@ int main(){
 
         }//for each column
     }//for each test
-    
-    //testing the BTNode class:
-    //
-
-    // BTNode root = new BTNode();
-
-
-    //testing the expand function:
-
-    // vector<vector<int> > solutions = expand(root);
-    vector<int> board;
-    board.push_back(0);
-    board.push_back(2);
-    board.push_back(2);
-    board.push_back(-1);
-    bool v = diagonal(board, 3);
-
-    cout << v << endl;
-
-    return 0;
+    */
 }

@@ -8,19 +8,14 @@
  *      2021-Jan- see activity log.
  *      2021-June - see activity log.
  *      2021-July - see activity log. . . See activity log for further updates.
+ *      2021-Oct-10 - completed draft and unit tests; see activity log;
  *  Author: Andrew Meijer
- *  Purpose: Create backtracking recursion with datastructures
+ *  Purpose: Create backtracking recursion without datastructures
  */
 
-#define N 4
+#define N 8
 #include <stdio.h>
 #include <stdlib.h>
-
-struct BTNode {
-    int h; //the current column in the algorithm
-    char b[N][N]; //board state
-    struct BTNode* nextChild; //pointer to child nodes
-};
 
 //return 1 if there is a collision; otherwise return 0
 int check(char board[N][N], int x, int y){
@@ -57,128 +52,63 @@ int check(char board[N][N], int x, int y){
     return 0;
 }
 
-//include a parent node as an argument to initialize any child node
-//Careful not to point to the parent board from the child; instead, DEEP COPY, or else it will ruin the algorithm
-//paramenter x is the number of the child: 0 <= x < N s.t. board[h][x]='1';
-//return the running enumeration total such that if the BTTree root is expanded, it would return the solution. ( In my first draft I am expanding the root in main)
-//The root node is expanded in the main function, so all the roots expanded in here have a parent node.
-int expand(struct BTNode * p, struct BTNode * n, int x){
-    //initialize node height
-    n->h = 0;
+//return the enumeration of all solutions from depth h recursively
+int expand(char board[N][N], int h){
+    //do not check for a proper input board: each column < h should have a queen placed
+    //if h = N we filled the board with queens (thus found a solution); return 1
+    if(h >= N){
+        //printf("Found solution; board:\n");
+        //printBoard(board);
+        return 1;
+    }
+    int placedQueen = 0; //flag
+    int i = 0; //loop index
+    int j = 0; //loop index
+    int k = 0; //loop index
+    int cr = 0; //check result
+    int runningTotal = 0;
+    //for each square in column h, 
+    for(i=0; i<N; i++){
+        //check board[h][i]
+        cr = check(board, h, i);
+        //if check returns no-collision
+        if(cr == 0){
+            //make a new board
+            char nextBoard[N][N];
+            for(j=0; j<N; j++){
+                for(k=0; k<N; k++){
+                    nextBoard[j][k] = board[j][k];
+                }
+            }
+            //place the new queen on the new board
+            nextBoard[h][i] = '1';
 
-    //initialize the empty board
-    int i=0;
-    int j=0;
-    for(i=0; i<N; i=i+1){
-        for(j=0; j<N; j=j+1){
-            n->b[i][j] = '0';
+            //increment h
+            int h2 = h+1;
+
+            //runningTotal += expand
+            runningTotal = runningTotal + expand(nextBoard, h2);
         }
     }
-
-    //allocate space for the child node
-    n->nextChild = (struct BTNode *)malloc(sizeof(struct BTNode));
-
-    //check if the board makes sense for that one (y'know?)
     
+    return runningTotal;
 
-    //Add the return value of expand(nextChild) to a running total for current instance
-    int total = 0;
-    for(i=0; i<N; i++){
-        total = total + expand(n, n->nextChild, i);
-    }
-    printf("Returning %d", total);
-    return total;
 }
 
-//OLD EXPAND
-//for reference
-/*int expand(struct BTNode * p, struct BTNode * n, int x){
-
-    //allocate space for the new node
-    n = (struct BTNode *)malloc(sizeof(struct BTNode));
-    
-    //increment height
-    //does this copy the pointer? I don't think so. . .
-    n->h = p->h + 1;
-
-    //temporary variable to transfer data between boards
-    char tempoChar = '0';
-    //initialize the board
-    //be careful to not point to the same board as parent
-    int i=0;
-    int j=0;
-    for(i=0; i<N; i=i+1){
-        for(j=0; j<N; j=j+1){
-            tempoChar = p->ChessBoard->b[i][j];
-            n->board[i][j] = tempoChar;
-        }
-    }
-    
-    //change the board by adding a new queen
-    n->board[n->h][x] = '1';
-
-    //test if the new queen is attacking any others
-    char horizontalReturnVal = horizontal(n->board, n->h);
-    char diagonalReturnVal = diagonal(n->board, n->h);
-
-    if(horizontalReturnVal == '1'){
-        printf("?");
-    }else{
-        printf("!");
-    }
-
-    //allocate space for the child nodes
-    i=0;
-    for(i=0; i<N; i=i+1){
-        n->c[i] = (struct BTNode *)malloc(sizeof(struct BTNode));
-    }
-}*/
-
 int main(){
-
-    printf("Initializing. . .");
-
-    //In the main function I expand the root node
-
-    //initialize the root node pointer
-    struct BTNode * root;
-    //allocate space for the root node
-    root = (struct BTNode *)malloc(sizeof(struct BTNode));
-    if(root == NULL){
-        printf("malloc failed in main");
-        exit(0);
-    }
-
-    //initialize root height
-    root->h = 0;
-
-    //initialize the empty board
+    //initialize the root node
+    char rootBoard[N][N];
+    //The board for the root node is empty
     int i=0;
     int j=0;
-    for(i=0; i<N; i=i+1){
-        for(j=0; j<N; j=j+1){
-            root->b[i][j] = '0';
-        }
-    }
-
-    printf("Allocating Space. . .");
-
-    //allocate space for the child node
-    root->nextChild = (struct BTNode *)malloc(sizeof(struct BTNode));
-    if(root->nextChild == NULL){
-        printf("malloc failed in loop i=%d", i);
-        exit(0);
-    }
-
-    printf("Running. . .");
-
-    //Summate the return values for expansion of each child node
-    int total = 0;
     for(i=0; i<N; i++){
-        total = total + expand(root, root->nextChild, i);
+        for(j=0; j<N; j++){
+            rootBoard[i][j] = '0';
+        }  
     }
-
-    printf("Result: %d", total);
-
+    int result = 0;
+    result = expand(rootBoard, 0);
+    int n = N;
+    printf("enumeration when N = %d, result = %d", n, result);
     return 0;
 }

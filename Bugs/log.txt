@@ -1,0 +1,22 @@
+LOG_ENTRY_002   -   Sample One  - 2021-10-10
+    The first sample comes from my nxnQueens project which is in this same repository at the time of writing.
+    I am compiling and running the source files to make sure they are working in this new directory.
+    All of the details are in Sample1.md.
+    Here's what it looks like on my terminal in VS Code:
+        PS C:\PROG\showcase> cd Bugs/Sample1/src
+        PS C:\PROG\showcase\Bugs\Sample1\src> g++ testFile1.cpp -Wall -o ../bin/file1
+        PS C:\PROG\showcase\Bugs\Sample1\src> ../bin/file1
+        PS C:\PROG\showcase\Bugs\Sample1\src> g++ testFile2.cpp -Wall -o ../bin/file2
+        PS C:\PROG\showcase\Bugs\Sample1\src> ../bin/file2
+        test successful.
+        test successful.
+        test successful.
+        test successful.
+        boards identical.
+        PS C:\PROG\showcase\Bugs\Sample1\src>
+
+LOG_ENTRY_001   -   New Project - 2021-10-10
+    Hello, this is the first log entry for the Bugs project.
+    The way this works is, I create entries in this log to record what I'm doing in the Bugs project.
+    Since this project is created just to archive bugs, I have a very simple structure to the log, 
+    I'll just make an entry whenever I add a bug sample or solve one.

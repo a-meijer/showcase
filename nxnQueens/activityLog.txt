@@ -1,4 +1,16 @@
-ALPHA002: Unit Testing nxnQueens.c - Open
+VERSION 001: Project Complete - Closed
+    - close when all other tasks are closed.
+
+BETA 002: Write Results - Open 
+    in markup file and uldate readme instructions; add conclusion to readme
+
+BETA 001: Add Timing - Open
+    - to c and cpp solutions to measure and compare the solutions
+    - correction: add to c solution and measure timing for different values of N.
+
+***** Following tasks are all CLOSED: *****
+
+ALPHA 002: Unit Testing nxnQueens.c - Closed
     2021-09-20  :   unitTests.c is for testing the deep copy of boards, so I have copied elements of nxnQueens.c into unitTests.c
     2021-10-02  :   Running empty unit tests for deep copying the chess board; compiles and runs. gcc unitTests.c -o ../bin/deepCopyUnitTest
     2021-10-02  :   Adding tests for deepy copy: simply change one of the values in child board and compare to parent.
@@ -19,12 +31,29 @@ ALPHA002: Unit Testing nxnQueens.c - Open
                     Hey, it worked. I failed some tests. It seems like I'm missing all diagonal checks.    
                     I'm changing some tests to cover more diagonal variety                       
                     New tests confirm, no diagnonal collisions are being detected. Fixed logic error in check function; fixed wrong-variable error in check function; All tests pass.
-
-ALPHA001: Unit Testing nxnQueens.cpp - Open
+    2021-10-10  :   Hard-coded unit tests for expand function; compiling. . . running. . . "test 2 failed"
+                    Here's what I got:
+                >   Found solution; board:
+                >   1000
+                >   0000
+                >   0001
+                >   0100
+                >
+                >   Found solution; board:
+                >   1000
+                >   0000
+                >   0001
+                >   0000
+    2021-10-10  :   Changed "increment h" from "h = h+1" to "h2 = h+1;"            
+                    All tests pass!
+                    Adding expand function to nxnQueens.c
+    2021-10-10  :   Closed; unit testing complete for unitTests.c
+ALPHA 001: Unit Testing nxnQueens.cpp - Closed
     2021-06-26  :   Horizontal and Diagonal functions all pass. Imported solution from separate project.
     2021-06-29  :   See nxnQueens.cpp for those notes in the comments. Anyways, I am creating src and bin directories now. Updated compilation instructions for src and bin.
-
-INDEV010: Final Drafts - Open
+    2021-10-10  :   The cpp implementation has created a mysterious and obstructive bug, so I will be moving it to a bug archive project as a sample, and then simplifying the purpose of the project accordingly.
+                    Closed
+INDEV 010: Final Drafts - Closed
     2021-01-26  :   Consider the possibility of iterative backtracking while you work on the recursive backtracking implementations.    
     2021-06-28  :   Draft all files for unit testing: Cpp solution
     2021-06-29  :   Updated compilation instructions for src and bin.
@@ -71,8 +100,14 @@ INDEV010: Final Drafts - Open
     2021-08-22  :   Debugging nxnQueens.c - having an issue with malloc where the program is crashing.
     2021-08-22  :   Changing the enconding for nxnQueens.c in progress. . .
     2021-09-20  :   Writing separate program for testing deep-copy of boards unitTests.c
-
-INDEV009: Recursive Backtracking in C - Open
+    2021-10-10  :   drafted expand function in nxnQueens.c. Unit testing complete; nxnQueens is complete.
+                    the structure for nxnQueens.cpp needs to change: BTTree.build and BTTree.traverse
+                    Codebase for nxnQueens.cpp and unitTests.cpp is a mess!
+                    I am starting by drafting and then testing the BTNode and BTTree classes and constructors.
+                    I am having the same issue with cpp as I was having with c before I removed structs.
+                    Here then, I leave you a study for next time. I will move these files to another project.
+                    Closed
+INDEV 009: Recursive Backtracking in C - Closed
     2021-01-10  :   I realized that with a recursive approach to nxnQueens, the struct/class I am using doesn't need a pointer to a parent node.
                     This information can possibly be used in the construction of an iterative solution to nxnQueens in the future,
                     which ties back to the original aim of this project, to compare iterative and recursive solutions for backtracking. Meh.
@@ -107,17 +142,17 @@ INDEV009: Recursive Backtracking in C - Open
                     Added new check function to nxnQueens.c
                     Oops, looks like nxnQueens already had an implementation of that, modified from nxnQueens.cpp
                     Oh well, the new check function is much more concise, so I'm looking good to draft my expand function next. Spooky recursion.
-
-***** Following tasks are all CLOSED: *****
-
-INDEV008: Make a Linked List - Closed
+    2021-10-10  :   drafted expand function.
+                    Unit tests complete; running enumeration!
+                    enumeration when N = 8, result = 92
+                    Success; closed nxnQueens.c. Now I need to finish nxnQueens.cpp
+INDEV 008: Make a Linked List - Closed
     2021-01-04  :   To establish working syntax for structs, I will first encode a linkedlist solution before moving on to backtracking.
     2021-01-04  :   The C linked list is now complete, but it was producing a warning: incompatible implicit declaration of built-in function 'malloc'
                     This is because I neglected to include <stdlib.h>
     2021-01-05  :   Making a linked list in C++ should be much easier. Those pointers are confusing!
     2021-01-06  :   Closed Complete
-
-INDEV007: Test Results File - Closed
+INDEV 007: Test Results File - Closed
     2020-12-13  :   Removed unnecessary Cpp header files. Headerfiles are for when a class is being used for multiple source files; I don't need that.
     2020-12-13  :   Updated Readme with notes about compilation
     2020-12-13  :   Decided to include testing results as part of project.
@@ -125,32 +160,27 @@ INDEV007: Test Results File - Closed
     2021-01-04  :   ~?
     2021-06-29  :   Testing is decided: Notice the entry prefixes for this activity log: INDEV is for drafts, ALPHA is for unit testing, and BETA is for analysis.
     2021-06-29  :   Closed; see ALPHA log entries for unit tests.
-
-INDEV006: Add Instructions - Closed
+INDEV 006: Add Instructions - Closed
     2020-11-15  :   Entry Created
     2020-11-15  :   Now that there are header files, remember to create compilation instructions in the Readme!
     2020-12-13  :   CLosed Complete
-
-INDEV005: Rewrite Readme - Closed
+INDEV 005: Rewrite Readme - Closed
     2020-11-15  :   Entry Created
     2020-11-15  :   Rewrite the README according to the new scope of the project, to write 2 nxnQueens solutions.
     2020-11-14  :   Closed Complete
-
-INDEV004: Pivot Project - Closed
+INDEV 004: Pivot Project - Closed
     2020-11-15  :   Entry Created
     2020-11-15  :   Maintain the new vision for the project is to create two files that solve nxnQueens, one with structs and one with classes. Glhf; let's make this quick.
     2020-11-15  :   I have experienced a VS Code warning while writing structs in C, "incomplete type is not allowed."
                     I may need to create a header file for this!
     2021-01-04  :   Closed Complete
-
-INDEV003: include Prototype1 in Readme - Closed
+INDEV 003: include Prototype1 in Readme - Closed
     2020-11-05  :   Entry Created
     2020-11-05  :   Write a paragraph summary of the first prototype, which will be recursive.
     Later prototypes will require one recursive algorithm and one iterative algorithm to compare space and time efficiency.
     This first prototype will only include the recursive example of backtracking.
     2020-11-15  :   CLosed Abandoned
-
-INDEV002: Define Terms - Closed
+INDEV 002: Define Terms - Closed
     2020-11-05  :   Entry Created
     2020-11-05  :   The readme should include a section to explain each of the two terms, recursion and backtracking.
     Consider the type of problem that backtracking is made to solve and how that type of problem can be represented simply.
@@ -158,8 +188,7 @@ INDEV002: Define Terms - Closed
     2020-11-06  :   It turns out that Backtracking is used to solve CSP, so I have updated the readme accordingly.
     Now I will need to include definitions for Iteration, Backtracking, Recursion, and CSP.
     2020-11-15  :   Closed Abandoned
-
-INDEV001: Update Project Description - Closed
+INDEV 001: Update Project Description - Closed
     2020-11-05  :   Entry Created
     2020-11-05  :   The project description at the top of the readme should include mention of the possibility that no proof can be found.
     2020-11-06  :   Closed Complete

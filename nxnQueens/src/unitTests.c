@@ -4,11 +4,25 @@
  *      - Copied elements from nxnQueens.c
  *  Author: Andrew Meijer
  *  Purpose: Test functions to be used in nxnQueens.c
+ *           Completed October 10, 2021.
  */
 
 #define N 4
 #include <stdio.h>
 #include <stdlib.h>
+
+//output for manual testing
+void printBoard(char board[N][N]){
+    int i=0;
+    int j=0;
+    for(i=0; i<N; i++){
+        for(j=0; j<N; j++){
+            printf("%c", board[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
 
 //return 1 if there is a collision; otherwise return 0
 int check(char board[N][N], int x, int y){
@@ -47,35 +61,60 @@ int check(char board[N][N], int x, int y){
 
 //return the enumeration of all solutions from depth h recursively
 int expand(char board[N][N], int h){
-
-}
-
-//output for manual testing
-void printBoard(char board[N][N]){
-    int i=0;
-    int j=0;
-    for(i=0; i<N; i++){
-        for(j=0; j<N; j++){
-            printf("%c", board[i][j]);
-        }
-        printf("\n");
+    //do not check for a proper input board: each column < h should have a queen placed
+    //if h = N we filled the board with queens (thus found a solution); return 1
+    if(h >= N){
+        //printf("Found solution; board:\n");
+        //printBoard(board);
+        return 1;
     }
-    printf("\n");
+    int placedQueen = 0; //flag
+    int i = 0; //loop index
+    int j = 0; //loop index
+    int k = 0; //loop index
+    int cr = 0; //check result
+    int runningTotal = 0;
+    //for each square in column h, 
+    for(i=0; i<N; i++){
+        //check board[h][i]
+        cr = check(board, h, i);
+        //if check returns no-collision
+        if(cr == 0){
+            //make a new board
+            char nextBoard[N][N];
+            for(j=0; j<N; j++){
+                for(k=0; k<N; k++){
+                    nextBoard[j][k] = board[j][k];
+                }
+            }
+            //place the new queen on the new board
+            nextBoard[h][i] = '1';
+
+            //increment h
+            int h2 = h+1;
+
+            //runningTotal += expand
+            runningTotal = runningTotal + expand(nextBoard, h2);
+        }
+    }
+    
+    return runningTotal;
+
 }
 
 //run hard-coded unit tests in main
 int main(){
-    //initialize the root node pointer
-    char rootBoard[N][N];
+    //initialize the root node
+    //char rootBoard[N][N];
     //The board for the root node is empty
-    int i=0;
-    int j=0;
-    for(i=0; i<N; i++){
-        for(j=0; j<N; j++){
-            rootBoard[i][j] = '0';
-        }  
-    }
-    int result = 0;
+    //int i=0;
+    //int j=0;
+    //for(i=0; i<N; i++){
+    //    for(j=0; j<N; j++){
+    //        rootBoard[i][j] = '0';
+    //    }  
+    //}
+    //int result = 0;
     //result = expand(rootBoard, 0);
     //printBoard(rootBoard);
     
@@ -85,6 +124,84 @@ int main(){
     //                      external node with one or more solutions, 
     //                      internal node that yields no solutions,
     //                  and internal node that yields one or more solutions.
+    /*
+    //Hard-coding tests with N=4
+    // ALL TESTS PASS FOR EXPAND FUNCTION, OCT.10, 2021
+
+    //initialize boards
+    char testBoard0[N][N];
+    char testBoard1[N][N];
+    char testBoard2[N][N];
+    char testBoard3[N][N];
+
+    //set values of each test board
+    
+    //external node with no solutions:
+    int h0 = 3;
+    int ans0 = 0;
+    testBoard0[0][0] = '0'; testBoard0[1][0] = '1'; testBoard0[2][0] = '0'; testBoard0[3][0] = '0';
+    testBoard0[0][1] = '0'; testBoard0[1][1] = '0'; testBoard0[2][1] = '0'; testBoard0[3][1] = '0';
+    testBoard0[0][2] = '0'; testBoard0[1][2] = '0'; testBoard0[2][2] = '1'; testBoard0[3][2] = '0';
+    testBoard0[0][3] = '1'; testBoard0[1][3] = '0'; testBoard0[2][3] = '0'; testBoard0[3][3] = '0';
+
+    //external node with one or more solutions:
+    int h1 = 3;
+    int ans1 = 1;
+    testBoard1[0][0] = '0'; testBoard1[1][0] = '0'; testBoard1[2][0] = '1'; testBoard1[3][0] = '0'; 
+    testBoard1[0][1] = '1'; testBoard1[1][1] = '0'; testBoard1[2][1] = '0'; testBoard1[3][1] = '0'; 
+    testBoard1[0][2] = '0'; testBoard1[1][2] = '0'; testBoard1[2][2] = '0'; testBoard1[3][2] = '0'; 
+    testBoard1[0][3] = '0'; testBoard1[1][3] = '1'; testBoard1[2][3] = '0'; testBoard1[3][3] = '0'; 
+
+    //internal node with no solutions:
+    int h2 = 1;
+    int ans2 = 0;
+    testBoard2[0][0] = '1'; testBoard2[1][0] = '0'; testBoard2[2][0] = '0'; testBoard2[3][0] = '0'; 
+    testBoard2[0][1] = '0'; testBoard2[1][1] = '0'; testBoard2[2][1] = '0'; testBoard2[3][1] = '0'; 
+    testBoard2[0][2] = '0'; testBoard2[1][2] = '0'; testBoard2[2][2] = '0'; testBoard2[3][2] = '0'; 
+    testBoard2[0][3] = '0'; testBoard2[1][3] = '0'; testBoard2[2][3] = '0'; testBoard2[3][3] = '0'; 
+
+    //internal node with one or more solutions:
+    int h3 = 2;
+    int ans3 = 1;
+    testBoard3[0][0] = '0'; testBoard3[1][0] = '0'; testBoard3[2][0] = '0'; testBoard3[3][0] = '0'; 
+    testBoard3[0][1] = '1'; testBoard3[1][1] = '0'; testBoard3[2][1] = '0'; testBoard3[3][1] = '0'; 
+    testBoard3[0][2] = '0'; testBoard3[1][2] = '0'; testBoard3[2][2] = '0'; testBoard3[3][2] = '0'; 
+    testBoard3[0][3] = '0'; testBoard3[1][3] = '1'; testBoard3[2][3] = '0'; testBoard3[3][3] = '0'; 
+
+    //expand each board and compare the results with each answer
+    int result = 0;
+    
+    //test board 0
+    result = expand(testBoard0, h0);
+    if(result != ans0){
+        printf("test 0 failed.");
+        exit(0);
+    }
+
+    //test board 1
+    result = expand(testBoard1, h1);
+    if(result != ans1){
+        printf("test 1 failed.");
+        exit(0);
+    }
+
+    //test board 2
+    result = expand(testBoard2, h2);
+    if(result != ans2){
+        printf("test 2 failed. %d != %d", ans2, result);
+        exit(0);
+    }
+
+    //test board 3
+    result = expand(testBoard3, h3);
+    if(result != ans3){
+        printf("test 3 failed.");
+        exit(0);
+    }
+
+    printf("All tests passed.");
+    // ALL TESTS PASS FOR EXPAND FUNCTION, OCT.10, 2021
+    */
 
 
     /******************UNIT TESTS FOR CHECK FUNCTION******************/
