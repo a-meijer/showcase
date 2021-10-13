@@ -15,7 +15,7 @@ If any number is divisible by both 3 and 5, print "FizzBuzz."
 To see what a correct solution looks like, refer to the file, "solution.txt"
 
 ## Source File Reference
-What follows is a list of all the FizzBuzz source files in this directory with instructions for how to compile and run them.
+What follows is a list of all the FizzBuzz source files in this directory with instructions for how to compile and run them from the respective subdirectory for each language. solution.txt and CheckSolution.exe are in the parent directory.
 
 ### solution.txt
 The correct solution is stored in a data file called solution.txt.
@@ -42,6 +42,13 @@ To verify the correct solution,
 Run, "../checkSolution Cpp/output.txt solution.txt"
 Console outputs, "The solution is correct."
 
+### FizzBuzz.rb
+Ruby Solution added October 12, 2021.
+Run, "Ruby FizzBuzz.rb"
+To verify the correct solution,
+Run, "../checkSolution solution.txt Ruby/output.txt"
+Console outputs, "The solution is correct."
+
 ### FizzBuzz.java
 DEPRECATED - JDK out of date - Java no longer supported as of September 2020.
 Compile with "javac FizzBuzz.java"
@@ -49,4 +56,3 @@ Run with "java FizzBuzz"
 FizzBuzz.java outputs to the console.
 Note to self, if I run this file using the command-line, then I can't have a line, "package FizzBuzz." If I compile and run using the IDE, then I need to include "package FizzBuzz."
 VSCode produces an annoying red text whenever I remove the package.
-
