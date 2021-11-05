@@ -1,0 +1,60 @@
+NOTE:   More recent entries are closer to the top.
+----------------------------------------------------------------------------------------------------
+Log Entry #019 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #018 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #017 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #016 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #015 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #014 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #013 - Version 1.3 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #012 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #011 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #010 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #009 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #008 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #007 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #006 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #005 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #004 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #003 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #002 - Version 1.3 -  - 2021-- // YYYY-MM-DD
+    -   Update the readme with visualizations of the data structures.
+----------------------------------------------------------------------------------------------------
+Log Entry #001 - Version 1.3 - Starting Version 1.3 - Opened on 2021-11-04 // YYYY-MM-DD
+    -   I opened this project today. The last update on Github is from June 3, 2020. Next steps are
+    to find out the state this project is in by reading the notes in the readme and the source files
+    starting with main.py. 
+    -   I found that the readme says, 'To run the project, navigate to this directory and use the 
+    command, "python main.py."' I found that main.py has barely any comments right now; I don't
+    understand it at a glance and I will need to trace it. I ran "python main.py" and I got the
+    output: Welcome to testing
+                    Graph file:  edges.txt
+                    Goals file:  example4.txt
+            Shortest distance to reach all goals from s is 6 
+            Move from s to a for ga. (Shortest distance is 1)
+            Move from a to c for gc. (Shortest distance is 2)
+            Move from c to t for gt. (Shortest distance is 1)
+            Move from t to x for gx. (Shortest distance is 2)
+    Okay great, this is all coming back to me. I just need to test and make sure it's working and 
+    that the output is correct. Oh no! There is nothing to explain the formatting of the data files.
+    I think it is in my notes. The source files other than main.py have better commenting. 
+    -   Copied relevant notes to notepad for tracing and further development.
+----------------------------------------------------------------------------------------------------
+0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
