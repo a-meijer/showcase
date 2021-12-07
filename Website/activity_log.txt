@@ -1,0 +1,60 @@
+NOTE:   More recent entries are closer to the top.
+----------------------------------------------------------------------------------------------------
+Log Entry #019 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #018 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #017 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #016 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #015 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #014 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #013 - INDEV_1.0 -  - 2021- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #012 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #011 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #010 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #009 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #008 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #007 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #006 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #005 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #004 - INDEV_1.0 -  - 2021-- // YYYY-MM-DD
+----------------------------------------------------------------------------------------------------
+Log Entry #003 - INDEV_1.2 - Software Requirement Specificaitons - 2021-11-14 // YYYY-MM-DD
+    - Each of the required components of the project can be broken down into sprints.
+
+----------------------------------------------------------------------------------------------------
+Log Entry #002 - INDEV_1.1 - React and Next JS YouTube Tutorial - 2021-11-14 // YYYY-MM-DD
+
+----------------------------------------------------------------------------------------------------
+Log Entry #001 - INDEV_1.0 - Starting Project - Opened on 2021-11-14 // YYYY-MM-DD
+    -   I am following a youtube tutorial for React JS and Bootstrap to get me started.
+    The tutorial is available at the following URL: https://youtu.be/vD72tRK8mC4
+    Originally I was planning to use bootstrap, but Next.JS is something I've never used before, so
+    let's try it!
+    -   After the tutorial is complete, I add features according to the advice from Coder Foundry.
+    The Coder Foundry video is available at the following URL: https://youtu.be/oC483DTjRXU
+    -   The necessary features are as follows:
+        - Use of framework (Bootstrap)
+        - Use an architecture (progress logs; portfolio; React.js?; MVC)
+        - Use design patterns (Model View Controller)
+        - Organize your files (GitHub)
+        - Impressive front-end design 
+        - Use a database; Create, Read, Update, Delete;
+        - Login Authentication (Auth0)
+        - Solve a business problem (Project tracking logs)
+        - Software Requirement Specifications (Log Entry #003)
+----------------------------------------------------------------------------------------------------
+0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
