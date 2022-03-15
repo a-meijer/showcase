@@ -1,8 +1,8 @@
 //NAME: birthdayBoy.cpp
 //DATE: 2022/03/01 - 2022/03/02
 //AUTH: Andrew Meijer
-//      https://github.com/a-meijer/showcase
-//      Watch me make this program on YouTube: <https://youtu.be/u_UvX_vyqJk>
+//      Put your shorts on backwards:          https://github.com/a-meijer/showcase
+//      Watch me make this program on YouTube: https://youtu.be/u_UvX_vyqJk
 //PURPOSE: The purpose of this program is to meet the requirements of the project description.
 
 #include <stdio.h>
