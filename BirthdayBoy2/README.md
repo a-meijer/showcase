@@ -27,3 +27,23 @@ I had to pause to download and install gcc.
 Found source: https://www.programiz.com/c-programming/c-input-output
 Found source: https://docs.microsoft.com/en-us/cpp/build/walkthrough-compile-a-c-program-on-the-command-line?view=msvc-170
 Found source: https://www.tutorialspoint.com/cprogramming/c_input_output.htm
+Things took a turn. I am not sure if the video recorded properly.
+I am getting strange functionality:
+    This program calculates a person's age or birthyear.
+    What year is it?2022
+    What month is it? (1 - 12)3
+    What day is it? (1 - 31)1
+    Are you looking for (a)ge or (b)irthyear?INPUT ERROR. Press any key to continue. . .a
+    PS C:\PROG\showcase\BirthdayBoy2> 
+March 2, let's go.
+I think the strange functionality is due to my getchar leaving a newline character behind. Use 2 getchars.
+Fiddled with getchar cause it made no sense, but I got it working.
+Tested age function manually with known use cases.
+Wrote up birthyear function (similar to age function).
+Tested birthyear function with basic use cases.
+Renamed executable to birthdayBoy.
+Project complete!
+Testing from executable. . .Updating I/O tidiness. . .
+Renamed executable to BirthdayBoy.
+I still need to add the link to the video once it is posted. It will be in this file and in the comments of the source.
+The video will be up soon:  https://youtu.be/u_UvX_vyqJk
