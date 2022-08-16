@@ -2,8 +2,6 @@
 # See README for possible additional comments. - Andrew Meijer
 # I don't think I need regex for this one
 
-
-
 # variables
 prev = 0 # previous number
 ninc = 0 # number of increases (as per problem description)
