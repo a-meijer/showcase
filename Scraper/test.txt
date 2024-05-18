@@ -1,1 +1,3 @@
-Here is a file to test my repository linking with VS Code.
+This project is a python scraper to scrape data from the internet and output into CSV or terminal.
+Work in progress.
+The development of this project will depend on its application in other projects. Specifically, I am planning to use this project as a library in ELOrankings and Stonks.
