@@ -1,7 +1,7 @@
 ## ReadMe
 ### Purpose
 The purpose of this project is to create a ranking system of the Men's Singles badminton players who participated in the  2024 Jack Underhill and 2024 Provincial Championships, because these two tournaments determined the official Badminton BC Senior Men's Singles Badminton Rankings as of June 1, 2024: https://badmintoncanada.tournamentsoftware.com/ranking/category.aspx?id=39968&category=415
-Unfortunately, this ranking system is not very accurate, so I would advise Badminton BC to use my ranking system instead, running my algorithm on as many tournaments as possible, using match data from all of the tournaments on badmintoncanada.tournamentsoftware.com.
+Unfortunately, Badminton BC's current ranking system is not very accurate, so I would advise Badminton BC to use my ranking system instead, running my algorithm on as many tournaments as possible, using match data from all of the tournaments on badmintoncanada.tournamentsoftware.com.
 
 ### Introduction
 The Elo Ranking System can be used with CSV files to easily create ranking systems for almost any competitive activity. This project contains three main files: inputRankings.csv, inputMatches.csv, and updateRankings.py. updateRankings.py is used to create new rankings based on the input rankings and matches. When the algorithm is run on an empty or nonexistent inputRankings.csv file, a new one will be created according to the results of the matches.
@@ -16,7 +16,7 @@ https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=5F17FF2
 
 This match data is publicly available! You can copy the match results into a spreadsheet, clean it down to two columns, and export the results to a CSV file. Also make sure to CTRL + F, Replace All the various notes that go at the end of each player name for seeding.
 Anyone can run this algorithm on matches from almost any other tournament with match data on tournament software. 
-[!WARNING]
+
 Be warned, it is against the site policy to use a computer program to scrape the website for data.
 After getting the match data ready, I ran a test program to create a CSV containing the rankings and I confirmed there were no duplicates.
 
