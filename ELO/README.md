@@ -1,6 +1,7 @@
 # ReadMe
 ## Purpose
-The purpose of this project is to create a ranking system of the Men's Singles badminton players who participated in the 
+The purpose of this project is to create a ranking system of the Men's Singles badminton players who participated in the  2024 Jack Underhill and 2024 Provincial Championships, because these are the two tournaments that are used to determine the official Badminton BC Senion Men's Singles Badminton Rankings as of June 1, 2024: https://badmintoncanada.tournamentsoftware.com/ranking/category.aspx?id=39968&category=415
+Unfortunately, this ranking system is not very accurate, so I would advise Badminton BC to use my ranking system instead, using match data from all of the tournaments on badmintoncanada.tournamentsoftware.com.
 
 ## Introduction
 The name of this project is ELO because even though it is used specifically on badminton data in this repository, the Elo Ranking System can be used with CSV files to easily create ranking systems for other competitive activities as well. This Readme will have 
