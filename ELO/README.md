@@ -35,10 +35,9 @@ Formula 2:
 
 Here are these algorithms written in python:
 
-''
+``
 Ea = 1/(1+math.pow(10, (Rb-Ra)/400)
-''
-
+``
 
 ### Creating the Python File
 
