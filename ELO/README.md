@@ -23,7 +23,7 @@ After getting the match data ready, I ran a test program to create a CSV contain
 ### Understanding the Algorithm
 Arpad Elo was nice enough to publish the formulas for his Elo algorithm. His algorithm requires two formulas.
 Formula 1:
-$$
+![ForulaImage](formula1.jpg)
 E_A = 1+10^(\left( R_B-R_a \right)/400)
 $$
 Formula 2:
