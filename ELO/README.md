@@ -43,24 +43,31 @@ R'_A = R_A + K(S_A - E_A)
 ``
 
 To implement the algorithm intelligently, it's important to understand what these formulas do and what the variables are for. I will summarize in the next section, "Using the Formulas Algorithmically"
+
 ``
 E_A = Expected outcome for player A in A v.s. B
 ``
+
 ``
 R_A = Rating of player A
 ``
+
 ``
 R_B = Rating for player B
 ``
+
 ``
 R'_A = Updated Rating for player A
 ``
+
 ``
 K = Sensitivity constant
 ``
+
 ``
 S_A = Outcome for player A
 ``
+
 ``
 E_A = Expected outcome for player A
 ``
