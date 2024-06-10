@@ -16,9 +16,20 @@ https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=5F17FF2
 
 This match data is publicly available! You can copy the match results into a spreadsheet, clean it down to two columns, and export the results to a CSV file. Also make sure to CTRL + F, Replace All the various notes that go at the end of each player name for seeding.
 Anyone can run this algorithm on matches from almost any other tournament with match data on tournament software. 
-[!WARNING]
+
 Be warned, it is against the site policy to use a computer program to scrape the website for data.
 After getting the match data ready, I ran a test program to create a CSV containing the rankings and I confirmed there were no duplicates.
+
+### Understanding the Algorithm
+Arpad Elo was nice enough to publish the formulas for his Elo algorithm. His algorithm requires two formulas.
+Formula 1:
+$$
+E_A = 1+10^(\left( R_B-R_a \right)/400)
+$$
+Formula 2:
+$$
+Math 2
+$$
 
 ### Creating the Python File
 
