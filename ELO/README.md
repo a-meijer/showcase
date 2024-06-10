@@ -25,20 +25,36 @@ Be warned, it is against the site policy to use a computer program to scrape the
 After getting the match data ready, I ran a test program to create a CSV containing the rankings and I confirmed there were no duplicates.
 
 ### Understanding the Algorithm
-Arpad Elo was nice enough to publish the formulas for his Elo algorithm. His algorithm requires two formulas.
+#### Elo's Formulas
+Arpad Elo was nice enough to publish the formulas for his Elo algorithm, and they are now available on Wikipedia. His algorithm requires two formulas.
 
 Formula 1:
 ![FormulaImage](formula1.jpg)
+``
+E_A = 1/(1+math.pow(10, (R_B-R_A)/400)
+``
 
 Formula 2:
 ![FormulaImage](formula2.jpg)
+``
+R'_A = R_A + K(S_A - E_A)
+``
 
-Here are these algorithms written in python:
+To implement the algorithm intelligently, it's important to understand what these formulas do and what the variables are for. I will summarize in the next section, "Using the Formulas Algorithmically"
+``
+E_A = Expected outcome for player A in A v.s. B
+R_A = Rating of player A
+R_B = Rating for player B
+R'_A = Updated Rating for player A
+K = Sensitivity constant
+S_A = Outcome for player A
+E_A = Expected outcome for player A
+``
 
-''
-Ea = 1/(1+math.pow(10, (Rb-Ra)/400)
-''
-
+#### Using the Formulas Algorithmically
+In Python, we can use the assignment operator to overwrite R_A with R'_A, and we can store all our variables in a neat and tidy data structure.
+I think a Python dictionary works best as a data structure for this because I can index by player name and it's very intuitive to work with. If two players are going to have a match together, we select their rankings from the Rank dictionary, load in the match result to the S variable, select a K constant (if necessary), and then run the formulas! Formula 1 calculates the expected outcome (between 0 and 1) for each player, and Formula 2 updates the rankings.
+Repeat for each match in the dataset, and then output the new rankings when done.
 
 ### Creating the Python File
 
