@@ -9,9 +9,13 @@ The Elo Ranking System can be used with CSV files to easily create ranking syste
 ### Creating CSV Files With Match Data
 Matches are publicly available on badmintoncanada.tournamentsoftware.com
 For the purposes of demonstration I will only use matches from the two tournaments that were used to determine the current BC Senior Rankings as of June 1, 2024.
+
 Here is the link to the Men's Singles draw match page for the 2024 Jack Underhill:
+
 https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=6DBC438D-5F21-4544-9A89-C651CE550C1B&draw=11
+
 Here is the link to the Men's Singles draw match page for the 2024 Provincial Championships:
+
 https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=5F17FF22-3C9F-4199-AE91-C0838750A59E&draw=22
 
 This match data is publicly available! You can copy the match results into a spreadsheet, clean it down to two columns, and export the results to a CSV file. Also make sure to CTRL + F, Replace All the various notes that go at the end of each player name for seeding.
@@ -22,14 +26,19 @@ After getting the match data ready, I ran a test program to create a CSV contain
 
 ### Understanding the Algorithm
 Arpad Elo was nice enough to publish the formulas for his Elo algorithm. His algorithm requires two formulas.
+
 Formula 1:
-![ForulaImage](formula1.jpg)
-E_A = 1+10^(\left( R_B-R_a \right)/400)
-$$
+![FormulaImage](formula1.jpg)
+
 Formula 2:
-$$
-Math 2
-$$
+![FormulaImage](formula2.jpg)
+
+Here are these algorithms written in python:
+
+''
+Ea = 1/(1+math.pow(10, (Rb-Ra)/400)
+''
+
 
 ### Creating the Python File
 
