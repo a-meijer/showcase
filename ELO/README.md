@@ -62,8 +62,8 @@ To implement the algorithm intelligently, it's important to understand what thes
 ``
 
 #### Using the Formulas Algorithmically
-In Python, we can use the assignment operator to overwrite R_A with R'_A, and we can store all our variables in a neat and tidy data structure.
-I think a Python dictionary works best as a data structure for this because I can index by player name and it's very intuitive to work with. If two players are going to have a match together, we select their ratings from the rank dictionary, load in the match result to the S variable, select a K constant (if necessary), and then run the formulas! Formula 1 calculates the expected outcome (between 0 and 1) for each player and Formula 2 updates the rankings.
+The operators and data structures in Python make implementing this formula a breeze.
+I decided to create Player objects and point to them in a Python dictionary, indexed by player name. If two players have a match together, select their ratings from the rank dictionary, load in the match result to the S variable, select a K constant (if necessary), and then run the formulas! Formula 1 calculates the expected outcome (between 0 and 1) for each player and Formula 2 updates the rankings.
 Repeat for each match in the dataset, and then output the new rankings when done.
 
 #### Considering an Object Oriented Solution
