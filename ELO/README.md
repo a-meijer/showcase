@@ -21,8 +21,8 @@ https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=5F17FF2
 This match data is publicly available! You can copy the match results into a spreadsheet, clean it down to two columns, and export the results to a CSV file. Also make sure to CTRL + F, Replace All the various notes that go at the end of each player name for seeding.
 Anyone can run this algorithm on matches from almost any other tournament with match data on tournament software. 
 
-#### Be warned
 Be warned, it is against the site policy to use a computer program to scrape the website for data.
+
 After getting the match data ready, I ran a test program to create a CSV containing the rankings and I confirmed there were no duplicates. Now, the test file no longer exists and I have a new CSV inputRankings.csv to initialize all of the ratings for all of the players that appear in inputMatches.csv in this sample data. To run the algorithm on larger data, I would need to rewrite the code to create inputRankings.csv while removing duplicates.
 ##### For this algorithm to work, inputRankings.csv has to already contain all the player names that appear in inputMatches.csv. This algorithm does not read in new players on the fly unlike the old version that I neglected to upload before losing.
 
