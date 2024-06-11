@@ -34,32 +34,29 @@ Formula 1:
 ![FormulaImage](formula1.jpg)
 
 ``
-E_A = 1/(1 + 10^((R_B-R_A)/400))
+EA = 1/(1 + 10^((RB-RA)/400))
 ``
 
 Formula 2:
 ![FormulaImage](formula2.jpg)
 
 ``
-R'_A = R_A + K(S_A - E_A)
+R'A = RA + K(SA - EA)
 ``
 
-To implement the algorithm intelligently, it's important to understand what these formulas do and what the variables are for. I will summarize in the next section, "Using the Formulas Algorithmically"
-
+To implement the algorithm intelligently, it's important to understand what these formulas do and what the variables are for.
 ``
-E_A = Expected outcome for player A in A v.s. B
+EA = Expected outcome for player A in A v.s. B
 
-R_A = Rating of player A
+RA = Rating of player A
 
-R_B = Rating for player B
+RB = Rating for player B
 
-R'_A = Updated Rating for player A
+R'A = Updated Rating for player A
 
 K = Sensitivity constant
 
-S_A = Outcome for player A
-
-E_A = Expected outcome for player A
+SA = Outcome for player A
 ``
 
 #### Using the Formulas Algorithmically
