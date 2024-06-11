@@ -75,6 +75,7 @@ The file runs from top to bottom of course, it imports the CSV library; declares
 Once inside the body of the Python code, it opens the rankings CSV file. Now, I already have my CSV file pre-made, but if you need to make your own, as I mentioned earlier, it's a simple procedure of outputting a Set of names from the match CSV to a different CSV file. The rankings are loaded in as a Python dictionary indexed by player names, pointing to Player objects. I open the match data file and include the crux of the algorithm:
 
 ``
+
     for row in csv_reader:
     
         # Determine Rating for winning player
