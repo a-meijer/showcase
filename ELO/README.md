@@ -30,14 +30,14 @@ After getting the match data ready, I ran a test program to create a CSV contain
 #### Elo's Formulas
 Arpad Elo was nice enough to publish the formulas for his Elo algorithm, and they are now available on Wikipedia. His algorithm requires two formulas.
 
-Formula 1:
+#### Formula 1:
 ![FormulaImage](formula1.jpg)
 
 ``
 EA = 1/(1 + 10^((RB-RA)/400))
 ``
 
-Formula 2:
+#### Formula 2:
 ![FormulaImage](formula2.jpg)
 
 ``
@@ -99,7 +99,6 @@ Once inside the body of the Python code, it opens the rankings CSV file. Now, I 
         # Determine true outcome for both players
         
         SA = 1
-        
         SB = 0
         
         # Update the ratings according to formula 2
@@ -154,7 +153,6 @@ We can compare the rankings here. Note that the BC rankings are based on points 
 |     21  | Brendon Kwan    |   224  |      23  | Robert Shi       |  1007  |
 |     21  | Samuel Ha       |   224  |      24  | Angus Li         |   993  |
 |     25  | Laurence Kao    |   175  |      24  | Kelsey Liang     |   993  |
-|---------|-----------------|--------|----------|------------------|--------|
 
 
 ### Discussion
