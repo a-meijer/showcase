@@ -70,6 +70,11 @@ Repeat for each match in the dataset, and then output the new rankings when done
 Creating Player objects is something I went back and forth on during the development of this project. It would've been possible to do the algorithm with just a list of tuples. In the end I decided to go with Player objects because they are conceptually easy to work with and they're easily scaleable in case I want to add more features like match history or aliases.
 
 ### Creating the Python File
+The name of the file to run on the CSV data is called updateRankings.py.
+Use the following command:
+``
+python updateRankings.py
+``
 ChatGPT greatly enhanced my productivity for this project by helping to answer questions about Python syntax. I created my Python file in VSCode and implemented the Elo algorithm.
 
 The file runs from top to bottom of course, it imports the CSV library; declares filename variables; initializes the Player class, the rank dictionary, and the K-constant, all global variables; and creates a function that I later use to sort the rankings.
@@ -81,30 +86,23 @@ Once inside the body of the Python code, it opens the rankings CSV file. Now, I 
     for row in csv_reader:
     
         # Determine Rating for winning player
-
         RA = ranks[row[0]].rating
         
-        # Determine rating for losing player
-        
+        # Determine rating for losing player        
         RB = ranks[row[1]].rating
         
-        # Determine expected outcome for winning player using formula 1
-        
+        # Determine expected outcome for winning player using formula 1    
         EA = 1 / ( 1+pow(10,(RB-RA)/400))
         
-        # Determine expected outcome for losing player using formula 1
-        
+        # Determine expected outcome for losing player using formula 1  
         EB = 1 / ( 1+pow(10,(RA-RB)/400))
         
-        # Determine true outcome for both players
-        
+        # Determine true outcome for both players   
         SA = 1
         SB = 0
         
-        # Update the ratings according to formula 2
-        
-        ranks[row[0]].rating = int(RA + K*(SA-EA))
-        
+        # Update the ratings according to formula 2   
+        ranks[row[0]].rating = int(RA + K*(SA-EA))   
         ranks[row[1]].rating = int(RB + K*(SB-EB))
         
 ``
