@@ -45,18 +45,20 @@ R'A = RA + K(SA - EA)
 ``
 
 To implement the algorithm intelligently, it's important to understand what these formulas do and what the variables are for.
+
 ``
-EA = Expected outcome for player A in A v.s. B
 
-RA = Rating of player A
+    EA = Expected outcome for player A in A v.s. B
 
-RB = Rating for player B
+    RA = Rating of player A
 
-R'A = Updated Rating for player A
+    RB = Rating for player B
 
-K = Sensitivity constant
+    R'A = Updated Rating for player A
 
-SA = Outcome for player A
+    K = Sensitivity constant
+
+    SA = Outcome for player A
 ``
 
 #### Using the Formulas Algorithmically
