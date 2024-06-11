@@ -96,8 +96,8 @@ With that out of the way and the files closed, I sort the ratings and then print
 ### Tuning the Algorithm
 The algorithm works according to the code snippet above and there are a few ways to change it meaningfully such as choosing a different K-value or adapting the initial rankings. 
 
-#### Choosing The K-Value
-The K value is set as a constant 100 in this algorithm and it represents the upper limit on rating change after a single match. The algorithm could be improved by using a dynamic K-value that changes based on the recent match results of each player, or changes based on the context of the match. For example, matches in provincial championships could have a higher K-value than matches in a regional tournament, matches in the semifinals could have a higher K-value than matches in the Round of 16, or matches in the main draw could have a higher K-value than matches in consolation. I think changing the K-value based on a player's entire match history is ideal.
+#### Choosing The K-Value for Rating Sensitivity
+The K value is set as a constant 100 in this algorithm and it represents the upper limit on rating change after a single match. The algorithm could be improved by using a dynamic K-value that changes based on the recent match results of each player, or changes based on the context of the match. For example, matches in provincial championships could have a higher K-value than matches in a regional tournament, matches in the semifinals could have a higher K-value than matches in the Round of 16, or matches in the main draw could have a higher K-value than matches in consolation. I think changing the K-value based on a player's entire match history is reasonable. Changing the K-value based on the number of games in a match is also possible. If a player wins by a large margin, their rating could reasonably go up more than if they won by a small margin.
 
 #### Initial Ranking
 initial ranking affects the algorithm greatly because my match data is so small. One way to correct this would be to have the initial rating of a winning player (if it is their first match) become the rating of their opponent until they win a match. This would require that I update the Player data structure to record match history. Another simpler way to correct this is to run the algorithm twice. After the first run the players get a better initial ranking, and after the second run the rankings are more accurate, arguably. It could be worth collecting match data from past tournaments to determine initial rankings for this algorithm. The order in which matches are passed through the algorithm affects the results. No matter the details of initial ranking, the best way to get accurate rankings is to run the algorithm through a lot of match data. 
@@ -110,7 +110,7 @@ We can compare the rankings here. Note that the BC rankings are based on points 
 
 | BC Rank | Player Name     | Points | Elo Rank | Player Name      | Rating |
 |---------|-----------------|--------|----------|------------------|--------|
-|      1  | Saurabh Pandiar |  1488  |  +0   1  | Saurabh Pandiar  |  1356  |
+|      1  | Saurabh Pandiar |  1488  |       1  | Saurabh Pandiar  |  1356  |
 |      2  | Simar Singh     |   935  |       2  | Nicholas Poon    |  1185  |
 |      3  | Jalil Waiz      |   930  |       3  | Lyem Fedoretz    |  1173  |
 |      4  | Jack Chen       |   810  |       4  | Ryan Liu         |  1134  |
@@ -138,7 +138,7 @@ We can compare the rankings here. Note that the BC rankings are based on points 
 |---------|-----------------|--------|----------|------------------|--------|
 
 
-#### Discussion
+### Discussion
 Where can we take it from here? There are many ways to improve this algorithm. Notably, factoring-in tournament placement could make the system more approachable for people who are used to rankings that depend solely on tournament placement. 
 For Elo rankings to work well, we need a good interplay between all of the strong players. If we tried adding rankings for the Women's Singles players, they would be effectively distinct from the Men's ratings unless the women interplayed with men. You can see this effect in my results. In the match data, since the consolation bracket is distinct from the main draw, players who win lots of matches in consolation get an inflated rating as a result. I prefer a double-elimination system for three main reasons. It creates more interplay because players from the main draw regularly drop into the lower bracket, it creates more layering and meaningful matches for lower level players because they still have a chance of winning, and it removes the unlucky annoyance of getting eliminated to the top seed in the first or second round. With double elimination, there is still hope to win the entire tournament!
 
