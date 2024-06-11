@@ -63,11 +63,11 @@ To implement the algorithm intelligently, it's important to understand what thes
 
 #### Using the Formulas Algorithmically
 In Python, we can use the assignment operator to overwrite R_A with R'_A, and we can store all our variables in a neat and tidy data structure.
-I think a Python dictionary works best as a data structure for this because I can index by player name and it's very intuitive to work with. If two players are going to have a match together, we select their rankings from the Rank dictionary, load in the match result to the S variable, select a K constant (if necessary), and then run the formulas! Formula 1 calculates the expected outcome (between 0 and 1) for each player, and Formula 2 updates the rankings.
+I think a Python dictionary works best as a data structure for this because I can index by player name and it's very intuitive to work with. If two players are going to have a match together, we select their ratings from the rank dictionary, load in the match result to the S variable, select a K constant (if necessary), and then run the formulas! Formula 1 calculates the expected outcome (between 0 and 1) for each player and Formula 2 updates the rankings.
 Repeat for each match in the dataset, and then output the new rankings when done.
 
 #### Considering an Object Oriented Solution
-Creating player objects could be a 
+Creating Player objects is something I went back and forth on during the development of this project. It would've been possible to do the algorithm with just a list of tuples. In the end I decided to go with Player objects because they are conceptually easy to work with and they're easily scaleable in case I want to add more features like match history or aliases.
 
 ### Creating the Python File
 ChatGPT greatly enhanced my productivity for this project by helping to answer questions about Python syntax. I created my Python file in VSCode and implemented the Elo algorithm.
