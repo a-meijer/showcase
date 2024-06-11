@@ -68,30 +68,49 @@ Repeat for each match in the dataset, and then output the new rankings when done
 Creating player objects could be a 
 
 ### Creating the Python File
-ChatGPT greatly enhanced my productivity for this project by helping to answer questions about Python syntax. I created my Python file in VSCode and implemented the Elo algorithm. First, I import the csv library; I declare filename variables; I initialize the Player class, the rank dictionary, and the K-constant, all global variables; I create a function that I later use to sort the rankings, and I start by opening the rankings CSV file. Now, I already have my CSV file pre-made, but if you need to make your own, as I mentioned earlier, it's a simple procedure of building a set of names from the match CSV and outputting them iteratively to a different CSV file. With the rankings loaded in, I am now running a Python dictionary indexed by player names, pointing to Player objects. I open the match data file, and include the crux of the algorithm:
+ChatGPT greatly enhanced my productivity for this project by helping to answer questions about Python syntax. I created my Python file in VSCode and implemented the Elo algorithm.
+
+The file runs from top to bottom of course, it imports the CSV library; declares filename variables; initializes the Player class, the rank dictionary, and the K-constant, all global variables; and creates a function that I later use to sort the rankings.
+
+Once inside the body of the Python code, it opens the rankings CSV file. Now, I already have my CSV file pre-made, but if you need to make your own, as I mentioned earlier, it's a simple procedure of outputting a Set of names from the match CSV to a different CSV file. The rankings are loaded in as a Python dictionary indexed by player names, pointing to Player objects. I open the match data file and include the crux of the algorithm:
 
 ``
     for row in csv_reader:
+    
         # Determine Rating for winning player
+
         RA = ranks[row[0]].rating
+        
         # Determine rating for losing player
+        
         RB = ranks[row[1]].rating
+        
         # Determine expected outcome for winning player using formula 1
+        
         EA = 1 / ( 1+pow(10,(RB-RA)/400))
+        
         # Determine expected outcome for losing player using formula 1
+        
         EB = 1 / ( 1+pow(10,(RA-RB)/400))
+        
         # Determine true outcome for both players
+        
         SA = 1
+        
         SB = 0
+        
         # Update the ratings according to formula 2
+        
         ranks[row[0]].rating = int(RA + K*(SA-EA))
+        
         ranks[row[1]].rating = int(RB + K*(SB-EB))
+        
 ``
 
 With that out of the way and the files closed, I sort the ratings and then print them to console and file. If you do this, make sure to name your output file differently than your input files so you don't overwrite anything important.
 
 ### Tuning the Algorithm
-The algorithm works according to the code snippet above and there are a few ways to change it meaningfully such as choosing a different K-value or adapting the initial rankings. 
+The algorithm works according to the code snippet above and there are a few ways to change it meaningfully such as choosing a different K-value or adapting the initial rankings, without reimplementing the entire algorithm.
 
 #### Choosing The K-Value for Rating Sensitivity
 The K value is set as a constant 100 in this algorithm and it represents the upper limit on rating change after a single match. The algorithm could be improved by using a dynamic K-value that changes based on the recent match results of each player, or changes based on the context of the match. For example, matches in provincial championships could have a higher K-value than matches in a regional tournament, matches in the semifinals could have a higher K-value than matches in the Round of 16, or matches in the main draw could have a higher K-value than matches in consolation. I think changing the K-value based on a player's entire match history is reasonable. Changing the K-value based on the number of games in a match is also possible. If a player wins by a large margin, their rating could reasonably go up more than if they won by a small margin.
