@@ -48,29 +48,17 @@ To implement the algorithm intelligently, it's important to understand what thes
 
 ``
 E_A = Expected outcome for player A in A v.s. B
-``
 
-``
 R_A = Rating of player A
-``
 
-``
 R_B = Rating for player B
-``
 
-``
 R'_A = Updated Rating for player A
-``
 
-``
 K = Sensitivity constant
-``
 
-``
 S_A = Outcome for player A
-``
 
-``
 E_A = Expected outcome for player A
 ``
 
@@ -83,20 +71,87 @@ Repeat for each match in the dataset, and then output the new rankings when done
 Creating player objects could be a 
 
 ### Creating the Python File
+ChatGPT greatly enhanced my productivity for this project by helping to answer questions about Python syntax. I created my Python file in VSCode and implemented the Elo algorithm. First, I import the csv library; I declare filename variables; I initialize the Player class, the rank dictionary, and the K-constant, all global variables; I create a function that I later use to sort the rankings, and I start by opening the rankings CSV file. Now, I already have my CSV file pre-made, but if you need to make your own, as I mentioned earlier, it's a simple procedure of building a set of names from the match CSV and outputting them iteratively to a different CSV file. With the rankings loaded in, I am now running a Python dictionary indexed by player names, pointing to Player objects. I open the match data file, and include the crux of the algorithm:
+
+``
+    for row in csv_reader:
+        # Determine Rating for winning player
+        RA = ranks[row[0]].rating
+        # Determine rating for losing player
+        RB = ranks[row[1]].rating
+        # Determine expected outcome for winning player using formula 1
+        EA = 1 / ( 1+pow(10,(RB-RA)/400))
+        # Determine expected outcome for losing player using formula 1
+        EB = 1 / ( 1+pow(10,(RA-RB)/400))
+        # Determine true outcome for both players
+        SA = 1
+        SB = 0
+        # Update the ratings according to formula 2
+        ranks[row[0]].rating = int(RA + K*(SA-EA))
+        ranks[row[1]].rating = int(RB + K*(SB-EB))
+``
+
+With that out of the way and the files closed, I sort the ratings and then print them to console and file. Make sure to name your output file differently than your input files so you don't overwrite anything important. Check twice.
 
 ### Tuning the Algorithm
+The algorithm works according to the code snippet above and there are a few ways to change it meaningfully such as choosing a different K-value or adapting the initial rankings. 
+
 #### Choosing The K-Value
+The K value is set as a constant 100 in this algorithm and it represents the upper limit on rating change after a single match. The algorithm could be improved by using a dynamic K-value that changes based on the recent match results of each player, or changes based on the context of the match. For example, matches in provincial championships could have a higher K-value than matches in a regional tournament, matches in the semifinals could have a higher K-value than matches in the Round of 16, or matches in the main draw could have a higher K-value than matches in consolation. I think changing the K-value based on a player's entire match history is ideal.
+
 #### Initial Ranking
+initial ranking affects the algorithm greatly because my match data is so small. One way to correct this would be to have the initial rating of a winning player (if it is their first match) become the rating of their opponent until they win a match. This would require that I update the Player data structure to record match history. Another simpler way to correct this is to run the algorithm twice. After the first run the players get a better initial ranking, and after the second run the rankings are more accurate, arguably. It could be worth collecting match data from past tournaments to determine initial rankings for this algorithm. The order in which matches are passed through the algorithm affects the results. No matter the details of initial ranking, the best way to get accurate rankings is to run the algorithm through a lot of match data. 
 
 ### Results Analysis
+As expected, due to the extremely low number of matches for these ratings, consolation players get overrated and there are some unfortunate bad ratings. Considering the sample size of data, these initial results are decently accurate. The accuracy improves with more match data.
+
 #### Comparing Elo Rankings to Official Rankings
-#### Clean Data
+We can compare the rankings here. Note that the BC rankings are based on points from tournament placement where as the Elo rankings are based on match results.
+
+| BC Rank | Player Name     | Points | Elo Rank | Player Name      | Rating |
+|---------|-----------------|--------|----------|------------------|--------|
+|      1  | Saurabh Pandiar |  1488  |  +0   1  | Saurabh Pandiar  |  1356  |
+|      2  | Simar Singh     |   935  |       2  | Nicholas Poon    |  1185  |
+|      3  | Jalil Waiz      |   930  |       3  | Lyem Fedoretz    |  1173  |
+|      4  | Jack Chen       |   810  |       4  | Ryan Liu         |  1134  |
+|      5  | Connor Louie    |   805  |       5  | Simar Singh      |  1122  |
+|      6  | Kwun Ho So      |   685  |       6  | Victor Ho        |  1119  |
+|      7  | Lyem Fedoretz   |   533  |       7  | Anish Jojula     |  1085  |
+|      8  | Uday Bharti     |   520  |       8  | Jalil Waiz       |  1084  |
+|      9  | Sahil Aggarwal  |   509  |       9  | Jack Chen        |  1079  |
+|      9  | Ratnesh Ippili  |   509  |      10  | Uday Bharti      |  1067  |
+|     11  | Victor Ho       |   439  |      11  | Ayden Travis Lee |  1065  |
+|     11  | Ryan Liu        |   439  |      12  | Jaden Thom       |  1061  |
+|     13  | Roy Hung        |   400  |      12  | Kwun Ho So       |  1061  |
+|     14  | Anish Jojula    |   345  |      14  | Connor Louie     |  1052  |
+|     15  | Jaden Thom      |   307  |      15  | Kevin Wu         |  1043  |
+|     15  | Ayush Ayush     |   307  |      16  | Rickey Zhang     |  1042  |
+|     17  | Rickey Zhang    |   225  |      17  | Stephen Dee      |  1037  |
+|     17  | Kevin Wu        |   225  |      18  | Ratnesh Ippili   |  1035  |
+|     17  | Jasper Kong     |   225  |      19  | Yancong Li       |  1031  |
+|     17  | Stephen Dee     |   225  |      20  | Jasper Kong      |  1025  |
+|     21  | Colt Love       |   224  |      21  | Allan Crawford   |  1019  |
+|     21  | Andrew Meijer   |   224  |      22  | Sarabpreet Sodhi |  1014  |
+|     21  | Brendon Kwan    |   224  |      23  | Robert Shi       |  1007  |
+|     21  | Samuel Ha       |   224  |      24  | Angus Li         |   993  |
+|     25  | Laurence Kao    |   175  |      24  | Kelsey Liang     |   993  |
+|---------|-----------------|--------|----------|------------------|--------|
+
+
+#### Discussion
+Where can we take it from here? There are many ways to improve this algorithm. Notably, factoring-in tournament placement could make the system more approachable for people who are used to rankings that depend solely on tournament placement. 
+For Elo rankings to work well, we need a good interplay between all of the strong players. If we tried adding rankings for the Women's Singles players, they would be effectively distinct from the Men's ratings unless the women interplayed with men. You can see this effect in my results. In the match data, since the consolation bracket is distinct from the main draw, players who win lots of matches in consolation get an inflated rating as a result. I prefer a double-elimination system for three main reasons. It creates more interplay because players from the main draw regularly drop into the lower bracket, it creates more layering and meaningful matches for lower level players because they still have a chance of winning, and it removes the unlucky annoyance of getting eliminated to the top seed in the first or second round. With double elimination, there is still hope to win the entire tournament!
+
 #### Single Elimination With Consolation
-#### Double Elimination With Placement
-It is necessary to switch to double elimination instead of single elimination with consolation in order for my ranking system to work better, because right now, consolation matches are weighted as heavily as main draw matches, and sorting the matches by whether or not they are main draw or consolation is easier said than done.
+Most badminton tournaments in the province of BC and across Canada run a format called Single Elimination With Consolation. In this format, the tournament entrants compete in a single-elimination bracket, and the players who lose their first match are entered into a consolation bracket which is also single elimination. Bracket formats work on a base two system, so you can consider a tournament with 8, 16, 32, 64, or 128 entrants, and fill up the empty entries with Byes. If a player gets a Bye in their first round and they lose their match in the second round, they are eligible for consolation.
+
+#### Double Elimination
+It is necessary to switch to double elimination from single elimination for my ranking system to work better, because right now, consolation matches are weighted as heavily as main draw matches. Imagine a tournament format where your matches are just as meaningful after a loss! Imagine a tournament format where an unlucky draw won't ruin your event! All of this is possible and more with Double Elimination. I have already drawn up so many bracket designs for 8 to 16 players, I have a notebook full of designs! I've thought about this a lot, and I've even calculated the approximate costs for running a tournament. I think double elimination would be much more fun for the players and everyone involved overall.
 
 ### Conclusion
-If Badminton BC ran their tournaments with my Double-Elimination format instead of their Single-Elimination-With-Consolation format, the match data from those tournaments would produce a more accurate ranking through my algorithm.
+If Badminton BC ran their tournaments with my double elimination format instead of their single elimination with consolation format, the match data from those tournaments would produce a more accurate ranking through my algorithm because every match of a double elimination tournament is more meaningful than consolation. I won't use this conclusion to only sing the praises of double elimination because after all this is about my Python Elo system. It's not just about badminton, you can apply this system to any competitive 1v1 game. Simply, copy the output rankings CSV back into the input whenever you are ready to run new matches, and your ranking system will grow in accuracy! One thing to be careful of is that you will need to adjust the code when adding new players, or you can add them manually in the ranks CSV. Make sure the names match. This system could be customized for different applications.
+Thanks!
 
 ### Author
 Andrew Meijer
+andrew@atrm.ca

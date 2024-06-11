@@ -2,7 +2,7 @@ import csv
 
 input_matches_filename = 'inputMatches.csv'
 input_rankings_filename = 'inputRankings.csv'
-output_filename = 'ourputRankings.csv'
+output_filename = 'outputRankings.csv'
 
 class Player:
     def __init__(self, name, rating):
