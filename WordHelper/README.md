@@ -1,4 +1,6 @@
 # WORD HELPER  
+## Final Note
+NOTE: This project is working; to use it, change the hard-coded variables.
 ## Project Description
 Given a number to represent the number of letters in each output word,
 and a list of possible letters for each letter-spot,
@@ -157,3 +159,4 @@ In this modified code snippet:
 
 ## Conclusion
 I ended up using Aria AI to solve this problem. Works for me! Let's move on to more interesting projects.
+#### RETIRED
