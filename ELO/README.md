@@ -1,14 +1,23 @@
 ## ReadMe
 ### Purpose
-The purpose of this project is to create a ranking system of the Men's Singles badminton players who participated in the  2024 Jack Underhill and 2024 Provincial Championships, because these two tournaments determined the official Badminton BC Senior Men's Singles Badminton Rankings as of June 1, 2024: https://badmintoncanada.tournamentsoftware.com/ranking/category.aspx?id=39968&category=415
-Unfortunately, Badminton BC's current ranking system is not very accurate, so I would advise Badminton BC to use my ranking system instead, running my algorithm on as many tournaments as possible, using match data from all of the tournaments on badmintoncanada.tournamentsoftware.com.
+To demonstrate a ranking system for badminton that is more accurate than the official rankings for British Columbia.
 
 ### Introduction
-The Elo Ranking System can be used with CSV files to easily create ranking systems for almost any competitive activity. This project contains three main files: inputRankings.csv, inputMatches.csv, and updateRankings.py. updateRankings.py is used to create new rankings based on the input rankings and matches. When the algorithm is run on an empty or nonexistent inputRankings.csv file, a new one will be created according to the results of the matches.
+The official Badminton BC Senior Men's Singles Rankings are based on tournament results (placement) in only two tournaments:
+ - 2024 Jack Underhill
+ - 2024 Provincial Championships
+These two tournaments determined the official Badminton BC Senior Men's Singles Badminton Rankings as of June 1, 2024: https://badmintoncanada.tournamentsoftware.com/ranking/category.aspx?id=39968&category=415
+A ranking based on tournament placement alone is suboptimal because the luck of the draw creates inaccuracies in the rankings compared to what can be achieved with a ranking system based on match results, especially because tournament organizers use a Single Elimination format instead of Double Elimination. Double Elimination creates a more accurate placement result, a higher resolution result if you will. Plus, it makes the matches more meaningful because it doesn't require any consolation matches. Copying match data from tournaments on badmintoncanada.tournamentsoftware.com and creating a ranking system based on match results is another way to create a higher resolution ranking, especially with a large number of matches. The more data, the better.
+The Elo Ranking System can be used with CSV files to easily create ranking systems for almost any competitive activity. 
+The algorithm at work in this project uses two CSV files: 
+ - inputRankings.csv
+ - inputMatches.csv
+It works by creating a dictionary of player objects based on the data in inputRankings.csv and then updating the dictionary based on the data in each line of inputMatches.csv. The algorithm then outputs the data to a hardcoded output CSV file. This is implemented in each of the Python files for each of the variations of the prototype.
 
 ### Creating CSV Files With Match Data
-Matches are publicly available on badmintoncanada.tournamentsoftware.com
-For the purposes of demonstration I will only use matches from the two tournaments that were used to determine the current BC Senior Rankings as of June 1, 2024.
+The first iteration of prototypes for this ELO ranking system run on only the data from the same tournaments that contribute to the 2024 rankings. This is to demonstrate how changes to the algorithm's initialization affect the results. Later iterations will include match results from additional tournaments.
+Matches are publicly available on badmintoncanada.tournamentsoftware.com, but apparently it is against the site policy to use automation to scrape the website for data. It is easy enough to manually copy and paste the match results into spreadsheets.
+In the first iteration of prototyping, the algorithm only uses matches from the two tournaments that were used to determine the current BC Senior Rankings as of June 1, 2024.
 
 Here is the link to the Men's Singles draw match page for the 2024 Jack Underhill:
 
@@ -17,11 +26,6 @@ https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=6DBC438
 Here is the link to the Men's Singles draw match page for the 2024 Provincial Championships:
 
 https://badmintoncanada.tournamentsoftware.com/sport/drawmatches.aspx?id=5F17FF22-3C9F-4199-AE91-C0838750A59E&draw=22
-
-This match data is publicly available! For this project, I copied the match results into a spreadsheet, clean it down to two columns, and export the results to a CSV file. Also make sure to CTRL + F, Replace All the various notes that go at the end of each player name for seeding.
-Anyone can run this algorithm on matches from almost any other tournament with match data on tournament software. 
-
-Be warned, it is against the site policy to use a computer program to scrape the website for data.
 
 After getting the match data ready, I ran a test program to create a CSV containing the rankings and I confirmed there were no duplicates. Now, the test file no longer exists and I have a new CSV inputRankings.csv to initialize all of the ratings for all of the players that appear in inputMatches.csv in this sample data. To run the algorithm on larger data, I would need to rewrite the code to create inputRankings.csv while removing duplicates.
 ##### For this algorithm to work, inputRankings.csv has to already contain all the player names that appear in inputMatches.csv. This algorithm does not read in new players on the fly unlike the old version that I neglected to upload before losing.
@@ -69,7 +73,7 @@ Repeat for each match in the dataset, and then output the new rankings when done
 #### Considering an Object Oriented Solution
 Creating Player objects is something I went back and forth on during the development of this project. It would've been possible to do the algorithm with just a list of tuples. In the end I decided to go with Player objects because they are conceptually easy to work with and they're easily scaleable in case I want to add more features like match history or aliases.
 
-### Creating the Python File
+### Creating the Initial Prototype Python File updateRankings.py
 The name of the file to run on the CSV data is called updateRankings.py.
 Use the following command:
 ``
@@ -110,19 +114,14 @@ Once inside the body of the Python code, it opens the rankings CSV file. Now, I 
 With that out of the way and the files closed, I sort the ratings and then print them to console and file. If you do this, make sure to name your output file differently than your input files so you don't overwrite anything important.
 
 ### Tuning the Algorithm
-The algorithm works according to the code snippet above and there are a few ways to change it meaningfully such as choosing a different K-value or adapting the initial rankings, without reimplementing the entire algorithm.
+The initial prototype works according to the code snippet above and there are a few ways to change it meaningfully such as by choosing a different K-value or adapting the initial rankings, without reimplementing the entire algorithm. This will be demonstrated later in Variations.
 
 #### Choosing The K-Value for Rating Sensitivity
-The K value is set as a constant 100 in this algorithm and it affects the amount of rating change after a single match. The algorithm could be improved by using a dynamic K-value that changes based on the recent match results of each player, or changes based on the context of the match. For example, matches in provincial championships could have a higher K-value than matches in a regional tournament, matches in the semifinals could have a higher K-value than matches in the Round of 16, or matches in the main draw could have a higher K-value than matches in consolation. I think changing the K-value based on a player's entire match history is reasonable. Changing the K-value based on the number of games in a match is also possible. If a player wins by a large margin, their rating could reasonably go up more than if they won by a small margin.
-
-#### Initial Ranking
-initial ranking affects the algorithm greatly because my match data is so small. One way to correct this would be to have the initial rating of a winning player (if it is their first match) become the rating of their opponent until they win a match. This would require that I update the Player data structure to record match history. Another simpler way to improve the initial rankings is by taking an average of each player's Badminton BC Ranking Points and a constant initial value like 1000. Collecting match data from past tournaments could help to determine initial rankings for this algorithm. The order in which matches are passed through the algorithm affects the results. No matter the details of initial ranking, the best way to get accurate rankings is to run the algorithm through a lot of match data. 
+The K value is set as a constant 100 in the initial prototype and it affects the amount of rating change after a single match. The algorithm could be improved by using a dynamic K-value that changes based on the recent match results of each player. This is demonstated later in Variations.
 
 ### Results Analysis
-As expected, due to the extremely low number of matches for these ratings, consolation players get overrated and there are some unfortunate bad ratings. Considering the sample size of data, these initial results are decently accurate. The accuracy improves with more match data.
-
-#### Comparing Elo Rankings to Official Rankings
-We can compare the rankings here. Note that the BC rankings are based on points from tournament placement where as the Elo rankings are based on match results.
+#### Comparing Initial Prototype updateRankings.py to Official Rankings
+As expected, due to the extremely low number of matches for these ratings, consolation players get overrated and there are some unfortunate bad ratings. Considering the sample size of data, these initial results are decently accurate. The accuracy improves with more match data. Note that the BC rankings are based on points from tournament placement where as the Elo rankings are based on match results.
 
 | BC Rank | Player Name     | Points | Elo Rank | Player Name      | Rating |
 |---------|-----------------|--------|----------|------------------|--------|
@@ -152,20 +151,23 @@ We can compare the rankings here. Note that the BC rankings are based on points 
 |     21  | Samuel Ha       |   224  |      24  | Angus Li         |   993  |
 |     25  | Laurence Kao    |   175  |      24  | Kelsey Liang     |   993  |
 
-### Discussion
-Where can we take it from here? There are many ways to improve this algorithm. Notably, factoring-in tournament placement could make the system more approachable for people who are used to rankings that depend solely on tournament placement. 
-For Elo rankings to work well, we need a good interplay between all of the strong players. If we tried adding rankings for the Women's Singles players, they would be effectively distinct from the Men's ratings unless the women interplayed with men. The effect of bad interplay appears in my results because of consolation bracket. In the match data, since the consolation bracket is distinct from the main draw, players who win lots of matches in consolation get an inflated rating until they are stopped by a main draw player at the next tournament. To this, I prefer a double elimination bracket formula for three main reasons. Double elimination creates more interplay because players from the main draw drop into the lower bracket every round, it creates more layering and meaningful matches for lower level players because they still have a chance to affect ranking and placement, and it removes the unlucky annoyance of getting eliminated to the top seed in the first or second round. With double elimination, there is still hope to win the entire tournament!
+### Prototype Discussion
+What would improve the accuracy of this prototype the most is addressing the problem of consolation champions being overranked. There are many ways to improve this algorithm. Notably, factoring-in tournament placement could make the system more approachable for people who are used to rankings that depend solely on tournament placement. Consider the variations below
 
-#### Single Elimination With Consolation
-Most badminton tournaments in the province of BC and across Canada run a format called Single Elimination With Consolation. In this format, the tournament entrants compete in a single-elimination bracket, and the players who lose their first match are entered into a consolation bracket which is also single elimination. Bracket formats work on a base two system. Consider a tournament with 8, 16, 32, 64, or 128 entrants, and fill up the empty entries with Byes. If a player gets a Bye in their first round and they lose their match in the second round, they are eligible for consolation.
+### Variations
+ - changing K value based on consolation (requires separating each tournament into its own CSV file; we know we are in consoles after our first loss)
+ - Using function of tournament points as initial ranking
+ - changing K value based on number of matches played
+ - changing K value based on streakiness
+ - changing K value based on number of games in the match - if you go three games or if you get to extra points, especially in the third, you don't lose as much ranking.
+ - changing K value based on the tournament type (see Badminton BC page for how that works on tournament points)
+ - combined variation
 
-#### Double Elimination
-It is necessary to switch to double elimination from single elimination for my ranking system to work better, because right now, consolation matches are weighted as heavily as main draw matches. Imagine a tournament format where your matches are just as meaningful after a loss! Imagine a tournament format where an unlucky draw won't ruin your event! All of this is possible and more with Double Elimination. I have already drawn up so many bracket designs for 8 to 16 players, I have a notebook full of designs! I've thought about this a lot, and I've even calculated the approximate costs for running a tournament. I think double elimination would be much more fun for the players and everyone involved overall.
+### Variations Compared to Official Rankings
+
 
 ### Conclusion
-If Badminton BC ran their tournaments with my double elimination format instead of their single elimination with consolation format, the match data from those tournaments would produce a more accurate ranking through my algorithm because every match of a double elimination tournament is more meaningful than consolation. I won't use this conclusion to only sing the praises of double elimination because after all this is about my Python Elo system. It's not just about badminton, this ranking system works for other competition too. To update the rankings on new matches, simply copy the output rankings CSV back into the input and the rankings will grow in accuracy!
-For anyone who wants to implement this on their own, one thing to be careful of is that you will need to adjust the code when adding new players, or you can add them manually in the ranks CSV. Make sure the names match. This system could be customized for different applications.
-Thanks!
+Work in progress
 
 ### Author
 Andrew Meijer
