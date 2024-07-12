@@ -6,12 +6,15 @@ To demonstrate a ranking system for badminton that is more accurate than the off
 The official Badminton BC Senior Men's Singles Rankings are based on tournament results (placement) in only two tournaments:
  - 2024 Jack Underhill
  - 2024 Provincial Championships
+
 These two tournaments determined the official Badminton BC Senior Men's Singles Badminton Rankings as of June 1, 2024: https://badmintoncanada.tournamentsoftware.com/ranking/category.aspx?id=39968&category=415
+
 A ranking based on tournament placement alone is suboptimal because the luck of the draw creates inaccuracies in the rankings compared to what can be achieved with a ranking system based on match results, especially because tournament organizers use a Single Elimination format instead of Double Elimination. Double Elimination creates a more accurate placement result, a higher resolution result if you will. Plus, it makes the matches more meaningful because it doesn't require any consolation matches. Copying match data from tournaments on badmintoncanada.tournamentsoftware.com and creating a ranking system based on match results is another way to create a higher resolution ranking, especially with a large number of matches. The more data, the better.
 The Elo Ranking System can be used with CSV files to easily create ranking systems for almost any competitive activity. 
 The algorithm at work in this project uses two CSV files: 
  - inputRankings.csv
  - inputMatches.csv
+ 
 It works by creating a dictionary of player objects based on the data in inputRankings.csv and then updating the dictionary based on the data in each line of inputMatches.csv. The algorithm then outputs the data to a hardcoded output CSV file. This is implemented in each of the Python files for each of the variations of the prototype.
 
 ### Creating CSV Files With Match Data
