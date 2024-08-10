@@ -1,13 +1,21 @@
+# VARIATION 1 IS FOR CONSOLATION K VALUE ADJUSTMENT
+# Matches in consolation aren't as important for rating, so REDUCE the K value.
+# Considering the Single Elimination format, a consolation champion should not have significantly more rating gain than a player who reaches the second round of the main draw.
+# Therefore, since there are usually 3 to 5 rounds in consolation depending if the draw has 16, 32, or 64 entrants, this program divides the K-value by 4 for all consolation matches.
+# A match is determined to be consolation when the players have already lost a match in the event being processed.
+# Each event will need to be broken into a different file and processed one at a time.
+
 import csv
 
 input_matches_filename = 'inputMatches.csv'
 input_rankings_filename = 'inputRankings.csv'
-output_filename = 'outputRankings.csv'
+output_filename = 'outputVariation1.csv'
 
 class Player:
     def __init__(self, name, rating):
         self.name = name
         self.rating = rating
+        self.consolation = False;
 
 # Initialize ranks dictionary
 ranks = {}
@@ -16,6 +24,7 @@ ranks = {}
 K = 100
 
 # Pass this function to the sorting algorithm
+# sort_by_rating is used by the sorting algorithm
 def sort_by_rating(player):
     return player.rating
 

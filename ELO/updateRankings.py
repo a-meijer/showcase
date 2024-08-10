@@ -1,8 +1,9 @@
 import csv
 
-input_matches_filename = 'inputMatches.csv'
-input_rankings_filename = 'inputRankings.csv'
-output_filename = 'outputRankings.csv'
+# Hard-coded input selection; get with the program.
+input_matches_filename = '2024Tournament_Provincials.csv'
+input_rankings_filename = 'outputRankings1.csv'
+output_filename = 'outputRankings1.csv'
 
 class Player:
     def __init__(self, name, rating):
