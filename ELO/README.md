@@ -48,19 +48,17 @@ R'A = RA + K(SA - EA)
 
 To implement the algorithm intelligently, it's important to understand what these formulas do and what the variables are for.
 
-``
-EA = Expected outcome for player A in A v.s. B
+    EA = Expected outcome for player A in A v.s. B
 
-RA = Rating of player A
+    RA = Rating of player A
 
-RB = Rating for player B
+    RB = Rating for player B
 
-R'A = Updated Rating for player A
+    R'A = Updated Rating for player A
 
-K = Sensitivity constant
+    K = Sensitivity constant
 
-SA = Outcome for player A
-``
+    SA = Outcome for player A
 
 #### Using the Formulas Algorithmically
 The operators and data structures in Python make implementing this formula a breeze.
@@ -88,29 +86,28 @@ The file runs from top to bottom of course, it imports the CSV library; declares
 
 Once inside the body of the Python code, it opens the rankings CSV file. Now, I already have my CSV file pre-made, but if you need to make your own, as I may have mentioned earlier, it's a simple Python procedure of outputting a Set of names from the match CSV to a different CSV file. The rankings are loaded in as a Python dictionary indexed by player names, pointing to Player objects. I open the match data file and include the crux of the algorithm:
 
-``
-for row in csv_reader:
-
-    # Determine Rating for winning player
-    RA = ranks[row[0]].rating
+    for row in csv_reader:
     
-    # Determine rating for losing player        
-    RB = ranks[row[1]].rating
-    
-    # Determine expected outcome for winning player using formula 1    
-    EA = 1 / ( 1+pow(10,(RB-RA)/400))
-    
-    # Determine expected outcome for losing player using formula 1  
-    EB = 1 / ( 1+pow(10,(RA-RB)/400))
-    
-    # Determine true outcome for both players   
-    SA = 1
-    SB = 0
-    
-    # Update the ratings according to formula 2   
-    ranks[row[0]].rating = int(RA + K*(SA-EA))   
-    ranks[row[1]].rating = int(RB + K*(SB-EB))   
-``
+        # Determine Rating for winning player
+        RA = ranks[row[0]].rating
+        
+        # Determine rating for losing player        
+        RB = ranks[row[1]].rating
+        
+        # Determine expected outcome for winning player using formula 1    
+        EA = 1 / ( 1+pow(10,(RB-RA)/400))
+        
+        # Determine expected outcome for losing player using formula 1  
+        EB = 1 / ( 1+pow(10,(RA-RB)/400))
+        
+        # Determine true outcome for both players   
+        SA = 1
+        SB = 0
+        
+        # Update the ratings according to formula 2   
+        ranks[row[0]].rating = int(RA + K*(SA-EA))   
+        ranks[row[1]].rating = int(RB + K*(SB-EB))
+        
 
 With that out of the way and the files closed, I sort the ratings and then print them to console and file. If you do this, make sure to name your output file differently than your input files so you don't overwrite anything important.
 
@@ -142,7 +139,7 @@ In the current tournament ruleset, if a player loses their first match in the Si
  - 2024Tournament_Provincials.csv
 
 #### Prototype No.3 winningStreaks.py: Higher K Value For Winning Streaks
-Now that we have a K value that changes based on the match results for each player, this can be applied to the Main Draw of the Single Elimination Bracket as well as Consolation. Getting deep into a tournament bracket should empower players to win more ELO points, and this contrasts with the lower K value in Consolation.
+Now that we have a K value that changes based on the match results for each player, this can be applied to the Main Draw of the Single Elimination Bracket as well as Consolation. Getting deep into a tournament bracket should empower players to win more ELO, and this contrasts with the lower K value in Consolation.
 
 #### Prototype No.4 pointsVariation.py: Tournament Points As Initial Ranking
 So far, all of the variations have started with each player rated at 1000 ELO rating points. Why not initialize the players with an average of 1000 and their tournament points from the official rankings? It is an intuitive place to start, to get a rough idea of the player levels.
@@ -164,5 +161,4 @@ Work in progress
 
 ### Author
 Andrew Meijer
-
 andrew@atrm.ca
