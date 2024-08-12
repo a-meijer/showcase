@@ -124,6 +124,61 @@ As expected, due to the extremely low number of matches for these ratings, conso
 
 What would improve the accuracy of this prototype the most is addressing the problem of consolation players being overranked. There are many ways to improve this algorithm. Consider the sample of possible variations below.
 
+|Rank|Official Rankings     |Tournament Points|Initial Prototype     |Rating|
+|----|----------------------|-----------------|----------------------|------|
+|1   |Saurabh Pandiar       |1488             |Saurabh Pandiar       |1352  |
+|2   |Simar Singh           |935              |Nicholas Poon         |1192  |
+|3   |Jalil Waiz            |930              |Simar Singh           |1176  |
+|4   |Jack Chen             |810              |Lyem Fedoretz         |1164  |
+|5   |Connor Nicholas Louie |805              |Victor Ho             |1116  |
+|6   |Kwun Ho So            |685              |Jack Chen             |1116  |
+|7   |Lyem Fedoretz         |533              |Ryan Liu              |1111  |
+|8   |Uday Pratap Bharti    |520              |Jaden Thom            |1097  |
+|9   |Sahil Rajesh Aggarwal |509              |Anish Chandra Jojula  |1087  |
+|10  |Ratnesh Rao Ippili    |509              |Jalil Waiz            |1082  |
+|11  |Victor Ho             |439              |Ayden Travis Lee      |1065  |
+|12  |Ryan Liu              |439              |Connor Nicholas Louie |1050  |
+|13  |Roy Hung              |400              |Shingchun (Kevin) Wu  |1043  |
+|14  |Anish Chandra Jojula  |345              |Rickey Ruixi Zhang    |1042  |
+|15  |Jaden Thom            |307              |Jasper Kong           |1036  |
+|16  |Ayush Ayush           |307              |Uday Pratap Bharti    |1032  |
+|17  |Rickey Ruixi Zhang    |225              |Yancong Li            |1032  |
+|18  |Shingchun (Kevin) Wu  |225              |Ratnesh Rao Ippili    |1030  |
+|19  |Jasper Kong           |225              |Stephen Dee           |1030  |
+|20  |Stephen Dee           |225              |Kwun Ho So            |1023  |
+|21  |Colt Love             |224              |Robert Zhongjia Shi   |1000  |
+|22  |Andrew Meijer         |224              |Sarabpreet Singh Sodhi|1000  |
+|23  |Brendon Kwan          |224              |Kelsey Liang          |1000  |
+|24  |Samuel Ha             |224              |Robert Stephen Foster |996   |
+|25  |Laurence Kao          |175              |Maurice Li            |992   |
+|26  |Robert Zhongjia Shi   |132              |Allan Crawford        |992   |
+|27  |William Ka wang Ma    |132              |William Ka wang Ma    |992   |
+|28  |Kelsey Liang          |132              |Angus Li              |985   |
+|29  |John Ou               |132              |Andrew Meijer         |977   |
+|30  |Angus Li              |132              |Laurence Kao          |956   |
+|31  |Sarabpreet Singh Sodhi|132              |Arseny Shestakov      |956   |
+|32  |Allan Crawford        |132              |Aakar Chatha          |954   |
+|33  |Maurice Li            |132              |Dayton Se             |950   |
+|34  |Nicholas Poon         |49               |Oliver Long           |947   |
+|35  |Justin Lam            |49               |Zhengheng Bao         |942   |
+|36  |Oliver Long           |49               |Sahil Rajesh Aggarwal |936   |
+|37  |Ayden Travis Lee      |49               |John Ou               |935   |
+|38  |Marcus James Tseng    |49               |Roy Hung              |912   |
+|39  |Aakar Chatha          |49               |Colt Love             |911   |
+|40  |Andy Le               |49               |Renjie Xiong          |907   |
+|41  |Arseny Shestakov      |49               |Justin Lam            |907   |
+|42  |Hossein Ahmadi        |49               |Yichen Li             |907   |
+|43  |Luca Ferretti         |49               |Andy Le               |905   |
+|44  |Robert Stephen Foster |49               |Bangjian (James) Geng |905   |
+|45  |Dwayne Da Silva       |49               |Hossein Ahmadi        |901   |
+|46  |Renjie Xiong          |49               |Luca Ferretti         |901   |
+|47  |Zhengheng Bao         |49               |Dwayne Da Silva       |901   |
+|48  |Yichen Li             |49               |Marcus James Tseng    |900   |
+|49  |Yancong Li            |49               |Ayush Ayush           |896   |
+|50  |Bangjian (James) Geng |49               |Samuel Ha             |850   |
+|51  |Dayton Se             |0                |Brendon Kwan          |843   |
+
+
 ### Variations
  - Changing K value based on consolation
  - Changing K value based on streakiness/round/depth (this emphasizes the reduced K value in consolation Variation 1)
@@ -139,10 +194,66 @@ In the current tournament ruleset, if a player loses their first match in the Si
  - 2024Tournament_Provincials.csv (deprecated)
  - 2024TournamentScores_JackUnderHill.csv (includes games scores for Prototype No.4)
  - 2024TournamentScores_Provincials.csv (includes games scores for Prototype No.4)
+ 
 This variation adds a boolean variable to the Player object to track whether or not the player is in consolation (defaults to False). When rating changes are being assigned, the program checks if the players are in consolation by using these varaibles. Also, whenever a player loses a match, the program sets their consolation boolean to True. Since this version of the program runs separately for each tournament, these booleans are reset to False when the Players are reinitialized for each tournament.
 
 #### Prototype No.2 Results
 Running consolationFix.py first on the Jack Underhill match data and then on the Provincial Championships match data yielded results that make sense: the consolation players are now all lower rated. A side effect of this variation is that all players now have lower ratings.
+
+|Rank|Official Rankings     |Tournament Points|Consolation Fix       |Rating|
+|----|----------------------|-----------------|----------------------|------|
+|1   |Saurabh Pandiar       |1488             |Saurabh Pandiar       |1347  |
+|2   |Simar Singh           |935              |Simar Singh           |1165  |
+|3   |Jalil Waiz            |930              |Lyem Fedoretz         |1163  |
+|4   |Jack Chen             |810              |Victor Ho             |1116  |
+|5   |Connor Nicholas Louie |805              |Jack Chen             |1116  |
+|6   |Kwun Ho So            |685              |Ryan Liu              |1109  |
+|7   |Lyem Fedoretz         |533              |Anish Chandra Jojula  |1087  |
+|8   |Uday Pratap Bharti    |520              |Stephen Dee           |1075  |
+|9   |Sahil Rajesh Aggarwal |509              |Connor Nicholas Louie |1050  |
+|10  |Ratnesh Rao Ippili    |509              |Shingchun (Kevin) Wu  |1043  |
+|11  |Victor Ho             |439              |Rickey Ruixi Zhang    |1042  |
+|12  |Ryan Liu              |439              |Jasper Kong           |1036  |
+|13  |Roy Hung              |400              |Angus Li              |1033  |
+|14  |Anish Chandra Jojula  |345              |Uday Pratap Bharti    |1032  |
+|15  |Jaden Thom            |307              |Kwun Ho So            |1026  |
+|16  |Ayush Ayush           |307              |Jalil Waiz            |1022  |
+|17  |Rickey Ruixi Zhang    |225              |Nicholas Poon         |1010  |
+|18  |Shingchun (Kevin) Wu  |225              |Jaden Thom            |1003  |
+|19  |Jasper Kong           |225              |Robert Zhongjia Shi   |1000  |
+|20  |Stephen Dee           |225              |Sarabpreet Singh Sodhi|1000  |
+|21  |Colt Love             |224              |Kelsey Liang          |1000  |
+|22  |Andrew Meijer         |224              |Maurice Li            |992   |
+|23  |Brendon Kwan          |224              |Allan Crawford        |992   |
+|24  |Samuel Ha             |224              |William Ka wang Ma    |992   |
+|25  |Laurence Kao          |175              |John Ou               |977   |
+|26  |Robert Zhongjia Shi   |132              |Ayden Travis Lee      |975   |
+|27  |William Ka wang Ma    |132              |Yancong Li            |973   |
+|28  |Kelsey Liang          |132              |Sahil Rajesh Aggarwal |970   |
+|29  |John Ou               |132              |Ratnesh Rao Ippili    |967   |
+|30  |Angus Li              |132              |Robert Stephen Foster |967   |
+|31  |Sarabpreet Singh Sodhi|132              |Laurence Kao          |956   |
+|32  |Allan Crawford        |132              |Aakar Chatha          |956   |
+|33  |Maurice Li            |132              |Oliver Long           |955   |
+|34  |Nicholas Poon         |49               |Dayton Se             |950   |
+|35  |Justin Lam            |49               |Arseny Shestakov      |949   |
+|36  |Oliver Long           |49               |Zhengheng Bao         |949   |
+|37  |Ayden Travis Lee      |49               |Andy Le               |944   |
+|38  |Marcus James Tseng    |49               |Bangjian (James) Geng |944   |
+|39  |Aakar Chatha          |49               |Renjie Xiong          |938   |
+|40  |Andy Le               |49               |Yichen Li             |938   |
+|41  |Arseny Shestakov      |49               |Justin Lam            |937   |
+|42  |Hossein Ahmadi        |49               |Hossein Ahmadi        |937   |
+|43  |Luca Ferretti         |49               |Luca Ferretti         |937   |
+|44  |Robert Stephen Foster |49               |Dwayne Da Silva       |937   |
+|45  |Dwayne Da Silva       |49               |Marcus James Tseng    |937   |
+|46  |Renjie Xiong          |49               |Roy Hung              |936   |
+|47  |Zhengheng Bao         |49               |Ayush Ayush           |936   |
+|48  |Yichen Li             |49               |Colt Love             |919   |
+|49  |Yancong Li            |49               |Andrew Meijer         |919   |
+|50  |Bangjian (James) Geng |49               |Brendon Kwan          |890   |
+|51  |Dayton Se             |0                |Samuel Ha             |887   |
+
 
 ### Prototype No.3 winningStreaks.py: Higher K Value For Winning Streaks
 Now that we have a K value that changes based on the match results for each player, this principle can be applied in reverse, increasing the k value for the main draw. Getting deep into a tournament bracket should empower players to win more ELO, and this contrasts with the lower K value in Consolation. 
@@ -150,6 +261,61 @@ To implement this, I add a new variable to the Player Class called winningStreak
 
 #### Prototype No.3 Results
 outputVariation2.py has a similar effect to the original prototype where consolation players are overranked, and we can expect to see this in the results of the combined variation. Seems to be working -- onto the next.
+
+|Rank|Official Rankings     |Tournament Points|Variation 2           |Rating|
+|----|----------------------|-----------------|----------------------|------|
+|1   |Saurabh Pandiar       |1488             |Saurabh Pandiar       |1486  |
+|2   |Simar Singh           |935              |Nicholas Poon         |1302  |
+|3   |Jalil Waiz            |930              |Simar Singh           |1253  |
+|4   |Jack Chen             |810              |Lyem Fedoretz         |1247  |
+|5   |Connor Nicholas Louie |805              |Victor Ho             |1163  |
+|6   |Kwun Ho So            |685              |Jack Chen             |1151  |
+|7   |Lyem Fedoretz         |533              |Ryan Liu              |1149  |
+|8   |Uday Pratap Bharti    |520              |Jaden Thom            |1135  |
+|9   |Sahil Rajesh Aggarwal |509              |Anish Chandra Jojula  |1120  |
+|10  |Ratnesh Rao Ippili    |509              |Jalil Waiz            |1114  |
+|11  |Victor Ho             |439              |Ayden Travis Lee      |1112  |
+|12  |Ryan Liu              |439              |Uday Pratap Bharti    |1062  |
+|13  |Roy Hung              |400              |Connor Nicholas Louie |1062  |
+|14  |Anish Chandra Jojula  |345              |Yancong Li            |1060  |
+|15  |Jaden Thom            |307              |Ratnesh Rao Ippili    |1058  |
+|16  |Ayush Ayush           |307              |Shingchun (Kevin) Wu  |1054  |
+|17  |Rickey Ruixi Zhang    |225              |Rickey Ruixi Zhang    |1053  |
+|18  |Shingchun (Kevin) Wu  |225              |Jasper Kong           |1046  |
+|19  |Jasper Kong           |225              |Stephen Dee           |1040  |
+|20  |Stephen Dee           |225              |Kwun Ho So            |1032  |
+|21  |Colt Love             |224              |Robert Stephen Foster |1006  |
+|22  |Andrew Meijer         |224              |Robert Zhongjia Shi   |1000  |
+|23  |Brendon Kwan          |224              |Sarabpreet Singh Sodhi|1000  |
+|24  |Samuel Ha             |224              |Kelsey Liang          |1000  |
+|25  |Laurence Kao          |175              |Andrew Meijer         |995   |
+|26  |Robert Zhongjia Shi   |132              |Maurice Li            |992   |
+|27  |William Ka wang Ma    |132              |Allan Crawford        |992   |
+|28  |Kelsey Liang          |132              |William Ka wang Ma    |992   |
+|29  |John Ou               |132              |Angus Li              |985   |
+|30  |Angus Li              |132              |Laurence Kao          |957   |
+|31  |Sarabpreet Singh Sodhi|132              |Arseny Shestakov      |956   |
+|32  |Allan Crawford        |132              |Aakar Chatha          |954   |
+|33  |Maurice Li            |132              |Dayton Se             |950   |
+|34  |Nicholas Poon         |49               |Oliver Long           |947   |
+|35  |Justin Lam            |49               |Zhengheng Bao         |942   |
+|36  |Oliver Long           |49               |Sahil Rajesh Aggarwal |942   |
+|37  |Ayden Travis Lee      |49               |John Ou               |935   |
+|38  |Marcus James Tseng    |49               |Colt Love             |921   |
+|39  |Aakar Chatha          |49               |Roy Hung              |914   |
+|40  |Andy Le               |49               |Renjie Xiong          |907   |
+|41  |Arseny Shestakov      |49               |Justin Lam            |907   |
+|42  |Hossein Ahmadi        |49               |Yichen Li             |907   |
+|43  |Luca Ferretti         |49               |Andy Le               |905   |
+|44  |Robert Stephen Foster |49               |Bangjian (James) Geng |905   |
+|45  |Dwayne Da Silva       |49               |Hossein Ahmadi        |901   |
+|46  |Renjie Xiong          |49               |Luca Ferretti         |901   |
+|47  |Zhengheng Bao         |49               |Dwayne Da Silva       |901   |
+|48  |Yichen Li             |49               |Marcus James Tseng    |900   |
+|49  |Yancong Li            |49               |Ayush Ayush           |899   |
+|50  |Bangjian (James) Geng |49               |Samuel Ha             |850   |
+|51  |Dayton Se             |0                |Brendon Kwan          |846   |
+
 
 ### Prototype No.4 closeMatchVariation.py: Going Three Games
 Prototype No.2 requires changing the K value equally for both players, Prototype No.3 requires changing the K value for the winning player, and Prototype No.4 requires changing the K value for the losing player. This variation also requires changing the input data so that the match scores are included. Players that lose in three games in a ranked match and get to extra points in the third game should lose half as much rating because it is such a close match. After creating the new CSV files, I realized a small error in the CSV files I was using earlier: one of the matches was in the wrong tournament. Now fixed, I will recreate the output files with the correct data once all the variations are finished. There are a few matches from the Jack Underhill and Provincial Championships that went to extra points in the third game.
@@ -161,13 +327,123 @@ At first, I thought this sort of use-case called for regex, but it seems simple 
  - 2024TournamentScores_Provincials.csv (includes games scores for Prototype No.4)
 
 #### Prototype No.4 Results
-I used a print statement to test that the selection was working properly before moving on from this variation. Fortunately, there was one match in each of the two events that went to extra points in the third game. A direct comparison with the output from the initial prototype shows that Sarabpreet Singh Sodhi (+25) and Uday Pratap Bharti (+20) both have slightly higher ratings because of this variation. Other players also have slight changes too as a side effect of this.
+I used a print statement to test that the selection was working properly before moving on from this variation. Fortunately, there was one match in each of the two events that went to extra points in the third game. A direct comparison with the output from the initial prototype shows that Sarabpreet Singh Sodhi (+25) and Uday Pratap Bharti (+20) both have slightly higher ratings because of this variation. Other players also have slight changes too as a side effect of this.\
+
+|Rank|Official Rankings     |Tournament Points|Variation 3           |Rating|
+|----|----------------------|-----------------|----------------------|------|
+|1   |Saurabh Pandiar       |1488             |Saurabh Pandiar       |1354  |
+|2   |Simar Singh           |935              |Nicholas Poon         |1192  |
+|3   |Jalil Waiz            |930              |Simar Singh           |1180  |
+|4   |Jack Chen             |810              |Lyem Fedoretz         |1165  |
+|5   |Connor Nicholas Louie |805              |Jack Chen             |1143  |
+|6   |Kwun Ho So            |685              |Victor Ho             |1116  |
+|7   |Lyem Fedoretz         |533              |Ryan Liu              |1112  |
+|8   |Uday Pratap Bharti    |520              |Jaden Thom            |1097  |
+|9   |Sahil Rajesh Aggarwal |509              |Anish Chandra Jojula  |1087  |
+|10  |Ratnesh Rao Ippili    |509              |Ayden Travis Lee      |1065  |
+|11  |Victor Ho             |439              |Uday Pratap Bharti    |1052  |
+|12  |Ryan Liu              |439              |Jalil Waiz            |1050  |
+|13  |Roy Hung              |400              |Connor Nicholas Louie |1050  |
+|14  |Anish Chandra Jojula  |345              |Shingchun (Kevin) Wu  |1043  |
+|15  |Jaden Thom            |307              |Rickey Ruixi Zhang    |1042  |
+|16  |Ayush Ayush           |307              |Jasper Kong           |1036  |
+|17  |Rickey Ruixi Zhang    |225              |Stephen Dee           |1036  |
+|18  |Shingchun (Kevin) Wu  |225              |Ratnesh Rao Ippili    |1034  |
+|19  |Jasper Kong           |225              |Yancong Li            |1032  |
+|20  |Stephen Dee           |225              |Sarabpreet Singh Sodhi|1025  |
+|21  |Colt Love             |224              |Kwun Ho So            |1018  |
+|22  |Andrew Meijer         |224              |Kelsey Liang          |1000  |
+|23  |Brendon Kwan          |224              |Robert Stephen Foster |996   |
+|24  |Samuel Ha             |224              |Robert Zhongjia Shi   |992   |
+|25  |Laurence Kao          |175              |Angus Li              |992   |
+|26  |Robert Zhongjia Shi   |132              |Maurice Li            |992   |
+|27  |William Ka wang Ma    |132              |Allan Crawford        |992   |
+|28  |Kelsey Liang          |132              |William Ka wang Ma    |992   |
+|29  |John Ou               |132              |Andrew Meijer         |977   |
+|30  |Angus Li              |132              |Laurence Kao          |956   |
+|31  |Sarabpreet Singh Sodhi|132              |Arseny Shestakov      |956   |
+|32  |Allan Crawford        |132              |Aakar Chatha          |954   |
+|33  |Maurice Li            |132              |Dayton Se             |950   |
+|34  |Nicholas Poon         |49               |Oliver Long           |947   |
+|35  |Justin Lam            |49               |Zhengheng Bao         |942   |
+|36  |Oliver Long           |49               |Sahil Rajesh Aggarwal |936   |
+|37  |Ayden Travis Lee      |49               |John Ou               |935   |
+|38  |Marcus James Tseng    |49               |Roy Hung              |915   |
+|39  |Aakar Chatha          |49               |Colt Love             |911   |
+|40  |Andy Le               |49               |Renjie Xiong          |907   |
+|41  |Arseny Shestakov      |49               |Justin Lam            |907   |
+|42  |Hossein Ahmadi        |49               |Yichen Li             |907   |
+|43  |Luca Ferretti         |49               |Andy Le               |905   |
+|44  |Robert Stephen Foster |49               |Bangjian (James) Geng |905   |
+|45  |Dwayne Da Silva       |49               |Hossein Ahmadi        |901   |
+|46  |Renjie Xiong          |49               |Luca Ferretti         |901   |
+|47  |Zhengheng Bao         |49               |Dwayne Da Silva       |901   |
+|48  |Yichen Li             |49               |Marcus James Tseng    |900   |
+|49  |Yancong Li            |49               |Ayush Ayush           |896   |
+|50  |Bangjian (James) Geng |49               |Samuel Ha             |850   |
+|51  |Dayton Se             |0                |Brendon Kwan          |844   |
+
 
 ### Prototype No.5 pointsVariation.py: Tournament Points As Initial Ranking
 So far, all of the variations have started with each player rated at 1000 ELO rating points. Why not initialize the players with an average of 1000 and their tournament points from the official rankings? It is an intuitive place to start, to get a rough idea of the player levels. This is very simple to implement since I have a CSV file with the tournament points for each player already prepared. I created an intermediary file called sourceRankings.py with a program called makeSourceRankings.py. All I did was take each rating from officialRankings.py and average it with 1000 to neutralize the large disparity (since the official Rankings are based on tournament points). Now I can use the new file sourceRankings.py for this variation, the combined variation, and future testing.
 
 #### Prototype No.5 Results
 This variation was a little finicky at first, because I had to correct my input to ensure the names of all the players matched with the inputRankings.csv file I've been using. Dayton was not in the official rankings even though he attended the Jack Underhill, and the reason for this is because he was walked over in his first match of the Jack Underhill, and never played any matches. I added him to the official rankings with zero tournament points. This set his starting source rating (in sourceRankings.csv) to 500. Initializing the algorithm with the official Badminton BC rankings did a good job of reducing the amount by which consolation players are overrated. One strange effect of this variation is that Nicholas Poon still managed to outrank Anish Jojula even though Nicholas lost to Anish in the first round.
+
+|Rank|Official Rankings     |Tournament Points|Variation 4           |Rating|
+|----|----------------------|-----------------|----------------------|------|
+|1   |Saurabh Pandiar       |1488             |Saurabh Pandiar       |1324  |
+|2   |Simar Singh           |935              |Simar Singh           |1012  |
+|3   |Jalil Waiz            |930              |Jack Chen             |987   |
+|4   |Jack Chen             |810              |Lyem Fedoretz         |917   |
+|5   |Connor Nicholas Louie |805              |Jalil Waiz            |901   |
+|6   |Kwun Ho So            |685              |Ryan Liu              |863   |
+|7   |Lyem Fedoretz         |533              |Connor Nicholas Louie |849   |
+|8   |Uday Pratap Bharti    |520              |Victor Ho             |839   |
+|9   |Sahil Rajesh Aggarwal |509              |Kwun Ho So            |822   |
+|10  |Ratnesh Rao Ippili    |509              |Uday Pratap Bharti    |783   |
+|11  |Victor Ho             |439              |Jaden Thom            |756   |
+|12  |Ryan Liu              |439              |Nicholas Poon         |755   |
+|13  |Roy Hung              |400              |Anish Chandra Jojula  |729   |
+|14  |Anish Chandra Jojula  |345              |Ratnesh Rao Ippili    |712   |
+|15  |Jaden Thom            |307              |Stephen Dee           |665   |
+|16  |Ayush Ayush           |307              |Jasper Kong           |658   |
+|17  |Rickey Ruixi Zhang    |225              |Sahil Rajesh Aggarwal |656   |
+|18  |Shingchun (Kevin) Wu  |225              |Shingchun (Kevin) Wu  |654   |
+|19  |Jasper Kong           |225              |Rickey Ruixi Zhang    |637   |
+|20  |Stephen Dee           |225              |Roy Hung              |633   |
+|21  |Colt Love             |224              |Sarabpreet Singh Sodhi|627   |
+|22  |Andrew Meijer         |224              |Allan Crawford        |619   |
+|23  |Brendon Kwan          |224              |Ayden Travis Lee      |609   |
+|24  |Samuel Ha             |224              |Angus Li              |597   |
+|25  |Laurence Kao          |175              |Andrew Meijer         |594   |
+|26  |Robert Zhongjia Shi   |132              |Robert Zhongjia Shi   |593   |
+|27  |William Ka wang Ma    |132              |William Ka wang Ma    |585   |
+|28  |Kelsey Liang          |132              |Robert Stephen Foster |583   |
+|29  |John Ou               |132              |Kelsey Liang          |575   |
+|30  |Angus Li              |132              |Yancong Li            |575   |
+|31  |Sarabpreet Singh Sodhi|132              |Laurence Kao          |573   |
+|32  |Allan Crawford        |132              |Maurice Li            |571   |
+|33  |Maurice Li            |132              |Ayush Ayush           |559   |
+|34  |Nicholas Poon         |49               |John Ou               |524   |
+|35  |Justin Lam            |49               |Colt Love             |521   |
+|36  |Oliver Long           |49               |Oliver Long           |509   |
+|37  |Ayden Travis Lee      |49               |Arseny Shestakov      |497   |
+|38  |Marcus James Tseng    |49               |Aakar Chatha          |490   |
+|39  |Aakar Chatha          |49               |Marcus James Tseng    |487   |
+|40  |Andy Le               |49               |Zhengheng Bao         |487   |
+|41  |Arseny Shestakov      |49               |Brendon Kwan          |485   |
+|42  |Hossein Ahmadi        |49               |Samuel Ha             |463   |
+|43  |Luca Ferretti         |49               |Luca Ferretti         |460   |
+|44  |Robert Stephen Foster |49               |Dayton Se             |459   |
+|45  |Dwayne Da Silva       |49               |Renjie Xiong          |456   |
+|46  |Renjie Xiong          |49               |Dwayne Da Silva       |447   |
+|47  |Zhengheng Bao         |49               |Andy Le               |446   |
+|48  |Yichen Li             |49               |Yichen Li             |444   |
+|49  |Yancong Li            |49               |Bangjian (James) Geng |440   |
+|50  |Bangjian (James) Geng |49               |Justin Lam            |437   |
+|51  |Dayton Se             |0                |Hossein Ahmadi        |436   |
+
 
 ### Prototype No.6 combinedVariation.py: Combining All Four Above Variations
 Combining all four previous variations should produce a more accurate ranking than any of the previous variations on their own.
@@ -189,6 +465,62 @@ The results look good but I also want to see what they would look like if I used
 
 #### Prototype No.6 Results 2
 It's hard to say exactly which of the two rankings is better between outputVariation5.csv and outputVariation6.csv, but I like outputVariation6.csv better because it does not take tournament placement into account at all, it is not biased on favour of the official rankings, and yet it produces a very accurate ranking. I am looking forward to testing out this system on more match data.
+
+#### Prototype No.6 Comparison to Official Rankings
+|Rank|Official Rankings     |Tournament Points|Combined Variation    |Rating|Variation 6           |Rating|
+|----|----------------------|-----------------|----------------------|------|----------------------|------|
+|1   |Saurabh Pandiar       |1488             |Saurabh Pandiar       |1384  |Saurabh Pandiar       |1486  |
+|2   |Simar Singh           |935              |Simar Singh           |1074  |Simar Singh           |1251  |
+|3   |Jalil Waiz            |930              |Lyem Fedoretz         |991   |Lyem Fedoretz         |1247  |
+|4   |Jack Chen             |810              |Jack Chen             |964   |Victor Ho             |1162  |
+|5   |Connor Nicholas Louie |805              |Jalil Waiz            |950   |Ryan Liu              |1151  |
+|6   |Kwun Ho So            |685              |Ryan Liu              |907   |Jack Chen             |1133  |
+|7   |Lyem Fedoretz         |533              |Victor Ho             |888   |Anish Chandra Jojula  |1120  |
+|8   |Uday Pratap Bharti    |520              |Connor Nicholas Louie |855   |Jalil Waiz            |1105  |
+|9   |Sahil Rajesh Aggarwal |509              |Uday Pratap Bharti    |837   |Uday Pratap Bharti    |1080  |
+|10  |Ratnesh Rao Ippili    |509              |Kwun Ho So            |828   |Connor Nicholas Louie |1062  |
+|11  |Victor Ho             |439              |Anish Chandra Jojula  |756   |Shingchun (Kevin) Wu  |1054  |
+|12  |Ryan Liu              |439              |Sahil Rajesh Aggarwal |712   |Rickey Ruixi Zhang    |1053  |
+|13  |Roy Hung              |400              |Ratnesh Rao Ippili    |701   |Jasper Kong           |1046  |
+|14  |Anish Chandra Jojula  |345              |Roy Hung              |677   |Stephen Dee           |1046  |
+|15  |Jaden Thom            |307              |Jaden Thom            |674   |Nicholas Poon         |1040  |
+|16  |Ayush Ayush           |307              |Stephen Dee           |672   |Kwun Ho So            |1029  |
+|17  |Rickey Ruixi Zhang    |225              |Jasper Kong           |668   |Sarabpreet Singh Sodhi|1025  |
+|18  |Shingchun (Kevin) Wu  |225              |Shingchun (Kevin) Wu  |664   |Jaden Thom            |1019  |
+|19  |Jasper Kong           |225              |Rickey Ruixi Zhang    |645   |Kelsey Liang          |1000  |
+|20  |Stephen Dee           |225              |Sarabpreet Singh Sodhi|633   |Robert Zhongjia Shi   |992   |
+|21  |Colt Love             |224              |Allan Crawford        |619   |Angus Li              |992   |
+|22  |Andrew Meijer         |224              |Ayush Ayush           |608   |Maurice Li            |992   |
+|23  |Brendon Kwan          |224              |Angus Li              |597   |Allan Crawford        |992   |
+|24  |Samuel Ha             |224              |Nicholas Poon         |595   |William Ka wang Ma    |992   |
+|25  |Laurence Kao          |175              |Robert Zhongjia Shi   |593   |Ratnesh Rao Ippili    |990   |
+|26  |Robert Zhongjia Shi   |132              |William Ka wang Ma    |585   |Ayden Travis Lee      |986   |
+|27  |William Ka wang Ma    |132              |Kelsey Liang          |575   |Yancong Li            |980   |
+|28  |Kelsey Liang          |132              |Laurence Kao          |573   |Sahil Rajesh Aggarwal |978   |
+|29  |John Ou               |132              |John Ou               |573   |John Ou               |977   |
+|30  |Angus Li              |132              |Maurice Li            |571   |Robert Stephen Foster |970   |
+|31  |Sarabpreet Singh Sodhi|132              |Colt Love             |546   |Laurence Kao          |957   |
+|32  |Allan Crawford        |132              |Andrew Meijer         |542   |Aakar Chatha          |956   |
+|33  |Maurice Li            |132              |Robert Stephen Foster |530   |Oliver Long           |955   |
+|34  |Nicholas Poon         |49               |Brendon Kwan          |523   |Roy Hung              |954   |
+|35  |Justin Lam            |49               |Ayden Travis Lee      |519   |Dayton Se             |950   |
+|36  |Oliver Long           |49               |Yancong Li            |519   |Arseny Shestakov      |949   |
+|37  |Ayden Travis Lee      |49               |Oliver Long           |511   |Zhengheng Bao         |949   |
+|38  |Marcus James Tseng    |49               |Samuel Ha             |509   |Andy Le               |944   |
+|39  |Aakar Chatha          |49               |Marcus James Tseng    |508   |Bangjian (James) Geng |944   |
+|40  |Andy Le               |49               |Luca Ferretti         |497   |Ayush Ayush           |938   |
+|41  |Arseny Shestakov      |49               |Aakar Chatha          |490   |Renjie Xiong          |938   |
+|42  |Hossein Ahmadi        |49               |Arseny Shestakov      |490   |Yichen Li             |938   |
+|43  |Luca Ferretti         |49               |Zhengheng Bao         |487   |Justin Lam            |937   |
+|44  |Robert Stephen Foster |49               |Andy Le               |484   |Hossein Ahmadi        |937   |
+|45  |Dwayne Da Silva       |49               |Renjie Xiong          |481   |Luca Ferretti         |937   |
+|46  |Renjie Xiong          |49               |Bangjian (James) Geng |478   |Dwayne Da Silva       |937   |
+|47  |Zhengheng Bao         |49               |Dwayne Da Silva       |476   |Marcus James Tseng    |937   |
+|48  |Yichen Li             |49               |Hossein Ahmadi        |473   |Andrew Meijer         |924   |
+|49  |Yancong Li            |49               |Yichen Li             |469   |Colt Love             |923   |
+|50  |Bangjian (James) Geng |49               |Justin Lam            |468   |Brendon Kwan          |892   |
+|51  |Dayton Se             |0                |Dayton Se             |459   |Samuel Ha             |887   |
+
 
 ### Prototype No.7 advancedVariation.py: Tournament Type, Tournaments Played, and High Ratings
 This prototype will be made in preparation for adding more tournaments and match data.
