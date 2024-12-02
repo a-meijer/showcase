@@ -327,7 +327,7 @@ At first, I thought this sort of use-case called for regex, but it seems simple 
  - 2024TournamentScores_Provincials.csv (includes games scores for Prototype No.4)
 
 #### Prototype No.4 Results
-I used a print statement to test that the selection was working properly before moving on from this variation. Fortunately, there was one match in each of the two events that went to extra points in the third game. A direct comparison with the output from the initial prototype shows that Sarabpreet Singh Sodhi (+25) and Uday Pratap Bharti (+20) both have slightly higher ratings because of this variation. Other players also have slight changes too as a side effect of this.\
+I used a print statement to test that the selection was working properly before moving on from this variation. Fortunately, there was one match in each of the two events that went to extra points in the third game. A direct comparison with the output from the initial prototype shows that Sarabpreet Singh Sodhi (+25) and Uday Pratap Bharti (+20) both have slightly higher ratings because of this variation. Other players also have slight changes too as a side effect of this.
 
 |Rank|Official Rankings     |Tournament Points|Variation 3           |Rating|
 |----|----------------------|-----------------|----------------------|------|

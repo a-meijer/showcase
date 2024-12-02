@@ -8,7 +8,7 @@ Further updates to the readme are to come ~
 
 ## Source Files
 ### main.py
-main.py is the first script to run. It imports the other files, initializes the datastructures, and runs tests to visualize the results on the terminal. The current test involves running the step and expand functions in in_backtracking_tre.py, and then displaying the solution. To run the project, navigate to this directory and use the command, "python main.py."
+main.py is the first script to run. It imports the other files, initializes the datastructures, and runs tests to visualize the results on the terminal. The current test involves running the step and expand functions in in_backtracking_tre.py, and displaying the resulting solution. To run the project, navigate to this directory and use the command, "python main.py."
 
 ### inc_graphs.py
 inc_graphs.py has functions and classes for implementing an edge-weighted undirected graph.
