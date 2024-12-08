@@ -35,7 +35,7 @@ list2.sort()
 sum = 0
 
 # For each pair, calculate the difference. Track the sum.
-for x in range(0,1000):
+for x in range(0,len(list1)):
     sum += abs(list1[x] - list2[x])
 
 # Final output 2086478

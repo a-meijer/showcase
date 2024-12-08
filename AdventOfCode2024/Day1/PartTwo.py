@@ -3,7 +3,9 @@
 # https://adventofcode.com/2024/day/1#part2
 # Andrew Meijer
 
-# Add up each number in the left list after multiplying it by the number of occurrences in the right list.
+'''
+ Add up each number in the left list after multiplying it by the number of occurrences in the right list.
+'''
 
 # Create empty lists to store the numbers
 list1 = []
