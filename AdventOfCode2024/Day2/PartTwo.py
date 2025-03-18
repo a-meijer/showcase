@@ -20,7 +20,7 @@ My plan is to determine which entries are out of line, and if there is only one,
 There must be a simpler way. . .
 I want to be able to check ascending/descending all in one go.
 Maybe Python has some functionality for this.
-I found a player Neil Thistlewaite who uses functions "any", "all", and "zip"
+I found a player Neil Thistlethwaite  who uses functions "any", "all", and "zip"
 so I am looking those up to see what they do.
 All returns true if all of the list inputs are true.
 Zip creates a list of tuples. If one list is longer than the other, extra elements are removed.
@@ -38,7 +38,7 @@ with open('input.txt', 'r') as file:
     contents = file.read().strip()
 
 def check(row):
-    # Insight from Neil Thistwaite to determine truth of Ascending or Descending
+    # Insight from Neil Thistlethwaite to determine truth of Ascending or Descending
     # make sure to get your parentheses right on this!
     SAFE = all(a > b for a,b in zip(row, row[1:])) or all(a < b for a,b in zip(row, row[1:]))
 
