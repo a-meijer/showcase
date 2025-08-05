@@ -172,14 +172,23 @@ You can run printRankings.py RankingsOutput.csv to display the new rankings.
 
 ### Tournaments
 2022 BC OPEN AND U-23 PROVINCIAL CHAMPIONSHIP
+
 2023 Jack Underhill Open
+
 2023 BC Junior A, U23 and Open Provincial Championship
+
 2024 VRC Jack Underhill Open A and B Tournament
+
 2024 BC Junior A and Open Provincial Championship (U15,U17,U23, Open A & B)
+
 Wing’s Open Badminton Tournament
+
 Shuttlesport Open Series #2
+
 2025 VRC Jack Underhill Open A & B Tournament
+
 2025 BC Junior A, Open A and Open B Provincial Championships
+
 
 ### Author
 Andrew Meijer
