@@ -1,6 +1,7 @@
 '''
 For a specific Tournament Subdirectory,
 This program produces initialRankings.csv given playerData.csv and the match data CSV that shares the same name as the directory.
+Deprecated in 2026.
 '''
 
 import csv

@@ -1,9 +1,9 @@
 import csv
-from modules import player
+from modules import player as player
+from modules import saveSystem as saveSystem
 
 # Process the matches and return the rankings
-def processMatches(ranks, K, tournamentFile, tournamentName):
-    numMatchesProcessed = 0
+def processMatches(ranks, K, tournamentFile, matchlist,tournamentName, save):
     with open(tournamentFile, 'r') as file:
         csv_reader = csv.reader(file)
         for row in csv_reader:
@@ -32,6 +32,15 @@ def processMatches(ranks, K, tournamentFile, tournamentName):
             # if row[0] == 'Finals':
               #   ranks[row[2]].titles.append(f"{tournamentName} Champion")
               #   ranks[row[4]].titles.append(f"{tournamentName} Finalist")
+
+            ranks[row[2]].matchHistory.append(f"Defeated {ranks[row[4]].name} in {row[0]} of {tournamentName}: +{ranks[row[2]].rating - RA} points for a new rating of {ranks[row[2]].rating}")
+            ranks[row[4]].matchHistory.append(f"Lost to {ranks[row[2]].name} in {row[0]} of {tournamentName}: {(ranks[row[4]].rating - RB)} points for a new rating of {ranks[row[4]].rating}")
+
+            if ranks[row[2]].rating > ranks[row[2]].highestRating:
+                ranks[row[2]].highestRating = ranks[row[2]].rating
+                ranks[row[2]].matchHistory.append(f"New highest rating achieved: {ranks[row[2]].highestRating}")
+
+            save.matchesPlayed += 1
 
             print(f"Processed {row[0]} match: {ranks[row[2]].name} defeats {ranks[row[4]].name}")
             print(f"{ranks[row[2]].name} +{ranks[row[2]].rating - RA} New rating: {ranks[row[2]].rating}")
