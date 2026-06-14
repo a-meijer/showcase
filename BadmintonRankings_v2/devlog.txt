@@ -1,0 +1,562 @@
+2025    04  28
+    On April 28, 2025, the first file i created for this project was Readme.md.
+    I split the readme into the following sections:
+    Purpose:
+        "To maintain a Provincial rating system for Men's Singles badminton players based on the official ranking system for British Columbia, using the tournaments that award points towards the official rankings."
+    Introduction:
+        Naming the relevant files and information.
+    The Validity And Accuracy of The Ratings:
+        Explaining what makes my ratings more accurate than the official rankings.
+    The First Tournament:
+        Elaborating on how these ratings will align with the official rankings.
+    About The Initial Prototype:
+        Information on what is different this time around.
+    Ratings:
+        output goes here.
+    Tournaments:
+        input goes here.
+    Author:
+        me (Andrew)
+    I will need to reference the initial prototype several times during the development process because it has a lot of information on the variations that make this algorithm effective.
+    For consideration:
+    - Winning streaks to affect rating
+    - Wins to affect ELO change more than losses (separate variables LK and WK)
+    - Close matches to reduce ELO change
+    - Using the official rankings as initial ratings (don't)
+
+2025    05  01
+    On May 1, 2025, I created some input files in my Google Drive.
+    I would like to share the drive directory as part of the project, since that's where I work with the CSV files.
+    It's much easier to view the files in google sheets than on Github, where they're all separate CSV files.
+    I am recording the player IDs so two players with the same name can be distinguished.
+    Unfortunately because I am using only the tournaments that affect provincial rankings, there are not very many matches to draw ratings from.
+    In other ELO rating systems like chess, many matches produce a more accurate rating.
+    There are a few possible workarounds for this other than the variations I included in my initial prototype.
+    I have a clear idea of who the strongest players are, so I can create a power-ranking based on my own opinions, or even by taking a survey of the community, and base the initial rankings off of that.
+    However, I want to showcase the data, not my own opinions on the rankings, so I will start every player at 1000 rating.
+    Every player's starting rating will be extremely sensitive, meaning they will gain or lose a lot of rating points based on the results of their initial matches.
+    As they play more matches, the rating sensitivity will reduce.
+    Exactly how sensitive and how many matches it should take to reduce the sensitivity is not clear at this time.
+    To find the best sensitivity and reduction, I will experiment with different variables.
+    There are a lot of ways to tweak the algorithm sensitivity to make it slightly better, but I don't want to get too far into the weeds like I did in the initial prototype with all the variations.
+    There is a question of whether to include the results from Men's B and Junior events.
+    I wish I could include the Island Open results, but that would cause my ratings to be biased towards island players.
+
+2025    05  03
+    The Plan:
+        Ratings are calculated for each tournament/event.
+        Create a report every time there's an event.
+        The report should include the following details:
+        1. The ratings before the event (noting the new players)
+        2. The effect of each match in the event.
+        3. The tournament results with W/L and ELO change.
+        4. The new ratings with new W/L, ELO change, ranking change.
+    Add titles, like “2022 Provincials champion”, “2024 Wing’s Open Finalist” etc
+    Players must be identified by the ID, but they have a list of names as well, titles, W/L, all that. Use Player Objects. Save the Player Object data to some file.
+    Each tournament/event should have their own folder with the
+        - input ratings/playerdata CSV,
+        - the match data input,
+        - the match output,
+        - the playerdata output
+    I need to update the README to include a link to the drive.
+    https://drive.google.com/drive/folders/1GX5JPSUZaMUrkilviBPgyZCzfP7bpef-?usp=sharing
+    I downloaded the CSV data and created the Tournament folders.
+    I created a src folder for my Python code.
+    PROBLEM: What's the difference between a ratings file and a player data file?
+    Do I really need both?
+    I don't need both, I just need to write a report on the google drive for each tournament.
+    download it as a PDF or something -- I'll just make it in google drive.
+    The first step is to get access to the data in the CSV files and create Player objects with them.
+    Create the Player object . . .
+    
+2025    06  13
+    I haven't made the files yet.
+
+2025    06  15
+    Happy Father's Day to those who celebrate ~
+    I had some confusion around what files to make for this project, so I am going to start with the UI.
+    In theory, by walking through the UI experience, I should be able to "reverse-engineer" the required files.
+    Running the program should create a CLI where the program immediately tries to detect Rankings.csv, Ratings.csv, or Players.csv.
+    If none of these files are present in the directory, it prompts the user to enter a filename for the rating input, or to start a new rating.
+    It prints the name of the output filename and asks if the user wants a different name.
+    It processes the Ratings input and prints out the number of rated players.
+    It outputs the list of tournaments that have already been processed (?)
+    It prompts the user to enter the name of a tournament csv.
+    It processes the tournament players and outputs the number of players from the ratings in attendance.
+    For each new player in the tournament csv, it asks the user if this is a net-new player or an alias for an existing player, and it proceeds accordingly.
+    Added section to README.MD, "How To Use The Rating System" 
+
+2025    06  22
+    I've decided to map this out on paper instead of Cowboy Coding directly into my Readme and Devlog.
+    Okay done, it took me two pages and I have this mostly mapped out. The algorithm is simple, and I know it works from the initial prototype.
+    The tricky part is just the rating system build around the algorithm, and how to design it to be used.
+    Start in main.py.
+    See you there!
+    We are processing one tournament at a time so I can update the ratings as new tournaments are organized in 2025, 2026, and beyond! Live ratings.
+    
+2025    08  04
+    It's BC Day and I am making progress!
+    I completed the file selection section and created a separate io.py file for that.
+    Initial rating 1000.
+    Okay great, it took me a few hours but I got the rest done. Pretty quick because I have the algorithm already encoded in my prototype so I basically just copied it over and added a few lines.
+    Here is the output of running the first tournament, the 2022 Provincial Championships:
+
+    1100,Ziyi Yang Jackson,BC10895,4,0,['2022 Provincial Champion']
+    1050,Kevin Luo,BC8266,3,1,[]
+    1050,Joshua Liu,BC1815,3,1,['2022 Provincial Finalist']
+    1021,YiYang Jiang,ON13537,2,1,[]
+    1000,Saurabh Pandiar,BC17070,1,1,[]
+    1000,Manmeet Singh,BC16926,1,1,[]
+    1000,Connor Nicholas Louie,BC10576,2,2,[]
+    1000,Mahdi Ahmadi,BC15814,1,1,[]
+    976,Nicholas Lee,SK01305,0,1,[]
+    975,Fong-Ming Chow,BC16012,0,1,[]
+    975,Adrian KH Wong,BC12183,0,1,[]
+    975,Jalil Waiz,BC7562,0,1,[]
+    975,Paul Cho,BC3748,0,1,[]
+    975,Nelson Oi Sang Chan,BC16318,0,1,[]
+    975,Lai Yin Chung,BC17060,0,1,[]
+    975,Jack Chen,BC10265,0,1,[]
+    975,Ratnesh Rao Ippili,BC17071,0,1,[]
+
+    Now I have to manually save this output ratings to the directory of the 2022 provincials,
+    and I have to copy the contents to Ratings.csv to run the next tournament.
+    It's important when entering the tournament name to write in a format that can be appended with " Champion" or " Finalist" because that's all the tournament name is used for: creating champion and finalist titles.
+    Also vitally important, the tournaments have to be processed IN ORDER.
+    The order is on the spreadsheet on google drive.
+    I am having to do a few small bugfixes as I go that are not worthy of note.
+    I have to remove the heading line from the tournament CSV files: Match,Winner Name,Winner ID,Loser Name,Loser ID
+    I am trying to get the titles to save properly as a list. I am not sure if this will work because lists have commas.
+    Decided to remove the titles field.
+    In a later version, I can add titles and match history some other way.
+    With that out of the way, now I am processing through the tournaments in chronological order, saving the output ratings in each tournament subfolder as I go.
+    Now I am selecting the rating files directly from the tournament subdirectory for use for the next tournament.
+    Very important to process these in order.
+    I don't yet have a mechanism for automatically tracking which tournaments have been processed.
+    That will come in a later version when I add match history.
+
+    2022 Provincials
+    2023 Jack Underhill
+    2023 Provincials
+    2024 Jack Underhill
+    2024 Provincials
+    
+    Processed the first 5 tournaments. We have exactly 100 players and I am BOTTOM RANK.
+    RANK 100/100 with 948 ELO. That's what I get for losing in the first round in both of my tournaments!
+    Hopefully it improves as I process 2025 Underhill and Provincials. . .
+
+    2024 Wing’s
+    2024 Shuttlesport
+    2025 Jack Underhill
+    2025 Provincials
+
+    Surprisingly, the rankings didn't produce as much distinction as I would like, so to produce a more accurate ranking with such limited data, I should tweak the ELO variables slightly, such as by setting a larger K value, or dynamic K value.
+    Here are the results of the first pass:
+
+    1297,Saurabh Pandiar,BC17070,23,3
+    1262,ANISH Chandra Jojula,BC18940,14,1
+    1169,Lyem Fedoretz,BC13763,9,1
+    1143,Victor Ho,MB09472,12,5
+    1119,Joshua Liu,BC1815,6,1
+    1107,Connor Nicholas Louie,BC10576,10,6
+    1100,Ziyi Yang Jackson,BC10895,4,0
+    1093,Rickey Ruixi Zhang,BC14918,7,4
+    1086,Gurbaksh Singh Saini,ON41508,6,2
+    1081,Peike Xu,BC15886,4,1
+
+    It is shaping up pretty well, but 2025 provincial finalist Jalil Waiz isn't even in the top 10. I suppose that's not too unreasonable.
+    I am near the bottom, rank 115/131 with 2 wins and 4 losses.
+    The highest ranked player with 0 wins is Jason Too at rank 54.
+    I think K= 50 is too low, given the 400 constant in the formula.
+    Rank 1 Saurabh has 23 wins to only 3 losses, and his rating is only 1297.
+    Definitely I need to tweak the algorithm to produce a more accurate ranking.
+    Maybe add some recency bias too. Hard to say exactly what. I think I can leave it honestly, and the rankings will improve as more data comes out.
+    The problem is that this ranking is based on 3-4 years of data, and the monst dominant player only has ~1300 rating.
+    Badminton careers don't really last that long, so I don't think this system gives new players a fair chance to surge the ranks.
+
+    This would be easier to process if I could do all the tournaments at once, so let me make a file for that.
+    multiTourneyProcessing.py
+    Also it's common in chess ELO for the rating to be more sensitive at the beginning, and gradually lose sensitivity as more matches are played. . .
+    Let's add that in and quickly recreate the results.
+    Or no, dang, I still have to recreate the results manually so I can insert the output into each tournament subdirectory. . . Why did I do it this way?
+
+    Here's the plan: set K = 100.
+    K*(W+L+2) / (W+L+1)
+    Now you get a nice 2x for your first match that gradially decreases, 150%, 133%, 125%, 120%, down to approach 100% asymptotically.
+    Done!
+    This change affected the top ranks very slightly, though it did change the #1 rank from Saurabh to Anish. It created more difference in the ratings, so that's good.
+    It boosted me from rank 115 to rank 65, but I shouldn't read too much into that.
+    I think if I added some recency bias it would boost Anish's rating even more.
+    Adding recency bias is sorta complicated though.
+    One downside of maing this K-value change is that inactive players are now more highly ranked. Joshua Liu is rank 4. Jackson Yang is rank 6.
+    Overall, I like the change. More data always smooths things out anyways.
+
+    1530,ANISH Chandra Jojula,BC18940,14,1
+    1518,Saurabh Pandiar,BC17070,23,3
+    1406,Lyem Fedoretz,BC13763,9,1
+    1319,Joshua Liu,BC1815,6,1
+    1306,Victor Ho,MB09472,12,5
+    1303,Ziyi Yang Jackson,BC10895,4,0
+    1274,Connor Nicholas Louie,BC10576,10,6
+    1247,Peike Xu,BC15886,4,1
+    1247,Rickey Ruixi Zhang,BC14918,7,4
+    1240,Gurbaksh Singh Saini,ON41508,6,2
+
+    In this output, somehow Uday is lower ranked than Jack even though he has more wins and less losses. I guess Jack had a better start.  Uday is a strong player and he'll work his way back up if he keeps playing.
+    Yeah, so can I publsih these now? They're done.
+    Now I can do the island rankings next, on a later date.
+    I will need to update the readme and stuff too.
+
+2025    08  17
+    I have been building the data files for Island tounrnaments from 2022. There are 14 tournaments in total.
+    I was excited to run the algorithm for those tournaments to create an island ranking, but first, I need to reformat a few things.
+    I will be using year-by-year files with a field that specifies the tourament type,
+    so I just need to specify whether I am making a Provincial or an Island ranking, and I can use the same data file for both.
+    For the next version, I think I'll just change the same file I was using. If needed, I can use Github history to revert to a previous version.
+
+2026    06  01 
+    It is time for the Sumer 2026 update! I am taking my first look in here to familiarize myself with the files.
+    Unfortunately, it looks like for the previous version of this ranking system, I only used tournaments that affected the official rankings!
+    I thought I had more. I will check on Google Drive to see if I have match data on there. // I do! //
+    Using just the provincial ranking tournaments is good for a demonstration, but I can make a more accurate ranking by including more tournaments.
+    I want to include every tournament I can find hosted in BC on tournamentsoftware.com from 2022 to now.
+    One possible issues this could create is high level out-of-province players degrading the accuracy of the ratings by being too underrated and not playing very many BC tournaments.
+    Another possible issue is having casual local tournaments affect ratings just as much as Provincial Championships or Easter Open.
+    These are minor issues that can be easily resolved by adjusting the algorithm accordingly.
+
+    So let's get a new list of tournaments!
+    Note we are only counting Open Men's Singles for now. No 30+, no U19, and no other events!
+
+    Mar 11, 2022:   Campbell River - data on Google Drive
+    Mar 18, 2022:   Waterfall Tournament - https://www.tournamentsoftware.com/tournament/73A9049A-A5CB-4BAF-B212-26E2D4371AD6
+    May  6, 2022:   Victoria Club - data on Google Drive
+    May 27, 2022:   Provincial Championship - done
+    Aug  5, 2022:   New Era Open - https://www.tournamentsoftware.com/tournament/6EA7B715-BB74-44AB-84AC-7D2E0E6E9270
+    Oct  8, 2022:   Nanaimo Open - data on Google Drive
+    Oct  8, 2022:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/6523D6FE-5407-4C9E-85F8-5662CBB4E5AD
+    Nov 19, 2022:   Island Open - data on Google Drive
+
+    Jan  1, 2023:   New Year's Tournament - https://www.tournamentsoftware.com/tournament/5C1DCC63-DB34-4A0E-913D-85D3BFC3891E
+    Jan  6, 2023:   BC Senior Elite - https://badmintoncanada.tournamentsoftware.com/tournament/B7556899-0FD0-4A60-B35D-DE593BED80AF
+    Jan 13, 2023:   Campbell River - data on Google Drive
+    Jan 15, 2023:   Kelowna Adult Open - https://www.tournamentsoftware.com/tournament/D0D868E5-70A3-4E70-9CBF-76F1A7FCACA6
+    Feb 25, 2023:   Wing's-GHS Tournament - https://badmintoncanada.tournamentsoftware.com/tournament/ACB57D89-3538-4493-AF58-3F5BB722DD45
+    Mar 31, 2023:   Jack Underhill - done
+    Apr  7, 2023:   Easter Open - https://www.tournamentsoftware.com/tournament/8D2EFBC0-8EEC-471D-B43E-B25029FE203B
+    Apr 22, 2023:   Provincial Championship - done
+    May 26, 2023:   12.2 O-Go-PoCo Open - https://www.tournamentsoftware.com/tournament/2D5A6DE6-3B6E-472A-9835-EC86827B27C3
+    Jun  2, 2023:   Victoria Club - data on Google Drive
+    Jun 23, 2023:   White Rock Tournament - https://www.tournamentsoftware.com/tournament/F38C2260-05EC-4A5A-9D68-719F6CD76B22
+    Sep 22, 2023:   Nanaimo Open - data on Google Drive
+    Sep 23, 2023:   12.2 POCOmon GO Open - https://www.tournamentsoftware.com/tournament/194B14CB-500F-4AEE-A393-00A54BAE4A4D/draw/3
+    Oct  7, 2023:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/02C54B56-C2C9-42E0-B7B8-9360CD33D5F5
+    Nov 17, 2023:   BC Senior Elite - https://badmintoncanada.tournamentsoftware.com/tournament/96B4FB7F-33CA-4E5E-82BD-74A2F322449F
+    Nov 24, 2023:   Island Open - data on Google Drive
+    Dec  2, 2023:   Kelowna Open - https://www.tournamentsoftware.com/tournament/31F1F7BB-62A6-48E6-A7B5-0C61D95FA792
+
+    Jan  1, 2024:   New Year's Tournament - https://www.tournamentsoftware.com/tournament/9879E040-1C5A-4123-B7B9-24F655F1486A
+    Jan 12, 2024:   Campbell River - https://badmintoncanada.tournamentsoftware.com/tournament/D0B4BE9F-311D-447D-9038-83F9D1F1FB7E
+    Jan 31, 2024:   Canadian Senior Championships - https://badmintoncanada.tournamentsoftware.com/sport/event.aspx?id=257F63D5-45F7-4A38-B36B-8EFE3A226DE8&event=1
+    Feb 17, 2024:   Jack Underhill - done
+    Mar 29, 2024:   Easter Open - https://www.tournamentsoftware.com/tournament/2C5BF331-527E-4D8E-86B1-E8F88C0651E0
+    Apr 19, 2024:   Sunshine Tournament - https://badmintoncanada.tournamentsoftware.com/tournament/BAB8ED58-E9F6-4653-A872-7B8FFDCFA771
+    Apr 26, 2024:   Provincial Championship - done
+    May 24, 2024:   Victoria Club - https://www.tournamentsoftware.com/tournament/53D4A72D-8101-457A-B1A2-EFF35297C7D3
+    Jun 22, 2024:   White Rock Tournament - https://www.tournamentsoftware.com/tournament/1CE02EB5-8EB6-4FF2-87EA-2C329C2E052B
+    Sep 27, 2024:   Nanaimo Open - https://badmintoncanada.tournamentsoftware.com/tournament/4D9D9ABC-0EEA-43E2-AD6B-E60009A500FB
+    Oct 12, 2024:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/4091C614-9206-4F14-B3FC-C4EFB5FC3D08
+    Nov 15, 2024:   Vancouver Island Open - https://www.tournamentsoftware.com/tournament/AF23D1A8-56E6-4C34-B592-F5A68DB9D712
+    Nov 29, 2024:   Wing's Open - done
+    Dec 12, 2024:   Shuttlesport Open Series #2 - done
+    Dec 27, 2024:   Boxing Week Tournament - https://www.tournamentsoftware.com/tournament/D12FB96F-D490-4422-B369-0985D12C504E
+
+    Jan  3, 2025:   Kelowna Open - https://www.tournamentsoftware.com/tournament/D8141B44-BE16-4FD5-9D87-0AA07DF1EF7D
+    Jan 10, 2025:   Campbell River - https://badmintoncanada.tournamentsoftware.com/tournament/6B4EE983-4635-4828-83EB-3117140640DA
+    Feb  7, 2025:   Jack Underhill - done
+    Apr  4, 2025:   Provincial Championship - done
+    Apr 18, 2025:   Easter Open - https://www.tournamentsoftware.com/tournament/1A4B87CA-8734-4781-9793-1AC0892DCBA1
+    Apr 21, 2025:   VRC Club - https://www.tournamentsoftware.com/tournament/326D1266-AAAD-461C-9366-8F2CB38FAFC8
+    Jun  6, 2025:   Victoria Club - https://badmintoncanada.tournamentsoftware.com/tournament/B0D1C7C7-20BF-4DE3-902B-FBB127970033
+    Jun 21, 2025:   White Rock Tournament - https://www.tournamentsoftware.com/tournament/7868E502-491B-4CDE-A7C8-E588CF7438AF
+    Aug  2, 2025:   Smash Champs Grand Opening - https://www.tournamentsoftware.com/tournament/FC3D01C9-BD3D-4675-A62B-0264BBF039D7
+    Oct  3, 2025:   Nanaimo Open - https://badmintoncanada.tournamentsoftware.com/tournament/B38511A2-46FE-4297-A4AA-EF18ADD5504F
+    Oct 11, 2025:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/D4D45938-FFD1-4E55-806E-FA09FE9F7E8B
+    Nov 14, 2025:   Vancouver Island Open - https://badmintoncanada.tournamentsoftware.com/tournament/C1694DAE-19AB-4053-BD85-267029754E39
+    Nov 21, 2025:   Kelowna Fall Open - https://www.tournamentsoftware.com/tournament/F9BF7D30-45E8-4099-8FCC-45F22D46CD8C
+    Nov 29, 2025:   Surrey Open - https://www.tournamentsoftware.com/tournament/553C4ADE-D607-4ACF-8DE8-AA9107E10C11
+    Dec 26, 2025:   Boxing Week Tournament - https://www.tournamentsoftware.com/tournament/7E5F1132-A24D-495F-AE0E-1531F59CC426
+
+    Jan  9, 2026:   Cindy Simpson Memorial - https://badmintoncanada.tournamentsoftware.com/tournament/8D69A67F-8CCA-490C-8AC7-46CBB195F1CC
+    Jan 23, 2026:   Kelowna Winter Open - https://www.tournamentsoftware.com/tournament/D16CC9D8-94E4-495F-B270-0B5F5CF1A13F
+    Feb  6, 2026:   Jack Underhill - https://badmintoncanada.tournamentsoftware.com/tournament/ADA2BB34-1F57-40A4-9743-81F79D81D658
+    Mar 20, 2026:   Kamloops Open in Kelowna - https://www.tournamentsoftware.com/tournament/89F64C51-9E00-4411-B847-5529F3B1CF06
+    Apr  3, 2026:   Easter Open - https://www.tournamentsoftware.com/tournament/696C1080-72AE-44DA-8CB9-3EC6E10EA0A4
+    Apr 10, 2026:   Provincial Championship - https://badmintoncanada.tournamentsoftware.com/tournament/25725E4A-CF6A-4B3F-A7A4-918C1A01BD79
+    Apr 13, 2026:   VRC Club - https://www.tournamentsoftware.com/tournament/DB920DB7-2D46-4F3E-85BD-C8C408C45752
+    May 29, 2026:   Victoria Club - https://www.tournamentsoftware.com/tournament/64CF707D-3318-4918-926C-F2172C716E48
+
+    Jun 20, 2026:   White Rock Tournament - https://www.tournamentsoftware.com/sport/event.aspx?id=C0E36D5D-C989-49AD-9FDB-197222EB17CE&event=20
+
+2026    06  02
+    So there you have it folks, a big new whopping list of tournaments.
+    I even included the 2026 White Rock tournament, which hasn't happened yet.
+    Maybe I'll go to that one! Apparently they have cash prizes.
+    As you can see in 2023 and 2024, July and August tend to be the off season for badminton.
+    There are a few tournaments in the summer sometimes, but usually it's just September to June.
+    in 2027, I'll plan to update the rankings for July 1.
+    
+    Anyways, now that I have all the tournaments in a big list, I can start making the spreadsheets of match data!
+    Since I will be adding match results from outside of badmintoncanada.tournamentsoftware.com,
+    I will need to manually identify all the players with their badminton canada ID.
+    Hopefully there aren't too many mysterious unregistered players.
+    If there are players who exist on tournamentsoftware.com but not on badmintoncanada.tournamentsoftware.com,
+    I will find or create IDs for them for the purpose of the algorithm.
+    
+    Here is the list of tournaments from this season, July 2025 to June 2026:
+    Aug  2, 2025:   Smash Champs Grand Opening - https://www.tournamentsoftware.com/tournament/FC3D01C9-BD3D-4675-A62B-0264BBF039D7
+    Oct  3, 2025:   Nanaimo Open - https://badmintoncanada.tournamentsoftware.com/tournament/B38511A2-46FE-4297-A4AA-EF18ADD5504F
+    Oct 11, 2025:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/D4D45938-FFD1-4E55-806E-FA09FE9F7E8B
+    Nov 14, 2025:   Vancouver Island Open - https://badmintoncanada.tournamentsoftware.com/tournament/C1694DAE-19AB-4053-BD85-267029754E39
+    Nov 21, 2025:   Kelowna Fall Open - https://www.tournamentsoftware.com/tournament/F9BF7D30-45E8-4099-8FCC-45F22D46CD8C
+    Nov 29, 2025:   Surrey Open - https://www.tournamentsoftware.com/tournament/553C4ADE-D607-4ACF-8DE8-AA9107E10C11
+    Dec 26, 2025:   Boxing Week Tournament - https://www.tournamentsoftware.com/tournament/7E5F1132-A24D-495F-AE0E-1531F59CC426
+    Jan  9, 2026:   Cindy Simpson Memorial - https://badmintoncanada.tournamentsoftware.com/tournament/8D69A67F-8CCA-490C-8AC7-46CBB195F1CC
+    Jan 23, 2026:   Kelowna Winter Open - https://www.tournamentsoftware.com/tournament/D16CC9D8-94E4-495F-B270-0B5F5CF1A13F
+    Feb  6, 2026:   Jack Underhill - https://badmintoncanada.tournamentsoftware.com/tournament/ADA2BB34-1F57-40A4-9743-81F79D81D658
+    Mar 20, 2026:   Kamloops Open in Kelowna - https://www.tournamentsoftware.com/tournament/89F64C51-9E00-4411-B847-5529F3B1CF06
+    Apr  3, 2026:   Easter Open - https://www.tournamentsoftware.com/tournament/696C1080-72AE-44DA-8CB9-3EC6E10EA0A4
+    Apr 10, 2026:   Provincial Championship - https://badmintoncanada.tournamentsoftware.com/tournament/25725E4A-CF6A-4B3F-A7A4-918C1A01BD79
+    Apr 13, 2026:   VRC Club - https://www.tournamentsoftware.com/tournament/DB920DB7-2D46-4F3E-85BD-C8C408C45752
+    May 29, 2026:   Victoria Club - https://www.tournamentsoftware.com/tournament/64CF707D-3318-4918-926C-F2172C716E48
+    Jun 20, 2026:   White Rock Tournament - https://www.tournamentsoftware.com/sport/event.aspx?id=C0E36D5D-C989-49AD-9FDB-197222EB17CE&event=20
+
+    Let's start in 2022, copying data from Google Drive for the following events:
+    Mar 11, 2022:   Campbell River - data on Google Drive
+    May  6, 2022:   Victoria Club - data on Google Drive
+    Oct  8, 2022:   Nanaimo Open - data on Google Drive
+    Nov 19, 2022:   Island Open - data on Google Drive
+
+    With those all done, here's what's left for 2022:
+    Mar 18, 2022:   Waterfall Tournament - https://www.tournamentsoftware.com/tournament/73A9049A-A5CB-4BAF-B212-26E2D4371AD6
+    Aug  5, 2022:   New Era Open - https://www.tournamentsoftware.com/tournament/6EA7B715-BB74-44AB-84AC-7D2E0E6E9270
+    Oct  8, 2022:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/6523D6FE-5407-4C9E-85F8-5662CBB4E5AD
+
+    2022 Waterfall tournament has no match results on the tournament page, so I will remove it from the list.
+
+    Holy mackrel this is tedius, finding and filling in the player IDs for everyone. Sometimes there are multiple accounts with the same name on badminton cananda,
+    and I have to open each one to see where they play and choose the best one, the one that is most likely to be the player from the other website.
+
+    You know what -- hell with this: I am going to make a player databasing program so I can easily search for players.
+    Every time I -- wait, don't I already do this? I need to reread the readme. . .
+
+2026    06  03
+    Waterfall Tournament didn't have match data, so I am left with a total of seven events for 2022.
+    Those are all done up in spreadsheets, I just need to load them in like.
+    I think I'll release the ratings to Substack gradually, as I complete the data entry for each year.
+    So first, I'll write a post for my season in review for the tournaments I attended, and then in a week or so,
+    I'll upload my 2022 rankings,
+    then the 2023 rankings a week later, and so on.
+    
+    For each year, make sure to output:
+    - Number of tournaments
+    - Total number of matches
+    - Total number of players
+    - Number of new players
+    - Player ratings
+    - Change in rank from last year
+
+2026    06  04
+    All the 2022 files were done up on Google Drive yesterday, so now I'll download them all as CSVs and make a sub-folder.
+    Could worry about that, but I wouldn't be able to test it properly until I have the 2023 data.
+    So I might as well format all the 2023 data first. Let me get a sense of how long this takes.
+
+    Jan  1, 2023:   New Year's Tournament - https://www.tournamentsoftware.com/tournament/5C1DCC63-DB34-4A0E-913D-85D3BFC3891E
+    Jan  6, 2023:   BC Senior Elite - https://badmintoncanada.tournamentsoftware.com/tournament/B7556899-0FD0-4A60-B35D-DE593BED80AF
+    Jan 13, 2023:   Campbell River - data on Google Drive
+    Jan 15, 2023:   Kelowna Adult Open - https://www.tournamentsoftware.com/tournament/D0D868E5-70A3-4E70-9CBF-76F1A7FCACA6
+    Feb 25, 2023:   Wing's-GHS Tournament - https://badmintoncanada.tournamentsoftware.com/tournament/ACB57D89-3538-4493-AF58-3F5BB722DD45
+    Mar 31, 2023:   Jack Underhill - done
+    Apr  7, 2023:   Easter Open - https://www.tournamentsoftware.com/tournament/8D2EFBC0-8EEC-471D-B43E-B25029FE203B
+    Apr 22, 2023:   Provincial Championship - done
+    May 26, 2023:   12.2 O-Go-PoCo Open - https://www.tournamentsoftware.com/tournament/2D5A6DE6-3B6E-472A-9835-EC86827B27C3
+    Jun  2, 2023:   Victoria Club - data on Google Drive
+    Jun 23, 2023:   White Rock Tournament - https://www.tournamentsoftware.com/tournament/F38C2260-05EC-4A5A-9D68-719F6CD76B22
+    Sep 22, 2023:   Nanaimo Open - data on Google Drive
+    Sep 23, 2023:   12.2 POCOmon GO Open - https://www.tournamentsoftware.com/tournament/194B14CB-500F-4AEE-A393-00A54BAE4A4D/draw/3
+    Oct  7, 2023:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/02C54B56-C2C9-42E0-B7B8-9360CD33D5F5
+    Nov 17, 2023:   BC Senior Elite - https://badmintoncanada.tournamentsoftware.com/tournament/96B4FB7F-33CA-4E5E-82BD-74A2F322449F
+    Nov 24, 2023:   Island Open - data on Google Drive
+    Dec  2, 2023:   Kelowna Open - https://www.tournamentsoftware.com/tournament/31F1F7BB-62A6-48E6-A7B5-0C61D95FA792
+
+    Didn't I have some other stupid requirements as well, like player statistics?
+    Oh no, I might actually have to do some coding.
+    This isn't as hard as I imagined though, I just need to use a ton of files, and this will actually be super useful. I'll be able to look up player IDs. . .
+    I couldn't find a list of requirements in the devlog so I don't know what to make exactly, but here's my thinking:
+
+    - each player has their own file.
+    - a directory file points to the correct file for each player to lookup match history.
+    - UI features: 
+        - show player stats for a searched ID.
+            - win-loss
+            - current rating
+            - highest rating
+            - current rank
+            - highest rank
+        - show match history for a searched ID.
+        - show an ID for a searched player.
+    
+    Looks good, right? Simple.
+    I replaced multiTourneyProcessing.py with 2022Tournaments.py. Hardcode all the 2022 tournaments in order. Make a separate runfile for each year.
+    I have some other requirements from earlier too. For each year, make sure to output:
+
+    - Number of tournaments
+    - Total number of matches
+    - Total number of players
+    - Number of new players
+    - Player ratings
+    - Change in rank from last year
+
+    Don't even run main.py, just use 2022Tournaments.py and figure out all these add-ons.
+    I will need to make some new classes.
+    I already have a player class.
+    Looks like the ranking is a list of player objects. nts please confirm.
+    
+    I need to supe up this player class a little bit, give it a data file to store match and rating history.
+
+    I should sort this out before I do data entry for 2023, so I can use the new features to search for IDs.
+
+    Processing matches should automatically create and update player data files.
+    I will make a separate file QueryPlayers.py for the UI features I mentioned above.
+
+    Before I edit the player class to add variables for highest rating and highest rank, I want to see exactly where these player objects are getting initialized.
+
+    Ah, I will have to change several files for this.
+    I will be changing where the player data comes from somewhat. It's not all in the ranking output file anymore. Curses.
+
+2026    06  06
+    The way it works right now, the createInitialRankings.py module is scrappy.
+    We don't actually load the players in as its own step, it just kind of happens automatically as we read the rankings.
+    So I need to add this whole extra step where we read in the player data from a directory of player files.
+
+    Another problem I'm realizing with my old rankings is that it has old players.
+    I don't care what your rating is, if you haven't played any of the official tournaments that contribute to the CURRENT ratings,
+    then you don't get a rank!
+    Add that in
+
+    ^ add that in!
+    
+    All the stuff from yesterday too please.
+    Oh I know, I'll just add a "most recent tournament" variable so everyone can see who is active.
+
+    So the way it works is, I run 2022Tournaments.py, then 2023Tournaments.py, then 2024, etc.
+    In 2023Tournaments.py, I will need to load the players, but in 2022Tournaments.py, I don't need to because there are no players to start with.
+    In 2022Tournaments.py I process all the tournaments in a row, updating the database variables as I go.
+    After the last 2022 tournament processed in 2022Tournaments.py, 
+    update the annual/output variables.
+
+    Player variables:
+    - match history file directory
+    - number of matches
+    - number of tournaments
+    - wins
+    - losses
+    - winrate
+    - current rating
+    - highest rating
+    - current rank
+    - highest rank
+    - latest tournament
+
+    Database variables:
+    - chronological list of matches
+    - tournament data
+        - match data directory & filename
+        - number of matches
+        - winner
+        - number of entrants
+        - number of new players
+    - annual/output variables
+        - Player ratings and ranks
+        - Change in rank from last year
+        - Change in rating from last year
+        - Number of rated players
+    - match history for each player:
+        - 
+
+    - UI features: 
+        - show player stats for a searched ID.
+        - show match history for a searched ID.
+        - show an ID for a searched player.
+
+    Okay, jeez, this is overwhelming!
+    Let's start simple! Simple! I need to do file io.
+    I am going to replace createInitialRankings.py, so let's start there.
+    According to the description, here's what it does:
+    "This program produces initialRankings.csv given playerData.csv and the match data CSV that shares the same name as the directory."
+    Too confusing.
+    I am going to take a break from thinking aloud in here to use a notepad.
+    I will take some notes on how the algorithm is working and how I want to change it, and then get back here with a plan.
+
+    DEFINITELY need to update the readme because it looks like main.py is actually just some deprecated old trash.
+    I mean, it works, but it's a novelty. I don't use it. I use 20XX_Tournaments.py now.
+
+2026    06  07
+    I made some good progress with the notebook.
+    I'm loading and saving data to individual player files now. I'm wokring on a basic version, and I'll add features once I get successful tests.
+    I think I'll give myself an extra week by posting an introductory essay next Sunday on the 14th.
+    That moves my deadline for the 2022 ratings to June 21st.
+
+    I need to save the match history in the Player objects as a list of strings, 
+    otherwise it's a pain to write data to files during match processing.
+    Do the algorithm first, and then save the data afterwards.
+    Okay, success, I am saving match history properly now.
+    What's left? The UI search function? Yearly stats too.
+    That's basically all for the simple version, then I can start adding more features.
+
+    Ranking adjustments are made after each tournament.
+    Rating adjustments are made after each match.
+
+    Okay, I didn't really take much notes today, but everything's done now in the basic version except for the search system.
+
+2026    06  08
+    Hey I've been working. The prototype for the new data saving system is complete.
+    I tested it first with one 2022 tournament and one 2023 tournament, and that worked with the change in rating and rank over year.
+    Then I tested it with all the 2022 tournaments so I could search the database with search.py.
+    It is working spectacularly. I can search by name and ID at once. It's clear bro.
+    So I'm really in a good spot now!
+
+    Three ways to proceed from here:
+    - Get data formatted for 2023 events using the new search function!
+    - Write the article for 2022 rankings
+    - Add more advanced features from the prototype (this is simple stuff, I'lll just add as I see fit I think)
+
+    Player names should be 8-15 characters for my output to look pretty.
+    This search function is actually incredible. It even helps with debugging!
+    Great to be able to do simple searches on the player database.
+
+    It doesn't really make sense to output the previousAnnualRank and previousAnnualRating for 2022, when there are no such values, but whatever. I'll edit it into a table for the substack post.
+
+2026    06  09
+    Error:  Published changes without updating readme
+    Error:  My K constant staling is trash. It just goes from 2x to 1x.
+    Error:  The previous annual rankings are a problem. Players get a rank according to when they were added to the system.
+    I need to set those to "Unranked" and you only get a rank after a tournament if you win a match.
+    I can't fix all that right now. . . I'm using the search to copy more data.
+    I can't believe this devlog, it's so unhinged. Hopefully nobody runs this through advanced AI. They would learn the inner machinations of my mind for sure, wouldn't they?
+    Anyways, fix these three error goddammit, and then you can leave.
+
+    Fix:    Update the readme to present the 2022 rankings
+    Fix:    Update the matches.py algorithm to be better -- but wait there's more. Create the most recent match variable and use that to affect K staling.
+    Fix:    This one. . . maybe it's easy. Let me try. Chang the default rank stuff to "Unranked"
+
+2026    06  14
+    I still have all that same stuff to fix. I copied the old 2025 version to a different directory because I need to save it as an example.
+    So here's the scheme:
+        BadmintonRankings_v2.0  =   2022 Rankings
+        BadmintonRankings_v2.1  =   2023 Rankings
+        BadmintonRankings_v2.2  =   2024 Rankings
+        BadmintonRankings_v2.3  =   2025 Rankings
+        BadmintonRankings_v2.4  =   2026 Summer Rankings
+    Updating the readme and getting ready for the first blog post. Copying the 2022 rankings into a table. Once this is all done, I can continue with the 2023 stuff.
+
+    Everything seems done up well. Pushing to master. Let's finish up that blog post!    

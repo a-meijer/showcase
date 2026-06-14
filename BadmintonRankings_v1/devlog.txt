@@ -1,0 +1,208 @@
+2025    04  28
+    On April 28, 2025, the first file i created for this project was Readme.md.
+    I split the readme into the following sections:
+    Purpose:
+        "To maintain a Provincial rating system for Men's Singles badminton players based on the official ranking system for British Columbia, using the tournaments that award points towards the official rankings."
+    Introduction:
+        Naming the relevant files and information.
+    The Validity And Accuracy of The Ratings:
+        Explaining what makes my ratings more accurate than the official rankings.
+    The First Tournament:
+        Elaborating on how these ratings will align with the official rankings.
+    About The Initial Prototype:
+        Information on what is different this time around.
+    Ratings:
+        output goes here.
+    Tournaments:
+        input goes here.
+    Author:
+        me (Andrew)
+    I will need to reference the initial prototype several times during the development process because it has a lot of information on the variations that make this algorithm effective.
+    For consideration:
+    - Winning streaks to affect rating
+    - Wins to affect ELO change more than losses (separate variables LK and WK)
+    - Close matches to reduce ELO change
+    - Using the official rankings as initial ratings (don't)
+
+2025    05  01
+    On May 1, 2025, I created some input files in my Google Drive.
+    I would like to share the drive directory as part of the project, since that's where I work with the CSV files.
+    It's much easier to view the files in google sheets than on Github, where they're all separate CSV files.
+    I am recording the player IDs so two players with the same name can be distinguished.
+    Unfortunately because I am using only the tournaments that affect provincial rankings, there are not very many matches to draw ratings from.
+    In other ELO rating systems like chess, many matches produce a more accurate rating.
+    There are a few possible workarounds for this other than the variations I included in my initial prototype.
+    I have a clear idea of who the strongest players are, so I can create a power-ranking based on my own opinions, or even by taking a survey of the community, and base the initial rankings off of that.
+    However, I want to showcase the data, not my own opinions on the rankings, so I will start every player at 1000 rating.
+    Every player's starting rating will be extremely sensitive, meaning they will gain or lose a lot of rating points based on the results of their initial matches.
+    As they play more matches, the rating sensitivity will reduce.
+    Exactly how sensitive and how many matches it should take to reduce the sensitivity is not clear at this time.
+    To find the best sensitivity and reduction, I will experiment with different variables.
+    There are a lot of ways to tweak the algorithm sensitivity to make it slightly better, but I don't want to get too far into the weeds like I did in the initial prototype with all the variations.
+    There is a question of whether to include the results from Men's B and Junior events.
+    I wish I could include the Island Open results, but that would cause my ratings to be biased towards island players.
+
+2025    05  03
+    The Plan:
+        Ratings are calculated for each tournament/event.
+        Create a report every time there's an event.
+        The report should include the following details:
+        1. The ratings before the event (noting the new players)
+        2. The effect of each match in the event.
+        3. The tournament results with W/L and ELO change.
+        4. The new ratings with new W/L, ELO change, ranking change.
+    Add titles, like “2022 Provincials champion”, “2024 Wing’s Open Finalist” etc
+    Players must be identified by the ID, but they have a list of names as well, titles, W/L, all that. Use Player Objects. Save the Player Object data to some file.
+    Each tournament/event should have their own folder with the
+        - input ratings/playerdata CSV,
+        - the match data input,
+        - the match output,
+        - the playerdata output
+    I need to update the README to include a link to the drive.
+    https://drive.google.com/drive/folders/1GX5JPSUZaMUrkilviBPgyZCzfP7bpef-?usp=sharing
+    I downloaded the CSV data and created the Tournament folders.
+    I created a src folder for my Python code.
+    PROBLEM: What's the difference between a ratings file and a player data file?
+    Do I really need both?
+    I don't need both, I just need to write a report on the google drive for each tournament.
+    download it as a PDF or something -- I'll just make it in google drive.
+    The first step is to get access to the data in the CSV files and create Player objects with them.
+    Create the Player object . . .
+    
+2025    06  13
+    I haven't made the files yet.
+
+2025    06  15
+    Happy Father's Day to those who celebrate ~
+    I had some confusion around what files to make for this project, so I am going to start with the UI.
+    In theory, by walking through the UI experience, I should be able to "reverse-engineer" the required files.
+    Running the program should create a CLI where the program immediately tries to detect Rankings.csv, Ratings.csv, or Players.csv.
+    If none of these files are present in the directory, it prompts the user to enter a filename for the rating input, or to start a new rating.
+    It prints the name of the output filename and asks if the user wants a different name.
+    It processes the Ratings input and prints out the number of rated players.
+    It outputs the list of tournaments that have already been processed (?)
+    It prompts the user to enter the name of a tournament csv.
+    It processes the tournament players and outputs the number of players from the ratings in attendance.
+    For each new player in the tournament csv, it asks the user if this is a net-new player or an alias for an existing player, and it proceeds accordingly.
+    Added section to README.MD, "How To Use The Rating System" 
+
+2025    06  22
+    I've decided to map this out on paper instead of Cowboy Coding directly into my Readme and Devlog.
+    Okay done, it took me two pages and I have this mostly mapped out. The algorithm is simple, and I know it works from the initial prototype.
+    The tricky part is just the rating system build around the algorithm, and how to design it to be used.
+    Start in main.py.
+    See you there!
+    We are processing one tournament at a time so I can update the ratings as new tournaments are organized in 2025, 2026, and beyond! Live ratings.
+    
+2025    08  04
+    It's BC Day and I am making progress!
+    I completed the file selection section and created a separate io.py file for that.
+    Initial rating 1000.
+    Okay great, it took me a few hours but I got the rest done. Pretty quick because I have the algorithm already encoded in my prototype so I basically just copied it over and added a few lines.
+    Here is the output of running the first tournament, the 2022 Provincial Championships:
+
+    1100,Ziyi Yang Jackson,BC10895,4,0,['2022 Provincial Champion']
+    1050,Kevin Luo,BC8266,3,1,[]
+    1050,Joshua Liu,BC1815,3,1,['2022 Provincial Finalist']
+    1021,YiYang Jiang,ON13537,2,1,[]
+    1000,Saurabh Pandiar,BC17070,1,1,[]
+    1000,Manmeet Singh,BC16926,1,1,[]
+    1000,Connor Nicholas Louie,BC10576,2,2,[]
+    1000,Mahdi Ahmadi,BC15814,1,1,[]
+    976,Nicholas Lee,SK01305,0,1,[]
+    975,Fong-Ming Chow,BC16012,0,1,[]
+    975,Adrian KH Wong,BC12183,0,1,[]
+    975,Jalil Waiz,BC7562,0,1,[]
+    975,Paul Cho,BC3748,0,1,[]
+    975,Nelson Oi Sang Chan,BC16318,0,1,[]
+    975,Lai Yin Chung,BC17060,0,1,[]
+    975,Jack Chen,BC10265,0,1,[]
+    975,Ratnesh Rao Ippili,BC17071,0,1,[]
+
+    Now I have to manually save this output ratings to the directory of the 2022 provincials,
+    and I have to copy the contents to Ratings.csv to run the next tournament.
+    It's important when entering the tournament name to write in a format that can be appended with " Champion" or " Finalist" because that's all the tournament name is used for: creating champion and finalist titles.
+    Also vitally important, the tournaments have to be processed IN ORDER.
+    The order is on the spreadsheet on google drive.
+    I am having to do a few small bugfixes as I go that are not worthy of note.
+    I have to remove the heading line from the tournament CSV files: Match,Winner Name,Winner ID,Loser Name,Loser ID
+    I am trying to get the titles to save properly as a list. I am not sure if this will work because lists have commas.
+    Decided to remove the titles field.
+    In a later version, I can add titles and match history some other way.
+    With that out of the way, now I am processing through the tournaments in chronological order, saving the output ratings in each tournament subfolder as I go.
+    Now I am selecting the rating files directly from the tournament subdirectory for use for the next tournament.
+    Very important to process these in order.
+    I don't yet have a mechanism for automatically tracking which tournaments have been processed.
+    That will come in a later version when I add match history.
+
+    2022 Provincials
+    2023 Jack Underhill
+    2023 Provincials
+    2024 Jack Underhill
+    2024 Provincials
+    
+    Processed the first 5 tournaments. We have exactly 100 players and I am BOTTOM RANK.
+    RANK 100/100 with 948 ELO. That's what I get for losing in the first round in both of my tournaments!
+    Hopefully it improves as I process 2025 Underhill and Provincials. . .
+
+    2024 Wing’s
+    2024 Shuttlesport
+    2025 Jack Underhill
+    2025 Provincials
+
+    Surprisingly, the rankings didn't produce as much distinction as I would like, so to produce a more accurate ranking with such limited data, I should tweak the ELO variables slightly, such as by setting a larger K value, or dynamic K value.
+    Here are the results of the first pass:
+
+    1297,Saurabh Pandiar,BC17070,23,3
+    1262,ANISH Chandra Jojula,BC18940,14,1
+    1169,Lyem Fedoretz,BC13763,9,1
+    1143,Victor Ho,MB09472,12,5
+    1119,Joshua Liu,BC1815,6,1
+    1107,Connor Nicholas Louie,BC10576,10,6
+    1100,Ziyi Yang Jackson,BC10895,4,0
+    1093,Rickey Ruixi Zhang,BC14918,7,4
+    1086,Gurbaksh Singh Saini,ON41508,6,2
+    1081,Peike Xu,BC15886,4,1
+
+    It is shaping up pretty well, but 2025 provincial finalist Jalil Waiz isn't even in the top 10. I suppose that's not too unreasonable.
+    I am near the bottom, rank 115/131 with 2 wins and 4 losses.
+    The highest ranked player with 0 wins is Jason Too at rank 54.
+    I think K= 50 is too low, given the 400 constant in the formula.
+    Rank 1 Saurabh has 23 wins to only 3 losses, and his rating is only 1297.
+    Definitely I need to tweak the algorithm to produce a more accurate ranking.
+    Maybe add some recency bias too. Hard to say exactly what. I think I can leave it honestly, and the rankings will improve as more data comes out.
+    The problem is that this ranking is based on 3-4 years of data, and the monst dominant player only has ~1300 rating.
+    Badminton careers don't really last that long, so I don't think this system gives new players a fair chance to surge the ranks.
+
+    This would be easier to process if I could do all the tournaments at once, so let me make a file for that.
+    multiTourneyProcessing.py
+    Also it's common in chess ELO for the rating to be more sensitive at the beginning, and gradually lose sensitivity as more matches are played. . .
+    Let's add that in and quickly recreate the results.
+    Or no, dang, I still have to recreate the results manually so I can insert the output into each tournament subdirectory. . . Why did I do it this way?
+
+    Here's the plan: set K = 100.
+    K*(W+L+2) / (W+L+1)
+    Now you get a nice 2x for your first match that gradially decreases, 150%, 133%, 125%, 120%, down to approach 100% asymptotically.
+    Done!
+    This change affected the top ranks very slightly, though it did change the #1 rank from Saurabh to Anish. It created more difference in the ratings, so that's good.
+    It boosted me from rank 115 to rank 65, but I shouldn't read too much into that.
+    I think if I added some recency bias it would boost Anish's rating even more.
+    Adding recency bias is sorta complicated though.
+    One downside of maing this K-value change is that inactive players are now more highly ranked. Joshua Liu is rank 4. Jackson Yang is rank 6.
+    Overall, I like the change. More data always smooths things out anyways.
+
+    1530,ANISH Chandra Jojula,BC18940,14,1
+    1518,Saurabh Pandiar,BC17070,23,3
+    1406,Lyem Fedoretz,BC13763,9,1
+    1319,Joshua Liu,BC1815,6,1
+    1306,Victor Ho,MB09472,12,5
+    1303,Ziyi Yang Jackson,BC10895,4,0
+    1274,Connor Nicholas Louie,BC10576,10,6
+    1247,Peike Xu,BC15886,4,1
+    1247,Rickey Ruixi Zhang,BC14918,7,4
+    1240,Gurbaksh Singh Saini,ON41508,6,2
+
+    In this output, somehow Uday is lower ranked than Jack even though he has more wins and less losses. I guess Jack had a better start.  Uday is a strong player and he'll work his way back up if he keeps playing.
+    Yeah, so can I publsih these now? They're done.
+    Now I can do the island rankings next, on a later date.
+    I will need to update the readme and stuff too.
