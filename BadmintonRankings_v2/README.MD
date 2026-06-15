@@ -14,7 +14,7 @@ https://drive.google.com/drive/folders/1GX5JPSUZaMUrkilviBPgyZCzfP7bpef-?usp=sha
 
 The match data for each tournament is in CSV files in the tournaments directory.
 
-### Tournaments
+### 2022 Tournaments
     Mar 11, 2022:   Campbell River Badminton Championship
     May  6, 2022:   Victoria Closed Club Championship
     May 27, 2022:   Provincial Championship

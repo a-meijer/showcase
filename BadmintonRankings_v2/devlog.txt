@@ -560,3 +560,5 @@
     Updating the readme and getting ready for the first blog post. Copying the 2022 rankings into a table. Once this is all done, I can continue with the 2023 stuff.
 
     Everything seems done up well. Pushing to master. Let's finish up that blog post!    
+    Oh wait nevermind. I did two of the three fixes, but I still have one more to go, the most difficult one.
+    I have to fix the K staling.
