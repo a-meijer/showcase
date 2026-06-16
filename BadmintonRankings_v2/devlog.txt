@@ -562,3 +562,70 @@
     Everything seems done up well. Pushing to master. Let's finish up that blog post!    
     Oh wait nevermind. I did two of the three fixes, but I still have one more to go, the most difficult one.
     I have to fix the K staling.
+
+    Moving on to 2023. . .
+
+2026    06  15
+    Discovered that Jack Saunders has two IDs, once for BC and one for AB. I'll change to his BC ID only in the data files.
+    Wait no, this BC ID is for someone else?? Something is afoot here. . .
+    I just got the name wrong in the data file.
+
+    Error: Also all the PreviousRanks are incorrect in the console output. They seem correct in search tho.
+
+    Damn, these rankings are so bad. I have Victor Lai at rank 7. He lost to Joshua in the finals of the Senior Elite.
+    Antonio Li at Rank 20, and Lyem significantly outrating everyone by over 100 points, are not accurate.
+    Kevin Luo with a higher rating than Victor Lai is not accurate.
+    Matt Downton is above Victor Lai because Matt only played in Kelowna.
+    The ratings are still a little wonky.
+    Keep in mind this is early days. We need more data for this to sort itself!
+    The national players crashing in makes things messier in the short term, but it will look better in the long term.
+
+    Error: This was printed in Antonio's player file: "First ranking achieved! Rank: NR"
+    
+    So how am I going to adjust the K-scaling and fix all this before I delete all the files, add the easter open, and run it again?
+    Should I add something like you lose less points on your first loss? To help boost the good players a little earlier?
+
+    Error: variable HighestRank should be updated annually, not after every tournament, since the inter-tournament rankings are internal to the algorithm.
+
+    I added several more 2023 tournaments and I'm ready to reset, but let's fix as many errors as possible before we go.
+    Fixing the K scaling is going to be a whole thing, I'm basically transforming into Glicko.
+    THE K CONSTANT IS BEING MOVED TO THE PLAYER CLASS SO IT CAN BE LIKE A CONFIDENCE VARIABLE OR DEVIATION CALL IT RD FOR RATING DEVIATION.
+    I need to add a very important variable, latestTournament. But now tournaments need dates.
+    Plus, I want titles goddammit. Every tournament has two finalists. I suppose I should save that for when I have more time? Don't I have time?
+    I want the top players to have so many titles listed that you have to scroll through it to get to the next ranks.
+
+    Error: matcdata still isn't spacing right between tournaments.
+    ~ and tdata has a lot more room
+
+    The trick: Store the titles in tdata, not in the player files, since I need those player files for match history.
+    I don't want to mess around with multiple files per player.
+
+    Okay, great, I successfully added more data and removed a few minor bugs, but there's still issues with previousAnnualRating and everything else.
+    Haven't really fixed anything.
+
+    I collected all the data for 2023 DONE. Now I can just polish up this turd until Sunday lol catch me on Substack
+
+    1655,Joshua Nguyen,ON13127,10,0,1,0
+    1605,Saurabh Pandiar,BC17070,43,8,2,0
+    1566,Gurbaksh Saini,ON41508,35,9,3,0
+    1506,Antonio Li,BC7414,8,1,4,0
+    1476,Lyem Fedoretz,BC13763,32,6,5,0
+    1475,Joshua Liu,BC1815,9,2,6,0
+    1404,Ryan Liu,BC10841,16,8,7,0
+    1370,Connor Louie,BC10576,21,14,8,0
+    1357,Matt Downton,BC1418,5,0,9,0
+    1349,Victor Lai,ON13010,4,1,10,0
+
+    And boom, there it is. Looks great. I could write up the article for the 2023 rankings and it's only Monday.
+    I think 2023 had the most tournaments of any year, so it's nice to have that done, but there's still a long way to go through 2024 and 2025.
+
+    I suppose for the rest of the week now I can work on adjusting the algorith itself.
+
+    Let's adjust the k constant so rating sensitivity comes from a rating confidence variable instead.
+
+    The issue I'm having is, someone good will lose to a national level player from Ontario in their first BC tournament, 
+    and the Ontario player is rated 1000 by default. There's no confidence variable. We need the rating confidence for new players to be very low.
+    This should not only affect the own player's rating sensitivity, but also their opponent!
+
+2026    06  16
+    I feel like I should quicksave before I try these k-value scaling shenanigans. Let's push to master as a means of saving my progress. So if I mess up, I can just revert.

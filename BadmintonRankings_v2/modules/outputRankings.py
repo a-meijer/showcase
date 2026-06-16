@@ -24,12 +24,6 @@ def updatePlayerRankings(ranks):
                 player.matchHistory.append(f"New highest rank achieved: {player.highestRank}")
     return
 
-def updatePreviousAnnual(ranks):
-    for p in ranks:
-        ranks[p].previousAnnualRating = int(ranks[p].rating)
-        ranks[p].previousAnnualRank = ranks[p].rank
-    return ranks
-
 # Print to console
 def outputRankingsToConsole(ranks):
     for player in ranks.values():

@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self, name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating):
+    def __init__(self, name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, ratingConfidence):
         self.name = name
         self.id = id
         self.wins = wins
@@ -12,8 +12,10 @@ class Player:
         self.highestRank = highestRank
         self.matchHistory = []
         self.titles = []
+        self.latestTournament = latestTournament
+        self.ratingConfidence = ratingConfidence
 
-    def update_ranking(self, new_rating):
+    def update_rating(self, new_rating):
         self.rating = new_rating
         if new_rating > self.highestRating:
             self.highestRating = new_rating

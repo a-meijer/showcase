@@ -1,15 +1,15 @@
-Jan  1, 2023:   New Year's Tournament - data on Google Drive
-Jan  6, 2023:   BC Senior Elite - data on Google Drive
-Jan 13, 2023:   Campbell River - data on Google Drive
-Jan 15, 2023:   Kelowna Adult Open - data on Google Drive
-Feb 25, 2023:   Wing's-GHS Tournament - data on Google Drive
+Jan  1, 2023:   New Year's Tournament - done
+Jan  6, 2023:   BC Senior Elite - done
+Jan 13, 2023:   Campbell River - done
+Jan 15, 2023:   Kelowna Adult Open - done
+Feb 25, 2023:   Wing's-GHS Tournament - done
 Mar 31, 2023:   Jack Underhill - done
-Apr  7, 2023:   Easter Open - https://www.tournamentsoftware.com/tournament/8D2EFBC0-8EEC-471D-B43E-B25029FE203B
+Apr  7, 2023:   Easter Open - done
 Apr 22, 2023:   Provincial Championship - done
-May 26, 2023:   12.2 O-Go-PoCo Open - https://www.tournamentsoftware.com/tournament/2D5A6DE6-3B6E-472A-9835-EC86827B27C3
+May 26, 2023:   12.2 O-Go-PoCo Open - done
 Jun  2, 2023:   Victoria Closed - done
-Jun 23, 2023:   White Rock Tournament - https://www.tournamentsoftware.com/tournament/F38C2260-05EC-4A5A-9D68-719F6CD76B22
-Sep 22, 2023:   Nanaimo Open - data on Google Drive
+Jun 23, 2023:   White Rock Tournament - done
+Sep 22, 2023:   Nanaimo Open - done
 Sep 23, 2023:   12.2 POCOmon GO Open - https://www.tournamentsoftware.com/tournament/194B14CB-500F-4AEE-A393-00A54BAE4A4D/draw/3
 Oct  7, 2023:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/02C54B56-C2C9-42E0-B7B8-9360CD33D5F5
 Nov 17, 2023:   BC Senior Elite - https://badmintoncanada.tournamentsoftware.com/tournament/96B4FB7F-33CA-4E5E-82BD-74A2F322449F

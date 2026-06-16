@@ -43,7 +43,7 @@ def PROCESS_2023_TOURNAMENTS():
     tnames.append("2023 New Year's Tournament")
     # BC Senior Elite
     matchfiles.append("Tournaments/2023/2023_SeniorElite.csv")
-    tnames.append("2023 BC Senior Elite")
+    tnames.append("2022-2023 BC Senior Elite")
     # Campbell River
     matchfiles.append("Tournaments/2023/2023_CRBC.csv")
     tnames.append("2023 Campbell River")
@@ -56,8 +56,41 @@ def PROCESS_2023_TOURNAMENTS():
     # Jack Underhill
     matchfiles.append("Tournaments/2023/2023_JackUnderhill.csv")
     tnames.append("2023 Jack Underhill")
+    # Easter Open
+    matchfiles.append("Tournaments/2023/2023_EasterOpen.csv")
+    tnames.append("2023 Easter Open")
+    # Provincial Championship
+    matchfiles.append("Tournaments/2023/2023_Provincials.csv")
+    tnames.append("2023 Provincials")
+    # 12.2 O-Go-PoCo Open
+    matchfiles.append("Tournaments/2023/2023_OGoPoCo.csv")
+    tnames.append("2023 OGo-PoCo B&Y Open")
+    # Victoria Closed
+    matchfiles.append("Tournaments/2023/2023_VictoriaClosed.csv")
+    tnames.append("2023 Victoria Closed")
+    # White Rock Tournament
+    matchfiles.append("Tournaments/2023/2023_WhiteRock.csv")
+    tnames.append("2023 White Rock Tournament")
+    # Nanaimo Open
+    matchfiles.append("Tournaments/2023/2023_NanaimoOpen.csv")
+    tnames.append("2023 Nanaimo Open")
+    # POCOmon GO Open
+    matchfiles.append("Tournaments/2023/2023_POCOmonOpen.csv")
+    tnames.append("2023 POCOmon GO Open")
+    # Thanksgiving Tournament
+    matchfiles.append("Tournaments/2023/2023_Thanksgiving.csv")
+    tnames.append("2023 C1 Thanksgiving Tournament")
+    # November BC Senior Elite
+    matchfiles.append("Tournaments/2023/2023_NovSeniorElite.csv")
+    tnames.append("2023-2024 BC Senior Elite")
+    # Island Open
+    matchfiles.append("Tournaments/2023/2023_IslandOpen.csv")
+    tnames.append("2023 Island Open")
+    # Kelowna Open
+    matchfiles.append("Tournaments/2023/2023_KelownaOpen.csv")
+    tnames.append("2023 Kelowna Open")
 
-    
+
     for matchfile, tname in zip(matchfiles,tnames):
 
         # Load extant players into ranks, the list of players
@@ -93,22 +126,29 @@ def PROCESS_2023_TOURNAMENTS():
         print("Finished processing",tname,"\n")
 
 
-    # Provincial Championship
-
-    # New Era Open
-
-    # Nanaimo Open
-
-    # Thanksgiving Tournament
-
-    # Island Open
-
-
 
     # END OF YEAR UPDATES
 
+    print("Tournament match processing complete!")
+
+    # Update highestRanks
+    for p in ranks.values():
+        if(p.highestRank == "NR"):
+            p.highestRank = p.rank
+        elif(p.rank != "NR"):
+            if int(p.rank) > int(p.highestRank):
+                p.highestRank = p.rank
+
+    # Print  final rankings
+    print("Total number matches processed:", DB.matchesPlayed)
+    print("Total number players ranked:", DB.numberPlayers)
+    print("Final 2023 Rankings:")
+    oir.outputRankingsToConsole(ranks)
+
     # Update previousAnnualRatings
-    ranks = oir.updatePreviousAnnual(ranks)
+    for p in ranks.values():
+        p.previousAnnualRank = p.rank
+        p.previousAnnualRating = p.rating
 
     # Save progress
     print(f"Outputting final rankings to {savestate}...")
@@ -116,11 +156,7 @@ def PROCESS_2023_TOURNAMENTS():
     DB.save()
     print(f"Final rankings have been saved to {savestate}.\n")
 
-    # Print  final rankings
-    print("Total number matches processed:", DB.matchesPlayed)
-    print("Total number players ranked:", DB.numberPlayers)
-    print("Final 2023 Rankings:")
-    oir.outputRankingsToConsole(ranks)
+    
 
     return
 

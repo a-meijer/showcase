@@ -77,18 +77,18 @@ A Semis,Nik Cruz,BC3960,Jack Chen,BC10265
 B Semis,John Ou,BC16127,Christopher Cui,BC15023
 B Semis,Jackie Wu,BC16206,Franklin Chen,BC17865
 A Finals,Lyem Fedoretz,BC13763,Nik Cruz,BC3960
-B Finals,Jackie Wu,BC16206,John Ou,BC16127Round of 32,Frank Nguyen,BC17154,Tam Tran,BC10071
+B Finals,Jackie Wu,BC16206,John Ou,BC16127Round of 32,Frank Nguyen,BC17406,Tam Tran,BC10071
 Round of 32,Shivom Chaudhary,BC17271,Victor Chang,BC16223
 Round of 32,Jonathan Barton,BC6967,Sehajbir Sachdeva,BC17319
 Round of 32,Connor O'Reilly,BC16854,Andrew Meijer,BC6030
-Round of 16,Frank Nguyen,BC17154,Jiayi Li,BC12459
+Round of 16,Frank Nguyen,BC17406,Jiayi Li,BC12459
 Round of 16,Will Bui,BC13605,Shivom Chaudhary,BC17271
 Round of 16,Colt Love,BC12636,Brent Gordon Dunlop,BC15726
 Round of 16,Roger Quach,BC17133,Jonathan Barton,BC6967
 Round of 16,Kingsley Lu,BC10696,Ratnesh Ippili,BC17071
 Round of 16,Connor O'Reilly,BC16854,Paul Green,BC0419
 Round of 16,Angus Li,BC3939,Arthur Wei Cong,BC15606
-Quarterfinals,Nik Cruz,BC3960,Frank Nguyen,BC17154
+Quarterfinals,Nik Cruz,BC3960,Frank Nguyen,BC17406
 Quarterfinals,Colt Love,BC12636,Will Bui,BC13605
 Quarterfinals,Roger Quach,BC17133,Kingsley Lu,BC10696
 Quarterfinals,Angus Li,BC3939,Connor O'Reilly,BC16854
@@ -108,12 +108,12 @@ Round 1,Jashan Deep Singh,BC13551,Jason Fang,ON12782
 Round 1,Mitchell Purnomo,BC17160,Haocheng Guo,BC19056
 Round 1,David Yuan,BC1117,Andrew Gu,MB36006
 Round 1,Saurabh Pandair,BC17070,Rex Orth,BC15155
-Round 1,Ruixi Zhang,BC14918,Frank Nguyen,BC17154
+Round 1,Ruixi Zhang,BC14918,Frank Nguyen,BC17406
 Round 1,John Ou,BC16127,Stone Guan,BC11506
 Round 1,Brian Xu,BC17888,Oscar Xie,BC9514
 Round 1,Kwun Ho So,BC12748,Animesh Sakorikar,ID22T04
 Round 1,David Purnomo,BC17159,Jimmy Fan,BC16933
-Round 1,Paul Cho,BC3748,Arrio Choi,BC3212
+Round 1,Paul Cho,BC3748,Arrio Chi To Choi,BC3212
 Round 1,Darren Wang,BC13934,Yiyang Jiang,ON13537
 Round 1,Karan Singh,BC18501,Vincent Zonca,BC13450
 Round 1,Lyem Fedoretz,BC13763,Joshua Yan,BC9134
@@ -194,4 +194,610 @@ Quarterfinals,Connor Louie,BC10576,Kwun Ho So,BC12748
 Quarterfinals,Saurabh Pandiar,BC17070,Jason Yang,BC12317
 Semifinals,Gurbaksh Saini,ON41508,Nik Whang Cruz,BC3960
 Semifinals,Saurabh Pandiar,BC17070,Connor Louie,BC10576
-Finals,Saurabh Pandiar,BC17070,Gurbaksh Saini,ON41508
+Finals,Saurabh Pandiar,BC17070,Gurbaksh Saini,ON41508Round of 128,Jason Chou,AB04324,James Jih,BC6584
+Round of 128,Paul Cho,BC3748,Jaden Thom,BC15336
+Round of 128,Nicholas Poon,BC14114,Matthew Cheuk Hin Ng,BV1989
+Round of 128,Justin L Li,ON14222,Alex Anlai Song,X1019779
+Round of 64,Jackson Yang,BC10895,Ethan Yen,BC14739
+Round of 64,William Ma,BC15972,Frank Nguyen,BC17406
+Round of 64,Jack Chen,BC10265,Darren Wang,BC13934
+Round of 64,Justin Wan,BC14684,Issac Fung,X09182004
+Round of 64,Ryan Liu,BC10841,Aayush Singh,NY001
+Round of 64,Van Long Nguyen,BC16173,Ryan Choudhury,X1021492
+Round of 64,Daniel Huang,BC14954,Rex Orth,BC15155
+Round of 64,Jason Chou,AB04324,Shiyao Jin,BC10896
+Round of 64,David Zuo,X1019625,Franklin Chen,BC17865
+Round of 64,Ruixi Zhang,BC14918,Luke Lee,BC8269
+Round of 64,Mitchell Purnomo,BC17160,Adrian Wong,BC12183
+Round of 64,Manmeet Singh,BC16926,Arrio Choi,BC3212
+Round of 64,Ev Haus,BC19123,Wayne Wu,ON30225
+Round of 64,Paul Cho,BC3748,William Zhang,MB12923
+Round of 64,Joshua Yan,BC9134,Nicholas Poon,BC14114
+Round of 64,Steven Chen,X1020412,Cliff Yang,BC15372
+Round of 64,David Luo,BC18064,Adhiraj Sharma,NY002
+Round of 64,Chris Wiebe,MB1371,Yancong Li,BC19032
+Round of 64,Eddie Chan,BC7343,Elvin Sun,BC13370
+Round of 64,Louis N Thai,BC14680,Ethan Cheung,BC9676
+Round of 64,Dwayne Da Silva,BC18335,Michael Suey,AB03316
+Round of 64,Lyem Fedoretz,BC13763,Jason Yang,BC12317
+Round of 64,Justin L Li,ON14222,Oscar Xie,BC9514
+Round of 64,Leo Zhou,BC19552,Victor Su,BC14527
+Round of 64,David Purnomo,BC17159,Terence Liu,BC3737
+Round of 64,Aakar Chatha,BC17063,Simon Wu,BC17274
+Round of 64,Gurbaksh Saini,ON41508,Trevor So,BC14155
+Round of 32,Jackson Yang,BC10895,William Ma,BC15972
+Round of 32,Jack Chen,BC10265,Justin Wan,BC14684
+Round of 32,Ryan Liu,BC10841,Van Long Nguyen,BC16173
+Round of 32,Jason Chou,AB04324,Daniel Huang,BC14954
+Round of 32,Kevin Luo,BC8266,Ali Sayyah,AS001
+Round of 32,David Zuo,X1019625,Ruixi Zhang,BC14918
+Round of 32,Mitchell Purnomo,BC17160,Manmeet Singh,BC16926
+Round of 32,Paul Cho,BC3748,Ev Haus,BC19123
+Round of 32,Joshua Yan,BC9134,Steven Chen,X1020412
+Round of 32,Chris Wiebe,MB1371,David Luo,BC18064
+Round of 32,Louis N Thai,BC14680,Eddie Chan,BC7343
+Round of 32,Lyem Fedoretz,BC13763,Dwayne Da Silva,BC18335
+Round of 32,Justin L Li,ON14222,David Yuan,BC1117
+Round of 32,David Purnomo,BC17159,Leo Zhou,BC19552
+Round of 32,Roger Quach,BC17133,Haocheng Guo,BC19056
+Round of 32,Gurbaksh Saini,ON41508,Aakar Chatha,BC17063
+Round of 16,Jackson Yang,BC10895,Jack Chen,BC10265
+Round of 16,Jason Chou,AB04324,Ryan Liu,BC10841
+Round of 16,Kevin Luo,BC8266,David Zuo,X1019625
+Round of 16,Mitchell Purnomo,BC17160,Paul Cho,BC3748
+Round of 16,Chris Wiebe,MB1371,Joshua Yan,BC9134
+Round of 16,Lyem Fedoretz,BC13763,Louis N Thai,BC14680
+Round of 16,David Purnomo,BC17159,Justin L Li,ON14222
+Round of 16,Gurbaksh Saini,ON41508,Roger Quach,BC17133
+Quarterfinals,Jason Chou,AB04324,Jackson Yang,BC10895
+Quarterfinals,Kevin Luo,BC8266,Mitchell Purnomo,BC17160
+Quarterfinals,Lyem Fedoretz,BC13763,Chris Wiebe,MB1371
+Quarterfinals,Gurbaksh Saini,ON41508,David Purnomo,BC17159
+Semifinals,Kevin Luo,BC8266,Jason Chou,AB04324
+Semifinals,Lyem Fedoretz,BC13763,Gurbaksh Saini,ON41508
+Finals,Lyem Fedoretz,BC13763,Kevin Luo,BC8266Round of 64,Johnathan Akin-Mulrooney,AB04770,Rickey Ruixi Zhang,BC14918
+Round of 64,Saurabh Pandiar,BC17070,Chris Wiebe,MB1371
+Round of 64,Paul James Ouano,AB20978,Louis Lecheng Sun,ON24495
+Round of 64,Connor Louie,BC10576,Andrew Shan,AB21085
+Round of 64,Victor Ho,MB09472,Jalil Waiz,BC7562
+Round of 64,Peike Xu,BC15886,Ethan Chen,AB06938
+Round of 64,Antonio Li,BC7414,Jonathan Su,AB22169
+Round of 64,Manmeet Singh,BC16926,Alexander Gibson-Dunne,AB21292
+Round of 64,Lai Yin Chung,BC17060,Benoit Bordeleau,QC10071
+Round of 64,Youwei Zhang,BC15945,Kevin Shan,AB21077
+Round of 64,Kyi Nichols,MB0064,Jason Chou,AB04324
+Round of 64,Nik Cruz,BC3960,Dale Kinley,MB0044
+Round of 64,Daniel Jieru Zhou,AB21350,Archangelo Ouano,AB21252
+Round of 64,Yiyang Jiang,ON13537,Saket Thavanani,ON34056
+Round of 64,Kiren Deraj,MB1631,Ryan Liu,BC10841
+Round of 64,Anthony Wong,AB09514,Shourya Joshi,BC17705
+Round of 64,Nathan Appave,AB20369,Colin Jia,ON11660
+Round of 64,Zachary Desjardins,QC11074,Ashish Pandit,AB22061
+Round of 64,Ethan Yen,BC14739,Ao Jun Chan,MB12428
+Round of 32,Victor Lai,ON13010,Johnathan Akin-Mulrooney,AB04770
+Round of 32,Saurabh Pandiar,BC17070,Matthew Yeung,AB21648
+Round of 32,Lyem Fedoretz,BC13763,Paul James Ouano,AB20978
+Round of 32,Victor Ho,MB09472,Connor Louie,BC10576
+Round of 32,Imran Wadia,AB07299,Shubh Krishan,ON34764
+Round of 32,Peike Xu,BC15886,Brandon Yim,MB08946
+Round of 32,Antonio Li,BC7414,Jackson Yang,BC10895
+Round of 32,Lai Yin Chung,BC17060,Manmeet Singh,BC16926
+Round of 32,Youwei Zhang,BC15945,Justin Nguyen,AB22188
+Round of 32,Gurbaksh Saini,ON41508,Kyi Nichols,MB0064
+Round of 32,Daniel Jieru Zhou,AB21350,Nik Cruz,BC3960
+Round of 32,Miklos Kanyasi,NS1999456,Yiyang Jiang,ON13537
+Round of 32,Anthony Wong,AB09514,Kiren Deraj,MB1631
+Round of 32,William Ma,BC15972,Nathan Appave,AB20369
+Round of 32,Zachary Desjardins,QC11074,Mahdi Ahmadi,BC15814
+Round of 32,Joshua Nguyen,ON13127,Ethan Yen,BC14739
+Round of 16,Victor Lai,ON13010,Saurabh Pandiar,BC17070
+Round of 16,Lyem Fedoretz,BC13763,Victor Ho,MB09472
+Round of 16,Imran Wadia,AB07299,Peike Xu,BC15886
+Round of 16,Antonio Li,BC7414,Lai Yin Chung,BC17060
+Round of 16,Gurbaksh Saini,ON41508,Youwei Zhang,BC15945
+Round of 16,Daniel Jieru Zhou,AB21350,Miklos Kanyasi,NS1999456
+Round of 16,Anthony Wong,AB09514,William Ma,BC15972
+Round of 16,Joshua Nguyen,ON13127,Zachary Desjardins,QC11074
+Quarterfinals,Victor Lai,ON13010,Lyem Fedoretz,BC13763
+Quarterfinals,Imran Wadia,AB07299,Antonio Li,BC7414
+Quarterfinals,Gurbaksh Saini,ON41508,Daniel Jieru Zhou,AB21350
+Quarterfinals,Joshua Nguyen,ON13127,Anthony Wong,AB09514
+Semifinals,Victor Lai,ON13010,Imran Wadia,AB07299
+Semifinals,Joshua Nguyen,ON13127,Gurbaksh Saini,ON41508
+Finals,Joshua Nguyen,ON13127,Victor Lai,ON13010Round of 32,Van Long Nguyen,BC16173,Basil Kottappurath,BC16263
+Round of 32,Christopher Yu,BC19510,Mike Devos,BC3279
+Round of 32,Joseph Tan,BC16197,Hal Shin,BC16042
+Round of 32,Curtis Curkan,BC14161,Robert Bota,BC10085
+Round of 32,Robert Foster,BC6881,Andrew Meijer,BC6030
+Round of 32,Dan Macdonald,BC0474,Jithin Prakash,BC15890
+Round of 32,Brent Gordon Dunlop,BC15726,Brandon Myrbo,BC16273
+Round of 32,Bejamin George,BC16241,Brendon Kwan,BC9351
+Round of 16,Saurabh Pandiar,BC17070,Van Long Nguyen,BC16173
+Round of 16,Frank Nguyen,BC17406,Christopher Yu,BC19510
+Round of 16,David Yang,BC9870,Joseph Tan,BC16197
+Round of 16,Connor O'Reilly,BC16854,Curtis Curkan,BC14161
+Round of 16,Robert Foster,BC6881,Will Bui,BC13605
+Round of 16,Sahil Aggarwal,BC16091,Dan Macdonald,BC0474
+Round of 16,Roger Quach,BC17133,Brent Gordon Dunlop,BC15726
+Round of 16,Colt Love,BC12636,Bejamin George,BC16241
+Quarterfinals,Saurabh Pandiar,BC17070,Frank Nguyen,BC17406
+Quarterfinals,David Yang,BC9870,Connor O'Reilly,BC16854
+Quarterfinals,Robert Foster,BC6881,Sahil Aggarwal,BC16091
+Quarterfinals,Roger Quach,BC17133,Colt Love,BC12636
+Semifinals,Saurabh Pandiar,BC17070,David Yang,BC9870
+Semifinals,Robert Foster,BC6881,Roger Quach,BC17133
+Finals,Saurabh Pandiar,BC17070,Robert Foster,BC6881Round of 64,Vincent Zonca,BC13450,Dennis Andrucson,BC14162
+Round of 64,Jack Saunders,AB10192,Noel Bass,BC17726
+Round of 32,Matt Downton,BC1418,Ashwin Nairy,BC15579
+Round of 32,Troy Morgan,BC16699,Clayton Miller,BC4316
+Round of 32,Hector Devesa,BC13264,Jackson Kurtz,MB09874
+Round of 32,Hayden Ostrom,BC8161,Rameez Mir,BC18187
+Round of 32,David Crawford,BC4189,Chinmay Rumade,BC17729
+Round of 32,Ryan Yu,BC12609,Runai Gonsalves,T00663464
+Round of 32,Andrew Junye Tan,BC17585,Justin Ho Kai Pan,BC12772
+Round of 32,Heng Wu,BC16835,Digby Johannson-Miller,BC15083
+Round of 32,Vincent Zonca,BC13450,Mike Lennon,BC9037
+Round of 32,Kevin Wang,BC19007,Stanley Wong,BC14163
+Round of 32,Hector Castro,X151090,Ashley Robertson,BC8017
+Round of 32,Nguyen Phan,BC19242,Jeet Vaidya,BC18267
+Round of 32,Jack Saunders,AB10192,Markus Weilmeier,BC10033
+Round of 32,Anubhav Gupta,BC17317,Animesh Sakorikar,ID22T04
+Round of 32,Eugene Kwok,BC17953,Bowen Tan,BC15069
+Round of 32,Neil Ward,BC0435,John McWalter Keith,BC17576
+Round of 16,Matt Downton,BC1418,Troy Morgan,BC16699
+Round of 16,Hector Devesa,BC13264,Hayden Ostrom,BC8161
+Round of 16,David Crawford,BC4189,Ryan Yu,BC12609
+Round of 16,Andrew Junye Tan,BC17585,Heng Wu,BC16835
+Round of 16,Vincent Zonca,BC13450,Kevin Wang,BC19007
+Round of 16,Nguyen Phan,BC19242,Hector Castro,X151090
+Round of 16,Jack Saunders,AB10192,Anubhav Gupta,BC17317
+Round of 16,Neil Ward,BC0435,Eugene Kwok,BC17953
+Quarterfinals,Matt Downton,BC1418,Hector Devesa,BC13264
+Quarterfinals,Andrew Junye Tan,BC17585,David Crawford,BC4189
+Quarterfinals,Nguyen Phan,BC19242,Vincent Zonca,BC13450
+Quarterfinals,Neil Ward,BC0435,Jack Saunders,AB10192
+Semifinals,Matt Downton,BC1418,Andrew Junye Tan,BC17585
+Semifinals,Neil Ward,BC0435,Nguyen Phan,BC19242
+Finals,Matt Downton,BC1418,Neil Ward,BC0435Round of 32,Nicholas Poon,BC14114,Sola Zhang,BC12297
+Round of 16,Ryan Liu,BC10841,Franklin Chen,BC17865
+Round of 16,Dayton Se,BC13042,Qi Liu,BC17847
+Round of 16,Peike Xu,BC15886,Adrian Zhou,BC13995
+Round of 16,Brian Xu,BC17888,Barry Xie,BC17273
+Round of 16,Rickey Zhang,BC14918,Van Long Nguyen,BC16173
+Round of 16,Zhao Wei Liu,BC17362,Jackie Wu,BC16206
+Round of 16,Jack Chen,BC10265,Jason Chou,AB04324
+Quarterfinal,Ryan Liu,BC10841,Dayton Se,BC13042
+Quarterfinal,Peike Xu,BC15886,Brian Xu,BC17888
+Quarterfinal,Rickey Zhang,BC14918,Nicholas Poon,BC14114
+Quarterfinal,Jack Chen,BC10265,Zhao Wei Liu,BC17362
+Semifinal,Peike Xu,BC15886,Ryan Liu,BC10841
+Semifinal,Jack Chen,BC10265,Rickey Zhang,BC14918
+Final,Peike Xu,BC15886,Jack Chen,BC10265Round of 64,Michael Poon,BC9740,Anjie Wang,BC17891
+Round of 64,Connor O'Reilly,BC16854,Dan MacDonald,BC0474
+Round of 64,Daniel Huang,BC14954,Frank Nguyen,BC17406
+Round of 64,Van Long Nguyen,BC16173,Volodymyr Zubariev,BC17770
+Round of 64,Trevor Tak Sing Chun,BC15986,Rahi Kumar,BC17795
+Round of 64,Sarabpreet Singh Sodhi,BC17850,Hayden Lam,BC16882
+Round of 64,Jalil Waiz,BC7562,Marcus Chan,BC16107
+Round of 64,Ratnesh Rao Ippili,BC17071,Quinn Lawler,AB22569
+Round of 64,Jasper Kong,BC16320,Zhijing Liu,BC14515
+Round of 64,Franklin Chen,BC17865,John McWalter Keith,BC17576
+Round of 64,Roger Quach,BC17133,Markus Weilmeier,BC10033
+Round of 64,ZeLin Shan,BC16166,Leo Shen,BC15094
+Round of 64,Luke Lee,BC8269,Nusorn Krachangtoy,BC8364
+Round of 64,Aakar Chatha,BC17063,John Ou,BC16127
+Round of 64,Paul Cho,BC3748,Chi-Kin Chan,BC15989
+Round of 64,Will Bui,BC13605,David Yang,BC9870
+Round of 64,Shingchun (Kevin) Wu,BC14906,Jack Saunders,AB10192
+Round of 64,Nicholas Poon,BC14114,Eugene Kwok,BC17953
+Round of 64,Colin Wang,BC12492,Shukang Wang,BC16808
+Round of 64,Ethan Yen,BC14739,Andy Le,BC17175
+Round of 32,Gurbaksh Singh Saini,ON41508,Michael Poon,BC9740
+Round of 32,Connor O'Reilly,BC16854,Raymond Wu,BC16114
+Round of 32,Jack Chen,BC10265,Daniel Huang,BC14954
+Round of 32,Van Long Nguyen,BC16173,Trevor Tak Sing Chun,BC15986
+Round of 32,Lyem Fedoretz,BC13763,Sarabpreet Singh Sodhi,BC17850
+Round of 32,Jalil Waiz,BC7562,Benson Wong,BC16112
+Round of 32,Joshua R Yan,BC9134,Ratnesh Rao Ippili,BC17071
+Round of 32,Jasper Kong,BC16320,Franklin Chen,BC17865
+Round of 32,Roger Quach,BC17133,ZeLin Shan,BC16166
+Round of 32,Victor Ho,MB09472,Luke Lee,BC8269
+Round of 32,Paul Cho,BC3748,Aakar Chatha,BC17063
+Round of 32,Jadon Tsang,BC7711,Will Bui,BC13605
+Round of 32,Nicholas Poon,BC14114,Shingchun (Kevin) Wu,BC14906
+Round of 32,Brian McBay,BC14400,Colin Wang,BC12492
+Round of 32,Saurabh Pandiar,BC17070,Ethan Yen,BC14739
+Round of 16,Gurbaksh Singh Saini,ON41508,Connor O'Reilly,BC16854
+Round of 16,Jack Chen,BC10265,Van Long Nguyen,BC16173
+Round of 16,Lyem Fedoretz,BC13763,Jalil Waiz,BC7562
+Round of 16,Joshua R Yan,BC9134,Jasper Kong,BC16320
+Round of 16,Victor Ho,MB09472,Roger Quach,BC17133
+Round of 16,Jadon Tsang,BC7711,Paul Cho,BC3748
+Round of 16,Ryan Liu,BC10841,Nicholas Poon,BC14114
+Round of 16,Saurabh Pandiar,BC17070,Brian McBay,BC14400
+Quarterfinals,Gurbaksh Singh Saini,ON41508,Jack Chen,BC10265
+Quarterfinals,Lyem Fedoretz,BC13763,Joshua R Yan,BC9134
+Quarterfinals,Jadon Tsang,BC7711,Victor Ho,MB09472
+Quarterfinals,Saurabh Pandiar,BC17070,Ryan Liu,BC10841
+Semifinals,Lyem Fedoretz,BC13763,Gurbaksh Singh Saini,ON41508
+Semifinals,Saurabh Pandiar,BC17070,Jadon Tsang,BC7711
+Finals,Lyem Fedoretz,BC13763,Saurabh Pandiar,BC17070Round of 64,Jack Chen,BC10265,Nicholas Lee,SK01305
+Round of 64,Carlos Chan,BC17072,Kenshin Sakuta,BC17852
+Round of 64,Ruixi Zhang,BC14918,Nathaniel Chow,BC15983
+Round of 64,Ryan Liu,BC10841,Aakar Chatha,BC17063
+Round of 64,Justin Law,BC9379,Roger Quach,BC17133
+Round of 64,Wenjun Ouyang,BC8870,Daniel Huang,BC14954
+Round of 64,Zhaowei Liu,BC17362,Haley He,BC15543
+Round of 64,Ratnesh Ippili,BC17071,Haochen Guo,BC19056
+Round of 64,Trevor Chun,BC15986,Roy Chiu,EX001
+Round of 64,Adrian Zhou,BC13995,Alex Cheng,QC12433
+Round of 64,Simon Wu,BC17274,Marcus Tseng,BC16125
+Round of 64,Connor O'Reilly,BC16854,David Fernando,BC21130
+Round of 64,Ethan Yen,BC14739,Yu Kojima,EX002
+Round of 64,Connor Louie,BC10576,Andy Le, BC17175
+Round of 64,Kevin Aissa,BC19253,Van Long Nguyen,BC16173
+Round of 64,Connor Chin,AB03249,Sarabpreet Sodhi,BC17850
+Round of 64,Mitash Jain,BC17537,Will Bui,BC13605
+Round of 64,Cliff Yang,BC15372,Loren Lau,BC3016
+Round of 64,William Ma,BC15972,Divyank A,EX003
+Round of 64,Shingchun Kevin Wu,BC14906,Johnny Liu,BC14515
+Round of 64,Jalil Waiz,BC7562,Naishadh Parmar,BC17185
+Round of 64,Peike Xu,BC15886,Mike Cao,BC8925
+Round of 32,Jackson Yang,BC10895,Jack Chen,BC10265
+Round of 32,Carlos Chan,BC17072,Ruixi Zhang,BC14918
+Round of 32,Ryan Liu,BC10841,Victor Ho,MB09472
+Round of 32,Wenjun Ouyang,BC8870,Justin Law,BC9379
+Round of 32,Antonio Li,BC7414,Zhaowei Liu,BC17362
+Round of 32,Ratnesh Ippili,BC17071,Trevor Chun,BC15986
+Round of 32,Gurbaksh Saini,ON41508,Adrian Zhou,BC13995
+Round of 32,Connor O'Reilly,BC16854,Simon Wu,BC17274
+Round of 32,Ethan Yen,BC14739,Calvin Chan,BC15594
+Round of 32,Saurabh Pandiar,BC17070,Connor Louie,BC10576
+Round of 32,Connor Chin,AB03249,Kevin Aissa,BC19253
+Round of 32,Kevin Luo,BC8266,Mitash Jain,BC17537
+Round of 32,Cliff Yang,BC15372,Ev Haus,BC19123
+Round of 32,Lyem Fedoretz,BC13763,William Ma,BC15972
+Round of 32,Jalil Waiz,BC7562,Shingchun Kevin Wu,BC14906
+Round of 32,Joshua Liu,BC1815,Peike Xu,BC15886
+Round of 16,Jackson Yang,BC10895,Carlos Chan,BC17072
+Round of 16,Ryan Liu,BC10841,Wenjun Ouyang,BC8870
+Round of 16,Antonio Li,BC7414,Ratnesh Ippili,BC17071
+Round of 16,Gurbaksh Saini,ON41508,Connor O'Reilly,BC16854
+Round of 16,Saurabh Pandiar,BC17070,Ethan Yen,BC14739
+Round of 16,Kevin Luo,BC8266,Connor Chin,AB03249
+Round of 16,Lyem Fedoretz,BC13763,Cliff Yang,BC15372
+Round of 16,Joshua Liu,BC1815,Jalil Waiz,BC7562
+Quarterfinals,Jackson Yang,BC10895,Ryan Liu,BC10841
+Quarterfinals,Antonio Li,BC7414,Gurbaksh Saini,ON41508
+Quarterfinals,Saurabh Pandiar,BC17070,Kevin Luo,BC8266
+Quarterfinals,Joshua Liu,BC1815,Lyem Fedoretz,BC13763
+Semifinals,Antonio Li,BC7414,Jackson Yang,BC10895
+Semifinals,Saurabh Pandiar,BC17070,Joshua Liu,BC1815
+Finals,Antonio Li,BC7414,Saurabh Pandiar,BC17070Session 1,Gurbaksh Singh Saini,ON41508,Jalil Waiz,BC7562
+Quarterfinals,Joshua Liu,BC1815,Eddie Huang,BC17311
+Quarterfinals,Jack Chen,BC10265,Van Long Nguyen,BC16173
+Quarterfinals,Gurbaksh Singh Saini,ON41508,Connor Nicholas Louie,BC10576
+Quarterfinals,Kevin Luo,BC8266,Roger Quach,BC17133
+Semifinals,Joshua Liu,BC1815,Jack Chen,BC10265
+Semifinals,Gurbaksh Singh Saini,ON41508,Kevin Luo,BC8266
+Finals,Joshua Liu,BC1815,Gurbaksh Singh Saini,ON41508
+Play-off 3/4,Kevin Luo,BC8266,Jack Chen,BC10265Yellow Shell Ro32,Trevor Chun,BC15986,Kevin Lin Hua Liu,BC14810
+Yellow Shell Ro32,James Teng,BC17639,Gordon Lai,BC17878
+Yellow Shell Ro32,Nicholas Yun,BC17634,Kirby Fung,BC6846
+Yellow Shell Ro32,Ayden Travis Lee,BC16117,Benson Yan,BC14654
+Yellow Shell Ro32,Joe Liang,BC17158,Darvey Chang,BC20156
+Yellow Shell Ro32,Jasper Kong,BC16320,Ethan Q Sheng,BC17844
+Yellow Shell Ro32,Yu Cong Tang,BC6596,Samuel Ye,BC14974
+Yellow Shell Ro32,Leo Lin,MB12844,Bryan Teng,BC17297
+Yellow Shell Ro16,Trevor Chun,BC15986,John Ou,BC16127
+Yellow Shell Ro16,Haley He,BC15543,James Teng,BC17639
+Yellow Shell Ro16,Christopher Cui,BC15023,Nicholas Yun,BC17634
+Yellow Shell Ro16,Ayden Travis Lee,BC16117,Peter Phuc,BC14909
+Yellow Shell Ro16,Joe Liang,BC17158,Michael Kuang,X831234
+Yellow Shell Ro16,Jasper Kong,BC16320,Kevin Damien Chau,BC6325
+Yellow Shell Ro16,Yu Cong Tang,BC6596,Yang Xiang,X18735723
+Yellow Shell Ro16,Franklin Chen,BC17865,Leo Lin,MB12844
+Yellow Shell QF,Haley He,BC15543,Trevor Chun,BC15986
+Yellow Shell QF,Ayden Travis Lee,BC16117,Christopher Cui,BC15023
+Yellow Shell QF,Jasper Kong,BC16320,Joe Liang,BC17158
+Yellow Shell QF,Franklin Chen,BC17865,Yu Cong Tang,BC6596
+Yellow Shell SF,Ayden Travis Lee,BC16117,Haley He,BC15543
+Yellow Shell SF,Jasper Kong,BC16320,Franklin Chen,BC17865
+Yellow Shell Final,Ayden Travis Lee,BC16117,Jasper Kong,BC16320
+Blue Shell Ro32,Adrian Wong,BC12183,Michael Wang,BC6782
+Blue Shell Ro32,Yancong Li,BC19032,Kelvin Huang,BC18866
+Blue Shell Ro32,Marco Fortin,BC15734,Muchen Li,BC15198
+Blue Shell Ro32,Haocheng Guo,BC19056,Harrison Belenkie,BC18339
+Blue Shell Ro32,Brendan KC Wong,BC14055,Balakumar KS,KS001
+Blue Shell Ro32,Sahil Aggarwal,BC16091,Ev Haus,BC19123
+Blue Shell Ro32,Daniel Zhang,BC15006,Roy You Wei Zhou,BC14925
+Blue Shell Ro16,Saurabh Pandiar,BC17070,Adrian Wong,BC12183
+Blue Shell Ro16,Yancong Li,BC19032,Luke Lee,BC8269
+Blue Shell Ro16,Jalil Waiz,BC7562,Marco Fortin,BC15734
+Blue Shell Ro16,Shingchun Kevin Wu,BC14906,Haocheng Guo,BC19056
+Blue Shell Ro16,Brendan KC Wong,BC14055,Simon Wu,BC17274
+Blue Shell Ro16,Connor Chin,AB03249,Sahil Aggarwal,BC16091
+Blue Shell Ro16,Aakar Chatha,BC17063,Mike Tsao,X4078001
+Blue Shell Ro16,Connor Louie,BC10576,Daniel Zhang,BC15006
+Blue Shell QF,Saurabh Pandiar,BC17070,Yancong Li,BC19032
+Blue Shell QF,Shingchun Kevin Wu,BC14906,Jalil Waiz,BC7562
+Blue Shell QF,Connor Chin,AB03249,Brendan KC Wong,BC14055
+Blue Shell QF,Connor Louie,BC10576,Aakar Chatha,BC17063
+Blue Shell SF,Saurabh Pandiar,BC17070,Shingchun Kevin Wu,BC14906
+Blue Shell SF,Connor Chin,AB03249,Connor Louie,BC10576
+Blue Shell Final,Saurabh Pandiar,BC17070,Connor Chin,AB03249Round of 32,Patrick Chow,BC13996,Leo Leekrajang,BC16242
+Round of 32,Andre Wen,BC14279,Min Suk Kim,BC18049
+Round of 32,Yunyong Guo,BC12634,Huan Ge Zhang,BC17573
+Round of 32,Aaron Lin,BC12213,Jaydon Polischuk,BC18583
+Round of 32,Hailegebriel Kebede,BC12752,Brian Waters,IDBWATERS
+Round of 32,Jaden Thom,BC15336,Jeffrey Joju,BC18065
+Round of 32,Kwun Ho So,BC12748,Nathan Allen,BC12460
+Round of 32,Christopher Yu,BC19510,Mike De Vos,BC3279
+Round of 32,Colt Love,BC12636,Peter Huang,BC18042
+Round of 32,Alex Wong,BC16192,Robert Oldfield,BC0237
+Round of 32,Sam Chen,IDSCHEN,Brendon Kwan,BC9351
+Round of 32,Joseph Tan,BC16197,Xun Wang,BC17618
+Round of 32,Andrew Meijer,BC6030,Victor Chang,BC16223
+Round of 32,Roger Quach,BC17133,Colin Comfort,BC4186
+Round of 16,Van Long Nguyen,BC16173,Patrick Chow,BC13996
+Round of 16,Andre Wen,BC14279,Shaun Loo,BC17815
+Round of 16,Aaron Lin,BC12213,Yunyong Guo,BC12634
+Round of 16,Jaden Thom,BC15336,Hailegebriel Kebede,BC12752
+Round of 16,Kwun Ho So,BC12748,Christopher Yu,BC19510
+Round of 16,Colt Love,BC12636,Alex Wong,BC16192
+Round of 16,Sam Chen,IDSCHEN,Joseph Tan,BC16197
+Round of 16,Roger Quach,BC17133,Andrew Meijer,BC6030
+Quarterfinals,Van Long Nguyen,BC16173,Andre Wen,BC14279
+Quarterfinals,Jaden Thom,BC15336,Aaron Lin,BC12213
+Quarterfinals,Kwun Ho So,BC12748,Colt Love,BC12636
+Quarterfinals,Roger Quach,BC17133,Sam Chen,IDSCHEN
+Semifinals,Jaden Thom,BC15336,Van Long Nguyen,BC16173
+Semifinals,Kwun Ho So,BC12748,Roger Quach,BC17133
+Finals,Jaden Thom,BC15336,Kwun Ho So,BC12748Round 1,Connor Louie,BC10576,Frank Nguyen,BC17406
+Round 1,Jalil Waiz,BC7562,Edwin Chang,AB03808
+Round 1,Albert Liang,BC11047,Sai Teja Vangari,BC10780
+Round 1,Shen Wei Lai,BC8302,Harrison Guo,X00217
+Round 1,Ruixi Zhang,BC14918,Carlos Chan,BC17072
+Round 1,Matthieu Mercer,ID22T03,Patrick Wang,ON40008
+Round 1,Carson Chen,ON30917,Ian Gu,X18990819
+Round 1,Ethan Yen,BC14739,Ev Haus,BC19123
+Round 1,Mike Condon,BC18526,Sunil J Joshi,X2230568
+Round 1,Saurabh Pandiar,BC17070,Aakar Chatha,BC17063
+Round 1,Nicholas Poon,BC14114,John Ou,BC16127
+Round 1,Shingchun Kevin Wu,BC14906,Jason Chou,AB04324
+Round 1,Ruihao Li,MB09800,Ratnesh Rao Ippili,BC17071
+Round 2,Gurbaksh Saini,ON41508,Connor Louie,BC10576
+Round 2,Albert Liang,BC11047,Jalil Waiz,BC7562
+Round 2,Ryan Liu,BC10841,Shen Wei Lai,BC8302
+Round 2,Ruixi Zhang,BC14918,Matthieu Mercer,ID22T03
+Round 2,Ethan Yen,BC14739,Carson Chen,ON30917
+Round 2,Saurabh Pandiar,BC17070,Mike Condon,BC18526
+Round 2,Shingchun Kevin Wu,BC14906,Nicholas Poon,BC14114
+Round 2,Lyem Fedoretz,BC13763,Ruihao Li,MB09800
+Quarterfinals,Gurbaksh Saini,ON41508,Albert Liang,BC11047
+Quarterfinals,Ryan Liu,BC10841,Ruixi Zhang,BC14918
+Quarterfinals,Saurabh Pandiar,BC17070,Ethan Yen,BC14739
+Quarterfinals,Lyem Fedoretz,BC13763,Shingchun Kevin Wu,BC14906
+Semifinals,Ryan Liu,BC10841,Gurbaksh Saini,ON41508
+Semifinals,Lyem Fedoretz,BC13763,Saurabh Pandiar,BC17070
+Finals,Ryan Liu,BC10841,Lyem Fedoretz,BC13763Round of 32,Renjie Xiong,BC18391,Matthew Browning,BC18349
+Round of 32,Hailegebriel Kebede,BC12752,Arthur Wei Cong,BC15606
+Round of 32,Brendon Kwan,BC9351,Michael Mok,BC18360
+Round of 32,Brandon Myrbo,BC16273,Yifan Zhou,BC18392
+Round of 32,Ratnesh Rao Ippili,BC17071,Min Suk Kim,BC18049
+Round of 32,David Yang,BC9870,David Zhai,BC9636
+Round of 32,Andrew Meijer,BC6030,Roy Hung,BC11052
+Round of 32,Arseny Shestakov,BC17183,Christopher Yu,BC19510
+Round of 32,Sahil Aggarwal,BC16091,Victor Chang,BC16223
+Round of 32,Eddie Chan,BC7343,Peter Huang,BC18042
+Round of 32,Colt Love,BC12636,David Gao,BC18387
+Round of 32,Joseph Liang,BC18329,Joseph Tan,BC16197
+Round of 16,Kwun Ho So,BC12748,Renjie Xiong,BC18391
+Round of 16,Hailegebriel Kebede,BC12752,Brendon Kwan,BC9351
+Round of 16,Roger Quach,BC17133,Brandon Myrbo,BC16273
+Round of 16,Ratnesh Rao Ippili,BC17071,Will Bui,BC13605
+Round of 16,David Yang,BC9870,Andrew Meijer,BC6030
+Round of 16,Sahil Aggarwal,BC16091,Arseny Shestakov,BC17183
+Round of 16,Colt Love,BC12636,Eddie Chan,BC7343
+Round of 16,Robert Foster,BC6881,Joseph Liang,BC18329
+Quarterfinal,Kwun Ho So,BC12748,Hailegebriel Kebede,BC12752
+Quarterfinal,Roger Quach,BC17133,Ratnesh Rao Ippili,BC17071
+Quarterfinal,David Yang,BC9870,Sahil Aggarwal,BC16091
+Quarterfinal,Robert Foster,BC6881,Colt Love,BC12636
+Semifinals,Roger Quach,BC17133,Kwun Ho So,BC12748
+Semifinals,Robert Foster,BC6881,David Yang,BC9870
+Finals,Roger Quach,BC17133,Robert Foster,BC6881Round of 32,William Ma,BC15972,Roy You Wei Zhou,BC14925
+Round of 32,Shrey Sanghavi,XPC93,Ev Haus,BC19123
+Round of 32,John Ou,BC16127,Karan Singh Shami,BC18501
+Round of 32,Gurbaksh Saini,ON41508,Daniel Zhang,X19626274
+Round of 32,Anish Jojula,BC18940,Arnav Bhattacharya,BC14921
+Round of 32,Daniel Huang,BC14954,Daniel Lazzaroni,BC14964
+Round of 32,Jack Chen,BC10265,Roy Chiu,EX001
+Round of 32,Paul Cho,BC3748,Aakar Chatha,BC17063
+Round of 32,Hossein Ahmadi,BC17717,Daniel Zhang,BC15006
+Round of 16,Saurabh Pandair,BC17070,Sam Chu,BC6993
+Round of 16,William Ma,BC15972,Shrey Sanghavi,XPC93
+Round of 16,Jalil Waiz,BC7562,Laurence Kao,BC3829
+Round of 16,Pierre Tang,BC1728,John Ou,BC16127
+Round of 16,Gurbaksh Saini,ON41508,Anish Jojula,BC18940
+Round of 16,Jack Chen,BC10265,Daniel Huang,BC14954
+Round of 16,Paul Cho,BC3748,Dwayne Da Silva,BC18335
+Round of 16,Hossein Ahmadi,BC17717,Connor Louie,BC10576
+Quarterfinals,Saurabh Pandair,BC17070,William Ma,BC15972
+Quarterfinals,Jalil Waiz,BC7562,Pierre Tang,BC1728
+Quarterfinals,Gurbaksh Saini,ON41508,Jack Chen,BC10265
+Quarterfinals,Hossein Ahmadi,BC17717,Paul Cho,BC3748
+Semifinals,Saurabh Pandair,BC17070,Jalil Waiz,BC7562
+Semifinals,Gurbaksh Saini,ON41508,Hossein Ahmadi,BC17717
+Finals,Gurbaksh Saini,ON41508,Saurabh Pandair,BC17070Round of 64,Aakar Chatha,BC17063,Andrew Meijer,BC6030
+Round of 64,Zheng Fang,QC10585,Oscar Xie,BC9514
+Round of 64,Hossein Ahmadi,BC17717,Shen Wei Lai,BC8302
+Round of 64,Nicholas Volfbeyn,X1022178,Hanliang Liu,X12306
+Round of 64,Matthew Huang,BC14932,Dwayne Da Silva,BC18335
+Round of 64,Cyrus Lau,BC15982,Matthieu Mercer,ID22T03
+Round of 64,Kwun Ho So,BC12748,Luca Ferretti,ON35979
+Round of 64,Julian Lai,QC04262,Mike Cao,BC8925
+Round of 64,Harrison Guo,X00217,Alex Starostin,XT001
+Round of 64,Connor Louie,BC10576,Jalil Waiz,BC7562
+Round of 64,Xuejia Lu,K3020833,Roy Hung,BC11052
+Round of 64,Ethan Yen,BC14739,Matthew Cheuk Hin Ng,BV1989
+Round of 64,Nathan Lee,BC16181,Roger Quach,BC17133
+Round of 64,Christopher Lee,BC18153,Min Suk Kim,BC18049
+Round of 64,Ethan Cheung,BC9676,Vincent Zonca,BC13450
+Round of 64,Evan Chen,BC18670,Colt Love,BC12636
+Round of 32,Gurbaksh Saini,ON41508,Aakar Chatha,BC17063
+Round of 32,Zheng Fang,QC10585,Ryan Liew,AB09486
+Round of 32,Ryan Liu,BC10841,Hossein Ahmadi,BC17717
+Round of 32,Nicholas Volfbeyn,X1022178,Augustine Ang,BC6946
+Round of 32,Yu-Yuan Chang,U20020423,Matthew Huang,BC14932
+Round of 32,Cyrus Lau,BC15982,Justin Phuong,BC11051
+Round of 32,Kevin Luo,BC8266,Kwun Ho So,BC12748
+Round of 32,Ruixi Zhang,BC14918,Julian Lai,QC04262
+Round of 32,Harrison Guo,X00217,Ev Haus,BC19123
+Round of 32,Nicholas Chiu,USA00021,Connor Louie,BC10576
+Round of 32,Xuejia Lu,K3020833,Sola Zhang,BC12297
+Round of 32,Saurabh Pandiar,BC17070,Ethan Yen,BC14739
+Round of 32,Nathan Lee,BC16181,Eddie Chan,BC7343
+Round of 32,David Yuan,BC1117,Christopher Lee,BC18153
+Round of 32,Alex Anlai Song,X1019779,Ethan Cheung,BC9676
+Round of 32,Lyem Fedoretz,BC13763,Evan Chen,BC18670
+Round of 16,Gurbaksh Saini,ON41508,Zheng Fang,QC10585
+Round of 16,Ryan Liu,BC10841,Nicholas Volfbeyn,X1022178
+Round of 16,Yu-Yuan Chang,U20020423,Cyrus Lau,BC15982
+Round of 16,Kevin Luo,BC8266,Ruixi Zhang,BC14918
+Round of 16,Nicholas Chiu,USA00021,Harrison Guo,X00217
+Round of 16,Saurabh Pandiar,BC17070,Xuejia Lu,K3020833
+Round of 16,Nathan Lee,BC16181,David Yuan,BC1117
+Round of 16,Lyem Fedoretz,BC13763,Alex Anlai Song,X1019779
+Quarterfinals,Gurbaksh Saini,ON41508,Ryan Liu,BC10841
+Quarterfinals,Yu-Yuan Chang,U20020423,Kevin Luo,BC8266
+Quarterfinals,Saurabh Pandiar,BC17070,Nicholas Chiu,USA00021
+Quarterfinals,Lyem Fedoretz,BC13763,Nathan Lee,BC16181
+Semifinals,Gurbaksh Saini,ON41508,Yu-Yuan Chang,U20020423
+Semifinals,Saurabh Pandiar,BC17070,Lyem Fedoretz,BC13763
+Finals,Saurabh Pandiar,BC17070,Gurbaksh Saini,ON41508State Session 1,Andrew Shan,AB21085,Daniel Huang,BC14954
+State Session 1,Nathan Quach,AB22070,Van Long Nguyen,BC16173
+State Session 1,Matthew Yeung,AB21648,Dwayne Da Silva,BC18335
+State Session 1,Jason Chiu,AB22318,Arrio Chi To Choi,BC3212
+State Session 1,Dale Kinley,MB0044,Andy Le,BC17175
+State Session 1,Eason Wong,AB09702,Sourabh Kulkarni,BC18568
+State Session 1,Yuanjia Cai,AB20866,Shingchun Kevin Wu,BC14906
+State Session 1,Derek Yu,QC11551,Sahil Aggarwal,BC16091
+State Session 1,Hooman Bagheri,QC04040,Wenqiang Xu,BC15837
+State Session 1,Peike Xu,BC15886,Raunak Sandhu,AB20272
+State Session 1,Nathan Appave,AB20369,Paritosh Singh,ON33933
+State Session 1,Ethan Yen,BC14739,Philip Mak,AB03723
+State Session 1,Aakar Chatha,BC1706,Jack Saunders,AB10192
+State Session 1,Lyem Fedoretz,BC13763,Victor Ho,MB09472
+State Session 1,Wonik Jin,AB21235,Gaurav Gajewar,BC18464
+State Session 1,Jackson Lachance,AB10071,Roger Quach,BC17133
+State Session 1,Saket Thavanani,ON34056,Jalil Waiz,BC7562
+State Session 1,Ruixi Zhang,BC14918,Kevin Shan,AB21077
+Session 2,Joshua Nguyen,ON13127,Andrew Shan,AB21085
+Session 2,Ryan Liu,BC10841,Nathan Quach,AB22070
+Session 2,Thomas Ashton,NS2003472,Matthew Yeung,AB21648
+Session 2,Dale Kinley,MB0044,Jason Chiu,AB22318
+Session 2,Anthony Wong,AB09514,Alexander Gibson-Dunne,AB21292
+Session 2,Saurabh Pandiar,BC17070,Eason Wong,AB09702
+Session 2,Connor Louie,BC10576,Yuanjia Cai,AB20866
+Session 2,Anton Menzel,AB09146,Derek Yu,QC11551
+Session 2,Peike Xu,BC15886,Hooman Bagheri,QC04040
+Session 2,Jackson Yang,BC10895,Nathan Appave,AB20369
+Session 2,Ethan Yen,BC14739,Aakar Chatha,BC1706
+Session 2,Lyem Fedoretz,BC13763,Wonik Jin,AB21235
+Session 2,Charles-Alexandre Gagnon,QC11353,Jackson Lachance,AB10071
+Session 2,Saket Thavanani,ON34056,Ethan Chen,AB06938
+Session 2,Gurbaksh Saini,ON41508,Ruixi Zhang,BC14918
+Session 3,Joshua Nguyen,ON13127,Ryan Liu,BC10841
+Session 3,Dale Kinley,MB0044,Thomas Ashton,NS2003472
+Session 3,Saurabh Pandiar,BC17070,Anthony Wong,AB09514
+Session 3,Anton Menzel,AB09146,Connor Louie,BC10576
+Session 3,Peike Xu,BC15886,Jackson Yang,BC10895
+Session 3,Kiren Milan Deraj,MB1631,Ethan Yen,BC14739
+Session 3,Lyem Fedoretz,BC13763,Charles-Alexandre Gagnon,QC11353
+Session 3,Gurbaksh Saini,ON41508,Saket Thavanani,ON34056
+Quarter Finals,Joshua Nguyen,ON13127,Dale Kinley,MB0044
+Quarter Finals,Saurabh Pandiar,BC17070,Anton Menzel,AB09146
+Quarter Finals,Peike Xu,BC15886,Kiren Milan Deraj,MB1631
+Quarter Finals,Gurbaksh Saini,ON41508,Lyem Fedoretz,BC13763
+Semi Finals,Joshua Nguyen,ON13127,Saurabh Pandiar,BC17070
+Semi Finals,Gurbaksh Saini,ON41508,Peike Xu,BC15886
+Finals,Joshua Nguyen,ON13127,Gurbaksh Saini,ON41508
+Bronze Playoff,Saurabh Pandiar,BC17070,Peike Xu,BC15886Round of 64,Fenglin Hu,BC16203,Granth Liu,BC18647
+Round of 64,Kevin Huang,BC17809,Michael Mok,BC18360
+Round of 64,Milad Mahdmoodzadeh,BC18046,Spencer Wong,BC18639
+Round of 64,Victor Chang,BC16223,Bruno Esser,BC9729
+Round of 64,Luca Ferretti,ON35979,Yunyong Guo,BC12634
+Round of 64,Dwayne Da Silva,BC18335,Gavin Guo,BC15341
+Round of 64,Shaun Loo,BC17815,John Ou,BC16127
+Round of 64,Alexis Duval,BC6020,Brandon Myrbo,BC16273
+Round of 64,Colt Love,BC12636,Fengjie Hu,BC16226
+Round of 64,Gaurav Gajewar,BC18464,Jaydon Polischuk,BC18583
+Round of 64,Colin Comfort,BC4186,Sam Tian,BC17168
+Round of 64,Will Bui,BC13605,Brendon Kwan,BC9351
+Round of 64,Renjie Xiong,BC18391,Taha Vora,BC18609
+Round of 64,Christopher Yu,BC19510,Jackie Wu,BC16206
+Round of 64,Van Long Nguyen,BC16173,Tiger Yang,BC17189
+Round of 64,Jordan Sipos,BC6054,Felix Zhen,BC15340
+Round of 64,Kevin Zhang,AB21552,Markus Weilmeier,BC10033
+Round of 64,David Zhai,BC9636,Yifan Zhou,BC18392
+Round of 64,Jason Yang,BC12317,Nathan Allen,BC12460
+Round of 64,Alex Wong,BC16192,Min Suk Kim,BC18049
+Round of 64,Changhao Shao,BC18610,Aron Kim,BC17818
+Round of 64,Charlton Li,ON31174,Silas Poon,BC8935
+Round of 64,Joseph Tan,BC16197,Juchen Li,juchenli1
+Round of 32,Kwun Ho So,BC12748,Ian Chen,BC18634
+Round of 32,Kevin Huang,BC17809,Fenglin Hu,BC16203
+Round of 32,Jack Saunders,AB10192,Milad Mahdmoodzadeh,BC18046
+Round of 32,Luca Ferretti,ON35979,Victor Chang,BC16223
+Round of 32,Sahil Aggarwal,BC16091,Dwayne Da Silva,BC18335
+Round of 32,Alexis Duval,BC6020,Shaun Loo,BC17815
+Round of 32,Colt Love,BC12636,Andrew Meijer,BC6030
+Round of 32,Gaurav Gajewar,BC18464,Colin Comfort,BC4186
+Round of 32,Will Bui,BC13605,Renjie Xiong,BC18391
+Round of 32,Van Long Nguyen,BC16173,Chris Yu,BC19510
+Round of 32,Jordan Sipos,BC6054,Kevin Zhang,AB21552
+Round of 32,Jaden Thom,BC15336,David Zhai,BC9636
+Round of 32,Jason Yang,BC12317,Alex Wong,BC16192
+Round of 32,Hailegebriel Kebede,BC12752,Eric Zhou,BC18397
+Round of 32,Charlton Li,ON31174,Changhao Shao,BC18610
+Round of 32,Connor Nicholas Louie,BC10576,Joseph Tan,BC16197
+Round of 16,Kwun Ho So,BC12748,Kevin Huang,BC17809
+Round of 16,Luca Ferretti,ON35979,Jack Saunders,AB10192
+Round of 16,Alexis Duval,BC6020,Sahil Aggarwal,BC16091
+Round of 16,Colt Love,BC12636,Gaurav Gajewar,BC18464
+Round of 16,Van Long Nguyen,BC16173,Will Bui,BC13605
+Round of 16,Jaden Thom,BC15336,Jordan Sipos,BC6054
+Round of 16,Hailegebriel Kebede,BC12752,Jason Yang,BC12317
+Round of 16,Connor Nicholas Louie,BC10576,Charlton Li,ON31174
+Quarterfinals,Kwun Ho So,BC12748,Luca Ferretti,ON35979
+Quarterfinals,Alexis Duval,BC6020,Colt Love,BC12636
+Quarterfinals,Jaden Thom,BC15336,Van Long Nguyen,BC16173
+Quarterfinals,Connor Nicholas Louie,BC10576,Hailegebriel Kebede,BC12752
+Semifinals,Alexis Duval,BC6020,Kwun Ho So,BC12748
+Semifinals,Connor Nicholas Louie,BC10576,Jaden Thom,BC15336
+Finals,Connor Nicholas Louie,BC10576,Alexis Duval,BC6020Round of 32,Stephen Atherton,BC0834,Taha Vora,BC18609
+Round of 32,Nathan Wong,BC14267,Seth Raymond Miller,X00352
+Round of 32,Markus Weilmeier,BC10033,Digby Johannson-Miller,BC15083
+Round of 32,Sourabh Kulkarni,BC18568,Owen B Robertson,BC10532
+Round of 32,Mike Lennon,BC9037,Finnegan Vanderkam,BC18247
+Round of 32,Troy Morgan,BC16699,Shen Wei Lan,BC8302
+Round of 32,Erik Albert Mat Wiebe,MB10231,Clayton Miller,BC4316
+Round of 32,David Crawford,BC4189,Job Babu,BC20274
+Round of 32,Ashley D Robertson,BC8017,Jihad Douaifi,BC18276
+Round of 32,Ahmad Rahmzadeh,BC13502,John McWalter Keith,BC17576
+Round of 16,Neil Ward,BC0435,Stephen Atherton,BC0834
+Round of 16,Jack Saunders,AB10192,Nathan Wong,BC14267
+Round of 16,Ayush Ayush,NY001,Markus Weilmeier,BC10033
+Round of 16,Sourabh Kulkarni,BC18568,Hector Devesa,BC13264
+Round of 16,Troy Morgan,BC16699,Mike Lennon,BC9037
+Round of 16,David Crawford,BC4189,Erik Albert Mat Wiebe,MB10231
+Round of 16,Takashi Hirose,BC8301,Ashley D Robertson,BC8017
+Round of 16,Harrison Hsu,BC4245,Ahmad Rahmzadeh,BC13502
+Quarterfinals,Neil Ward,BC0435,Jack Saunders,AB10192
+Quarterfinals,Ayush Ayush,NY001,Sourabh Kulkarni,BC18568
+Quarterfinals,David Crawford,BC4189,Troy Morgan,BC16699
+Quarterfinals,Harrison Hsu,BC4245,Takashi Hirose,BC8301
+Semifinals,Neil Ward,BC0435,Ayush Ayush,NY001
+Semifinals,Harrison Hsu,BC4245,David Crawford,BC4189
+Finals,Harrison Hsu,BC4245,Neil Ward,BC0435

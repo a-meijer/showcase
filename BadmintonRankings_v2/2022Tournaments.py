@@ -291,17 +291,18 @@ def PROCESS_2022_TOURNAMENTS():
 
     print("Completed processing 2022 Islands.\n\n")
  
-
+    
     # END OF YEAR UPDATES
 
-    # Update previousAnnualRatings
-    ranks = oir.updatePreviousAnnual(ranks)
+    print("Tournament match processing complete!")
 
-    # Save progress
-    print(f"Outputting final rankings to {savestate}...")
-    oir.outputRankingsToCSV(ranks, savestate)
-    DB.save()
-    print(f"Final rankings have been saved to {savestate}.\n")
+    # Update rankings(?) and highestRank
+    for p in ranks.values():
+        if(p.highestRank == "NR"):
+            p.highestRank = p.rank
+        elif(p.rank != "NR"):
+            if int(p.rank) > int(p.highestRank):
+                p.highestRank = p.rank
 
     # Print  final rankings
     print("Total number matches processed:", DB.matchesPlayed)
@@ -309,6 +310,18 @@ def PROCESS_2022_TOURNAMENTS():
     print("Final 2022 Rankings:")
     oir.outputRankingsToConsole(ranks)
 
+    # Update previousAnnualRatings (do after printing, so you print the old previous annual rankings and then set them to the current ones.)
+    for p in ranks.values():
+        p.previousAnnualRank = p.rank
+        p.previousAnnualRating = p.rating
+
+    # Save progress
+    print(f"Outputting final rankings to {savestate}...")
+    oir.outputRankingsToCSV(ranks, savestate)
+    DB.save()
+    print(f"Final rankings have been saved to {savestate}.\n")
+
+    
     return
 
 PROCESS_2022_TOURNAMENTS()

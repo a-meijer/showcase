@@ -32,7 +32,9 @@ def loadPlayer(filepath):
                 previousRank = row[6]
                 highestRating = int(row[7])
                 previousRating = int(row[8])
-                addedPlayer = player.Player(name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating)
+                latestTournament = None
+                ratingConfidence = 100
+                addedPlayer = player.Player(name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, ratingConfidence)
             else:
                 match = row[0]
                 addedPlayer.matchHistory.append(match)
@@ -47,7 +49,7 @@ def loadNewPlayers(ranks, filepath, matchfile, save):
             if not playerfile.exists():
                 # Create a new player object
                 # name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating
-                addedPlayer = player.Player(row[1], row[2], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000)  # Default rating of 1000
+                addedPlayer = player.Player(row[1], row[2], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000, None, 100)  # Default rating of 1000
                 # Load the new player into the ranks datastructure
                 ranks[row[2]] = addedPlayer
                 print(f"Loaded new player {addedPlayer.name} with initial rating {addedPlayer.rating}!")
@@ -59,7 +61,7 @@ def loadNewPlayers(ranks, filepath, matchfile, save):
             if not playerfile2.exists():
                 # Create a new player object
                 # name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating
-                addedPlayer = player.Player(row[3], row[4], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000)  # Default rating of 1000
+                addedPlayer = player.Player(row[3], row[4], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000, None, 100)  # Default rating of 1000
                 # Load the new player into the ranks datastructure
                 ranks[row[4]] = addedPlayer
                 print(f"Loaded new player {addedPlayer.name} with initial rating {addedPlayer.rating}!")
@@ -74,51 +76,6 @@ def savePlayer(directory, player):
     filepath = Path(directory) / f"{player.id}.csv"
     with open(filepath, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow([player.name, player.wins, player.losses, player.rating, player.rank, player.highestRank, player.previousAnnualRank, player.highestRating, player.previousAnnualRating])
+        csv_writer.writerow([player.name, player.wins, player.losses, player.rating, player.rank, player.highestRank, player.previousAnnualRank, player.highestRating, player.previousAnnualRating, player.latestTournament, player.ratingConfidence])
         csv_writer.writerows([[match] for match in player.matchHistory])
     return
-
-
-
-'''
-250
-'''
-
-
-
-# Deprecated 2025 function
-def XloadExistingPlayers(ranks, inputFile):
-    numPlayersAdded = 0
-    with open(inputFile, 'r') as file:
-        csv_reader = csv.reader(file)
-        for row in csv_reader:
-            rating = int(row[0])
-            name = row[1]
-            id = row[2]
-            wins = int(row[3])
-            losses = int(row[4])
-            addedPlayer = player.Player(name, id, wins, losses, rating)
-            ranks[id] = addedPlayer
-            numPlayersAdded += 1
-
-    print(f"Number of players added from existing rankings: {numPlayersAdded}")
-    return ranks
-
-# Deprecated 2025 function
-def XloadNewPlayers(ranks, tournamentFile):
-    numPlayersAdded = 0
-    with open(tournamentFile, 'r') as file:
-        csv_reader = csv.reader(file)
-        for row in csv_reader:
-            if row[2] not in ranks:
-                addedPlayer = player.Player(row[1], row[2], 0, 0, 1000)  # Default rating of 1000
-                ranks[row[2]] = addedPlayer
-                numPlayersAdded += 1
-                print(f"Added new player {addedPlayer.name} with initial rating {addedPlayer.rating}!")
-            if row[4] not in ranks:
-                addedPlayer = player.Player(row[3], row[4], 0, 0, 1000)  # Default rating of 1500
-                ranks[row[4]] = addedPlayer
-                numPlayersAdded += 1
-                print(f"Added new player {addedPlayer.name} with initial rating {addedPlayer.rating}!")
-    print(f"Number of new players added from tournament file: {numPlayersAdded}")
-    return ranks
