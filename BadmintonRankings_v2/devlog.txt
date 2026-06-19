@@ -629,3 +629,108 @@
 
 2026    06  16
     I feel like I should quicksave before I try these k-value scaling shenanigans. Let's push to master as a means of saving my progress. So if I mess up, I can just revert.
+    I also need a way to separate the data, so anyone viewing the project can check out the results of each year.
+
+    We go into matches.py and replace all the WK LK nonsense with a sensible theory. . .
+    Also need to replace K=100 in 20XXTournaments.py
+
+2026    06  17
+    Got distracted last night studying the Synod of Whitby in 663 AD. 
+    Who would've guessed that the English were Christian before they were Roman Catholic?
+    Especially given how everyone claims that the Anglican Church started with King Henry: no--The Church of England was Celtic before it was Catholic.
+    Leaving the Roman Catholics in the 1500s was a return to form, not a novelty.
+
+    Anyways, let's continue. Here's about everything I want to shore up before Sunday post:
+    Update: Save and load files to 2023 instead of 2022. (Manually copy 2022 data to start it)
+    Update: Add space for latestTournament variable
+    Update: Add confidence variable and set as 100 as default
+    Update: Change the matches algo to pull WK and LK from player confidence variables
+    Update: Update the confidence scaling itself. . . (?)
+    Error:  "First ranking achieved! Rank: NR"
+    Error:  tdata still isn't spacing right between tournaments.
+    Update: Store the titles in tdata
+    Error:  PreviousAnnual and all the annual stats might not be right
+    Update: Readme to separate 2022 and 2023 results
+
+    Complete:   Added latestTournament variable
+    Complete:   Addressed Error, "First ranking achieved! Rank: NR" (should test if it recurs)
+    Complete:   fixed tdata spacing (should test if it recurs)
+    Complete:   Add confidence variable and set as 100 as default
+    Complete:   Updated confidence scaling itself like this. Starting simple
+                def update_confidence(self):
+                    if(self.wins + self.losses < 10):
+                        self.ratingConfidence = 100
+                    elif(self.wins + self.losses < 25):
+                        self.ratingConfidence = 50
+                    elif(self.wins + self.losses < 50):
+                        self.ratingConfidence = 25
+                    else:
+                        self.ratingConfidence = 10
+                    return self.ratingConfidence
+    Complete:   Changed matchdada algo to pull from player.ratingConfidence
+    inComplete:   PreviousAnnual and all that annual stats
+    inComplete:   Save and load files to 2023 instead of 2022. 
+    inComplete:   Store the titles in tdada
+    inComplete:   Readme updates
+
+    Before I do the last four, let's run the algorithm on 2022 data and see what I get; doublecheck for errors.
+    Compilation errors, obviously. . .
+    I need to run a good one and then transfer all the files to /data/2023, and then copy the data files in there too, mummify it, and move on.
+
+    Okay smooth, the PreviousAnnial is looking good so far. I need to test it on some 2023 data.
+    Yeah, it's not working at all lol. Let's revisit this tomorrow. Looks like I'm not saving the annual ranks properly.
+    Also there was a missing value in Connor Louie's player file:
+    Connor Louie,21,14,1166,23,8,NR,1166,1000,,100
+    The missing value is just an empty latestTournament variable because I haven't implemented that yet.
+
+    I feel like saveSystem.py and outputRankings.py should be combined into one file. Done.
+
+    Complete:   Save and load files to 2023 instead of 2022. 
+    Complete:   PreviousAnnual and highestRank all corrected.
+
+    Looking good bruv
+    Rank:1  Rating:1473     Joshua Nguyen   W-L:10-0        Rating+/-:+473   Previous Rank:NR
+    Rank:2  Rating:1404     Saurabh Pandiar W-L:43-8        Rating+/-:+108   Previous Rank:2
+    Rank:3  Rating:1390     Lyem Fedoretz   W-L:32-6        Rating+/-:+133   Previous Rank:4
+    Rank:4  Rating:1386     Antonio Li      W-L:8-1         Rating+/-:+386   Previous Rank:NR
+    Rank:5  Rating:1375     Gurbaksh Saini  W-L:35-9        Rating+/-:+174   Previous Rank:6
+    Rank:6  Rating:1334     Joshua Liu      W-L:9-2         Rating+/-:+224   Previous Rank:14
+    Rank:7  Rating:1297     Jackson Yang    W-L:16-4        Rating+/-:-74    Previous Rank:1
+    Rank:8  Rating:1253     Kevin Luo       W-L:16-6        Rating+/-:+96    Previous Rank:9
+    Rank:9  Rating:1252     Ryan Liu        W-L:16-8        Rating+/-:+239   Previous Rank:41
+    Rank:10 Rating:1249     Matt Downton    W-L:5-0         Rating+/-:+249   Previous Rank:NR
+
+    Final two tasks for this week:
+    -   store the titles in tdata
+    -   readme updates
+    -   (BONUS) include winrate calculations in the console output
+
+    Ideas for the 2024 update:
+    -   rating sensitivity should be affected by both player confidence and opponent confidence.
+    -   sensitivity should be increased for the first five matches or so.
+    -   print titles
+    -   add lastTournament data
+    -   affect sensitivty based on lastTournament data
+    -   print
+    -   add rating bonuses for champions
+
+2026    06  18
+    I added a whole bunch of 2024 tournament ata today just because I got in the zone.
+    The substack post for this sunday is pretty much done,
+    but I have a few more things to do now:
+    -   store the titles in tdata: DONE!
+    -   readme updates
+    -   (BONUS) include winrate calculations in the console output: DONE!
+
+    ERROR: Saving the tournament winners to tdata worked pretty well, except it overwrote all the 2022 winners!
+    I'm also saving to a titles variable that goes completely unused, but could possibly be added to search at some point in the future.
+
+2026    06  19
+    What's left? Fix the champ list, update the readme with all the correct 2022 data, get 2022 all finished up on the readme.
+    Then run the 2023 one, update readme, update blog post, and we're done.
+    The problem is, When I run 2024, I'm going to start by duplicating 2023Tournaments.py,
+    so next week I actually want to add all the 2024 features to the 2023 file first and test them before I copy everything to 2024 and hardcode all the filenames
+
+    It looks like I was loading previous players in a loop. Every time I proceesed a tournament, it would reload all the ranks! No wonder it was running so slow!
+
+    

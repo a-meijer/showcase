@@ -1,0 +1,15 @@
+Jan  3, 2025:   Kelowna Open - https://www.tournamentsoftware.com/tournament/D8141B44-BE16-4FD5-9D87-0AA07DF1EF7D
+Jan 10, 2025:   Campbell River - https://badmintoncanada.tournamentsoftware.com/tournament/6B4EE983-4635-4828-83EB-3117140640DA
+Feb  7, 2025:   Jack Underhill - done
+Apr  4, 2025:   Provincial Championship - done
+Apr 18, 2025:   Easter Open - https://www.tournamentsoftware.com/tournament/1A4B87CA-8734-4781-9793-1AC0892DCBA1
+Apr 21, 2025:   VRC Club - https://www.tournamentsoftware.com/tournament/326D1266-AAAD-461C-9366-8F2CB38FAFC8
+Jun  6, 2025:   Victoria Club - https://badmintoncanada.tournamentsoftware.com/tournament/B0D1C7C7-20BF-4DE3-902B-FBB127970033
+Jun 21, 2025:   White Rock Tournament - https://www.tournamentsoftware.com/tournament/7868E502-491B-4CDE-A7C8-E588CF7438AF
+Aug  2, 2025:   Smash Champs Grand Opening - https://www.tournamentsoftware.com/tournament/FC3D01C9-BD3D-4675-A62B-0264BBF039D7
+Oct  3, 2025:   Nanaimo Open - https://badmintoncanada.tournamentsoftware.com/tournament/B38511A2-46FE-4297-A4AA-EF18ADD5504F
+Oct 11, 2025:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/D4D45938-FFD1-4E55-806E-FA09FE9F7E8B
+Nov 14, 2025:   Vancouver Island Open - https://badmintoncanada.tournamentsoftware.com/tournament/C1694DAE-19AB-4053-BD85-267029754E39
+Nov 21, 2025:   Kelowna Fall Open - https://www.tournamentsoftware.com/tournament/F9BF7D30-45E8-4099-8FCC-45F22D46CD8C
+Nov 29, 2025:   Surrey Open - https://www.tournamentsoftware.com/tournament/553C4ADE-D607-4ACF-8DE8-AA9107E10C11
+Dec 26, 2025:   Boxing Week Tournament - https://www.tournamentsoftware.com/tournament/7E5F1132-A24D-495F-AE0E-1531F59CC426

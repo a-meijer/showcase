@@ -3,7 +3,6 @@
 import os
 from modules import io as myio
 from modules import loadPlayers as playerLoader
-from modules import outputRankings as oir
 from modules import saveSystem as saveSystem
 from modules import matches as matches
 from modules import player as player
@@ -14,9 +13,6 @@ def PROCESS_2022_TOURNAMENTS():
     
     # Initialize ranks dictionary
     ranks = {}
-    
-    # Set K constant
-    K = 100
 
     # Set matchlist path
     matchlist = "data/matchlist.csv"
@@ -59,13 +55,13 @@ def PROCESS_2022_TOURNAMENTS():
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 Campbell River", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 Campbell River", "2022-03-11", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -76,8 +72,6 @@ def PROCESS_2022_TOURNAMENTS():
     # Victoria Closed
     matchfile = "Tournaments/2022/2022_VictoriaClosed.csv"
 
-    # Load extant players into ranks, the list of players
-    ranks = playerLoader.loadPlayers(ranks, directory)
     # Create new data files for new players and load them into ranks
     ranks = playerLoader.loadNewPlayers(ranks, directory, matchfile, DB)
 
@@ -89,17 +83,18 @@ def PROCESS_2022_TOURNAMENTS():
     with open(source_file, "r") as source:
         with open(destination_file, "a") as dest:
             dest.write(source.read())
+            dest.write("\n")
 
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 Victoria Closed", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 Victoria Closed", "2022-05-06", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -112,9 +107,6 @@ def PROCESS_2022_TOURNAMENTS():
     # Provincial Championships
     matchfile = "Tournaments/2022/2022_Provincials.csv"
 
-    # Load extant players into ranks, the list of players
-    ranks = playerLoader.loadPlayers(ranks, directory)
-
     # Create new data files for new players and load them into ranks
     ranks = playerLoader.loadNewPlayers(ranks, directory, matchfile, DB)
 
@@ -126,17 +118,18 @@ def PROCESS_2022_TOURNAMENTS():
     with open(source_file, "r") as source:
         with open(destination_file, "a") as dest:
             dest.write(source.read())
+            dest.write("\n")
 
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 Provincial Championships", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 Provincial Championships", "2022-05-27", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -148,9 +141,6 @@ def PROCESS_2022_TOURNAMENTS():
     # New Era Open
     matchfile = "Tournaments/2022/2022_NewEra.csv"
 
-    # Load extant players into ranks, the list of players
-    ranks = playerLoader.loadPlayers(ranks, directory)
-
     # Create new data files for new players and load them into ranks
     ranks = playerLoader.loadNewPlayers(ranks, directory, matchfile, DB)
 
@@ -162,17 +152,18 @@ def PROCESS_2022_TOURNAMENTS():
     with open(source_file, "r") as source:
         with open(destination_file, "a") as dest:
             dest.write(source.read())
+            dest.write("\n")
 
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 New Era Open", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 New Era Open", "2022-08-05", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -185,9 +176,6 @@ def PROCESS_2022_TOURNAMENTS():
     # Nanaimo Open
     matchfile = "Tournaments/2022/2022_NanaimoOpen.csv"
 
-    # Load extant players into ranks, the list of players
-    ranks = playerLoader.loadPlayers(ranks, directory)
-
     # Create new data files for new players and load them into ranks
     ranks = playerLoader.loadNewPlayers(ranks, directory, matchfile, DB)
 
@@ -199,17 +187,18 @@ def PROCESS_2022_TOURNAMENTS():
     with open(source_file, "r") as source:
         with open(destination_file, "a") as dest:
             dest.write(source.read())
+            dest.write("\n")
 
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 Nanaimo Open", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 Nanaimo Open", "2022-10-08", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -222,9 +211,6 @@ def PROCESS_2022_TOURNAMENTS():
     # Thanksgiving Tournament
     matchfile = "Tournaments/2022/2022_Thanksgiving.csv"
 
-    # Load extant players into ranks, the list of players
-    ranks = playerLoader.loadPlayers(ranks, directory)
-
     # Create new data files for new players and load them into ranks
     ranks = playerLoader.loadNewPlayers(ranks, directory, matchfile, DB)
 
@@ -236,17 +222,18 @@ def PROCESS_2022_TOURNAMENTS():
     with open(source_file, "r") as source:
         with open(destination_file, "a") as dest:
             dest.write(source.read())
+            dest.write("\n")
 
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 C1 Thanksgiving Tournament", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 C1 Thanksgiving Tournament", "2022-10-08", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -259,9 +246,6 @@ def PROCESS_2022_TOURNAMENTS():
     # Island Open
     matchfile = "Tournaments/2022/2022_IslandOpen.csv"
 
-    # Load extant players into ranks, the list of players
-    ranks = playerLoader.loadPlayers(ranks, directory)
-
     # Create new data files for new players and load them into ranks
     ranks = playerLoader.loadNewPlayers(ranks, directory, matchfile, DB)
 
@@ -273,17 +257,18 @@ def PROCESS_2022_TOURNAMENTS():
     with open(source_file, "r") as source:
         with open(destination_file, "a") as dest:
             dest.write(source.read())
+            dest.write("\n")
 
     DB.numberPlayers = len(ranks)
 
     # Process the matches and update the ratings
-    ranks = matches.processMatches(ranks, K, matchfile, matchlist, "2022 Island Open", DB)
+    ranks = matches.processMatches(ranks, matchfile, matchlist, "2022 Island Open", "2022-11-19", DB)
 
     # sort the rankings according to the new ratings
-    ranks = oir.sortRankings(ranks)
+    ranks = DB.sortRankings(ranks)
 
     # Update the player objects with their new rankings
-    oir.updatePlayerRankings(ranks)
+    DB.updatePlayerRankings(ranks)
 
     # output the updated player data to the data files
     for player in ranks.values():
@@ -308,16 +293,18 @@ def PROCESS_2022_TOURNAMENTS():
     print("Total number matches processed:", DB.matchesPlayed)
     print("Total number players ranked:", DB.numberPlayers)
     print("Final 2022 Rankings:")
-    oir.outputRankingsToConsole(ranks)
+    DB.outputRankingsToConsole(ranks)
+    DB.outputRankingsToCSV(ranks, savestate)
 
     # Update previousAnnualRatings (do after printing, so you print the old previous annual rankings and then set them to the current ones.)
     for p in ranks.values():
+        # Update the variables
         p.previousAnnualRank = p.rank
         p.previousAnnualRating = p.rating
+        # Save them to the file!
+        playerLoader.savePlayer(directory, p)
 
-    # Save progress
-    print(f"Outputting final rankings to {savestate}...")
-    oir.outputRankingsToCSV(ranks, savestate)
+    # Save progress in tdata
     DB.save()
     print(f"Final rankings have been saved to {savestate}.\n")
 

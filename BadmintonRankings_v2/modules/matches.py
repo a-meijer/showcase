@@ -3,18 +3,21 @@ from modules import player as player
 from modules import saveSystem as saveSystem
 
 # Process the matches and return the rankings
-def processMatches(ranks, K, tournamentFile, matchlist,tournamentName, save):
+def processMatches(ranks, tournamentFile, matchlist,tournamentName, tournamentDate, save):
     with open(tournamentFile, 'r') as file:
         csv_reader = csv.reader(file)
         for row in csv_reader:
+            # Set variables for winner and loser ( for readability )
+            WP = ranks[row[2]]
+            LP = ranks[row[4]]
             # Initialize separate K values for winner and loser
             # K values are calculated based on the number of wins and losses so that new players have more sensitive ratings
-            WK = int(K*(ranks[row[2]].wins + ranks[row[2]].losses + 2)/(ranks[row[2]].wins + ranks[row[2]].losses + 1))
-            LK = int(K*(ranks[row[4]].wins + ranks[row[4]].losses + 2)/(ranks[row[4]].wins + ranks[row[4]].losses + 1))
+            WK = WP.update_confidence()
+            LK = LP.update_confidence()
             # Determine Rating for winning (A) player
-            RA = ranks[row[2]].rating
+            RA = WP.rating
             # Determine rating for losing (B) player
-            RB = ranks[row[4]].rating
+            RB = LP.rating
             # Determine expected outcome for winning player using formula 1
             EA = 1 / ( 1+pow(10,(RB-RA)/400))
             # Determine expected outcome for losing player using formula 1
@@ -23,26 +26,28 @@ def processMatches(ranks, K, tournamentFile, matchlist,tournamentName, save):
             SA = 1
             SB = 0
             # Update the ratings according to formula 2
-            ranks[row[2]].rating = int(RA + WK*(SA-EA))
-            ranks[row[4]].rating = int(RB + LK*(SB-EB))
+            WP.rating = int(RA + WK*(SA-EA))
+            LP.rating = int(RB + LK*(SB-EB))
             # Update wins and losses
-            ranks[row[2]].wins += 1
-            ranks[row[4]].losses += 1
+            WP.wins += 1
+            LP.losses += 1
+
+            WP.matchHistory.append(f"Defeated {LP.name} in {row[0]} of {tournamentName}: +{WP.rating - RA} points for a new rating of {WP.rating}")
+            LP.matchHistory.append(f"Lost to {WP.name} in {row[0]} of {tournamentName}: {(LP.rating - RB)} points for a new rating of {LP.rating}")
+
             # Update titles if applicable
-            # if row[0] == 'Finals':
-              #   ranks[row[2]].titles.append(f"{tournamentName} Champion")
-              #   ranks[row[4]].titles.append(f"{tournamentName} Finalist")
+            if row[0] == 'Finals' or row[0] == 'Final' or row[0] == 'A Finals':
+                WP.titles.append(f"{tournamentName} Champion")
+                LP.titles.append(f"{tournamentName} Runner-up")
+                save.winners.append([tournamentName, tournamentDate, WP.name, WP.id])
 
-            ranks[row[2]].matchHistory.append(f"Defeated {ranks[row[4]].name} in {row[0]} of {tournamentName}: +{ranks[row[2]].rating - RA} points for a new rating of {ranks[row[2]].rating}")
-            ranks[row[4]].matchHistory.append(f"Lost to {ranks[row[2]].name} in {row[0]} of {tournamentName}: {(ranks[row[4]].rating - RB)} points for a new rating of {ranks[row[4]].rating}")
-
-            if ranks[row[2]].rating > ranks[row[2]].highestRating:
-                ranks[row[2]].highestRating = ranks[row[2]].rating
-                ranks[row[2]].matchHistory.append(f"New highest rating achieved: {ranks[row[2]].highestRating}")
+            if WP.rating > WP.highestRating:
+                WP.highestRating = WP.rating
+                WP.matchHistory.append(f"New highest rating achieved: {WP.highestRating}")
 
             save.matchesPlayed += 1
 
-            print(f"Processed {row[0]} match: {ranks[row[2]].name} defeats {ranks[row[4]].name}")
-            print(f"{ranks[row[2]].name} +{ranks[row[2]].rating - RA} New rating: {ranks[row[2]].rating}")
-            print(f"{ranks[row[4]].name} {ranks[row[4]].rating - RB} New rating: {ranks[row[4]].rating}")
+            print(f"Processed {row[0]} match: {WP.name} defeats {LP.name}")
+            print(f"{WP.name} +{WP.rating - RA} New rating: {WP.rating}")
+            print(f"{LP.name} {LP.rating - RB} New rating: {LP.rating}")
     return ranks

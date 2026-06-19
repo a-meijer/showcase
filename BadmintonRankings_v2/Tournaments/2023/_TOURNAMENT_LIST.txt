@@ -1,17 +1,17 @@
-Jan  1, 2023:   New Year's Tournament - done
-Jan  6, 2023:   BC Senior Elite - done
-Jan 13, 2023:   Campbell River - done
-Jan 15, 2023:   Kelowna Adult Open - done
-Feb 25, 2023:   Wing's-GHS Tournament - done
-Mar 31, 2023:   Jack Underhill - done
-Apr  7, 2023:   Easter Open - done
-Apr 22, 2023:   Provincial Championship - done
-May 26, 2023:   12.2 O-Go-PoCo Open - done
-Jun  2, 2023:   Victoria Closed - done
-Jun 23, 2023:   White Rock Tournament - done
-Sep 22, 2023:   Nanaimo Open - done
-Sep 23, 2023:   12.2 POCOmon GO Open - https://www.tournamentsoftware.com/tournament/194B14CB-500F-4AEE-A393-00A54BAE4A4D/draw/3
-Oct  7, 2023:   Thanksgiving Tournament - https://www.tournamentsoftware.com/tournament/02C54B56-C2C9-42E0-B7B8-9360CD33D5F5
-Nov 17, 2023:   BC Senior Elite - https://badmintoncanada.tournamentsoftware.com/tournament/96B4FB7F-33CA-4E5E-82BD-74A2F322449F
-Nov 24, 2023:   Island Open - data on Google Drive
-Dec  2, 2023:   Kelowna Open - https://www.tournamentsoftware.com/tournament/31F1F7BB-62A6-48E6-A7B5-0C61D95FA792
+Jan  1, 2023:   New Year's Tournament - 
+Jan  6, 2023:   BC Senior Elite 
+Jan 13, 2023:   Campbell River - 
+Jan 15, 2023:   Kelowna Adult Open - 
+Feb 25, 2023:   Wing's-GHS Tournament - 
+Mar 31, 2023:   Jack Underhill - 
+Apr  7, 2023:   Easter Open - 
+Apr 22, 2023:   Provincial Championship - 
+May 26, 2023:   12.2 O-Go-PoCo Open - 
+Jun  2, 2023:   Victoria Closed - 
+Jun 23, 2023:   White Rock Tournament - 
+Sep 22, 2023:   Nanaimo Open - 
+Sep 23, 2023:   12.2 POCOmon GO Open - 
+Oct  7, 2023:   Thanksgiving Tournament - 
+Nov 17, 2023:   BC Senior Elite - 
+Nov 24, 2023:   Island Open - 
+Dec  2, 2023:   Kelowna Open - 

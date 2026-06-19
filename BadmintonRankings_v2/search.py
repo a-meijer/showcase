@@ -3,7 +3,6 @@ import os
 import csv
 from modules import io as myio
 from modules import loadPlayers as playerLoader
-from modules import outputRankings as oir
 from modules import saveSystem as saveSystem
 from modules import matches as matches
 from modules import player as player
@@ -39,7 +38,7 @@ def search_id(id, ranks):
 # Initialize variables
 quit = "quit"
 command = ""
-directory = "data/2022/"
+directory = "data/2023"
 print("Welcome to Player Search!\nDirectory = ",directory)
 
 # Load players into datastructures

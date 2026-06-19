@@ -1,0 +1,10 @@
+Jan  9, 2026:   Cindy Simpson Memorial - https://badmintoncanada.tournamentsoftware.com/tournament/8D69A67F-8CCA-490C-8AC7-46CBB195F1CC
+Jan 23, 2026:   Kelowna Winter Open - https://www.tournamentsoftware.com/tournament/D16CC9D8-94E4-495F-B270-0B5F5CF1A13F
+Feb  6, 2026:   Jack Underhill - https://badmintoncanada.tournamentsoftware.com/tournament/ADA2BB34-1F57-40A4-9743-81F79D81D658
+Mar 20, 2026:   Kamloops Open in Kelowna - https://www.tournamentsoftware.com/tournament/89F64C51-9E00-4411-B847-5529F3B1CF06
+Apr  3, 2026:   Easter Open - https://www.tournamentsoftware.com/tournament/696C1080-72AE-44DA-8CB9-3EC6E10EA0A4
+Apr 10, 2026:   Provincial Championship - https://badmintoncanada.tournamentsoftware.com/tournament/25725E4A-CF6A-4B3F-A7A4-918C1A01BD79
+Apr 13, 2026:   VRC Club - https://www.tournamentsoftware.com/tournament/DB920DB7-2D46-4F3E-85BD-C8C408C45752
+May 29, 2026:   Victoria Club - https://www.tournamentsoftware.com/tournament/64CF707D-3318-4918-926C-F2172C716E48
+
+Jun 20, 2026:   White Rock Tournament - https://www.tournamentsoftware.com/sport/event.aspx?id=C0E36D5D-C989-49AD-9FDB-197222EB17CE&event=20

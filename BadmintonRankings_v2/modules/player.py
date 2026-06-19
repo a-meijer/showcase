@@ -15,11 +15,17 @@ class Player:
         self.latestTournament = latestTournament
         self.ratingConfidence = ratingConfidence
 
-    def update_rating(self, new_rating):
-        self.rating = new_rating
-        if new_rating > self.highestRating:
-            self.highestRating = new_rating
-
+    def update_confidence(self):
+        if(self.wins + self.losses < 10):
+            self.ratingConfidence = 100
+        elif(self.wins + self.losses < 25):
+            self.ratingConfidence = 50
+        elif(self.wins + self.losses < 50):
+            self.ratingConfidence = 25
+        else:
+            self.ratingConfidence = 10
+        return self.ratingConfidence
+        
     def winrate(self):
         total_matches = self.wins + self.losses
         if total_matches == 0:
