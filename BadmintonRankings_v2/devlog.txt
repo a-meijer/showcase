@@ -733,4 +733,204 @@
 
     It looks like I was loading previous players in a loop. Every time I proceesed a tournament, it would reload all the ranks! No wonder it was running so slow!
 
+2026    06  21
+    I'm going away until Wednesday, so I'll only have a few days this week to write up the 2024 rankings.
+    Notes for 2024 upgrades:
+
+    -   Move the bottom sections of the readme to the top, so they're not stuck at the bottom of an endless scroll. Or, move the 2023 and 2022 rankings out of the Readme and put them in their own MD.
+    -   rating sensitivity should be affected by both player confidence and opponent confidence.
+    -   sensitivity should be increased for the first five matches or so.
+    -   print titles (Put then in the blog post rankings but not the markdown rankings)
+    -   add lastTournament data
+    -   affect sensitivty based on lastTournament data
+    -   add rating bonuses for champions (this is tricky because how to decide how many points?)
+    -   Add a note in the readme about walkovers and having to win a match to get ranked.
+        if you play no matches and get walked over in the first round, it doesn't count as a match.
+        But, if you pass through the first round and then retire or get walked over in a later round, it counts as a match.
+
+    That's A LOT. I might have to move some of those upgrades to the 2025 release.
+    Okay, seeya later :)
+    Happy fathers day!
+
+2026    06  24
+    Hello, this is Andrew. (it's all Andrew)
+    I'm going to do something epic and cool. I'm going to re-uh-factor? Refactor the code? I think that's what it's called.
+    Here's the plan:
+        -   Remove the tournament processing from 2022Tournaments.py, 2023Tournaments.py, etc.
+        -   Create a processTournaments.py file that is ONE FILE I can update whenever I update the algo.
+        -   So now 20XXTournaments.py is essentially just the hardcoding of all the tournaments in order, and at the end it calls processTournaments.py
+    Done! That worked seamlessly on the first try. No runtime issues except I need an empty tdata file for 2022Tournaments.py to run without errors.
+    What's the benefit of this, you ask?
+    Now I can add all the tournaments for 2024 and process them without worrying about having to update the algorithm with all the changes I mentioned:
+    -   README UPDATE   -   Move the bottom sections of the readme to the top, so they're not stuck at the bottom of an endless scroll. Or, move the 2023 and 2022 rankings out of the Readme and put them in their own MD.
+    -   GLICKO UPDATE   -   rating sensitivity should be affected by both player confidence and opponent confidence.
+    -   SENSIT UPDATE   -   sensitivity should be increased for the first five matches or so.
+    -   TITLES UPDATE   -   print titles (Put then in the blog post rankings but not the markdown rankings)
+    -   LAST T UPDATE   -   add lastTournament data
+    -   LAST T UPDATE 2 -   affect sensitivty based on lastTournament data
+    -   BONUSES UPDATE  -   add rating bonuses for champions (this is tricky because how to decide how many points?)
+    -   README UPDATE   -   Add a note in the readme about walkovers and having to win a match to get ranked.
+                            if you play no matches and get walked over in the first round, it doesn't count as a match.
+                            But, if you pass through the first round and then retire or get walked over in a later round, it counts as a match.
+
+    Before getting into any of that, let's run what we have on all the 2024 data and see the results. . .
+    . . .just for fun.
+    That worked!
+    I'm still basically dead last.
+
+    Rating, Rank, Name, ID, Wins, Losses, Previous Rank, Previous Rating
+
+    Here's the bottom ten:
+    848,NR,Oscar Xie,BC9514,0,4,NR,876
+    840,312,Yunyong Guo,BC12634,1,5,230,881
+    837,313,Brandon Myrbo,BC16273,2,7,221,917
+    832,NR,Min Suk Kim,BC18049,0,4,NR,832
+    824,NR,Jaydon Polischuk,BC18583,0,4,NR,900
+    814,NR,Truong Pham,BC8986,0,5,NR,1000
+    811,314,Brendon Kwan,BC9351,2,10,236,825
+    778,315,Andrew Meijer,BC6030,3,15,235,846
+    757,NR,Andy Le,BC17175,0,9,NR,880
+    718,316,Ev Haus,BC19123,1,14,237,795
+
+    Thanks to Andy and Ev for holding it down for me. Especially Ev.
+    Here are the bottom ten ranked players:
+
+    887,307,Matthieu Mercer,ID22T03,1,4,222,917
+    884,308,Mike Devos,BC3279,2,6,232,856
+    876,309,Roy Hung,BC11052,1,5,NR,894
+    863,310,John Ou,BC16127,5,12,234,850
+    851,311,John Keith,BC17576,1,4,233,851
+    840,312,Yunyong Guo,BC12634,1,5,230,881
+    837,313,Brandon Myrbo,BC16273,2,7,221,917
+    811,314,Brendon Kwan,BC9351,2,10,236,825
+    778,315,Andrew Meijer,BC6030,3,15,235,846
+    718,316,Ev Haus,BC19123,1,14,237,795
+
+    And the top 25. . .
+    1471,1,Antonio Li,BC7414,14,1,4,1386
+    1463,2,Joshua Nguyen,ON13127,14,1,1,1473
+    1452,3,Victor Lai,ON13010,9,1,17,1206
+    1448,4,Saurabh Pandiar,BC17070,80,10,2,1404
+    1383,5,Lyem Fedoretz,BC13763,45,11,3,1390
+    1371,6,Yu-Yuan Chang,U20020423,11,2,26,1156
+    1360,7,Joshua Liu,BC1815,13,3,6,1334
+    1357,8,Gurbaksh Saini,ON41508,46,13,5,1375
+    1357,9,Anish Jojula,BC18940,28,7,101,1032
+    1332,10,Jackson Yang,BC10895,22,6,7,1297
+    1303,11,Kevin Luo,BC8266,28,9,8,1253
+    1272,12,Ricky Lo,X980302,6,2,NR,1000
+    1268,13,Zachary Desjardins,QC11074,6,2,74,1048
+    1252,14,Alexis Duval,BC6020,9,2,25,1161
+    1250,15,Jaden Thom,BC15336,20,8,14,1231
+    1249,16,Matt Downton,BC1418,5,0,10,1249
+    1246,17,Nicholas Chiu,USA00021,7,2,11,1246
+    1244,18,Ryan Liu,BC10841,24,13,9,1252
+    1243,19,Peike Xu,BC15886,16,6,15,1230
+    1228,20,Nik Cruz,BC3960,12,4,13,1232
+    1223,21,Harrison Hsu,BC4245,4,0,16,1223
+    1221,22,Wenjun Ouyang,BC8870,5,2,70,1054
+    1212,23,Jack Chen,BC10265,27,15,27,1155
+    1199,24,Roger Quach,BC17133,24,11,39,1116
+    1195,25,Lai Yin Chung,BC17060,7,4,41,1114
+
+    I am not satisfied. I mean, it's not bad, but . . .ah. . . 
+    Antonio hasn't beaten Victor or Josh. His only loss is to Imran.
+    After reviewing some of the player files, the gain and loss of rating points doesn't seem as accurate as it should be. . .
+    Hopefully the aforementioned tunements will rejuvenate, repair, and restore the excellence I hope and expect to COME FORTH (please).
+    I'll get back to this tomorrow.
     
+2026    06  25
+    Nobody is going to read this devlog. (Hello John)
+    I am going camping this weekend, so I need to finish up quick.
+    Turning the algorithm into Glicko is going to make it WAY better because we are so uncertain about all the National level players.
+    The Glicko function is weird though, it's like 1 over the sqrt of 1 + smth over pi squared. Why we got pi involved in this? Crazy.
+    The "confidence" variable is a misnomer because we want RD, where, for example, if rating = 1000 and RD = 100,
+    that means the rating is between 900 and 1100, you feel me? Simple arithmetic.
+    ChatGPT says I shouldn't add a champion bonus. Whatever.
+    I think Glicko is going to solve all my problems anyways, so here's the new plan:
+    -   README UPDATE   -   done
+    -   GLICKO UPDATE   -   rating sensitivity should be affected by both player confidence and opponent confidence.
+    -   TITLES UPDATE   -   print titles (Put them in the blog post rankings but not the markdown rankings)
+    -   LAST T UPDATE   -   add lastTournament data
+    -   LAST T UPDATE 2 -   affect sensitivty based on lastTournament data
+    -   README UPDATE   -   Add a note in the readme about walkovers and having to win a match to get ranked.
+                            if you play no matches and get walked over in the first round, it doesn't count as a match.
+                            But, if you pass through the first round and then retire or get walked over in a later round, it counts as a match.
+
+     Here's the note from ChatGPT on the weird Glicko formula:
+    "The π² appears because Mark Glickman derived the system using statistical approximations to convert between the logistic curve used by Elo and the normal distribution used to model uncertainty."
+
+    GLICKO STUFF:
+    -   rename the confidence variable to RD.
+    -   make the glicko function k = g(RD); it's just a formula.
+            Low RD  -> g(RD) near 1
+            High RD -> g(RD) near 0
+    -   Set the RD variables reasonably (?)
+            INITIAL_RD = 300
+            MAX_RD = 350
+            MIN_RD = 50
+    -   Add the lastTournament data
+    -   Update RD according to lastTournament data
+    
+    Okay, implementing this new system majorly altered the ratings.
+    I need to spend some time tuning this. . .
+    ChatGPT gave me an idea to measure the accurancy of my ratings with some swag like this:
+    expected_winner = higher_rated_player
+    correct_predictions / total_predictions
+    return a percentage that's the number of correct predictions by the algo.
+
+    I am tuning the system so much, I'm getting a lot of different results.
+    I am adding a feature to conserve rating points, so the total number of rating points in the system should be roughly equal to 1000 times the number of players.
+
+    NOTES FOR 2025 RELEASE:
+    -   shrink RD based on the quality of opponent, rather than by a constant increment
+        Beat Antonio (very established) → we learn a lot about you.
+        Beat a brand-new player → we don't learn as much.
+    
+2026    06  30
+    Fix Entries:
+        Thomas George
+        John McWalter Keith
+        Shingchun Wu
+        Rickey Ruixi Zhang
+
+2026    07  02
+    Need to make two versions for the next two weeks, 2024 and 2025.
+    Where am I?
+    Here's what's left for 2024:
+    -   TITLES UPDATE   -   print titles (Put them in the blog post rankings but not the markdown rankings)
+    -   README UPDATE   -   Add a note in the readme about walkovers and having to win a match to get ranked.
+                            if you play no matches and get walked over in the first round, it doesn't count as a match.
+                            But, if you pass through the first round and then retire or get walked over in a later round, it counts as a match.
+    -   Update all the Google Drive and Github CSV rankings for each year
+
+    Here's what to add for 2025:
+    -   shrink RD based on the quality of opponent, rather than by a constant increment
+        Beat Antonio (very established) → we learn a lot about you.
+        Beat a brand-new player → we don't learn as much.
+    -   latestTournament is posted in final rankings (either on blog or github, whichever is better)
+        and the latestTournament increased RD rating uncertainty depending how long ago it was.
+
+2026    07  05
+    Sorry I'm almost late. The 2024 Ranks are due today. It's 9:00 AM.
+    Let's run the algorithm to create the files. . .
+    First I delete the matchlist and output files in data/, and delete the contents of tdata.csv
+    Delete all the files in data/2022/players/
+    cd BadmintonRankings_v2
+    python 2022Tournaments.py
+    Copy the output.csv and matchlist.csv and tdata.csv to data/2022/
+    Run CSVToMD_Rankings.py on output.csv
+    Copy the console output into data/2022/2022Ranking.md
+    Copy data/2022/players/ to data/2023/
+    python 2023Tournaments.py
+    Copy the output.csv and matchlist.csv AND tdata.csv to data/2023/
+    Create the markdown file.
+    Do the same for 2024.
+    Now I can manually edit all the markdown files if I want.
+    I can upload to Google Drive first -- I didn't.
+    I made the blog post.
+    Okay now let's upload to Github. I don't even have google drive linked on the blog post! haha
+    I just need separate MD files for all the tournaments??
+    No, I have TournamentWinners.md
+    Okay, upload it. It's fine.
+    See you next week for the 2025 edition! :)

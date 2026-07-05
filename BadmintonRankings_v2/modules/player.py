@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self, name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, ratingConfidence):
+    def __init__(self, name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, RD):
         self.name = name
         self.id = id
         self.wins = wins
@@ -13,19 +13,15 @@ class Player:
         self.matchHistory = []
         self.titles = []
         self.latestTournament = latestTournament
-        self.ratingConfidence = ratingConfidence
+        self.RD = RD
 
-    def update_confidence(self):
-        if(self.wins + self.losses < 10):
-            self.ratingConfidence = 100
-        elif(self.wins + self.losses < 25):
-            self.ratingConfidence = 50
-        elif(self.wins + self.losses < 50):
-            self.ratingConfidence = 25
-        else:
-            self.ratingConfidence = 10
-        return self.ratingConfidence
-        
+    # Given two player objects, return K value for self; K = 100*g(RD) 
+    def glick(self, opponent, BASE_K, INITIAL_RD): 
+        self_factor = self.RD / INITIAL_RD
+        opp_factor = 1 / (1 + opponent.RD / INITIAL_RD)
+
+        return BASE_K * self_factor * (1+opp_factor)
+
     def winrate(self):
         total_matches = self.wins + self.losses
         if total_matches == 0:

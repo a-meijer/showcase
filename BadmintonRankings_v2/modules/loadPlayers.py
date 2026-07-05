@@ -33,8 +33,8 @@ def loadPlayer(filepath):
                 highestRating = int(row[7])
                 previousRating = int(row[8])
                 latestTournament = None
-                ratingConfidence = 100
-                addedPlayer = player.Player(name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, ratingConfidence)
+                RD = int(row[10])
+                addedPlayer = player.Player(name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, RD)
             else:
                 match = row[0]
                 addedPlayer.matchHistory.append(match)
@@ -49,7 +49,7 @@ def loadNewPlayers(ranks, filepath, matchfile, save):
             if not playerfile.exists():
                 # Create a new player object
                 # name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating
-                addedPlayer = player.Player(row[1], row[2], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000, None, 100)  # Default rating of 1000
+                addedPlayer = player.Player(row[1], row[2], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000, None, 300)  # Default rating of 1000; default RD of 300
                 # Load the new player into the ranks datastructure
                 ranks[row[2]] = addedPlayer
                 print(f"Loaded new player {addedPlayer.name} with initial rating {addedPlayer.rating}!")
@@ -61,7 +61,7 @@ def loadNewPlayers(ranks, filepath, matchfile, save):
             if not playerfile2.exists():
                 # Create a new player object
                 # name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating
-                addedPlayer = player.Player(row[3], row[4], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000, None, 100)  # Default rating of 1000
+                addedPlayer = player.Player(row[3], row[4], 0, 0, 1000, "NR", "NR", "NR", 1000, 1000, None, 300)  # Default rating of 1000; default RD of 300
                 # Load the new player into the ranks datastructure
                 ranks[row[4]] = addedPlayer
                 print(f"Loaded new player {addedPlayer.name} with initial rating {addedPlayer.rating}!")
@@ -76,6 +76,6 @@ def savePlayer(directory, player):
     filepath = Path(directory) / f"{player.id}.csv"
     with open(filepath, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow([player.name, player.wins, player.losses, player.rating, player.rank, player.highestRank, player.previousAnnualRank, player.highestRating, player.previousAnnualRating, player.latestTournament, player.ratingConfidence])
+        csv_writer.writerow([player.name, player.wins, player.losses, player.rating, player.rank, player.highestRank, player.previousAnnualRank, player.highestRating, player.previousAnnualRating, player.latestTournament, player.RD])
         csv_writer.writerows([[match] for match in player.matchHistory])
     return

@@ -3,17 +3,23 @@ from modules import player as player
 from modules import saveSystem as saveSystem
 
 # Process the matches and return the rankings
-def processMatches(ranks, tournamentFile, matchlist,tournamentName, tournamentDate, save):
+def processMatches(ranks, tournamentFile, tournamentName, tournamentDate, save):
+    # Set constants
+    BASE_K = 100
+    INITIAL_RD = 300
+    MIN_RD = 50
+    RD_INCR = 10
+
+
     with open(tournamentFile, 'r') as file:
         csv_reader = csv.reader(file)
         for row in csv_reader:
             # Set variables for winner and loser ( for readability )
             WP = ranks[row[2]]
             LP = ranks[row[4]]
-            # Initialize separate K values for winner and loser
-            # K values are calculated based on the number of wins and losses so that new players have more sensitive ratings
-            WK = WP.update_confidence()
-            LK = LP.update_confidence()
+            # Use the "Glicko" algorithm to determine the K values based on the RDs for both players
+            WK = WP.glick(LP, BASE_K, INITIAL_RD) # BASE_K and INITIAL_RD
+            LK = LP.glick(WP, BASE_K, INITIAL_RD)
             # Determine Rating for winning (A) player
             RA = WP.rating
             # Determine rating for losing (B) player
@@ -31,6 +37,12 @@ def processMatches(ranks, tournamentFile, matchlist,tournamentName, tournamentDa
             # Update wins and losses
             WP.wins += 1
             LP.losses += 1
+            # Update the Rating Deviation variables
+            
+            WP.RD -= RD_INCR
+            LP.RD -= RD_INCR
+            WP.RD = max(MIN_RD, WP.RD)
+            LP.RD = max(MIN_RD, LP.RD)
 
             WP.matchHistory.append(f"Defeated {LP.name} in {row[0]} of {tournamentName}: +{WP.rating - RA} points for a new rating of {WP.rating}")
             LP.matchHistory.append(f"Lost to {WP.name} in {row[0]} of {tournamentName}: {(LP.rating - RB)} points for a new rating of {LP.rating}")
