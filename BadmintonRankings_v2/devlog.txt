@@ -1421,7 +1421,17 @@
     CSVToMD_Rankings.py
     CSVToMD_Winners.py
 
-    
+    Everything is done now I think!
+    Files are synced to Github!
+    Blog is drafted!
+    I'm free!
+
+    The goal is to add on the Summer 2026 events without making any changes to the program,
+    so I can just load in the data files and run it.
+    Fingers crossed, I won't have to recreate everything from 2022 again.
+    Make it easy on yourself.
+    Count all the tournaments BEFORE Centennial.
+    Centennial is the first tournament of the 2026-2027 season.
 
 
 
