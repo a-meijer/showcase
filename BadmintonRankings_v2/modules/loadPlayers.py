@@ -32,7 +32,7 @@ def loadPlayer(filepath):
                 previousRank = row[6]
                 highestRating = int(row[7])
                 previousRating = int(row[8])
-                latestTournament = None
+                latestTournament = row[9]
                 RD = int(row[10])
                 addedPlayer = player.Player(name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, RD)
             else:

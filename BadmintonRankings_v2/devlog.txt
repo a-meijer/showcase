@@ -934,3 +934,498 @@
     No, I have TournamentWinners.md
     Okay, upload it. It's fine.
     See you next week for the 2025 edition! :)
+
+    Some additional notes for the 2025 release now that I've got the data ready,
+    -   Compare the temp 2025 output to the new output with the updates:
+    -   Create the new algorithm that factors in "latestTournament"
+    
+    -   Calculate the average predivctive success of the algorithm per match
+    
+    - 2025 is the year of ANALYSIS, and then 2026 is more chill because it's just the live version.
+    So therefore, compare all the years, compare the stats; see above.
+
+    -   shrink RD based on the quality of opponent, rather than by a constant increment
+        Beat Antonio (very established) → we learn a lot about you.
+        Beat a brand-new player → we don't learn as much.
+    -   latestTournament is posted in final rankings (either on blog or github, whichever is better)
+        and the latestTournament increased RD rating uncertainty depending how long ago it was.
+
+2026    07  06
+    -   ^   How to accomplish all this?
+        We are going to be saving more data in the first row of tdata.csv.
+        Create a new joint in the same directory as search.py,
+        it's going to be a program for editing my CSV or MD files, and for transforming my CSVs to MDs.
+        I already have CSVToMD_Rankings.py and CSVToMD_Winners.py so I should replace those.
+        Here's the deal:
+            --   Calculate the total number of rating points in the system
+            -   Compare, per year, the ratings at ranks 1, 5, 10, 25, 50, 100.
+            ^ Record these as long-running stats. Record the highest rating of all time.
+            -   Settle ties with activity then seniority then H2H.
+            -   Clean the list of unranked players.
+            -   Remove players who have not played in two full years.
+            Create the Honourable Mentions:
+            -   Clean the list of inactive players (not played all year).
+            -   Clean the list of players with less than X matches played (to produce a reasonably sized list)
+            -   Update the Readme with all these changes.
+            -   Also fun stats to compare for each year: The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+            -   Collect all the annual stats in one place, stuff like. . .
+                -   Biggest movers (by rank and rating)
+                -   Most matches played in the year
+                -   Most match wins
+                -   Most tournament wins
+
+        BIANNUAL TASKS FOR SUMMER 2026 AND BEYOND: 
+        RECORD YOUR STEPS!
+            1.  Create the TOURNAMENT_LIST.TXT for the given period. All Open MS tournaments within BC are eligible.
+                It must include the date and name for each tournament, as well as a link to the tournament page with match results.
+            2.  Create CSV files for each tournament in TOURNAMENT_LIST.TXT according to the matches on the tournament page.
+                Use python search.py to search for player IDs, to make sure you use the correct ID for each player.
+                Every player gets an ID. Follow the naming conventions and fix duplicates.
+            3.  Create 20XXTournaments.py for the given period.
+                Depending whether you are creating a Summer ranking or an end-of-year ranking, there will be a different procedure.
+                Actually, nevermind. You can figure this all out on your own. Just wing it.
+            ..  Update all the Google Drive and Github CSV rankings for each year
+        
+        First things first, let's get the lastTournament variable set up.
+        
+2026    07  18
+    Hello and welcome back. I have taken approximately two weeks away from this project, being busy with other things.
+    I need to read more books and write more fiction, so to make way for that, I need to get through this project.
+    I already posted 2022, 2023, and 2024. There are only two years left. I already have most of the match data.
+    Let's not rush.
+
+    The theory is like this.
+    2025 Release: add all the best features and everything you need to make the ratings accurate with glicko, complete with annual stats and additional features.
+    2026 Release: Fix all the bugs.
+
+    Adding lastTournament is simple so far, but I don't want to just save as "YYYY-MM-DD" strings, I want to save as date objects.
+    Instead of saving as date objects immediately when I read in the data, I am consolidating this load in matches.py
+    from datetime import date
+    I will also need to import from the datetime library when I am saving the player data to files, so write into "YYYY-MM-DD" strings.
+    
+    On second thought: No. Keep dates as a string at all times, except for when you need to calculate. That's perfectly clean. Actually makes file IO simpler.
+    Remember to work in loadPlayers.py to sort all what you're changing here for saving and loading.
+    Because, I never need to save a date. I only need the date format for measuring the number of days since last tournament, but I'm not changing any variables in that.
+
+    I got it pretty much all set up in one go. I should've ran some earlier tests but I am hesitant to run anything until I know what data I want to save from the 2024 release.
+    Easy: Save the 2025 rankings. I already rank the 2024 algo on the 2025 data. It's the only juicy bit that was not included in the 2024 release.
+
+    Yeah, no bugs. It looks fine. 2022 output I mean. I guess I should continue to 2023 or no? What else should I add?
+    The latestTournament variable won't really start to make a different until later eh.
+    I need to make a printout or something, get some visibility on the effect that this is having for the algo brooo.
+    Let's just run it to 2025 and compare . . .
+
+    Now I have to manually copy the players directory to the next folder before running python 2023Tournaments.py.
+    I would save the 2022 output to data/2022, but this is just a test, so whatever. Lots more changes to add soon.
+    Okay nevermind, i have bugs. It crashed. I'm somehow getting a float when I want an int. ONE MOMENT PLEASE! 
+    parse to int.
+
+2026    07  19
+    I am organizing all the tasks for the 2025 release into 3 main categories: Algorithm, Rank Polishing, and Statistics.
+
+    ALGORITHM:
+    -   latestTournament is posted in final rankings (either on blog or github, whichever is better)
+    
+    STATISTICS:
+    -   Compare the temp 2025 output to the new output with the updates
+    -   Calculate the average predivctive success of the algorithm per match
+    -   Also fun stats to compare for each year: The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+    -   Collect all the annual stats in one place, stuff like. . .
+        -   Biggest movers (by rank and rating)
+        -   Most matches played in the year
+        -   Most match wins
+        -   Most tournament wins
+    -   Calculate the total number of rating points in the system
+    -   Compare, per year, the ratings at ranks 1, 5, 10, 25, 50, 100.
+    ^ Record these as long-running stats. Record the highest rating of all time.
+    -   Update the Readme with all these changes.
+    
+    RANK POLISHING:
+    -   Settle ties with activity then seniority then H2H.
+    -   Clean the list of unranked players.
+    -   Remove players who have not played in two full years.
+    -   Clean the list of inactive players (not played all year).
+    -   Clean the list of players with less than X matches played (to produce a reasonably sized list)
+    -   ^   How to accomplish all this?
+        We are going to be saving more data in the first row of tdata.csv.
+        Create a new joint in the same directory as search.py,
+        it's going to be a program for editing my CSV or MD files, and for transforming my CSVs to MDs.
+        I already have CSVToMD_Rankings.py and CSVToMD_Winners.py so I should replace those.
+    -   The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+    -   The ratings at ranks 1, 5, 10, 25, 50, 100.
+    
+    That looks about right, eh?
+    
+2026    08  02
+    Let's get this finished up. What took you so long? I was busy with other work.
+
+2026    09  02
+    Let's get this finished up. What too so long? It's literally September.
+    I attended a tournament last weekend in the 2026-2027 season!
+    Suffice it to say, I am behind schedule on this jawn.
+    So what's left? Where am I?
+    I sorted all the todos into three categories.
+    I have all the data I need already.
+
+2026    09  21
+    Hello it's me again. I've been preoccupied with other projects for long enough that I find this repository to be disorienting.
+    It will take me an hour or so to get reoriented so I can start making progress again towards the 2025 release.
+
+2026    09  22
+    I don't even know what file to run.
+    Run it like this, it seems like:
+    python 2025Tournaments.py 
+
+    Where I'm at right now is tryin to add the "LATEST TOURNAMENT" variable to the schtick.
+    I just want to display it. I think I may have already added it into the algorithm though. I need to take a closer look.
+
+    It's in matches.py
+    in def processMatches
+
+    Yeah -- I already have this added into the algo. So now what? Just print it out?
+    This is getting too complicated now, the algorithm.
+    I guess it was complicated enough from the beginning. Hard to explain the theory behind Elo and Glicko to laypeople.
+    I'm not even a mathematician myself, I just kinda deal with it.
+
+    Does this even run?
+    I think so. I think that was the last thing I did. I ran it with the new latestTournament additions.
+    My issue is just that player.latestTournament is NOT being printed to output.csv, so it disappears when the program terminates, right? Or is it in the player files?
+    It's in the player files.
+    But not everyone has one!
+
+    Why is that?
+    --> It appears that only players with matches in 2025 have latestTournament non-blank.
+    Let's try clearing all the data and running it back from the beginning of 2022.
+    Hopefully I remember how to do this. . .
+    Can't possibly break it beyond repair -- it's only software. I might just have to stick with it for a few days to get it sorted.
+    Deleting data I'll never get back. 2024 rankings are out anyways.
+    Doesn't really matter.
+    I'm making it better.
+
+    I still have 2025_old which is the rankings output using the 2024 version algo.
+    So I'll use that for comparison.
+
+    Now before I run this thing, I need to think about how I'm going to withdraw the latestTournament variables from the individual data files. . .
+    Curse God: I'm using a chatGPT-generated file with syntax I don't quite understand called CSVToMD_Rankings.py.
+    It seems to be pulling data from output.csv, not the individual player files.
+
+    So here's the solution: when you create output.csv, add the latestTournament variable in.
+    (It's in saveSystem.py -> def outputRankingsToCSV)
+    Then update CSVToMD_Rankings.py to include it. Add it to the headers. It's pretty obvious how it works. Thanks Python!
+
+    Okay now let's run it, just the 2022 tournaments, and see if that has the desired effect.
+    Looks good!
+    It displays the latest tournament in output.csv as a date object.
+    I don't need to calculate the "days since latest tournament" because it's done automatically in the match processing,
+    unless I want to display that, but it changes every day, so better to just show the date.
+    Now run CSVToMD_Rankings.py and see what that does.
+    It doesn't create a file, it just prints to console. This part I will need to edit. I want to trim out a lot of these ranks too, specifically the unranked players.
+    
+    I want to turn it into a JPG or something to display nicely on my blog, and then the text I can put on Github.
+
+    COMPLETE:
+    -   latestTournament is posted in final rankings (either on blog or github, whichever is better)
+
+    Now before I start polishing the rankings, I need to do some year-on-year updates.
+    Some of these are tricky because I'll be removing out-of-province players from the ranks.
+    So if I measure the "biggest movers by rank," who all should get included in there?
+    
+    Before moving on to rank polishing, I need to collect some stats.
+    There are a lot of them.
+    I am going to split them into categories:
+
+    1. Stats that require taking a measurement from the beginning of last year/season (annual stats):
+        -   Biggest movers (by rating) in the year
+        -   Most matches played in the year
+        -   Most match wins in the year
+        -   Most tournament wins in the year
+
+    2. Stats that require some kind of year-on-year stored value:
+        -   Most matches played total
+        -   Most match wins total
+        -   Most tournament wins total
+        -   Highest rating of all time with the player, date, and tournament.
+
+    3. Stats that require additions to the match processing:
+        -   Calculate the average predictive success of the algorithm per match
+
+    4. Stats that can be measured from files that already exist:
+        -   total number of rating points in the system
+        -   The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+        -   The ratings at ranks 1, 5, 10, 25, 50, 100.
+
+    5. Stats measured just for the 2025 output.
+        -   Compare the temp 2025 output to the new output with the updates
+        -   Update the Readme with all these changes.
+
+
+2026    09  23
+    Start with the easy ones, stats that can be measured from files that already exist.
+
+    -   total number of rating points in the system
+    Instead of creating a new file to read from output.csv, make a sum as you output to output.csv or tdata.csv.
+    Save it in the first row of tdata.csv. That's where we're going to keep everything.
+    But where does tdata.csv get written?
+    it's in saveSystem -> def save.
+    It's called at the end of processTournaments.py
+
+    First attempt at adding the totalRP outputs a total of 0, which is obviously incorrect. . .
+
+    Second attempt was good, I just made a small method in saveSystem.py to swag it up.
+    We got 157891 rating points for 158 players which is 999.031 points per player. Perfectly reasonable. (going for ~1000)
+
+    Here's what to calculate next:
+    -   The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+    -   The ratings at ranks 1, 5, 10, 25, 50, 100.
+
+    These are pretty simple to do, but the tricky part is where to store the results?
+    Do I really just want the first row of tdata to get obnoxiously long?
+
+    It might be simpler to write a separate file like analyze.py
+    where I can run on output.csv itself to get these results. . .
+    It's also complicated because I don't know if I'm including the out-of-province or inactive players at this point.
+    I'll add these tasks to the "rank polishing" section and move on to something else.
+
+    Do these next, simply adding more variables to tdata (right?):
+        -   Most matches played total
+        -   Most match wins total
+        -   Most tournament wins total
+        -   Highest rating of all time with the player, date, and tournament.
+    
+    No: heck that.
+    Make a new file playerRecords.csv
+    That's neater, isn't it? and it gives me more room?
+    Frick more room -> put it in tdata. All you need is the player ID.
+    So the first row of tdata will look like this:
+    [totalMatches, totalPlayers, totalRP, mostActivePlayer, mostWinsPlayer, mostTourneyPlayer]
+    And to heck with the highest rating of all time. It would require a little more sauce, and nobody asked for that anyways.
+    
+    Now, there are several ways to calculate these values, but I want to look closely to find an efficient way to add it in.
+    I don't want to just loop through all the players at the end and look for the highest wins number.
+    Unless. . . ?
+    
+2026    09  24
+    These two can be done together by iterating through the players, the same data written to output:
+        -   Most matches played total
+        -   Most match wins total
+    This one can be found by reading the winners list, the same data that is written to tdata.
+        -   Most tournament wins total    
+    
+2026    09  28
+    I am changing the tdata line to include not only the IDs for the most winning and most active players, but the values as well,
+    the number of wins and the number of matches.
+    As for most Tourneys, I think I'll just do that separately, because it's easy to read from the tdata already; I don't need extra variables.
+
+    I tested mostWins and mostMatches to be working for the 2022 data.
+
+    Now for most tournament wins total, I'll add that to a separate file like analyze.py
+    Surely there are some other stats to be calculated there as well, but I'll need to get into it a little bit before I know for sure.
+
+    Here's an update on what's left:
+
+    TRY THESE STATS NEXT:
+        -   Biggest movers (by rating) in the year
+        -   Most matches played in the year
+        -   Most match wins in the year
+        -   Most tournament wins in the year
+        -   Calculate the average predictive success of the algorithm per match
+
+    SAVE THESE STATS FOR ANALYZE.PY:
+    -   Most titles (tourney wins).
+    -   The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+    -   The ratings at ranks 1, 5, 10, 25, 50, 100.
+    
+    DO THESE ONES WHEN YOU'RE BUILDING THE README AND BLOGPOST:
+    -   Compare the temp 2025 output to the new output with the updates
+    -   Update the Readme with all these changes.
+
+2026    09  30
+    To calculate the biggest movers, I need to take a measurement of everyone's previous annual rating . . .
+    or I could fandangle this into analyze.py!
+    To calculate the most matches played and the most wins of the year, I need to count as matches are being processed. . .
+    or I could fandangle this into analyze.py!
+    To calculate most tournament wins, I can use tdata after the year is done.
+    To calculate the average predictive success of the algorithm, I need to take some measurements in the match processing.
+
+    So let's start with that last one, measuring the average predictive success. 
+    The Elo algorithm already has an "expected outcome" variable.
+
+    On second thought, this program is getting too soupy.
+    It has already been mutated from an Elo algorithm into a sort-of Glicko-inspired abomination.
+    So, my point is, I'm satisfied with the inner workings of the algorithm.
+    The point of measuring the predictive success would be useful if I planned on making more changes,
+    but I'm not anymore. It's good. I've already done loads of testing on it and used all the good ideas I had to tweak it.
+    Let's get this published and move on to bigger and better things.
+    Boy, I'm holding up the whole blog with this silliness!
+    Get through it already!
+
+    So all I need is analyze.py, and then to write up the readme and then the blog post, right?
+    Get 'er done.
+
+2026    10  01
+    Whoops, I forgot about all the rank polishing updates as well:
+        -   Settle ties with activity then seniority then H2H.
+        -   Clean the list of unranked players.
+        -   Remove players who have not played in two full years.
+        -   Clean the list of inactive players (not played all year).
+        -   Clean the list of players with less than X matches played (to produce a reasonably sized list)
+        -   ^   How to accomplish all this?
+            We are going to be saving more data in the first row of tdata.csv.
+            Create a new joint in the same directory as search.py,
+            it's going to be a program for editing my CSV or MD files, and for transforming my CSVs to MDs.
+            I already have CSVToMD_Rankings.py and CSVToMD_Winners.py so I should replace those.
+    And here's all the stuff I was sumarrizing
+    -   Biggest movers (by rating) in the year
+    -   Most matches played in the year
+    -   Most match wins in the year
+    -   Most tournament wins in the year
+    -   Most titles (tourney wins).
+    -   The rating required to break top 50% ranked players, top 10%, top 100, top 1%.
+    -   The ratings at ranks 1, 5, 10, 25, 50, 100.
+    -   Compare the temp 2025 output to the new output with the updates
+    -   Update the Readme with all these changes.
+
+2026    10  08
+    First order of business: analyze.py?
+    No!
+    It turns out, we actually have to do rank polishing first!
+    Because the previousAnnualRank and previousAnnualRating variables are going to be botched otherwise.
+    We have to set those ratings to be based and swag, don't we? Ayaaaaa....!
+    
+2026    10  09
+    Rank polishing first.
+    Looks like this is taken care of in DB.updatePlayerRankings where DB is the save system object.
+    The list of players is called "ranks"
+    which is now a bit of a misnomer. . .
+    The list of players is still going to include everyone sorted by their ratings,
+    but many players will have their ranks set to "NR" or will have their ranks changed
+    according to the following rules:
+    -   Settle ties with activity then seniority then H2H.
+    -   Clean the list of unranked players.
+    -   Remove players who have not played in two full years.
+    -   Clean the list of inactive players (not played all year).
+    -   Clean the list of players with less than X matches played (to produce a reasonably sized list)
+
+    So the list itself is going to be different from the output ranks.
+    But I think the only difference is not printing players with rank=="NR"
+
+    That part of it should be performed in CSVToMD_Rankings.py
+
+    Ugh, this is such a mess -- I don't have my variable with me!
+    I'm in saveSystem > updatePlayerRankings
+    but the variable I need, the date of the tournament, is in matches.py!
+    So annoying, my program is so sloppy, that I have to regularly fandangle the variables around where I need them,
+    like connecting ends on a soundboard and carelessly allowing the wires to get
+    twisted up and knotted in each other,
+    so that everything works, but it's difficult to change or undo anything.
+
+2026    10  13
+    Can we finish this once and for all?
+    Get that stupid variable you need out in the boonies, somewhere is def updatePlayerRankings
+
+    -   Add function to not rank players who do not have BC ID ? Nah, that's cringe.
+
+    Here's what I'm doing first:
+    - settle ties
+    - set inactive players to NR
+
+    Here's what I'm doing second:
+    - Clean the output ranking list and make a JPG
+    - Most wins all time
+    - Most wins all year
+    - Most matches all time
+    - Most matches all year
+    - Most tourney wins all time
+    - Most tourney wins all year
+
+    Final touches:
+    - Compare the output to the 2025 rankings made with the old system.
+    - Readme and blog posting
+
+    Stop being so dim bro I'm serious.
+    The tdate variable was right there the whole time.
+    You just needed to pass it to updatePlayerRankings. It's literally right there in processTournaments.py
+    If you had just looked closely, you wouldn't have been so quick to make the problem more difficult than it really is.
+    Use your brain.
+    That thing in your head?
+    Use it!
+    ...oh wait, this tdate variable is a little different. . .
+
+    Not settling ties anymore; too easy to do manually.
+    Set inactive players to NR, just need to test it.
+
+    date type bug.
+    Added these lines:
+    latestTourney = datetime.strptime(tdate, "%Y-%m-%d").date()
+    activeTourney = datetime.strptime(player.latestTournament, "%Y-%m-%d").date()
+
+    Okay, smooth. Let's try it on the 2023 data now, and see if those changes hold. . .
+
+    Copy 2022/players into 2023/players . . .
+    Hackey-ass arts-and-crafts-ass program. . .
+
+    Okay, that didn't work.
+    strptime() argument 1 must be str, not None.
+
+    one of my player.latestTournament variables is None.
+    So the variable isn't loading properly?
+    Yeah, that's exactly it.
+    replaced
+    latestTournament = None
+    with
+    latestTournament = row[9]
+
+    Okay, swag, now it works.
+    Angus Li is the first highest-rated player to get unranked due to inactivity in 2023.
+    He comes back later though, right? I forget. I know he plays masters events.
+    He's still aroung the scene in 2026. Good guy Angus.
+
+    Now let's solve these:
+    - Most wins all time
+    - Most wins all year
+    - Most matches all time
+    - Most matches all year
+    - Most tourney wins all time
+    - Most tourney wins all year
+
+    I have some functions related to these problems. . .
+    Too many half-baked functions. Put it up, big boy. Get 'er done.
+    LIGHT WEIGHT~!
+
+    I have no headers on any of these data files lmao
+    assembly style, you just gotta know what the pins are for.
+
+    This is stupid. I'm saving the mostWins and mostMatches in tdata,
+    when you can easily find those variables just by searching the player ID.
+    Whatever.
+    There's more to calculate. I think I need to add more headers in there.
+
+    Weird thing when I loaded in the mostMatches and totalRP variables,
+    the totalRP changed on the output, but not mostMatches ???
+    Not sure how that's possible. . .
+    Whatever. I'm over it.
+
+    Let's fix up the readme and the blog post.
+    I need to create separate markdown files for each year.
+
+    Aaand. . .I think we're gonna reset.
+    Delete all the players folders.
+    Create a blank folder data/2022/players
+    Delete matchlist and output csvs.
+    Delete the contents of tdata.
+    Jeez' what a procedure.
+    Now we can run python 2022Tournaments.py
+
+    Before continuing to the next year, now it's time to make the markdown files.
+    For this I should use:
+    CSVToMD_Rankings.py
+    CSVToMD_Winners.py
+
+    
+
+
+
+
+
+
+    

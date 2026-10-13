@@ -47,7 +47,7 @@ def PROCESS_TOURNAMENTS():
     # Jack Underhill
     matchfiles.append("Tournaments/2024/2024_JackUnderhill.csv")
     tnames.append("2024 Jack Underhill")
-    tdates.append("2023-02-17")
+    tdates.append("2024-02-17")
 
     # Easter Open
     matchfiles.append("Tournaments/2024/2024_EasterOpen.csv")
@@ -106,7 +106,7 @@ def PROCESS_TOURNAMENTS():
 
 
 
-    processTournaments.run(matchlist, savestate, tdata, directory, matchfiles, tnames, tdates, "2023")
+    processTournaments.run(matchlist, savestate, tdata, directory, matchfiles, tnames, tdates, "2024")
 
     print("2024 match processing complete.")
     return

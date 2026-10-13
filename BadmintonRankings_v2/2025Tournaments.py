@@ -84,9 +84,27 @@ def PROCESS_TOURNAMENTS():
     tnames.append("2025 Thanksgiving Tournament")
     tdates.append("2025-10-11")
 
-    
+    # Island Open
+    matchfiles.append("Tournaments/2025/2025_IslandOpen.csv")
+    tnames.append("2025 Island Open")
+    tdates.append("2025-11-14")
 
-    processTournaments.run(matchlist, savestate, tdata, directory, matchfiles, tnames, tdates, "2023")
+    # Kelowna Fall Open
+    matchfiles.append("Tournaments/2025/2025_KelownaFall.csv")
+    tnames.append("2025 Kelowna Fall Open")
+    tdates.append("2025-11-21")
+
+    # Surrey Open
+    matchfiles.append("Tournaments/2025/2025_SurreyOpen.csv")
+    tnames.append("2025 Surrey Open")
+    tdates.append("2025-11-29")
+
+    # Boxing Week Tournament
+    matchfiles.append("Tournaments/2025/2025_BoxingWeek.csv")
+    tnames.append("2025 Boxing Week Tournament")
+    tdates.append("2025-12-26")
+
+    processTournaments.run(matchlist, savestate, tdata, directory, matchfiles, tnames, tdates, "2025")
 
     print("2025 match processing complete.")
     return

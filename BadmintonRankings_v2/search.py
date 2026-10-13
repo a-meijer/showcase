@@ -38,7 +38,7 @@ def search_id(id, ranks):
 # Initialize variables
 quit = "quit"
 command = ""
-directory = "data/2024/players"
+directory = "data/2025/players"
 print("Welcome to Player Search!\nDirectory = ",directory)
 
 # Load players into datastructures

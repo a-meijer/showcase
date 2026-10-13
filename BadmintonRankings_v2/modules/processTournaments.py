@@ -47,7 +47,7 @@ def run(matchlist, savestate, tdata, directory, matchfiles, tnames, tdates, ynam
         ranks = DB.sortRankings(ranks)
 
         # Update the player objects with their new rankings
-        DB.updatePlayerRankings(ranks)
+        DB.updatePlayerRankings(ranks, tdate)
 
         # output the updated player data to the data files
         for player in ranks.values():
@@ -71,18 +71,24 @@ def run(matchlist, savestate, tdata, directory, matchfiles, tnames, tdates, ynam
     # Print  final rankings
     print("Total number matches processed:", DB.matchesPlayed)
     print("Total number players ranked:", DB.numberPlayers)
-    print(f"Final {yname} Rankings:")
+    # print(f"Final {yname} Rankings:")
     # DB.outputRankingsToConsole(ranks)
     DB.outputRankingsToCSV(ranks, savestate)
 
-
-    # Update previousAnnualRatings
+    # For each player. . .
     for p in ranks.values():
+        # add player rating to the sum of ratings
+        DB.addRP(p.rating)
+        # find the most winning player
+        DB.trackWins(p)
+        # find the player with most matches played
+        DB.trackMatches(p)
+        # Update previousAnnualRatings
         p.previousAnnualRank = p.rank
         p.previousAnnualRating = p.rating
         playerLoader.savePlayer(directory, p)
 
-    # Save progress
+    # Save progress (to tdata)
     DB.save()
 
     return

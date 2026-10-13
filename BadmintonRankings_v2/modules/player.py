@@ -1,3 +1,5 @@
+from datetime import date
+
 class Player:
     def __init__(self, name, id, wins, losses, rating, rank, highestRank, previousRank, highestRating, previousRating, latestTournament, RD):
         self.name = name
