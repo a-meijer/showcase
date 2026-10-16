@@ -1432,6 +1432,325 @@
     Make it easy on yourself.
     Count all the tournaments BEFORE Centennial.
     Centennial is the first tournament of the 2026-2027 season.
+    But no, on second thought, SMASH CHAMPS is the first tournament of the season. August 1 right? That's the first one.
+    So the season is like, August to July.
+
+    So I have the full list of tournaments to affect the Summer 2026 ranks:
+    Jan  9, 2026:   Cindy Simpson Memorial - https://badmintoncanada.tournamentsoftware.com/tournament/8D69A67F-8CCA-490C-8AC7-46CBB195F1CC
+    Jan 23, 2026:   Kelowna Winter Open - https://www.tournamentsoftware.com/tournament/D16CC9D8-94E4-495F-B270-0B5F5CF1A13F
+    Feb  6, 2026:   Jack Underhill - https://badmintoncanada.tournamentsoftware.com/tournament/ADA2BB34-1F57-40A4-9743-81F79D81D658
+    Mar 20, 2026:   Kamloops Open in Kelowna - https://www.tournamentsoftware.com/tournament/89F64C51-9E00-4411-B847-5529F3B1CF06
+    Apr  3, 2026:   Easter Open - https://www.tournamentsoftware.com/tournament/696C1080-72AE-44DA-8CB9-3EC6E10EA0A4
+    Apr 10, 2026:   Provincial Championship - https://badmintoncanada.tournamentsoftware.com/tournament/25725E4A-CF6A-4B3F-A7A4-918C1A01BD79
+    Apr 13, 2026:   VRC Club - https://www.tournamentsoftware.com/tournament/DB920DB7-2D46-4F3E-85BD-C8C408C45752
+    May 29, 2026:   Victoria Club - https://www.tournamentsoftware.com/tournament/64CF707D-3318-4918-926C-F2172C716E48
+    Jun 20, 2026:   BC CWG 2027 Trial #2 - https://badmintoncanada.tournamentsoftware.com/tournament/39B99A65-8B06-48F6-8772-9EE8ABE89850/Draw/13
+    Jun 20, 2026:   White Rock Tournament - https://www.tournamentsoftware.com/sport/event.aspx?id=C0E36D5D-C989-49AD-9FDB-197222EB17CE&event=20
+
+    4 done, 6 to go.
+    We're back to data entry.
+
+2026    10  15
+    Okay, here we go.
+    Data entry for Easter Open. . .
+    I use search.py to quickly and easily get the IDs for players that already exist.
+    Make sure to change the directory in that file to data/2025/players,
+    or whatever directory has the most up-to-date player files.
+
+    Hey, I'm good at this, lol.
+    Very fast data entry while listening to the Samurai Champloo OST.
+    Plus it's Easter Open! Exciting! Jason Ho-Shue played this one.
+    I'm taking a quick break to do my Duolingo.
+    Trying to greenlog my Duo like a hardcore scaper,
+    but most folks won't know what I mean like that.
+    We move on!
+
+    Saurabh loses in Round 2 of this tournament after a first round bye.
+    Kinda crazy.
+    He loses to a guy named Tang Edmond,
+    someone I've never heard of before who is not in the database.
+    He partners with Wenjun Ouyang for doubles, and Wenjun is known to be provincial level.
+    But still, getting some darkhorse action.
+    Can we expect an Antonio Li vs Jason Ho-Shue semifinals? Let's see!
+    There are some tight match scores in this event!
+
+    We have Yu Zhong Luo representing Brazil. . .
+    No entry in the database, but he's seeded!
+    I think it's probably Kevin. Kevin likes to play under aliases.
+    Sometimes you gotta guess, you know?
+    There are probably naming bugs in here that I don't even know about yet.
+    Hopefully it doesn't mess with the rankings too significantly.
+    I need all the players to analyze all their own matches and verify the results for me.
+    But hell, who remembers?
+
+    Who is Ian Chung? He's seeded too. The only Chung I have that it could be is Lai Yin Chung.
+    No ID on tournamentsoftware.
+    Let's search badmintoncanada by Lai Yin Chung's ID.
+    Yeah nah.
+    This guy is mysterious.
+    I'm going to suppse it's Lai Yin Chung.
+    Correct me if I'm wrong (please)
+    (nobody is there)
+
+    The problem I have with this is that I'm always using the oldest name for each player,
+    so if they change names, the new name is always just lost, and I can't search properly.
+    That's fixable but honestly I can't be bothered.
+
+    If anyone cares, just message me and I'll fix it for you.
+    Otherwise I'm moving on with the identifyable players.
+
+    Also if two guys have the same name, good luck.
+    Your records are probably all mixed up together.
+
+    Abdelrahman Abdelhakim coming out at this tournament.
+    He later wins against Connor Louie iirc, and then Connor became his coach?
+    I don't know the exact lore for that lol
+    Connor is a bit of a character sometimes, apparently. Great player!
+    I believe he coaches out of Badminton Vancouver, but Rahman Hakim is VRC.
+
+    If a player doesn't have a BC ID on tournamentsoftware,
+    look them up on badmintoncanada, because they probably do have one.
+    try not to use the "XX" ids when possible.
+    They can work, but they open the possibility of having multiple IDs for one player: not good.
+    reduce risk on that jawn, my boy
+
+    Tristan Wong, Ayson Kam. . . I'm getting BC IDs for these guys that weren't on tournamentsoftware,
+    only on badmintoncanada.tournamentsoftware.
+    THERE'S A DIFFERENCE!
+
+    Oh snap, Anish Jojula smokes Antonio Li 21-16 21-10 in Round 3.
+    We are in the Anish era! :0
+    It's epic!
+    He's probably gonna lose to Jo-Shue later
+
+    BTW, how is Antonio unseeded?
+    Does Drive Badminton not know how goated this man is?
+    Maybe he negotiated for being unseeded, like,
+        "Trust me guys, I'm washed."
+    He won this tournament in 2025 so I think he should definitely be seeded,
+    especially above guys like Ian Chung I've never heard of before,
+    but what do I know, I'm just an islander.
+    The mainland scene is way bigger.
+
+    Imran Wadia won against Ryan Liu 21-1 21-10
+    that's wild. 21-1.
+
+    Anish is through the quarterfinals over Lyem, 21-13, 21-11.
+    Anish hype, boys. The hype is real. That's our dawg.
+
+    And in Anish vs Ho-Shue semis, he took him to 3!
+    Jason Ho-Shue won 11-21 21-18 21-13.
+    Turned the tide on him. That's some high level stuff.
+
+    Then he wins the finals against Imran Wadia,
+    and Anish takes bronze against Keyu Zhou.
+    Cool! Onto the next. . . Provincial Championships!
+    This tournament was a bit of a wash. I think we only had 8 entrants X_X
+    Might be related to a badminton BC boycott.
+    I have friends on both sides of that issue, so I don't know if I should bring up everything I know on my blog post for this.
+    Interesting situation nonetheless.
+
+    Oh, we have Open B as well. I'll add the results of that too. Slightly bigger draw.
+
+    No consoles tho, as you know.
+
+    This is the tournament where I won against the 30+ provincial championship,
+    with the help of Chinhei the monster from across the water.
+    He is beloved by the Victoria badminton community. Excellent doubles player and coach.
+    His students Tony Tian, Victor Chang, and Felix Zhen are doing well this year.
+
+    Shingchun Kevin Wu loses to Connor Louie in the semis.
+    SHINGCHUN is such a cooler name then Kevin imho lol
+    I'd just stick with Shingchun Wu. That's a dope-ass alias
+    But if you're out here losing to Connor I guess it doesn't really matter ayyyyy
+    I'm only joking -- Kevin would destroy me in a match. I'm yet to play him!
+
+    The B draw happens to be the same size lol,
+    everyone got a bye in the first round.
+
+    Ratnesh won against Jack Jiang in the finals.
+    Both of those guys are cool af.
+    Colt and I have both lost to Ratnesh in tournament, so we want to get that W back gnomesain
+
+    Ok next up we got. . . VRC Club Championships!
+    Now, some might say this isn't really an "Open" tournament because you have to be VRC club to play.
+    Anyone can join the club though, and this is good for my rating accuracy, so protesters get bent.
+    Same goes for the Victoria Closed. I'm just adding it anyways because that the type of stuff I'm on boy
+    I should be adding u19 and 30+ events too, I just don't have the time. More data is better!
+    It's not like the VRC players are throwing at the club championships, they still want to win.
+    It's still competitive.
+    It's not like mainland consolation where nobody cares to play hard.
+
+    Dang, we have 4 draws.
+    3 groups and a bracket.
+    Nicholas Poon wins the tournament.
+
+    Next up we have. . . Victoria Closed! Only a few tournaments left now.
+    This bracket went pretty deep.
+    Aadharsh Hariharan won, if I recall correctly, on an incredible run,
+    beating Haile Kebede, Jaden Thom, Colt Love, and Felix Zhen. All of those matches went to 3 sets. Epic!
+    As for myself. . . I don't want to talk about it.
+    I had a disappointing loss, let's just say that.
+
+    Bro, I lost to the same guy at Nanaimo Open, and Chin-hei was so disappointed in me at the interval.
+    He hit me with the sad anime eyes, as if to say, "y r u so bad at this game bruh."
+    Oh well. At least I'm not crazy.
+    Just a normal-ass normal-guy trying to play some badminton tournaments.
+    I love badminton tournaments!
+    I like all kinds of tournaments. it's awesome.
+
+    I got started with SSBM tournaments, that's why I was on a double elim tip for so long.
+    Okay, let's get this data entered-up.
+    I need to put on a new album and take a break to stretch my legs.
+
+    Tony's ID is incredibly similar to Saurabh'S
+    Tony:   BC17170
+    Saura:  BC17070
+
+    That's kinda neato.
+
+    Rob Oldfield is incredibly OG, look at his ID: BC0237
+    Does that mean his is the 237th player to get a BC ID??
+    My man is a freaking dinosaur
+
+    Rakshith Arun won against Tony Tian in the tournament.
+    Goated performance by him.
+
+    Goated run by Aadharsh too, these scores are insane.
+    22-20 in the third against Jaden.
+    21-17 in the third against Colt.
+    21-19 in the third against Felix.    
+    He must have a style that is conducive to close matches.
+
+    Anyways, we carry on with the next tourney. . . BC CWG 2027 Trial #2 ???
+    Weird name for a tournament.
+
+    Omg dude there are 7 draws.
+    Groups A to F and then a bracket.
+    At least it's on badminton canada so I'll have all the correct IDs.
+    Let's get into it.
+
+    Oh, I get it now.
+    Canada Winter Games Trial.
+    I'm gonna save it as 2026_CWGT.csv
+
+    I don't like this bit with the anglo names between two chinese names,
+    like Muchen (Rick) Li.
+    Just pick an alias bro
+    You can be Muchen Li or Rick Li, whichever one you think is cooler.
+    And nowadays because we are so progressive, you can be namefluid, like some days you can be Muchen and other days you can be Rick.
+    I guess, whatever, you can be Muchen "Rick" Li if you want, but I don't think it's as good.
+    It doesn't flow as well as Muchen Li or Rick Li.
+    I suppose I shouldn't judge.
+    Do what you want, Muchen Rick Li!
+    It is nice to have the Rick in there so we know who Muchen Li is.
+    Some folks might just know him as Rick Li.
+    Same with Shingchun Kevin Wu.
+    Just think of it as a middle name. You don't have to add it to the alias.
+    I could clean up this data a lot, if I had the time.
+    I kept feeling like people are going to judge me for not putting in the effort to clean this all up perfectly.
+    Give me a break, bro, I'm busy APPLYING TO JOBS and WRITING A NOVEL.
+
+    Sorry. End rant.
+
+    The weird thing about these search systems is that on my search,
+    consider Brendan KC Wong for example,
+    if you search "Brendan Wong" you'll get no results because the "KC" interrupts the string.
+    But if you search "Brendan KC Wong" on the badminton canada search,
+    you also won't get any results!
+    In order to return "Brendan KC Wong" you have to search for "Brendan Wong"
+    It doesn't accept middle names in the search, but still returns them in the output. Weird.
+    Badminton Canada, fix your player search system you lazy guys. jk lol
+
+    Brendan KC Wong wins against Ryan Liu? What?
+    I didn't realize Ryan was so washed and unc
+    But I kid--no disrespect to Brendan. He must be on his grind!
+
+    Lyem over Harry in the finals.
+
+    Okay, last one! It's. . . White Rock Tournament!
+    Man, when I was first making this project this year, White Rock Tournament hasn't even happened yet!
+    That was back in June, and now it's October. Time flies! Man, I had a great summer.
+    Anyways, let's get into it.
+
+    Who is An Kien Phan? Is that Andrew Phan from VRC?
+    Can't find a BC ID for him.
+
+    Let's go Felix! He won against David Yang.
+
+    Making up an ID for Rahul Bajaj
+    X41679
+
+    The hardest players to ID are foreigners who only play one tournament,
+    because I search everywhere I can with every suitable query and get no results,
+    and then I have to make up an ID, or if I'm lucky there's a decent one on tournamentsoftware
+    I can just copy and paste.
+    That's where the "XX1234..." IDs come from.
+    Some of them just start with one X because I trimmed off the first X on purpose,
+    which is stupid because I shouldn't be messing with the IDs. One typo can spell doom for that player record.
+
+    Sheesh, speaking of typos, I have two Peter Wongs:
+    BC7367
+    BC19183
+    This warrants investigation. I gotta search those IDs and read the match history for more info.
+
+    BC7367 Peter is 1 and 1 in 2024 Thanksgiving tournament.
+    BC19183 Peter is 2 and 2. Plays in the same year and region. . .
+    Doesn't have an entry in 2024 Thanksgiving. . .
+    Similar level of play based on the limited data. . .
+    So they're probably the same guy.
+
+    I'm going to put them both under the old ID because that's my convention in cases like this.
+    So I need to edit two files:
+    2024_WhiteRock.csv
+    2024_EasterOpen.csv
+
+    Change Peter's ID in his four entries there from BC19183 to BC7367.
+    Done!
+
+    Now you think I fixed the problem and I can move on! Nope.
+    This sucks actually because now I have to re-run the algorithm back from the beginning of 2024 to correct this.
+
+    This is familiar though. . . Maybe they're not actually the same guy? aya. . .
+    Whatever. Don't overthink it. Finish up this data entry.
+
+    Felix wins over Arseny. Thank youuu
+
+    Ricky Lo over Daniel-Kyle Tan in the finals.
+    Bro has gotta be the only kid in the world with the name Daniel-Kyle.
+    I've never seen a hyphenated first name like that.    
+
+    Ok, rippin'! That's all for tonight.
+    Tomorrow, I'll export the files as CSV files (I made them in Google Drive),
+    download them into the currect directory in this repo,
+    and then make the 2026Tournaments.py file.
+    Then I just need to run the algo from 2024 and we should be set to write the blog post and update the readme!
+    Easy :)
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

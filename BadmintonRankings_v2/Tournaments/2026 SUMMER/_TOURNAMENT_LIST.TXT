@@ -6,5 +6,5 @@ Apr  3, 2026:   Easter Open - https://www.tournamentsoftware.com/tournament/696C
 Apr 10, 2026:   Provincial Championship - https://badmintoncanada.tournamentsoftware.com/tournament/25725E4A-CF6A-4B3F-A7A4-918C1A01BD79
 Apr 13, 2026:   VRC Club - https://www.tournamentsoftware.com/tournament/DB920DB7-2D46-4F3E-85BD-C8C408C45752
 May 29, 2026:   Victoria Club - https://www.tournamentsoftware.com/tournament/64CF707D-3318-4918-926C-F2172C716E48
-
+Jun 20, 2026:   BC CWG 2027 Trial #2 - https://badmintoncanada.tournamentsoftware.com/tournament/39B99A65-8B06-48F6-8772-9EE8ABE89850/Draw/13
 Jun 20, 2026:   White Rock Tournament - https://www.tournamentsoftware.com/sport/event.aspx?id=C0E36D5D-C989-49AD-9FDB-197222EB17CE&event=20
