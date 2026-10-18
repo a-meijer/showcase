@@ -29,124 +29,192 @@ Unfortunately, due to a reformatting of the website, it is no longer as easy to 
 The silver lining of this is that manually copying the match data into spreadsheets makes it is easier to avoid copying the consolation matches which should not affect rating points.
 
 ### How To Use The Rating System
-The rating algorithm saves files as it processes tournaments. If a tournament is processed erroneously or in the wrong chronological order, the algorithm must be reset back from 2022. To reset the algorithm, delete all files in /data/2022/ and delete the matchlist, output, and tdata files in /data/. Then run 2022Tournaments.py. All of the 2022 tournaments are hard-coded in there. Initializing the algorithm may require an empty 2022/players folder and an blank tdata.csv file.
+The rating algorithm saves files as it processes tournaments. If a tournament is processed erroneously or in the wrong chronological order, the algorithm must be reset back from 2022. To reset the algorithm, delete all files in /data/2022/players and delete the matchlist.csv and output.csv files in /data/. Delete the contents of tdata.csv and save it as a blank file. Then run 2022Tournaments.py. All of the 2022 tournaments are hard-coded in there to be processed in order. This will create a matchlist.csv file which shows in order all the matches that have been processed, and it will create output.csv which is the player rankings. tdata.csv shows the winners of each of the tournaments and has running stats including the total number of matches, total number of players, player ID with most matches, and player ID with most wins. It will also populate /data/2022/players with files for each of the players. The data in these files can be queried with search.py by searching for player IDs on the command line. To get the ID for the player you want, search by name, and search.py will print their ID. To process the 2023 tournaments, copy the contents of /data/2022/players into /data/2023/players and then run 2023Tournaments.py. Repeat this process for 2024, 2025, and 2026, copying the player data to the next year's folder and running 20XXTournaments.py. To see the results in a markdown format, run CSVToMD_Rankings.py and CSVToMD_Winners.py.
 
 ### Previous Years
-The rankings for previous years, starting from 2022, are saved to separate Markdown files.
+The rankings for previous years, starting from 2022, are saved to separate Markdown files in the /data subfolders.
 
 ### Previous Versions
 After the prototype versions, I made the first full version of my rankings project in 2025.
 For that version, I only used tournaments that affected Provincial Rankings.
 
-
-## 2025 Top 100 Rankings
-See data/2025/2025ranking.md for the full list of rankings.
+### More Information
+For more information, summary, and analysis of the rankings see the relevant blog post on andrewmeijer.substack.com.
+These rankings are for Summer 2026, so all tournaments that took place since August 1, 2026 do not affect the rankings.
+See data/2026/2026ranking.md for the full list of rankings. 
+Inactive players are unranked. Players with zero wins are unranked. As of Summer 2026, there are 195 ranked players.
 Ranking is subject to change as new features and upgrades are added to the ranking algorithm.
+
+## Top 100 Rankings
 |Rank|Rating|Name|ID|Wins|Losses|Previous Rank|Previous Rating|Latest Tournament|
 |---|---|---|---|---|---|---|---|---|
-|1|1619|Saurabh Pandiar|BC17070|90|12|3|1640|2025-12-26|
-|2|1587|Antonio Li|BC7414|14|2|1|1722|2025-04-18|
-|3|1586|Jadon Tsang|BC7711|11|2|NR|1244|2025-11-14|
-|4|1567|Anish Jojula|BC18940|41|8|7|1516|2025-08-02|
-|5|1559|Jason Ho-Shue|ON10935|6|0|NR|1000|2025-04-18|
-|6|1521|Ethan Ao|U1020508|7|1|58|1124|2025-12-26|
-|7|1516|Nicholas Chiu|USA00021|12|3|NR|1333|2025-04-18|
-|8|1482|Lyem Fedoretz|BC13763|50|12|8|1473|2025-06-21|
-|9|1472|Nik Cruz|BC3960|24|5|25|1265|2025-11-14|
-|10|1470|Gurbaksh Saini|ON41508|50|15|9|1471|2025-04-18|
-|11|1431|Kevin Luo|BC8266|30|10|11|1436|2025-04-18|
-|12|1429|Lap Hang Hugo Pong|BC20238|5|1|NR|1000|2025-04-18|
-|13|1394|Roger Quach|BC17133|32|13|16|1344|2025-11-14|
-|14|1393|Digby Johannson-Miller|BC15083|11|6|NR|781|2025-11-21|
-|15|1389|Raunak Sandhu|AB20272|8|4|40|1164|2025-08-02|
-|16|1384|Yu-Yuan Chang|U20020423|11|4|5|1629|2025-06-21|
-|17|1354|Imran Wadia|AB07299|5|2|NR|1207|2025-04-18|
-|18|1352|Wenjun Ouyang|BC8870|6|3|14|1386|2025-04-18|
-|19|1340|Pratham Sangwan|X24191232|4|0|NR|1000|2025-11-29|
-|20|1337|Ryan Liu|BC10841|26|14|15|1352|2025-08-02|
-|21|1324|Lai Yin Chung|BC17060|9|5|22|1284|2025-04-18|
-|22|1317|Fengjie Hu|BC16226|12|6|21|1285|2025-11-14|
-|23|1313|Alex Anlai Song|X1019779|7|4|63|1117|2025-12-26|
-|24|1311|Jaden Thom|BC15336|32|15|19|1324|2025-12-26|
-|25|1302|Harrison Liu|BC17354|7|1|NR|1000|2025-02-07|
-|26|1298|Nguyen Phan|BC19242|7|2|NR|1151|2025-11-21|
-|27|1293|Victor Ho|MB09472|21|13|24|1281|2025-04-18|
-|28|1289|David Yang|BC9870|16|6|26|1260|2025-04-21|
-|29|1289|Jack Chen|BC10265|27|16|18|1325|2025-04-18|
-|30|1285|Lasitha Menaka|USA00081|3|1|NR|1000|2025-04-18|
-|31|1281|Alexis Duval|BC6020|12|3|20|1309|2025-11-14|
-|32|1273|Connor Louie|BC10576|37|23|27|1220|2025-08-02|
-|33|1273|Eden Dewei Liang|BC14809|7|5|43|1161|2025-08-02|
-|34|1264|Peike Xu|BC15886|17|7|17|1340|2025-04-18|
-|35|1264|Shingchun (Kevin) Wu|BC14906|20|14|37|1185|2025-08-02|
-|36|1260|Ruixi Zhang|BC14918|24|17|33|1211|2025-04-18|
-|37|1257|Anton Menzel|AB09146|5|3|59|1122|2025-04-18|
-|38|1256|Nicholas Poon|BC14114|24|16|23|1284|2025-11-29|
-|39|1256|Neil Ward|BC0435|13|4|NR|1248|2025-11-21|
-|40|1250|Miklos Kanyasi|NS1999456|5|3|34|1207|2025-04-18|
-|41|1244|Uday Bharti|BC15951|22|14|35|1198|2025-11-29|
-|42|1242|Sarabpreet Sodhi|BC17850|8|6|157|971|2025-11-29|
-|43|1240|Joseph Lu|ON14211|3|1|NR|1000|2025-11-14|
-|44|1209|Yun Chi Lo|X22575070|3|1|NR|1000|2025-04-18|
-|45|1207|Brendan KC Wong|BC14055|10|7|193|887|2025-12-26|
-|46|1204|Kwun Ho So|BC12748|30|17|30|1213|2025-11-14|
-|47|1192|Angus Li|BC3939|9|4|86|1072|2025-11-14|
-|48|1188|Peter Tran|BC5824|5|4|NR|1000|2025-12-26|
-|49|1186|Victor Chang|BC16223|12|13|141|991|2025-11-14|
-|50|1185|Shourya Joshi|BC17705|5|4|171|938|2025-06-21|
-|51|1180|Son Do Trieu Phan|BC19243|4|1|NR|1000|2025-01-03|
-|52|1172|Kiren Deraj|MB1631|4|4|28|1218|2025-04-18|
-|53|1171|Baolin Zhao|BC12035|2|1|NR|1000|2025-10-11|
-|54|1170|Jalil Waiz|BC7562|27|25|42|1163|2025-11-29|
-|55|1167|Hailegebriel Kebede|BC12752|14|9|55|1132|2025-11-14|
-|56|1164|Joshua R Yan|BC9134|9|5|41|1164|2024-12-27|
-|57|1161|Robert Ruobei Xu|BC13987|3|3|44|1161|2024-12-27|
-|58|1159|Aadharsh Hariharan|BC19780|7|5|NR|1000|2025-11-14|
-|59|1153|Ratnesh Ippili|BC17071|20|18|79|1084|2025-11-29|
-|60|1151|Colt Love|BC12636|24|22|123|1010|2025-11-14|
-|61|1148|Andrew Meijer|BC6030|14|22|206|744|2025-12-26|
-|62|1142|Simar Singh|BC18188|19|12|29|1215|2025-12-26|
-|63|1141|Colin Wang|BC12492|10|6|93|1058|2025-11-14|
-|64|1135|Aaron Lin|BC12213|5|3|101|1042|2025-11-14|
-|65|1130|Evan Zhang|BC12220|3|2|139|994|2025-08-02|
-|66|1127|Jason Carlson|X22114996|4|2|NR|1000|2025-11-21|
-|67|1124|Harry Ng|BC15958|2|2|NR|963|2025-12-26|
-|68|1123|Robert Foster|BC6881|10|5|31|1212|2025-10-03|
-|69|1111|Hardeep Singh|BC13447|2|2|NR|1025|2025-11-14|
-|70|1108|Jason Chiu|AB22318|3|3|191|896|2025-04-18|
-|71|1107|Adrian Unruh|U158261|3|2|67|1107|2024-12-27|
-|72|1099|Jack Saunders|AB10192|11|9|48|1151|2025-11-21|
-|73|1097|Jason Too|BC19055|2|2|68|1106|2025-02-07|
-|74|1096|Charlton Li|ON31174|4|3|57|1124|2025-06-06|
-|75|1094|Anirudh Rajesh|U1021461|2|1|72|1094|2024-12-27|
-|76|1086|Nathan Lee|BC16181|6|6|38|1182|2025-04-18|
-|77|1082|Andrew Gu|MB36006|4|4|NR|925|2025-11-29|
-|78|1080|Daniel-Kyle Tan|BC16232|1|1|NR|1000|2025-02-07|
-|79|1074|Vincent Chen|U1019469|2|1|85|1074|2024-12-27|
-|80|1074|Mark Kitts|BC14477|2|1|NR|1000|2025-11-21|
-|81|1073|Aakar Chatha|BC17063|19|22|61|1117|2025-10-11|
-|82|1072|Jason Yang|BC12317|8|6|88|1072|2024-12-27|
-|83|1069|Zhenghao (Hao) Cui|BC13992|2|1|NR|1000|2025-08-02|
-|84|1067|Nathaniel Volfbeyn|U1022176|1|1|NR|1000|2025-12-26|
-|85|1063|Carlos Chan|BC17072|3|3|NR|1034|2025-04-18|
-|86|1063|Jacob Chuhua Zhang|BC12208|1|1|NR|1000|2025-04-18|
-|87|1061|Van Long Nguyen|BC16173|16|19|127|1005|2025-11-14|
-|88|1060|Saqib Talewad|BC17557|2|1|NR|1000|2025-01-10|
-|89|1055|Robert Shi|BC13617|11|9|83|1076|2025-04-04|
-|90|1054|Stephen Dee|BC0389|7|5|62|1117|2025-11-14|
-|91|1053|Kai Yang|BC12746|2|1|NR|1000|2025-06-21|
-|92|1051|Sunil Wadhwa|BC18927|2|2|NR|977|2025-06-21|
-|93|1051|Hayden Ostrom|BC8161|3|2|NR|1002|2025-11-21|
-|94|1047|Luke Peter Evans|X23347624|1|1|NR|1000|2025-08-02|
-|95|1045|Felix Zhen|BC15340|7|6|90|1067|2025-12-26|
-|96|1043|Johnathan Chi|BC14691|1|2|NR|1000|2025-12-26|
-|97|1041|Job Babu|BC20274|2|2|NR|941|2025-01-03|
-|98|1040|Nicholas Volfbeyn|X1022178|4|4|130|1002|2025-12-26|
-|99|1039|Keyu Zhou|ON34750|1|1|NR|1000|2025-04-18|
-|100|1039|Allen George|U47084|1|1|NR|1000|2025-12-26|
+|1|1771|Jason Ho-Shue|ON10935|11|0|5|1559|2026-04-03|
+|2|1613|Anish Jojula|BC18940|48|9|4|1567|2026-04-03|
+|3|1586|Jadon Tsang|BC7711|11|2|3|1586|2025-11-14|
+|4|1578|Saurabh Pandiar|BC17070|93|14|1|1619|2026-04-03|
+|5|1532|Imran Wadia|AB07299|9|3|17|1354|2026-04-03|
+|6|1521|Ethan Ao|U1020508|7|1|6|1521|2025-12-26|
+|7|1520|Ricky Lo|X980302|10|2|NR|1413|2026-06-20|
+|8|1508|Antonio Li|BC7414|15|3|2|1587|2026-04-03|
+|9|1497|Lyem Fedoretz|BC13763|56|13|8|1482|2026-06-20|
+|10|1487|Digby Johannson-Miller|BC15083|15|6|14|1393|2026-01-23|
+|11|1472|Nik Cruz|BC3960|24|5|9|1472|2025-11-14|
+|12|1434|Kevin Luo|BC8266|32|11|11|1431|2026-04-03|
+|13|1414|Aadharsh Hariharan|BC19780|14|6|58|1159|2026-05-29|
+|14|1400|Wenjun Ouyang|BC8870|8|4|18|1352|2026-04-03|
+|15|1394|Roger Quach|BC17133|32|13|13|1394|2025-11-14|
+|16|1389|Raunak Sandhu|AB20272|8|4|15|1389|2025-08-02|
+|17|1384|Yu-Yuan Chang|U20020423|11|4|16|1384|2025-06-21|
+|18|1364|Lap Hang Hugo Pong|BC20238|7|2|12|1429|2026-04-03|
+|19|1347|Lai Yin Chung|BC17060|11|6|21|1324|2026-04-03|
+|20|1340|Pratham Sangwan|X24191232|4|0|19|1340|2025-11-29|
+|21|1335|David Yang|BC9870|21|7|28|1289|2026-06-20|
+|22|1324|Stephen Smith|AB23228SS|4|0|NR|1000|2026-03-20|
+|23|1317|Fengjie Hu|BC16226|12|6|22|1317|2025-11-14|
+|24|1313|Alex Anlai Song|X1019779|7|4|23|1313|2025-12-26|
+|25|1298|Nguyen Phan|BC19242|7|2|26|1298|2025-11-21|
+|26|1296|Ryan Liu|BC10841|29|16|20|1337|2026-06-20|
+|27|1295|Jaden Thom|BC15336|33|16|24|1311|2026-05-29|
+|28|1290|Connor Louie|BC10576|41|25|32|1273|2026-04-10|
+|29|1284|Felix Zhen|BC15340|13|8|95|1045|2026-06-20|
+|30|1281|Alexis Duval|BC6020|12|3|31|1281|2025-11-14|
+|31|1279|Keyu Zhou|ON34750|4|3|99|1039|2026-04-03|
+|32|1277|Troy Morgan|BC16699|8|4|105|1025|2026-01-23|
+|33|1276|Harry Ng|BC15958|5|3|67|1124|2026-06-20|
+|34|1273|Eden Dewei Liang|BC14809|7|5|33|1273|2025-08-02|
+|35|1257|Nicholas Poon|BC14114|31|19|38|1256|2026-06-20|
+|36|1256|Neil Ward|BC0435|13|4|39|1256|2025-11-21|
+|37|1254|Daniel-Kyle Tan|BC16232|3|2|78|1080|2026-06-20|
+|38|1251|David Crawford|BC4189|8|3|NR|1164|2026-03-20|
+|39|1246|Tang Cheuk Man Edmond|XX24685822|2|1|NR|1000|2026-04-03|
+|40|1242|Sarabpreet Sodhi|BC17850|8|6|42|1242|2025-11-29|
+|41|1240|Joseph Lu|ON14211|3|1|43|1240|2025-11-14|
+|42|1239|Victor Ho|MB09472|22|15|27|1293|2026-04-10|
+|43|1236|Brendan KC Wong|BC14055|12|9|45|1207|2026-06-20|
+|44|1229|Shingchun (Kevin) Wu|BC14906|21|15|35|1264|2026-04-10|
+|45|1216|Uday Bharti|BC15951|22|15|41|1244|2026-04-03|
+|46|1216|Jackson Lachance|AB10071|3|3|NR|1013|2026-04-03|
+|47|1204|Kwun Ho So|BC12748|30|17|46|1204|2025-11-14|
+|48|1204|Hector Devesa|BC13264|12|7|111|1010|2026-03-20|
+|49|1200|Arseny Shestakov|BC17183|9|10|113|1010|2026-06-20|
+|50|1199|Abdelrahman Abdelhakim|BC20972|3|2|NR|1000|2026-04-03|
+|51|1193|Ratnesh Ippili|BC17071|26|20|59|1153|2026-04-10|
+|52|1192|Angus Li|BC3939|9|4|47|1192|2025-11-14|
+|53|1185|Shourya Joshi|BC17705|5|4|50|1185|2025-06-21|
+|54|1175|Simar Singh|BC18188|23|14|62|1142|2026-04-03|
+|55|1168|Colt Love|BC12636|27|23|60|1151|2026-05-29|
+|56|1165|Peter Wong|BC7367|3|2|NR|1048|2026-06-20|
+|57|1154|Jalil Waiz|BC7562|29|27|54|1170|2026-04-10|
+|58|1145|Tony Dawkins|BC21016|4|2|101|1038|2026-01-23|
+|59|1141|Colin Wang|BC12492|10|6|63|1141|2025-11-14|
+|60|1140|Ryder Persson|AB21652|5|4|175|908|2026-01-09|
+|61|1135|Aaron Lin|BC12213|5|3|64|1135|2025-11-14|
+|62|1132|Hailegebriel Kebede|BC12752|15|10|55|1167|2026-05-29|
+|63|1130|Evan Zhang|BC12220|3|2|65|1130|2025-08-02|
+|64|1127|Jason Carlson|X22114996|4|2|66|1127|2025-11-21|
+|65|1123|Robert Foster|BC6881|10|5|68|1123|2025-10-03|
+|66|1120|Yun Chi Lo|X22575070|3|2|44|1209|2026-04-03|
+|67|1113|Max Smith|AB22287|3|1|NR|1000|2026-03-20|
+|68|1111|Hardeep Singh|BC13447|2|2|69|1111|2025-11-14|
+|69|1108|Andrew Meijer|BC6030|19|26|61|1148|2026-05-29|
+|70|1105|David D Dryden|BC1641|2|1|NR|1000|2026-06-20|
+|71|1102|Tymmond Thai|BC12178|3|2|NR|1061|2026-06-20|
+|72|1099|Jack Saunders|AB10192|11|9|72|1099|2025-11-21|
+|73|1089|Brandon Myrbo|BC16273|6|12|195|821|2026-05-29|
+|74|1086|Victor Chang|BC16223|14|15|49|1186|2026-05-29|
+|75|1082|Andrew Gu|MB36006|4|4|77|1082|2025-11-29|
+|76|1081|Hendra Triwardani|AB25184|1|1|NR|1000|2026-04-03|
+|77|1074|Nathan Quach|AB22070|2|3|NR|1097|2026-04-03|
+|78|1074|Mark Kitts|BC14477|2|1|80|1074|2025-11-21|
+|79|1070|Aakar Chatha|BC17063|19|23|81|1073|2026-04-03|
+|80|1069|Zhenghao (Hao) Cui|BC13992|2|1|83|1069|2025-08-02|
+|81|1067|Nathaniel Volfbeyn|U1022176|1|1|84|1067|2025-12-26|
+|82|1066|Peter Tran|BC5824|6|6|48|1188|2026-04-10|
+|83|1064|Jack Jiang|BC20429|2|1|NR|1000|2026-04-10|
+|84|1062|Baolin Zhao|BC12035|2|2|53|1171|2026-04-03|
+|85|1061|Van Long Nguyen|BC16173|16|19|87|1061|2025-11-14|
+|86|1057|Ayden Travis Lee|BC16117|8|4|NR|1116|2026-03-20|
+|87|1053|Kai Yang|BC12746|2|1|91|1053|2025-06-21|
+|88|1051|Sunil Wadhwa|BC18927|2|2|92|1051|2025-06-21|
+|89|1051|Hayden Ostrom|BC8161|3|2|93|1051|2025-11-21|
+|90|1051|Tyler Kunz|BC4275|3|2|NR|1000|2026-03-20|
+|91|1050|Andrew Li|BC3800|2|2|NR|976|2026-04-03|
+|92|1047|Luke Peter Evans|X23347624|1|1|94|1047|2025-08-02|
+|93|1043|Johnathan Chi|BC14691|1|2|96|1043|2025-12-26|
+|94|1041|Jason Chiu|AB22318|3|4|70|1108|2026-04-03|
+|95|1041|Cory Kunz|BC3915|2|1|NR|1000|2026-03-20|
+|96|1040|Nicholas Volfbeyn|X1022178|4|4|98|1040|2025-12-26|
+|97|1039|Allen George|U47084|1|1|100|1039|2025-12-26|
+|98|1035|Krishan Kumar|X24248443|1|1|103|1035|2025-11-29|
+|99|1033|Stephen Atherton|BC0834|2|2|NR|1019|2026-03-20|
+|100|1029|Luke Lee|BC8269|7|11|115|1005|2026-04-13|
 
 ### Tournaments
-See the file data/2025/2025tournaments.md for the full list of tournaments and winners.
+|Start Date|Name|Champion|
+|---|---|---|
+|Mar 11, 2022|2022 Campbell River|Manmeet Singh|
+|May 6, 2022|2022 Victoria Closed|Joshua R Yan|
+|May 27, 2022|2022 Provincial Championships|Jackson Yang|
+|Aug 5, 2022|2022 New Era Open|Lyem Fedoretz|
+|Oct 8, 2022|2022 Nanaimo Open|Nik Cruz|
+|Oct 8, 2022|2022 C1 Thanksgiving Tournament|Jackson Yang|
+|Nov 19, 2022|2022 Island Open|Saurabh Pandiar|
+|Jan 1, 2023|2023 New Year's Tournament|Lyem Fedoretz|
+|Jan 6, 2023|2022-2023 BC Senior Elite|Joshua Nguyen|
+|Jan 13, 2023|2023 Campbell River|Saurabh Pandiar|
+|Jan 15, 2023|2023 Kelowna Adult Open|Matt Downton|
+|Feb 25, 2023|2023 Wing's-GHS Tournament|Peike Xu|
+|Mar 31, 2023|2023 Jack Underhill|Lyem Fedoretz|
+|Apr 7, 2023|2023 Easter Open|Antonio Li|
+|Apr 22, 2023|2023 Provincials|Joshua Liu|
+|Jun 2, 2023|2023 Victoria Closed|Jaden Thom|
+|Jun 23, 2023|2023 White Rock Tournament|Ryan Liu|
+|Sep 22, 2023|2023 Nanaimo Open|Roger Quach|
+|Sep 23, 2023|2023 POCOmon GO Open|Gurbaksh Saini|
+|Oct 7, 2023|2023 C1 Thanksgiving Tournament|Saurabh Pandiar|
+|Nov 17, 2023|2023-2024 BC Senior Elite|Joshua Nguyen|
+|Nov 24, 2023|2023 Island Open|Connor Louie|
+|Dec 2, 2023|2023 Kelowna Open|Harrison Hsu|
+|Jan 1, 2024|2024 New Year's Tournament|Saurabh Pandiar|
+|Jan 12, 2024|2024 Campbell River|Saurabh Pandiar|
+|Jan 31, 2024|2024 National Championships|Victor Lai|
+|Feb 17, 2024|2024 Jack Underhill|Saurabh Pandiar|
+|Mar 29, 2024|2024 Easter Open|Antonio Li|
+|Apr 19, 2024|2024 Sunshine Tournament|Jaden Thom|
+|Apr 26, 2024|2024 Provincials|Saurabh Pandiar|
+|May 24, 2024|2024 Victoria Closed|Roger Quach|
+|Jun 22, 2024|2024 White Rock Tournament|Saurabh Pandiar|
+|Sep 27, 2024|2024 Nanaimo Open|Anish Jojula|
+|Oct 12, 2024|2024 C1 Thanksgiving Tournament|Yu-Yuan Chang|
+|Nov 15, 2024|2024 Island Open|Roger Quach|
+|Nov 29, 2024|2024 Wing's Open|Saurabh Pandiar|
+|Dec 12, 2024|2024 Shuttlesport Open|Anish Jojula|
+|Dec 27, 2024|2024 Boxing Week Tournament|Kevin Luo|
+|Jan 3, 2025|2025 Kelowna Open|Harrison Liu|
+|Jan 10, 2025|2025 Campbell River Open|David Yang|
+|Feb 7, 2025|2025 Jack Underhill|Anish Jojula|
+|Apr 4, 2025|2025 Provincial Championships|Connor Louie|
+|Apr 18, 2025|2025 Easter Open|Jason Ho-Shue|
+|Apr 21, 2025|2025 VRC Club Championships|Nicholas Poon|
+|Jun 6, 2025|2025 Victoria Closed|Nik Cruz|
+|Jun 21, 2025|2025 White Rock Tournament|Lyem Fedoretz|
+|Aug 2, 2025|2025 Smash Champs Grand Opening|Anish Jojula|
+|Oct 3, 2025|2025 Nanaimo Open|Nik Cruz|
+|Oct 11, 2025|2025 Thanksgiving Tournament|Saurabh Pandiar|
+|Nov 14, 2025|2025 Island Open|Jadon Tsang|
+|Nov 21, 2025|2025 Kelowna Fall Open|Digby Johannson-Miller|
+|Nov 29, 2025|2025 Surrey Open|Pratham Sangwan|
+|Dec 26, 2025|2025 Boxing Week Tournament|Ethan Ao|
+|Jan 9, 2026|2026 Cindy Simpson Memorial|David Yang|
+|Jan 23, 2026|2026 Kelowna Winter Open|Digby Johannson-Miller|
+|Feb 6, 2026|2026 Jack Underhill|Anish Jojula|
+|Mar 20, 2026|2026 Kamloops Open in Kelowna|Stephen Smith|
+|Apr 3, 2026|2026 Easter Open|Jason Ho-Shue|
+|Apr 10, 2026|2026 Provincial Championships|Connor Louie|
+|Apr 13, 2026|2026 VRC Club Championships|Nicholas Poon|
+|May 29, 2026|2026 Victoria Closed|Aadharsh Hariharan|
+|Jun 20, 2026|2026 Canada Winter Games Trial|Lyem Fedoretz|
+|Jun 20, 2026|2026 White Rock Tournament|Ricky Lo|
 
 ### Author
 Andrew Meijer

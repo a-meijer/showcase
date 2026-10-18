@@ -1727,14 +1727,123 @@
     Then I just need to run the algo from 2024 and we should be set to write the blog post and update the readme!
     Easy :)
 
+2026    10  16
+    Hello again, this is Andrew.
+    I got all the CSV files, so now I need to make 2026Tournaments.py
+    Copied from 2025 Tournaments .py
+    Changed this line:
+    directory = "data/2026/players/"
 
+    Setting all the correct dates and names for all the tournaments manually.
+    Make sure to add them in order according to _TOURNAMENT_LIST.TXT
 
-
-
-
-
-
+    Ok boom, now the file is PERFECT to the best of my knowledge.
     
+    Before I run it, I would normally need to copy /data/2025/players
+    into /data/2026/players.
+
+    But before I do THAT,
+    I first need to rerun everything from the beginning of 2024.
+    If you read yesterday's notes, you'll know why.
+
+    Actually nah -- Peter Wong, hit me up if you want me to redo the rankings.
+    Otherwise, you're getting stuck with two IDs because I need to test this.
+    I need to test running the new tournament data without making any changes to the previous runs.
+    That's the whole point of setting it up like I have so far, so it's easy to add more matches.
+    
+    Here we goo . . .!
+
+    Omg no errors!
+
+    DID IT WORK>?>
+
+    1771,1,Jason Ho-Shue,ON10935,11,0,5,1559,2026-04-03
+    1688,NR,Victor Lai,ON13010,9,1,NR,1688,2024-01-31
+    1634,NR,Joshua Nguyen,ON13127,14,1,NR,1634,2024-01-31
+    1613,2,Anish Jojula,BC18940,48,9,4,1567,2026-04-03
+    1586,3,Jadon Tsang,BC7711,11,2,3,1586,2025-11-14
+    1578,4,Saurabh Pandiar,BC17070,93,14,1,1619,2026-04-03
+    1535,NR,Joshua Liu,BC1815,13,3,NR,1535,2024-03-29
+    1532,5,Imran Wadia,AB07299,9,3,17,1354,2026-04-03
+    1521,6,Ethan Ao,U1020508,7,1,6,1521,2025-12-26
+    1520,7,Ricky Lo,X980302,10,2,NR,1413,2026-06-20
+    1516,NR,Nicholas Chiu,USA00021,12,3,7,1516,2025-04-18
+    1508,8,Antonio Li,BC7414,15,3,2,1587,2026-04-03
+    1497,9,Lyem Fedoretz,BC13763,56,13,8,1482,2026-06-20
+    1487,10,Digby Johannson-Miller,BC15083,15,6,14,1393,2026-01-23
+    1472,11,Nik Cruz,BC3960,24,5,9,1472,2025-11-14
+
+    How is Digby rank 10??
+    Let me see the match history. . .
+    Oh, we won a Kelowna tournament.
+    These Kelowna tournaments are OP bro.
+    He's ranked above YY Chang.
+    I guess the algorithm still needs time to settle with more match data.
+    YY only has 13 matches on record, so the algo doesn't have enough data to know his level.
+    We will get some more good data from the 2026-2027 season. Trust.
+
+    As for me? I got that nice rank 69.
+    I was hoping the Provincials win would be good for me, but later losses did me in.
+
+    To be honest, I'm not happy with some of these ranks. They're inaccurate! Do I need to tune the algo again?
+    Like, 15-6 is a pretty good record, so can't really knock the high rank for Digby.
+    My record is 19-26. Yikes.
+    I got a +25 for winning against Peter,
+    and then -27 for losing to Jalil.
+    So Provincials was a net loss!
+
+    And Digby loses to Shingchun later this year at Centennial, so that should help to correct the accuracy slightly.
+    The problem is when players stay in their region, the algo doesn't know which region is best,
+    even though we know that Richmond is the strongest.
+    Easter Open is the most stacked.
+    And at least we got it right that Ho-Shue deserves rank 1.
+
+    The Tsanger takes a spot over Saurabh now too, which is good for him.
+    And Anish has completed his ascendancy, tucked in just under Ho-Shue.
+    He's the best player in the province.
+
+    Sarabpreet Sodhi is ranked above Shingchun Wu man how is this possible??
+    Ok cool, whatever. Just post it.
+    I can explain all the inaccuracies in the next blog post.
+
+    It does seem a bit weird. Gurbaksh, for example, has an incredible record of 50-15, but his rating is lower than Digby and Nik,
+    players who have not competed against the same depth of competition.
+
+2026    10  17
+    Okay let's write this thing.
+    From here on out, I just run the new data every summer and it craps out a perfect ranking.
+    Should be simple enough eh?
+    The data entry was the hard part all along.
+    It'll take longer to add all the data each year than to file my taxes goddammit
+    It's comedy hour in the devlog.
+    But enough delay! Let's write this blog post and be done with it!
+
+    Step 1: Create the markdown files and stats file.
+            The stats file is created manually iirc.
+            The other two I make with:
+                CSVToMD_Rankings.py
+                CSVToMD_Winners.py
+            The full rankings created by CSVToMD_Rankings.csv isn't going to be posted in the blog.
+            I'll post a shot of the top 100 instead, or four shots of each group of 25.
+            Because it's rude to focus on the bottom of the rankings.
+            Nobody wants to be outed as the absolute worst player of the year,
+            and get their 1-19 record exposed, or whatever it was.
+            Let's not focus on that. Keep it clean.
+            Done the markdown files.
+            Now for the stats. . .
+            Done. Easy.
+    Step 2: Write the Readme.
+        I think it's good. I'll have to sync it to the repo before I can see the proper formatting.
+    Step 3: Write the blog post
+        I am mostly done this as well, I just need a couple screenshots of the rankings to add in,
+        so I'll need to sync to the repo for that.
+        Thanks for your time and attention, and have a happy new year.
+    
+    I don't expect to return to this project until Summer 2027. There is a chance I will post an end-of-year update,
+    but since I would like to move on with other projects, my plan as of now is to update the rankings annually
+    rather than bi-annually.
+    
+    AndyM signing out, October 17, 2026.    
 
 
 
